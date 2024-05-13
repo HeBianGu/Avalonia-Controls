@@ -31,5 +31,50 @@
       <h:MyButton Content="MyButton">
       </h:MyButton>
     </TabItem>
+    <TabItem Header="ControlTheme">
+      <TabItem.Resources>
+        <ControlTheme x:Key="EllipseButton" TargetType="Button">
+          <Setter Property="Background" Value="Blue"/>
+          <Setter Property="Foreground" Value="Yellow"/>
+          <Setter Property="Padding" Value="8"/>
+          <Setter Property="Template">
+            <ControlTemplate>
+              <Panel>
+                <Ellipse Fill="{TemplateBinding Background}"
+                         HorizontalAlignment="Stretch"
+                         VerticalAlignment="Stretch"/>
+                <ContentPresenter x:Name="PART_ContentPresenter"
+                                  Content="{TemplateBinding Content}"
+                                  Margin="{TemplateBinding Padding}"/>
+              </Panel>
+            </ControlTemplate>
+          </Setter>
+        </ControlTheme>
+      </TabItem.Resources>
+      <Button Content="ControlTheme" Theme="{StaticResource EllipseButton}"/>
+    </TabItem>
+    <TabItem Header="ControlTheme-应用全部">
+      <TabItem.Resources>
+        <ControlTheme x:Key="{x:Type Button}" TargetType="Button">
+          <Setter Property="Background" Value="Blue"/>
+          <Setter Property="Foreground" Value="Yellow"/>
+          <Setter Property="Padding" Value="8"/>
+          <Setter Property="Template">
+            <ControlTemplate>
+              <Panel>
+                <Ellipse Fill="{TemplateBinding Background}"
+                         HorizontalAlignment="Stretch"
+                         VerticalAlignment="Stretch"/>
+                <ContentPresenter x:Name="PART_ContentPresenter"
+                                  Content="{TemplateBinding Content}"
+                                  Margin="{TemplateBinding Padding}"/>
+              </Panel>
+            </ControlTemplate>
+          </Setter>
+        </ControlTheme>
+      </TabItem.Resources>
+      <Button Content="ControlTheme"/>
+    </TabItem>
+   
   </TabControl>
 </UserControl>
