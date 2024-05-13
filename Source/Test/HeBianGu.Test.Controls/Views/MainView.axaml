@@ -14,6 +14,12 @@
   </Design.DataContext>
 
   <TabControl TabStripPlacement="Left">
+    <TabItem Header="AutoCompleteBox">
+      <StackPanel Margin="20">
+        <TextBlock Margin="0 5">Choose an animal:</TextBlock>
+        <AutoCompleteBox x:Name="animals" FilterMode="StartsWith" />
+      </StackPanel>
+    </TabItem>
     <TabItem Header="Button">
       <Button Content="{Binding Greeting}"/>
     </TabItem>

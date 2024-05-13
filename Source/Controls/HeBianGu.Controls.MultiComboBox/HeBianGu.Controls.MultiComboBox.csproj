@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Styles\MultiComboBox.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <AvaloniaXaml Include="Styles\MultiComboBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </AvaloniaXaml>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Avalonia" Version="11.0.2" />
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Styles\MultiComboBox.xaml.cs">
+      <DependentUpon>MultiComboBox.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+</Project>

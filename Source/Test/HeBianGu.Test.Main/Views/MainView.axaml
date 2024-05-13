@@ -1,0 +1,35 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:HeBianGu.Test.Main.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             xmlns:h="https://github.com/HeBianGu"
+             x:Class="HeBianGu.Test.Main.Views.MainView"
+             x:DataType="vm:MainViewModel">
+  <Design.DataContext>
+    <!-- This only sets the DataContext for the previewer in an IDE,
+         to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+    <vm:MainViewModel />
+  </Design.DataContext>
+  <TabControl>
+    <TabItem Header="MultiComboBox">
+      <h:MultiComboBox Name="mcb"
+                            Background="Transparent"
+                            MaxDropDownHeight="800"
+                            VerticalAlignment="Top" SelectionMode=""
+                            MinHeight="35"
+                      ItemsSource="{Binding Collection}" BorderBrush="Black" BorderThickness="1" CornerRadius="5">
+      </h:MultiComboBox>
+    </TabItem>
+
+    <TabItem Header="MyTemplatedControl">
+      <h:MyTemplatedControl >
+      </h:MyTemplatedControl>
+    </TabItem>
+    <TabItem Header="MyButton">
+      <h:MyButton Content="MyButton">
+      </h:MyButton>
+    </TabItem>
+  </TabControl>
+</UserControl>

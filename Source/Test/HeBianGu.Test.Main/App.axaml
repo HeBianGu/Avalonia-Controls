@@ -1,0 +1,12 @@
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="HeBianGu.Test.Main.App"
+             RequestedThemeVariant="Default">
+             <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
+
+    <Application.Styles>
+        <FluentTheme />
+      <StyleInclude Source="avares://HeBianGu.Controls.MultiComboBox/Styles/MultiComboBox.xaml"/>
+      <StyleInclude Source="avares://HeBianGu.Controls.TemplateControl/MyTemplatedControl.axaml"/>
+    </Application.Styles>
+</Application>
