@@ -10,6 +10,7 @@
     <ResourceDictionary>
       <ResourceDictionary.MergedDictionaries>
         <ResourceInclude Source="avares://HeBianGu.Themes.Default/Brushes.xaml" />
+        <ResourceInclude Source="avares://HeBianGu.Themes.Default/Layouts.xaml" />
         <!-- Resources and brushes will be merged into current dictionary for slightly better performance and possible optimizations -->
         <!--<MergeResourceInclude Source="/Accents/BaseResources.xaml" />
         <MergeResourceInclude Source="/Accents/FluentControlResources.xaml" />

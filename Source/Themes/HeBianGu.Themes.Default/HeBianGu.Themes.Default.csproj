@@ -9,6 +9,7 @@
   <ItemGroup>
     <None Remove="Brushes.xaml" />
     <None Remove="Colors.xaml" />
+    <None Remove="Layouts.xaml" />
   </ItemGroup>
 
   <ItemGroup>
@@ -16,6 +17,9 @@
       <Generator>MSBuild:Compile</Generator>
     </AvaloniaXaml>
     <AvaloniaXaml Include="Colors.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </AvaloniaXaml>
+    <AvaloniaXaml Include="Layouts.xaml">
       <Generator>MSBuild:Compile</Generator>
     </AvaloniaXaml>
   </ItemGroup>

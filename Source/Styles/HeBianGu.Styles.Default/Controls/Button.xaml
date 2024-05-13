@@ -13,15 +13,16 @@
 
   <ControlTheme x:Key="{x:Type Button}"
                 TargetType="Button">
-    <Setter Property="Background" Value="{DynamicResource S.Brush.TextBackground}" />
+    <Setter Property="Background" Value="{DynamicResource S.Brush.TextMouseOver}" />
     <Setter Property="Foreground" Value="{DynamicResource S.Brush.TextForeground}" />
-    <Setter Property="BorderBrush" Value="{DynamicResource S.Brush.TextBorderBrush}" />
+    <Setter Property="BorderBrush" Value="Transparent" />
     <Setter Property="BorderThickness" Value="1" />
     <Setter Property="CornerRadius" Value="2" />
-    <Setter Property="Padding" Value="{DynamicResource ButtonPadding}" />
+    <Setter Property="Padding" Value="10 6" />
     <Setter Property="HorizontalAlignment" Value="Left" />
     <Setter Property="VerticalAlignment" Value="Center" />
     <Setter Property="RenderTransform" Value="none" />
+    <Setter Property="Height" Value="{DynamicResource S.Layout.ItemHeight}"/>
     <Setter Property="Transitions">
       <Transitions>
         <TransformOperationsTransition Property="RenderTransform"
@@ -46,7 +47,7 @@
     </Setter>
 
     <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
-      <Setter Property="Background" Value="{DynamicResource S.Brush.TextMouseOver}" />
+      <Setter Property="Background" Value="{DynamicResource S.Brush.TextSelected}" />
       <Setter Property="BorderBrush" Value="Transparent" />
       <Setter Property="Foreground" Value="{DynamicResource S.Brush.TextForeground.Title}" />
     </Style>

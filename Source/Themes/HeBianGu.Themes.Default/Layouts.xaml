@@ -1,0 +1,8 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+  <system:Double x:Key="S.Layout.WindowCaptionHeight">25</system:Double>
+  <system:Double x:Key="S.Layout.ItemHeight">35</system:Double>
+  <system:Double x:Key="S.Layout.RowHeight">40</system:Double>
+  <system:Double x:Key="S.Layout.CornerRadius">2</system:Double>
+</ResourceDictionary>
