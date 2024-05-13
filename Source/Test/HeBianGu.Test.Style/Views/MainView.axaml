@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:vm="clr-namespace:HeBianGu.Test.Style.ViewModels"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="HeBianGu.Test.Style.Views.MainView"
+             x:Class="HeBianGu.Test.Style.Views.MainView" Background="{DynamicResource S.Brush.TextBackground}"
              x:DataType="vm:MainViewModel">
   <Design.DataContext>
     <!-- This only sets the DataContext for the previewer in an IDE,

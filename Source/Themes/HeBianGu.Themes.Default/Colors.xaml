@@ -1,0 +1,72 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <!-- Add Resources Here -->
+  <Color x:Key="S.Color.Accent">#FF0093FF</Color>
+  <!--  Background  -->
+  <Color x:Key="S.Color.CaptionBackground">#191a20</Color>
+
+  <Color x:Key="S.Color.TextBackground">#121317</Color>
+  <Color x:Key="S.Color.TextBackground.Disabled">#191a20</Color>
+  <Color x:Key="S.Color.RowIndex.BackGround">#191a20</Color>
+
+  <!--  Foreground  -->
+  <Color x:Key="S.Color.CaptionForeground">#8F939C</Color>
+
+  <Color x:Key="S.Color.TextForeground.Title">#ffffff</Color>
+  <Color x:Key="S.Color.TextForeground">#FF8F939C</Color>
+  <Color x:Key="S.Color.TextForeground.Disabled">#7c8194</Color>
+
+  <Color x:Key="S.Color.TextMouseOver">#202229</Color>
+  <Color x:Key="S.Color.TextSelected">#272932</Color>
+  <Color x:Key="S.Color.TextForeground.Assist">#656565</Color>
+  <Color x:Key="S.Color.TextForeground.Link">#6296d8</Color>
+
+  <Color x:Key="S.Color.TextBorderBrush">#2e313b</Color>
+  <Color x:Key="S.Color.TextBorderBrush.Title">#363844</Color>
+  <Color x:Key="S.Color.TextBorderBrush.Assist">#272932</Color>
+  <Color x:Key="S.Color.TextBorderBrush.Disabled">#202229</Color>
+
+  <Color x:Key="S.Color.Dark.10">#ffffff</Color>
+  <Color x:Key="S.Color.Dark.9.5">#f9f9fb</Color>
+  <Color x:Key="S.Color.Dark.9">#f2f3f6</Color>
+  <Color x:Key="S.Color.Dark.8.5">#ecedf2</Color>
+  <Color x:Key="S.Color.Dark.8">#e6e7ed</Color>
+  <Color x:Key="S.Color.Dark.7.5">#dadce4</Color>
+  <Color x:Key="S.Color.Dark.7">#ced0db</Color>
+  <Color x:Key="S.Color.Dark.6.5">#c2c5d2</Color>
+  <Color x:Key="S.Color.Dark.6">#b7bbc9</Color>
+  <Color x:Key="S.Color.Dark.5.5">#acb0c1</Color>
+  <Color x:Key="S.Color.Dark.5">#a2a6b8</Color>
+  <Color x:Key="S.Color.Dark.4.5">#989daf</Color>
+  <Color x:Key="S.Color.Dark.4">#8e93a6</Color>
+  <Color x:Key="S.Color.Dark.3.5">#858a9d</Color>
+  <Color x:Key="S.Color.Dark.3">#7c8194</Color>
+  <Color x:Key="S.Color.Dark.2.5">#74788b</Color>
+  <Color x:Key="S.Color.Dark.2">#6b7082</Color>
+  <Color x:Key="S.Color.Dark.1.5">#636879</Color>
+  <Color x:Key="S.Color.Dark.1">#5b5f70</Color>
+  <Color x:Key="S.Color.Dark.0.9">#535767</Color>
+  <Color x:Key="S.Color.Dark.0.8">#4c4f5e</Color>
+  <Color x:Key="S.Color.Dark.0.7">#444855</Color>
+  <Color x:Key="S.Color.Dark.0.6">#3d404d</Color>
+  <Color x:Key="S.Color.Dark.0.5">#363844</Color>
+  <Color x:Key="S.Color.Dark.0.4">#2e313b</Color>
+  <Color x:Key="S.Color.Dark.0.3">#272932</Color>
+  <Color x:Key="S.Color.Dark.0.2">#202229</Color>
+  <Color x:Key="S.Color.Dark.0.1">#191a20</Color>
+  <Color x:Key="S.Color.Dark.0">#121317</Color>
+
+
+  <Color x:Key="S.Color.LightGray">#2c2c2c</Color>
+  <Color x:Key="S.Color.Gray">#000000</Color>
+  <Color x:Key="S.Color.Black">#374857</Color>
+  <Color x:Key="S.Color.Orange">#E6A23C</Color>
+  <Color x:Key="S.Color.Red">#FFdc000c</Color>
+  <Color x:Key="S.Color.Green">#FF67C23A</Color>
+  <Color x:Key="S.Color.Yellow">#FFEE33</Color>
+  <Color x:Key="S.Color.Purple">Purple</Color>
+  <Color x:Key="S.Color.Brown">Brown</Color>
+  <Color x:Key="S.Color.Blue">DarkBlue</Color>
+  <Color x:Key="S.Color.LightBlue">LightSkyBlue</Color>
+  <Color x:Key="S.Color.Pink">DeepPink</Color>
+</ResourceDictionary>

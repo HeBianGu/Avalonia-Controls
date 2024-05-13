@@ -1,0 +1,174 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceInclude Source="avares://HeBianGu.Themes.Default/Colors.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+    <SolidColorBrush x:Key="S.Brush.Accent"
+                     Color="{DynamicResource S.Color.Accent}" />
+    <!--  Background  -->
+    <SolidColorBrush x:Key="S.Brush.CaptionBackground"
+                     Color="{DynamicResource S.Color.CaptionBackground}" />
+    <SolidColorBrush x:Key="S.Brush.TextBackground"
+                     Color="{DynamicResource S.Color.TextBackground}" />
+    <SolidColorBrush x:Key="S.Brush.TextBackground.Disabled"
+                     Color="{DynamicResource S.Color.TextBackground.Disabled}" />
+
+    <SolidColorBrush x:Key="S.Brush.RowIndex.BackGround"
+                     Color="{DynamicResource S.Color.RowIndex.BackGround}" />
+
+    <!--  Foreground  -->
+    <SolidColorBrush x:Key="S.Brush.CaptionForeground"
+                     Color="{DynamicResource .Brush.CaptionForeground}" />
+    <SolidColorBrush x:Key="S.Brush.TextForeground.Title"
+                     Color="{DynamicResource S.Color.TextForeground.Title}" />
+    <SolidColorBrush x:Key="S.Brush.TextForeground"
+                     Color="{DynamicResource S.Color.TextForeground}" />
+    <SolidColorBrush x:Key="S.Brush.TextForeground.Disabled"
+                     Color="{DynamicResource S.Color.TextForeground.Disabled}" />
+
+    <SolidColorBrush x:Key="S.Brush.TextMouseOver"
+                     Color="{DynamicResource S.Color.TextMouseOver}" />
+    <SolidColorBrush x:Key="S.Brush.TextSelected"
+                     Color="{DynamicResource S.Color.TextSelected}" />
+    <SolidColorBrush x:Key="S.Brush.TextForeground.Assist"
+                     Color="{DynamicResource S.Color.TextForeground.Assist}" />
+    <SolidColorBrush x:Key="S.Brush.TextForeground.Link"
+                     Color="{DynamicResource S.Color.TextForeground.Link}" />
+
+    <!--  Foreground  White  -->
+    <!--<SolidColorBrush x:Key="S.Brush.TextForeground.White ">#fafafa</SolidColorBrush>-->
+    <!--<SolidColorBrush x:Key="S.Brush.TextForeground.White.Opacity.9 " Opacity="0.9" SolidColorBrush="#fafafa" />
+    <SolidColorBrush x:Key="S.Brush.TextForeground.White.Opacity.8 " Opacity="0.8" SolidColorBrush="#fafafa" />
+    <SolidColorBrush x:Key="S.Brush.TextForeground.White.Opacity.7 " Opacity="0.7" SolidColorBrush="#fafafa" />
+    <SolidColorBrush x:Key="S.Brush.TextForeground.White.Opacity.6 " Opacity="0.6" SolidColorBrush="#fafafa" />
+    <SolidColorBrush x:Key="S.Brush.TextForeground.White.Opacity.5 " Opacity="0.5" SolidColorBrush="#fafafa" />
+    <SolidColorBrush x:Key="S.Brush.TextForeground.White.Opacity.4 " Opacity="0.4" SolidColorBrush="#fafafa" />
+    <SolidColorBrush x:Key="S.Brush.TextForeground.White.Opacity.3 " Opacity="0.3" SolidColorBrush="#fafafa" />
+    <SolidColorBrush x:Key="S.Brush.TextForeground.White.Opacity.2 " Opacity="0.2" SolidColorBrush="#fafafa" />
+    <SolidColorBrush x:Key="S.Brush.TextForeground.White.Opacity.1 " Opacity="0.1" SolidColorBrush="#fafafa" />-->
+
+
+    <!--  BorderBrush  -->
+    <SolidColorBrush x:Key="S.Brush.TextBorderBrush"
+                     Color="{DynamicResource S.Color.TextBorderBrush}" />
+    <SolidColorBrush x:Key="S.Brush.TextBorderBrush.Title"
+                     Color="{DynamicResource S.Color.TextBorderBrush.Title}" />
+    <SolidColorBrush x:Key="S.Brush.TextBorderBrush.Assist"
+                     Color="{DynamicResource S.Color.TextBorderBrush.Assist}" />
+    <SolidColorBrush x:Key="S.Brush.TextBorderBrush.Disabled"
+                     Color="{DynamicResource S.Color.TextBorderBrush.Disabled}" />
+
+    <!--  Accent  -->
+    <!--<SolidColorBrush x:Key="S.Brush.Accent.MouseOver.Background " Opacity="0.2" SolidColorBrush="{DynamicResource {x:Static local:SystemKeys.SolidColorBrushAccent}}" />
+    <SolidColorBrush x:Key="S.Brush.Accent.Select.Background " Opacity="0.15" SolidColorBrush="{DynamicResource {x:Static local:SystemKeys.SolidColorBrushAccent}}" />
+    <SolidColorBrush x:Key="S.Brush.Accent.MouseOver " Opacity="0.7" SolidColorBrush="{DynamicResource {x:Static local:SystemKeys.SolidColorBrushAccent}}" />
+    <SolidColorBrush x:Key="S.Brush.Accent.Select " Opacity="0.7" SolidColorBrush="{DynamicResource {x:Static local:SystemKeys.SolidColorBrushAccent}}" />    <SolidColorBrush x:Key="S.Brush.Accent.Opacity.9 " Opacity="0.9" SolidColorBrush="{DynamicResource {x:Static local:SystemKeys.SolidColorBrushAccent}}" />
+    <SolidColorBrush x:Key="S.Brush.Accent.Opacity.8 " Opacity="0.8" SolidColorBrush="{DynamicResource {x:Static local:SystemKeys.SolidColorBrushAccent}}" />
+    <SolidColorBrush x:Key="S.Brush.Accent.Opacity.7 " Opacity="0.7" SolidColorBrush="{DynamicResource {x:Static local:SystemKeys.SolidColorBrushAccent}}" />
+    <SolidColorBrush x:Key="S.Brush.Accent.Opacity.6 " Opacity="0.6" SolidColorBrush="{DynamicResource {x:Static local:SystemKeys.SolidColorBrushAccent}}" />
+    <SolidColorBrush x:Key="S.Brush.Accent.Opacity.5 " Opacity="0.5" SolidColorBrush="{DynamicResource {x:Static local:SystemKeys.SolidColorBrushAccent}}" />
+    <SolidColorBrush x:Key="S.Brush.Accent.Opacity.4 " Opacity="0.4" SolidColorBrush="{DynamicResource {x:Static local:SystemKeys.SolidColorBrushAccent}}" />
+    <SolidColorBrush x:Key="S.Brush.Accent.Opacity.3 " Opacity="0.3" SolidColorBrush="{DynamicResource {x:Static local:SystemKeys.SolidColorBrushAccent}}" />
+    <SolidColorBrush x:Key="S.Brush.Accent.Opacity.2 " Opacity="0.2" SolidColorBrush="{DynamicResource {x:Static local:SystemKeys.SolidColorBrushAccent}}" />
+    <SolidColorBrush x:Key="S.Brush.Accent.Opacity.1 " Opacity="0.1" SolidColorBrush="{DynamicResource {x:Static local:SystemKeys.SolidColorBrushAccent}}" />-->
+
+    <SolidColorBrush x:Key="S.Brush.Dark.10"
+                     Color="{DynamicResource S.Color.Dark.10}" />
+    <SolidColorBrush x:Key="S.Brush.Dark.9.5"
+                     Color="{DynamicResource S.Color.Dark.9.5}" />
+    <SolidColorBrush x:Key="S.Brush.Dark.9"
+                     Color="{DynamicResource S.Color.Dark.9}" />
+    <SolidColorBrush x:Key="S.Brush.Dark.8.5"
+                     Color="{DynamicResource S.Color.Dark.8.5}" />
+    <SolidColorBrush x:Key="S.Brush.Dark.8"
+                     Color="{DynamicResource S.Color.Dark.8}" />
+    <SolidColorBrush x:Key="S.Brush.Dark.7.5"
+                     Color="{DynamicResource S.Color.Dark.7.5}" />
+    <SolidColorBrush x:Key="S.Brush.Dark.7"
+                     Color="{DynamicResource S.Color.Dark.7}" />
+    <SolidColorBrush x:Key="S.Brush.Dark.6.5"
+                     Color="{DynamicResource S.Color.Dark.6.5}" />
+    <SolidColorBrush x:Key="S.Brush.Dark.6"
+                     Color="{DynamicResource S.Color.Dark.6}" />
+    <SolidColorBrush x:Key="S.Brush.Dark.5.5"
+                     Color="{DynamicResource S.Color.Dark.5.5}" />
+    <SolidColorBrush x:Key="S.Brush.Dark.5"
+                     Color="{DynamicResource S.Color.Dark.5}" />
+    <SolidColorBrush x:Key="S.Brush.Dark.4.5"
+                     Color="{DynamicResource S.Color.Dark.4.5}" />
+    <SolidColorBrush x:Key="S.Brush.Dark.4"
+                     Color="{DynamicResource S.Color.Dark.4}" />
+    <SolidColorBrush x:Key="S.Brush.Dark.3.5"
+                     Color="{DynamicResource S.Color.Dark.3.5}" />
+    <SolidColorBrush x:Key="S.Brush.Dark.3"
+                     Color="{DynamicResource S.Color.Dark.3}" />
+    <SolidColorBrush x:Key="S.Brush.Dark.2.5"
+                     Color="{DynamicResource S.Color.Dark.2.5}" />
+    <SolidColorBrush x:Key="S.Brush.Dark.2"
+                     Color="{DynamicResource S.Color.Dark.2}" />
+    <SolidColorBrush x:Key="S.Brush.Dark.1.5"
+                     Color="{DynamicResource S.Color.Dark.1.5}" />
+    <SolidColorBrush x:Key="S.Brush.Dark.1"
+                     Color="{DynamicResource S.Color.Dark.1}" />
+    <SolidColorBrush x:Key="S.Brush.Dark.0.9"
+                     Color="{DynamicResource S.Color.Dark.0.9}" />
+    <SolidColorBrush x:Key="S.Brush.Dark.0.8"
+                     Color="{DynamicResource S.Color.Dark.0.8}" />
+    <SolidColorBrush x:Key="S.Brush.Dark.0.7"
+                     Color="{DynamicResource S.Color.Dark.0.7}" />
+    <SolidColorBrush x:Key="S.Brush.Dark.0.6"
+                     Color="{DynamicResource S.Color.Dark.0.6}" />
+    <SolidColorBrush x:Key="S.Brush.Dark.0.5"
+                     Color="{DynamicResource S.Color.Dark.0.5}" />
+    <SolidColorBrush x:Key="S.Brush.Dark.0.4"
+                     Color="{DynamicResource S.Color.Dark.0.4}" />
+    <SolidColorBrush x:Key="S.Brush.Dark.0.3"
+                     Color="{DynamicResource S.Color.Dark.0.3}" />
+    <SolidColorBrush x:Key="S.Brush.Dark.0.2"
+                     Color="{DynamicResource S.Color.Dark.0.2}" />
+    <SolidColorBrush x:Key="S.Brush.Dark.0.1"
+                     Color="{DynamicResource S.Color.Dark.0.1}" />
+    <SolidColorBrush x:Key="S.Brush.Dark.0"
+                     Color="{DynamicResource S.Color.Dark.0}" />
+
+
+    <!--  SolidColorBrush  -->
+    <SolidColorBrush x:Key="S.Brush.LightGray"
+                     Color="{DynamicResource S.Color.LightGray}" />
+    <!--<SolidColorBrush x:Key="S.Brush.LightGrayOpacity.5 " Opacity="0.5" SolidColorBrush="#2c2c2c" />-->
+    <SolidColorBrush x:Key="S.Brush.Gray"
+                     Color="{DynamicResource S.Color.Gray}" />
+    <!--<SolidColorBrush x:Key="S.Brush.Gray.Opacity.5 " Opacity="0.5" SolidColorBrush="#000000" />-->
+    <SolidColorBrush x:Key="S.Brush.Black"
+                     Color="{DynamicResource S.Color.Black}" />
+    <SolidColorBrush x:Key="S.Brush.Orange"
+                     Color="{DynamicResource S.Color.Orange}" />
+    <SolidColorBrush x:Key="S.Brush.Red"
+                     Color="{DynamicResource S.Color.Red}" />
+    <SolidColorBrush x:Key="S.Brush.Green"
+                     Color="{DynamicResource S.Color.Green}" />
+    <SolidColorBrush x:Key="S.Brush.Yellow"
+                     Color="{DynamicResource S.Color.Yellow}" />
+    <SolidColorBrush x:Key="S.Brush.Purple"
+                     Color="{DynamicResource S.Color.Purple}" />
+    <SolidColorBrush x:Key="S.Brush.Brown"
+                     Color="{DynamicResource S.Color.Brown}" />
+    <SolidColorBrush x:Key="S.Brush.Blue"
+                     Color="{DynamicResource S.Color.Blue}" />
+    <SolidColorBrush x:Key="S.Brush.LightBlue"
+                     Color="{DynamicResource S.Color.LightBlue}" />
+    <SolidColorBrush x:Key="S.Brush.Pink"
+                     Color="{DynamicResource S.Color.Pink}" />
+
+    <!--<SolidColorBrush x:Key="S.Brush.White ">#000000</SolidColorBrush>
+    <SolidColorBrush x:Key="S.Brush.White.Opactiy.9 " Opacity="0.9" SolidColorBrush="#000000" />
+    <SolidColorBrush x:Key="S.Brush.White.Opactiy.8 " Opacity="0.8" SolidColorBrush="#000000" />
+    <SolidColorBrush x:Key="S.Brush.White.Opactiy.7 " Opacity="0.7" SolidColorBrush="#000000" />
+    <SolidColorBrush x:Key="S.Brush.White.Opactiy.6 " Opacity="0.6" SolidColorBrush="#000000" />
+    <SolidColorBrush x:Key="S.Brush.White.Opactiy.5 " Opacity="0.5" SolidColorBrush="#000000" />
+    <SolidColorBrush x:Key="S.Brush.White.Opactiy.4 " Opacity="0.4" SolidColorBrush="#000000" />
+    <SolidColorBrush x:Key="S.Brush.White.Opactiy.3 " Opacity="0.3" SolidColorBrush="#000000" />
+    <SolidColorBrush x:Key="S.Brush.White.Opactiy.2 " Opacity="0.2" SolidColorBrush="#000000" />
+    <SolidColorBrush x:Key="S.Brush.White.Opactiy.1 " Opacity="0.1" SolidColorBrush="#000000" />-->
+
+</ResourceDictionary>
