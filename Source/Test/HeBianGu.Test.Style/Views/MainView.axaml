@@ -42,5 +42,45 @@
         </ListBox>
       </UniformGrid>
     </TabItem>
+    <TabItem Header="TabControl">
+      <UniformGrid>
+        <TabControl TabStripPlacement="Top">
+          <system:String>111111</system:String>
+          <system:String>111111</system:String>
+          <system:String>111111</system:String>
+          <system:String>111111</system:String>
+          <system:String>111111</system:String>
+          <system:String>111111</system:String>
+          <system:String>111111</system:String>
+        </TabControl>
+        <TabControl TabStripPlacement="Right">
+          <system:String>111111</system:String>
+          <system:String>111111</system:String>
+          <system:String>111111</system:String>
+          <system:String>111111</system:String>
+          <system:String>111111</system:String>
+          <system:String>111111</system:String>
+          <system:String>111111</system:String>
+        </TabControl>
+        <TabControl TabStripPlacement="Bottom">
+          <system:String>111111</system:String>
+          <system:String>111111</system:String>
+          <system:String>111111</system:String>
+          <system:String>111111</system:String>
+          <system:String>111111</system:String>
+          <system:String>111111</system:String>
+          <system:String>111111</system:String>
+        </TabControl>
+        <TabControl TabStripPlacement="Left">
+          <system:String>111111</system:String>
+          <system:String>111111</system:String>
+          <system:String>111111</system:String>
+          <system:String>111111</system:String>
+          <system:String>111111</system:String>
+          <system:String>111111</system:String>
+          <system:String>111111</system:String>
+        </TabControl>
+      </UniformGrid>
+    </TabItem>
   </TabControl>
 </UserControl>

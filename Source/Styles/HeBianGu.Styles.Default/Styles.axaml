@@ -16,11 +16,12 @@
         <!--<MergeResourceInclude Source="/Accents/BaseResources.xaml" />
         <MergeResourceInclude Source="/Accents/FluentControlResources.xaml" />
         <MergeResourceInclude Source="/Strings/InvariantResources.xaml" />-->
-        <ResourceInclude Source="avares://HeBianGu.Styles.Default/Controls/Button.xaml" />
-        <ResourceInclude Source="avares://HeBianGu.Styles.Default/Controls/ListBox.axaml" />
-        <ResourceInclude Source="avares://HeBianGu.Styles.Default/Controls/ListBoxItem.axaml" />
+        <MergeResourceInclude Source="avares://HeBianGu.Styles.Default/Controls/Button.xaml" />
+        <MergeResourceInclude Source="avares://HeBianGu.Styles.Default/Controls/ListBox.axaml" />
+        <MergeResourceInclude Source="avares://HeBianGu.Styles.Default/Controls/ListBoxItem.axaml" />
+        <MergeResourceInclude Source="avares://HeBianGu.Styles.Default/Controls/TabControl.axaml" />
+        <MergeResourceInclude Source="avares://HeBianGu.Styles.Default/Controls/TabItem.axaml" />
       </ResourceDictionary.MergedDictionaries>
     </ResourceDictionary>
   </Styles.Resources>
-  <!--<StyleInclude Source="avares://HeBianGu.Styles.Default/Controls/Controls.xaml"/>-->
 </Styles>
