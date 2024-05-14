@@ -11,12 +11,13 @@
       <ResourceDictionary.MergedDictionaries>
         <ResourceInclude Source="avares://HeBianGu.Themes.Default/Brushes.xaml" />
         <ResourceInclude Source="avares://HeBianGu.Themes.Default/Layouts.xaml" />
+        <ResourceInclude Source="avares://HeBianGu.Themes.Default/FontSizes.xaml" />
         <!-- Resources and brushes will be merged into current dictionary for slightly better performance and possible optimizations -->
         <!--<MergeResourceInclude Source="/Accents/BaseResources.xaml" />
         <MergeResourceInclude Source="/Accents/FluentControlResources.xaml" />
         <MergeResourceInclude Source="/Strings/InvariantResources.xaml" />-->
         <MergeResourceInclude Source="avares://HeBianGu.Styles.Default/Controls/Button.xaml" />
-
+        <!--<MergeResourceInclude Source="avares://HeBianGu.Styles.Default/Controls/TextBox.xaml" />-->
       </ResourceDictionary.MergedDictionaries>
     </ResourceDictionary>
   </Styles.Resources>

@@ -6,6 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
   <ItemGroup>
+  <AvaloniaResource Include="Assets\**"/>
+</ItemGroup>
+  <ItemGroup>
     <PackageReference Include="Avalonia" Version="11.0.2" />
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.0" />
   </ItemGroup>

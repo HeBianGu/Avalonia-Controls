@@ -4,13 +4,30 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:vm="clr-namespace:HeBianGu.Test.Style.ViewModels"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="HeBianGu.Test.Style.Views.MainView" Background="{DynamicResource S.Brush.TextBackground}"
+             x:Class="HeBianGu.Test.Style.Views.MainView"
              x:DataType="vm:MainViewModel">
   <Design.DataContext>
     <!-- This only sets the DataContext for the previewer in an IDE,
          to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
     <vm:MainViewModel />
   </Design.DataContext>
-
-  <Button Content="Button"/>
+  <TabControl>
+    <TabItem Header="TextBlock">
+      <UniformGrid>
+        <TextBlock Text="TextBlock" Foreground="{DynamicResource S.Brush.TextForeground}"/>
+      </UniformGrid>
+    </TabItem>
+    <TabItem Header="Button">
+      <UniformGrid>
+        <Button Content="Button"/>
+        <Button Content="Button"/>
+        <Button Content="Button" IsEnabled="False"/>
+      </UniformGrid>
+    </TabItem>
+    <TabItem Header="TextBox">
+      <UniformGrid>
+        <TextBox Text="TextBox" Height="50"/>
+      </UniformGrid>
+    </TabItem>
+  </TabControl>
 </UserControl>
