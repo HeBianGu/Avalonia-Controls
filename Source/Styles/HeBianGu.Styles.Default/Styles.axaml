@@ -21,6 +21,8 @@
         <MergeResourceInclude Source="avares://HeBianGu.Styles.Default/Controls/ListBoxItem.axaml" />
         <MergeResourceInclude Source="avares://HeBianGu.Styles.Default/Controls/TabControl.axaml" />
         <MergeResourceInclude Source="avares://HeBianGu.Styles.Default/Controls/TabItem.axaml" />
+        <MergeResourceInclude Source="avares://HeBianGu.Styles.Default/Controls/TitleBar.axaml" />
+        <MergeResourceInclude Source="avares://HeBianGu.Styles.Default/Controls/Window.axaml" />
       </ResourceDictionary.MergedDictionaries>
     </ResourceDictionary>
   </Styles.Resources>

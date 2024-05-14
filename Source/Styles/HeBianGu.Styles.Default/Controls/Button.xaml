@@ -20,7 +20,7 @@
     <Setter Property="CornerRadius" Value="{DynamicResource S.Layout.CornerRadius}" />
     <Setter Property="Padding" Value="{DynamicResource S.Layout.Padding}" />
     <Setter Property="Height" Value="{DynamicResource S.Layout.ItemHeight}" />
-    <Setter Property="FontSize" Value="{DynamicResource S.FontSize.Default}" />
+    <!--<Setter Property="FontSize" Value="{DynamicResource S.FontSize.Default}" />-->
     <Setter Property="HorizontalAlignment" Value="Left" />
     <Setter Property="VerticalAlignment" Value="Center" />
     <Setter Property="VerticalContentAlignment" Value="Center" />

@@ -24,7 +24,7 @@
     <Setter Property="Padding" Value="{DynamicResource TabItemHeaderMargin}" />
     <Setter Property="Margin" Value="0" />
     <Setter Property="MinHeight" Value="{DynamicResource TabItemMinHeight}" />-->
-    <Setter Property="FontSize" Value="{DynamicResource S.FontSize.Default}" />
+    <!--<Setter Property="FontSize" Value="{DynamicResource S.FontSize.Default}" />-->
     <Setter Property="Foreground" Value="{DynamicResource S.Brush.TextForeground}" />
     <Setter Property="BorderBrush" Value="Transparent" />
     <Setter Property="BorderThickness" Value="{DynamicResource S.Layout.BorderThickness}" />

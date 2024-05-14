@@ -6,7 +6,10 @@
         xmlns:views="clr-namespace:HeBianGu.Test.Style.Views"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="HeBianGu.Test.Style.Views.MainWindow"
-        Icon="/Assets/avalonia-logo.ico"
+        Icon="/Assets/avalonia-logo.ico" TransparencyBackgroundFallback="Orange"
         Title="HeBianGu.Test.Style">
-        <views:MainView />
+  <TopLevel.SystemBarColor>
+    <SolidColorBrush Color="Pink"/>
+  </TopLevel.SystemBarColor>
+  <views:MainView />
 </Window>
