@@ -16,8 +16,9 @@
         <!--<MergeResourceInclude Source="/Accents/BaseResources.xaml" />
         <MergeResourceInclude Source="/Accents/FluentControlResources.xaml" />
         <MergeResourceInclude Source="/Strings/InvariantResources.xaml" />-->
-        <MergeResourceInclude Source="avares://HeBianGu.Styles.Default/Controls/Button.xaml" />
-        <!--<MergeResourceInclude Source="avares://HeBianGu.Styles.Default/Controls/TextBox.xaml" />-->
+        <ResourceInclude Source="avares://HeBianGu.Styles.Default/Controls/Button.xaml" />
+        <ResourceInclude Source="avares://HeBianGu.Styles.Default/Controls/ListBox.axaml" />
+        <ResourceInclude Source="avares://HeBianGu.Styles.Default/Controls/ListBoxItem.axaml" />
       </ResourceDictionary.MergedDictionaries>
     </ResourceDictionary>
   </Styles.Resources>

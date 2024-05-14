@@ -4,6 +4,9 @@
   <system:Double x:Key="S.Layout.WindowCaptionHeight">25</system:Double>
   <system:Double x:Key="S.Layout.ItemHeight">35</system:Double>
   <system:Double x:Key="S.Layout.RowHeight">40</system:Double>
+  <system:Double x:Key="S.Layout.Disabled">0.4</system:Double>
+  <system:Double x:Key="S.Layout.Pressed">0.8</system:Double>
+
   <CornerRadius x:Key="S.Layout.CornerRadius">2</CornerRadius>
   <Thickness x:Key="S.Layout.BorderThickness">1</Thickness>
   <Thickness x:Key="S.Layout.Padding">10 6</Thickness>

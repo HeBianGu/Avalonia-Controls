@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
@@ -7,30 +7,24 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Controls\Button.xaml" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <AvaloniaXaml Include="Controls\Button.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </AvaloniaXaml>
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Avalonia" Version="11.0.2" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\Themes\HeBianGu.Themes.Default\HeBianGu.Themes.Default.csproj" />
   </ItemGroup>
-
   <ItemGroup>
-    <None Update="Controls\Controls.xaml">
+    <AvaloniaXaml Include="Controls\Button.xaml">
       <Generator>MSBuild:Compile</Generator>
-    </None>
-    <None Update="Controls\TextBox.xaml">
+    </AvaloniaXaml>
+    <AvaloniaXaml Update="Controls\Controls.xaml">
       <Generator>MSBuild:Compile</Generator>
-    </None>
+    </AvaloniaXaml>
+    <AvaloniaXaml Update="Controls\ListBox.axaml">
+      <Generator>MSBuild:Compile</Generator>
+    </AvaloniaXaml>
+    <AvaloniaXaml Update="Controls\ListBoxItem.axaml">
+      <Generator>MSBuild:Compile</Generator>
+    </AvaloniaXaml>
   </ItemGroup>
-
 </Project>

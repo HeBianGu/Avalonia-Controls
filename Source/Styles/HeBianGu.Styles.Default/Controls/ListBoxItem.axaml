@@ -1,0 +1,78 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    x:ClassModifier="internal">
+  <Design.PreviewWith>
+    <Border Padding="0">
+      <ListBox>
+        <ListBoxItem IsEnabled="False">Disabled</ListBoxItem>
+        <ListBoxItem Background="#66000000"
+                     Padding="20">
+          Test
+        </ListBoxItem>
+        <ListBoxItem>Test</ListBoxItem>
+      </ListBox>
+    </Border>
+  </Design.PreviewWith>
+  <Thickness x:Key="ListBoxItemPadding">12,9,12,12</Thickness>
+  <ControlTheme x:Key="{x:Type ListBoxItem}" TargetType="ListBoxItem">
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="Padding" Value="{DynamicResource S.Layout.Padding}" />
+    <Setter Property="Height" Value="{DynamicResource S.Layout.ItemHeight}" />
+    <Setter Property="VerticalContentAlignment" Value="Center" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <ContentPresenter Name="PART_ContentPresenter"
+                          Background="{TemplateBinding Background}"
+                          BorderBrush="{TemplateBinding BorderBrush}"
+                          BorderThickness="{TemplateBinding BorderThickness}"
+                          CornerRadius="{TemplateBinding CornerRadius}"
+                          ContentTemplate="{TemplateBinding ContentTemplate}"
+                          Content="{TemplateBinding Content}"
+                          Padding="{TemplateBinding Padding}"
+                          VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                          HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" />
+      </ControlTemplate>
+    </Setter>
+
+    <Style Selector="^:disabled /template/ ContentPresenter#PART_ContentPresenter">
+      <Setter Property="Opacity" Value="{DynamicResource S.Layout.Disabled}" />
+    </Style>
+
+    <!--  PointerOver State  -->
+    <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+      <Setter Property="Background" Value="{DynamicResource S.Brush.TextMouseOver}" />
+    </Style>
+
+    <!--  Pressed State  -->
+    <Style Selector="^:pressed /template/ ContentPresenter#PART_ContentPresenter">
+      <Setter Property="Opacity" Value="{DynamicResource S.Layout.Pressed}" />
+    </Style>
+
+    <!--  Selected State  -->
+    <Style Selector="^:selected">
+
+      <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+        <Setter Property="Background" Value="{DynamicResource S.Brush.TextSelected}" />
+        <Setter Property="Foreground" Value="{DynamicResource S.Brush.TextForeground.Title}" />
+      </Style>
+
+      <!--  Selected Unfocused State  -->
+      <Style Selector="^:not(:focus) /template/ ContentPresenter#PART_ContentPresenter">
+        <Setter Property="Background" Value="{DynamicResource SystemControlHighlightListAccentLowBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource SystemControlHighlightAltBaseHighBrush}" />
+      </Style>
+
+      <!--  Selected PointerOver State  -->
+      <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+        <Setter Property="Background" Value="{DynamicResource S.Brush.TextMouseOver}" />
+        <Setter Property="Foreground" Value="{DynamicResource S.Brush.TextForeground.Title}" />
+      </Style>
+
+      <!--  Selected Pressed State  -->
+      <Style Selector="^:pressed /template/ ContentPresenter#PART_ContentPresenter">
+        <Setter Property="Opacity" Value="{DynamicResource S.Layout.Pressed}" />
+
+      </Style>
+    </Style>
+  </ControlTheme>
+</ResourceDictionary>

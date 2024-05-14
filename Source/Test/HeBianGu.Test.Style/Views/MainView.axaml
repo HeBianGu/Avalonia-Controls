@@ -2,9 +2,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:vm="clr-namespace:HeBianGu.Test.Style.ViewModels"
+             xmlns:vm="clr-namespace:HeBianGu.Test.Style.ViewModels" Background="{DynamicResource S.Brush.TextBackground}"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="HeBianGu.Test.Style.Views.MainView"
+             x:Class="HeBianGu.Test.Style.Views.MainView" xmlns:system="clr-namespace:System;assembly=mscorlib"
              x:DataType="vm:MainViewModel">
   <Design.DataContext>
     <!-- This only sets the DataContext for the previewer in an IDE,
@@ -26,7 +26,20 @@
     </TabItem>
     <TabItem Header="TextBox">
       <UniformGrid>
-        <TextBox Text="TextBox" Height="50"/>
+        <TextBox Text="TextBox"/>
+      </UniformGrid>
+    </TabItem>
+    <TabItem Header="ListBox">
+      <UniformGrid>
+        <ListBox>
+          <system:String>111111</system:String>
+          <system:String>111111</system:String>
+          <system:String>111111</system:String>
+          <system:String>111111</system:String>
+          <system:String>111111</system:String>
+          <system:String>111111</system:String>
+          <system:String>111111</system:String>
+        </ListBox>
       </UniformGrid>
     </TabItem>
   </TabControl>
