@@ -1,12 +1,53 @@
-<Application xmlns="https://github.com/avaloniaui"
+<Application x:Class="HeBianGu.Test.Main.App"
+             xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             x:Class="HeBianGu.Test.Main.App"
+             xmlns:v="clr-namespace:HeBianGu.Test.Main.Views"
              RequestedThemeVariant="Default">
-             <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
+    <!--  "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options.  -->
 
     <Application.Styles>
         <FluentTheme />
-      <StyleInclude Source="avares://HeBianGu.Controls.MultiComboBox/Styles/MultiComboBox.xaml"/>
-      <StyleInclude Source="avares://HeBianGu.Controls.TemplateControl/MyTemplatedControl.axaml"/>
+        <StyleInclude Source="avares://HeBianGu.Controls.MultiComboBox/Styles/MultiComboBox.xaml" />
+        <StyleInclude Source="avares://HeBianGu.Controls.TemplateControl/MyTemplatedControl.axaml" />
     </Application.Styles>
+    <Application.DataTemplates>
+        <DataTemplate DataType="v:AdornerDialogPresenter">
+            <Grid>
+                <Grid.Background>
+                    <SolidColorBrush Opacity="0.6" Color="Red" />
+                </Grid.Background>
+                <Grid Width="500"
+                      Height="300"
+                      HorizontalAlignment="Center"
+                      VerticalAlignment="Center"
+                      RowDefinitions="Auto,*,Auto">
+                    <Button HorizontalAlignment="Right"
+                            VerticalAlignment="Top"
+                            Command="{v:CloseAdornerDialogCommand}"
+                            CommandParameter="{Binding}"
+                            Content="×" />
+                    <Grid.Background>
+                        <SolidColorBrush Opacity="0.6" Color="Orange" />
+                    </Grid.Background>
+                    <TextBlock Margin="10,6" Text="{Binding Title}" />
+                    <ContentControl Grid.Row="1"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Content="{Binding Presenter}" />
+                    <Button Grid.Row="2"
+                            Margin="10,6"
+                            HorizontalAlignment="Center"
+                            Command="{v:CloseAdornerDialogCommand}"
+                            CommandParameter="{Binding}"
+                            Content="确定" />
+                </Grid>
+
+            </Grid>
+        </DataTemplate>
+        <DataTemplate DataType="v:Student">
+            <Grid>
+                <TextBlock Text="{Binding Name}" />
+            </Grid>
+        </DataTemplate>
+    </Application.DataTemplates>
 </Application>

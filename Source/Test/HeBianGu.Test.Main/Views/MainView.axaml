@@ -1,80 +1,106 @@
-<UserControl xmlns="https://github.com/avaloniaui"
+<UserControl x:Class="HeBianGu.Test.Main.Views.MainView"
+             xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:vm="clr-namespace:HeBianGu.Test.Main.ViewModels"
-             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              xmlns:h="https://github.com/HeBianGu"
-             x:Class="HeBianGu.Test.Main.Views.MainView"
-             x:DataType="vm:MainViewModel">
-  <Design.DataContext>
-    <!-- This only sets the DataContext for the previewer in an IDE,
-         to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
-    <vm:MainViewModel />
-  </Design.DataContext>
-  <TabControl>
-    <TabItem Header="MultiComboBox">
-      <h:MultiComboBox Name="mcb"
-                            Background="Transparent"
-                            MaxDropDownHeight="800"
-                            VerticalAlignment="Top" SelectionMode=""
-                            MinHeight="35"
-                      ItemsSource="{Binding Collection}" BorderBrush="Black" BorderThickness="1" CornerRadius="5">
-      </h:MultiComboBox>
-    </TabItem>
+             xmlns:i="clr-namespace:Avalonia.Xaml.Interactivity;assembly=Avalonia.Xaml.Interactivity"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:v="clr-namespace:HeBianGu.Test.Main.Views"
+             xmlns:vm="clr-namespace:HeBianGu.Test.Main.ViewModels"
+             xmlns:ic="using:Avalonia.Xaml.Interactions.Custom"
+             xmlns:ia="clr-namespace:Avalonia.Xaml.Interactions.Core;assembly=Avalonia.Xaml.Interactions"
+             d:DesignHeight="450"
+             d:DesignWidth="800"
+             x:DataType="vm:MainViewModel"
+             mc:Ignorable="d">
+    <Design.DataContext>
+        <!--
+            This only sets the DataContext for the previewer in an IDE,
+            to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs)
+        -->
+        <vm:MainViewModel />
+    </Design.DataContext>
+    <TabControl>
+        <TabItem Header="MultiComboBox">
+            <h:MultiComboBox Name="mcb"
+                             MinHeight="35"
+                             VerticalAlignment="Top"
+                             Background="Transparent"
+                             BorderBrush="Black"
+                             BorderThickness="1"
+                             CornerRadius="5"
+                             ItemsSource="{Binding Collection}"
+                             MaxDropDownHeight="800"
+                             SelectionMode="" />
+        </TabItem>
 
-    <TabItem Header="MyTemplatedControl">
-      <h:MyTemplatedControl >
-      </h:MyTemplatedControl>
-    </TabItem>
-    <TabItem Header="MyButton">
-      <h:MyButton Content="MyButton">
-      </h:MyButton>
-    </TabItem>
-    <TabItem Header="ControlTheme">
-      <TabItem.Resources>
-        <ControlTheme x:Key="EllipseButton" TargetType="Button">
-          <Setter Property="Background" Value="Blue"/>
-          <Setter Property="Foreground" Value="Yellow"/>
-          <Setter Property="Padding" Value="8"/>
-          <Setter Property="Template">
-            <ControlTemplate>
-              <Panel>
-                <Ellipse Fill="{TemplateBinding Background}"
-                         HorizontalAlignment="Stretch"
-                         VerticalAlignment="Stretch"/>
-                <ContentPresenter x:Name="PART_ContentPresenter"
-                                  Content="{TemplateBinding Content}"
-                                  Margin="{TemplateBinding Padding}"/>
-              </Panel>
-            </ControlTemplate>
-          </Setter>
-        </ControlTheme>
-      </TabItem.Resources>
-      <Button Content="ControlTheme" Theme="{StaticResource EllipseButton}"/>
-    </TabItem>
-    <TabItem Header="ControlTheme-应用全部">
-      <TabItem.Resources>
-        <ControlTheme x:Key="{x:Type Button}" TargetType="Button">
-          <Setter Property="Background" Value="Blue"/>
-          <Setter Property="Foreground" Value="Yellow"/>
-          <Setter Property="Padding" Value="8"/>
-          <Setter Property="Template">
-            <ControlTemplate>
-              <Panel>
-                <Ellipse Fill="{TemplateBinding Background}"
-                         HorizontalAlignment="Stretch"
-                         VerticalAlignment="Stretch"/>
-                <ContentPresenter x:Name="PART_ContentPresenter"
-                                  Content="{TemplateBinding Content}"
-                                  Margin="{TemplateBinding Padding}"/>
-              </Panel>
-            </ControlTemplate>
-          </Setter>
-        </ControlTheme>
-      </TabItem.Resources>
-      <Button Content="ControlTheme"/>
-    </TabItem>
-   
-  </TabControl>
+        <TabItem Header="MyTemplatedControl">
+            <h:MyTemplatedControl />
+        </TabItem>
+        <TabItem Header="MyButton">
+            <h:MyButton Content="MyButton" />
+        </TabItem>
+        <TabItem Header="ControlTheme">
+            <TabItem.Resources>
+                <ControlTheme x:Key="EllipseButton" TargetType="Button">
+                    <Setter Property="Background" Value="Blue" />
+                    <Setter Property="Foreground" Value="Yellow" />
+                    <Setter Property="Padding" Value="8" />
+                    <Setter Property="Template">
+                        <ControlTemplate>
+                            <Panel>
+                                <Ellipse HorizontalAlignment="Stretch"
+                                         VerticalAlignment="Stretch"
+                                         Fill="{TemplateBinding Background}" />
+                                <ContentPresenter x:Name="PART_ContentPresenter"
+                                                  Margin="{TemplateBinding Padding}"
+                                                  Content="{TemplateBinding Content}" />
+                            </Panel>
+                        </ControlTemplate>
+                    </Setter>
+                </ControlTheme>
+            </TabItem.Resources>
+            <Button Content="ControlTheme" Theme="{StaticResource EllipseButton}" />
+        </TabItem>
+        <TabItem Header="ControlTheme-应用全部">
+            <TabItem.Resources>
+                <ControlTheme x:Key="{x:Type Button}" TargetType="Button">
+                    <Setter Property="Background" Value="Blue" />
+                    <Setter Property="Foreground" Value="Yellow" />
+                    <Setter Property="Padding" Value="8" />
+                    <Setter Property="Template">
+                        <ControlTemplate>
+                            <Panel>
+                                <Ellipse HorizontalAlignment="Stretch"
+                                         VerticalAlignment="Stretch"
+                                         Fill="{TemplateBinding Background}" />
+                                <ContentPresenter x:Name="PART_ContentPresenter"
+                                                  Margin="{TemplateBinding Padding}"
+                                                  Content="{TemplateBinding Content}" />
+                            </Panel>
+                        </ControlTemplate>
+                    </Setter>
+                </ControlTheme>
+            </TabItem.Resources>
+            <Button Content="ControlTheme" />
+        </TabItem>
+        <TabItem Header="Ioc">
+            <Button Click="Ioc_Click" Content="Ioc" />
+        </TabItem>
+        <TabItem Header="Adornr">
+            <Button Click="Adornr_Click" Content="Adornr" />
+        </TabItem>
+        <TabItem Header="Dialog">
+            <Button Click="Dialog_Click" Content="Dialog" />
+        </TabItem>
+        <TabItem Header="Behavior">
+          <Button Content="Behavior">
+            <i:Interaction.Behaviors>
+              <ic:ButtonClickEventTriggerBehavior>
+                <ia:InvokeCommandAction Command="{Binding BehaviorCommand}" />
+              </ic:ButtonClickEventTriggerBehavior>
+            </i:Interaction.Behaviors>
+          </Button>
+        </TabItem>
+    </TabControl>
 </UserControl>
