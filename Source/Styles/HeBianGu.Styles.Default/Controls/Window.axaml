@@ -8,7 +8,8 @@
     <!--<Setter Property="Foreground" Value="{DynamicResource SystemControlForegroundBaseHighBrush}"/>-->
     <!--<Setter Property="FontSize" Value="{DynamicResource ControlContentThemeFontSize}"/>-->
     <Setter Property="FontFamily" Value="{DynamicResource ContentControlThemeFontFamily}" />
-
+    <!--<Setter Porperty="Icon" Value="/Assets/logo.ico"/>-->
+   
     <Setter Property="TransparencyBackgroundFallback" Value="{DynamicResource S.Brush.TextBackground}" />
     <Setter Property="TopLevel.SystemBarColor" Value="{DynamicResource S.Brush.TextBackground}"/>
     <Setter Property="Background" Value="{DynamicResource S.Brush.TextBackground}" />
