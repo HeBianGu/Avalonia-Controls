@@ -41,7 +41,7 @@ namespace HeBianGu.Avalonia.Extensions.ApplicationBase
             {
                 Window mainWindow = this.GetMainWindow();
                 var service = Ioc.Services.GetService<ILoginWindow>();
-                if(service==null)
+                if (service == null)
                 {
                     desktop.MainWindow = mainWindow;
                 }

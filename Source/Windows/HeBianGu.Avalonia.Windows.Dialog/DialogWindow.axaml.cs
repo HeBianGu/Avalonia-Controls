@@ -62,7 +62,7 @@ namespace HeBianGu.Avalonia.Windows.Dialog
         public DialogButton DialogButton { get; set; } = DialogButton.Sumit;
 
 
-        public static readonly AvaloniaProperty BottomTemplateProperty =
+        public static readonly StyledProperty<ControlTemplate> BottomTemplateProperty =
             AvaloniaProperty.Register<DialogWindow, ControlTemplate>("BottomTemplate");
 
         //protected override void OnSourceInitialized(EventArgs e)

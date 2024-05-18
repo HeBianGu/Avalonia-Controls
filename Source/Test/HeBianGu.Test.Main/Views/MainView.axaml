@@ -4,11 +4,11 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:h="https://github.com/HeBianGu"
              xmlns:i="clr-namespace:Avalonia.Xaml.Interactivity;assembly=Avalonia.Xaml.Interactivity"
+             xmlns:ia="clr-namespace:Avalonia.Xaml.Interactions.Core;assembly=Avalonia.Xaml.Interactions"
+             xmlns:ic="using:Avalonia.Xaml.Interactions.Custom"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:v="clr-namespace:HeBianGu.Test.Main.Views"
              xmlns:vm="clr-namespace:HeBianGu.Test.Main.ViewModels"
-             xmlns:ic="using:Avalonia.Xaml.Interactions.Custom"
-             xmlns:ia="clr-namespace:Avalonia.Xaml.Interactions.Core;assembly=Avalonia.Xaml.Interactions"
              d:DesignHeight="450"
              d:DesignWidth="800"
              x:DataType="vm:MainViewModel"
@@ -93,17 +93,17 @@
         <TabItem Header="AdornerDialog">
             <Button Click="AdornerDialog_Click" Content="AdornerDialog" />
         </TabItem>
-      <TabItem Header="WindowDialog">
-        <Button Click="WindowDialog_Click" Content="WindowDialog" />
-      </TabItem>
+        <TabItem Header="WindowDialog">
+            <Button Click="WindowDialog_Click" Content="WindowDialog" />
+        </TabItem>
         <TabItem Header="Behavior">
-          <Button Content="Behavior">
-            <i:Interaction.Behaviors>
-              <ic:ButtonClickEventTriggerBehavior>
-                <ia:InvokeCommandAction Command="{Binding BehaviorCommand}" />
-              </ic:ButtonClickEventTriggerBehavior>
-            </i:Interaction.Behaviors>
-          </Button>
+            <Button Content="Behavior">
+                <i:Interaction.Behaviors>
+                    <ic:ButtonClickEventTriggerBehavior>
+                        <ia:InvokeCommandAction Command="{Binding BehaviorCommand}" />
+                    </ic:ButtonClickEventTriggerBehavior>
+                </i:Interaction.Behaviors>
+            </Button>
         </TabItem>
     </TabControl>
 </UserControl>
