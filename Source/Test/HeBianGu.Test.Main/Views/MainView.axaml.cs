@@ -10,6 +10,7 @@ using Avalonia.Layout;
 using System.Reactive.Disposables;
 using Avalonia.Threading;
 using HeBianGu.Avalonia.Windows.Dialog;
+using Avalonia;
 
 namespace HeBianGu.Test.Main.Views;
 
@@ -44,9 +45,13 @@ public partial class MainView : UserControl
         adornerDialogPresenter.ShowDialog();
     }
 
-    public void WindowDialog_Click(object source, RoutedEventArgs args)
+    public async void WindowDialog_Click(object source, RoutedEventArgs args)
     {
-        DialogWindow dialogWindow=new DialogWindow();
-        dialogWindow.Show();
+        //DialogWindow dialogWindow=new DialogWindow();
+        //dialogWindow.Show();
+
+        var r = await DialogWindow.ShowPresenter(Student.Random(), x => x.Padding = new Thickness(10, 6, 10, 6));
+
+        await DialogWindow.ShowPresenter(r);
     }
 }

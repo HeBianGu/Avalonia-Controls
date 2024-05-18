@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using Avalonia.Platform;
 using Avalonia.Input;
+using HeBianGu.Avalonia.Extensions.ApplicationBase;
 
 namespace HeBianGu.Avalonia.Windows.Dialog
 {
@@ -75,87 +76,86 @@ namespace HeBianGu.Avalonia.Windows.Dialog
         //}
     }
 
-    //public partial class DialogWindow : Window
-    //{
-    //    //public static ResourceKey GetResourceKey(DialogButton dialogButton)
-    //    //{
-    //    //    switch (dialogButton)
-    //    //    {
-    //    //        case DialogButton.Sumit:
-    //    //            return DialogKeys.Sumit;
-    //    //        case DialogButton.None:
-    //    //            return DialogKeys.None;
-    //    //        case DialogButton.Cancel:
-    //    //            return DialogKeys.Cancel;
-    //    //        case DialogButton.SumitAndCancel:
-    //    //            return DialogKeys.SumitAndCancel;
-    //    //        default:
-    //    //            return DialogKeys.Sumit;
-    //    //    }
-    //    //}
+    public partial class DialogWindow : Window
+    {
+        //public static ResourceKey GetResourceKey(DialogButton dialogButton)
+        //{
+        //    switch (dialogButton)
+        //    {
+        //        case DialogButton.Sumit:
+        //            return DialogKeys.Sumit;
+        //        case DialogButton.None:
+        //            return DialogKeys.None;
+        //        case DialogButton.Cancel:
+        //            return DialogKeys.Cancel;
+        //        case DialogButton.SumitAndCancel:
+        //            return DialogKeys.SumitAndCancel;
+        //        default:
+        //            return DialogKeys.Sumit;
+        //    }
+        //}
 
-    //    public static bool? ShowPresenter(object presenter, Action<IDialog> action = null, Func<bool> canSumit = null)
-    //    {
-    //        DialogWindow dialog = new DialogWindow();
-    //        dialog.Content = presenter;
-    //        dialog.Width = 400;
-    //        dialog.SizeToContent = SizeToContent.Height;
-    //        dialog.CanSumit = canSumit;
-    //        action?.Invoke(dialog);
-    //        dialog.Title = dialog.Title ?? presenter.GetType().GetCustomAttribute<DisplayAttribute>()?.Name ?? "提示";
-    //        //ResourceKey key = GetResourceKey(dialog.DialogButton);
-    //        //dialog.Style = Application.Current.FindResource(key) as Style;
-    //        //var owner = dialog.Owner ?? Application.Current.MainWindow;
-    //        Window owner = null;
-    //        if (owner?.IsLoaded == true)
-    //        {
-    //            dialog.Owner = owner;
-    //            dialog.WindowStartupLocation = WindowStartupLocation.CenterOwner;
-    //        }
-    //        else
-    //        {
-    //            dialog.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-    //        }
+        public static async Task<bool?> ShowPresenter(object presenter, Action<IDialog> action = null, Func<bool> canSumit = null)
+        {
+            DialogWindow dialog = new DialogWindow();
+            dialog.Content = presenter;
+            dialog.Width = 400;
+            dialog.SizeToContent = SizeToContent.Height;
+            dialog.CanSumit = canSumit;
+            action?.Invoke(dialog);
+            dialog.Title = dialog.Title ?? presenter.GetType().GetCustomAttribute<DisplayAttribute>()?.Name ?? "提示";
+            //ResourceKey key = GetResourceKey(dialog.DialogButton);
+            //dialog.Style = Application.Current.FindResource(key) as Style;
+            var owner = dialog.Owner as Window ?? Application.Current.GetMainWindow();
+            if (owner?.IsLoaded == true)
+            {
+                dialog.Owner = owner;
+                dialog.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            }
+            else
+            {
+                dialog.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            }
 
-    //        //bool? r = dialog.ShowDialog();
-    //        return r;
-    //    }
+            await dialog.ShowDialog(owner);
+            return dialog.DialogResult;
+        }
 
-    //    public static T ShowAction<P, T>(P presenter, Func<IDialog, P, T> func, Action<IDialog> action = null)
-    //    {
-    //        DialogWindow dialog = new DialogWindow();
-    //        dialog.Content = presenter;
-    //        dialog.Width = 500;
-    //        dialog.MinHeight = 150;
-    //        dialog.SizeToContent = SizeToContent.Height;
-    //        action?.Invoke(dialog);
-    //        dialog.Title = dialog.Title ?? presenter.GetType().GetCustomAttribute<DisplayAttribute>()?.Name ?? "提示";
-    //        //dialog.Style = Application.Current.FindResource(GetResourceKey(dialog.DialogButton)) as Style;
-    //        Window owner = null;
-    //        if (owner?.IsLoaded == true)
-    //        {
-    //            dialog.Owner = owner;
-    //            dialog.WindowStartupLocation = WindowStartupLocation.CenterOwner;
-    //        }
-    //        else
-    //        {
-    //            dialog.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-    //        }
-    //        T result = default;
-    //        dialog.Loaded += (l, k) =>
-    //        {
-    //            if (func != null)
-    //            {
-    //                Task.Run(() =>
-    //                {
-    //                    result = func.Invoke(dialog, presenter);
-    //                    if (dialog.DialogResult == null)
-    //                        dialog.DialogResult = true;
-    //                });
-    //            }
-    //        };
-    //        //dialog.ShowDialog();
-    //        return result;
-    //    }
-    //}
+        public static T ShowAction<P, T>(P presenter, Func<IDialog, P, T> func, Action<IDialog> action = null)
+        {
+            DialogWindow dialog = new DialogWindow();
+            dialog.Content = presenter;
+            dialog.Width = 500;
+            dialog.MinHeight = 150;
+            dialog.SizeToContent = SizeToContent.Height;
+            action?.Invoke(dialog);
+            dialog.Title = dialog.Title ?? presenter.GetType().GetCustomAttribute<DisplayAttribute>()?.Name ?? "提示";
+            //dialog.Style = Application.Current.FindResource(GetResourceKey(dialog.DialogButton)) as Style;
+            var owner = dialog.Owner ?? Application.Current.GetMainWindow();
+            if (owner?.IsLoaded == true)
+            {
+                dialog.Owner = owner;
+                dialog.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            }
+            else
+            {
+                dialog.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            }
+            T result = default;
+            dialog.Loaded += (l, k) =>
+            {
+                if (func != null)
+                {
+                    Task.Run(() =>
+                    {
+                        result = func.Invoke(dialog, presenter);
+                        if (dialog.DialogResult == null)
+                            dialog.DialogResult = true;
+                    });
+                }
+            };
+            //dialog.ShowDialog();
+            return result;
+        }
+    }
 }
