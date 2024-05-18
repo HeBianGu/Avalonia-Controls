@@ -9,6 +9,7 @@ using System.Threading;
 using Avalonia.Controls.ApplicationLifetimes;
 using HeBianGu.Test.Main.ViewModels;
 using ReactiveUI;
+using Avalonia.Layout;
 
 namespace HeBianGu.Test.Main.Views;
 
@@ -47,8 +48,8 @@ public partial class AdornerDialogPresenter:ViewModelBase
             //layer.Add(adorner);
             ContentPresenter contentPresenter = new ContentPresenter();
             contentPresenter.Content = this;
-            contentPresenter.HorizontalAlignment = Avalonia.Layout.HorizontalAlignment.Stretch;
-            contentPresenter.VerticalAlignment=Avalonia.Layout.VerticalAlignment.Stretch;
+            contentPresenter.HorizontalAlignment = HorizontalAlignment.Stretch;
+            contentPresenter.VerticalAlignment=VerticalAlignment.Stretch;
             //AdornerLayer.SetAdornedElement(contentPresenter, layer);
             AdornerLayer.SetAdorner(window.Content as Visual, contentPresenter);
             //layer.Children.Add(contentPresenter);

@@ -21,7 +21,7 @@ public partial class MainView : UserControl
 
     public void Ioc_Click(object source, RoutedEventArgs args)
     {
-        var i = Ioc.GetService<IMyIoc>();
+        var i = System.Ioc.GetService<IMyIoc>();
         Dispatcher.UIThread.Invoke(() => { });
     }
     public void Adornr_Click(object source, RoutedEventArgs args)
@@ -42,5 +42,5 @@ public partial class MainView : UserControl
         AdornerDialogPresenter adornerDialogPresenter = new AdornerDialogPresenter(new Student());
         adornerDialogPresenter.ShowDialog();
     }
-    
+
 }

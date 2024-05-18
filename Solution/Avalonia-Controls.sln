@@ -57,11 +57,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Modules", "2 - Modules"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HeBianGu.Avalonia.Modules.Login", "..\Source\Modules\HeBianGu.Avalonia.Modules.Login\HeBianGu.Avalonia.Modules.Login.csproj", "{FA72DDFA-4A91-4278-8C04-449DD8D8A52E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeBianGu.Avalonia.Extensions.Setting", "..\Source\Extensions\HeBianGu.Avalonia.Extensions.Setting\HeBianGu.Avalonia.Extensions.Setting.csproj", "{882FEA6C-CA71-4939-B483-AFCB7B77E6E4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HeBianGu.Avalonia.Extensions.Setting", "..\Source\Extensions\HeBianGu.Avalonia.Extensions.Setting\HeBianGu.Avalonia.Extensions.Setting.csproj", "{882FEA6C-CA71-4939-B483-AFCB7B77E6E4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Window", "2 - Window", "{D0458D64-77AD-4A31-A7A6-BC71EBC5C0D2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeBianGu.Avalonia.Windows.Dialog", "..\Source\Windows\HeBianGu.Avalonia.Windows.Dialog\HeBianGu.Avalonia.Windows.Dialog.csproj", "{0E6EC69E-CBE3-42DC-930D-B4E36E28B3AF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HeBianGu.Avalonia.Windows.Dialog", "..\Source\Windows\HeBianGu.Avalonia.Windows.Dialog\HeBianGu.Avalonia.Windows.Dialog.csproj", "{0E6EC69E-CBE3-42DC-930D-B4E36E28B3AF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeBianGu.Avalonia.Extensions.ApplicationBase", "..\Source\Extensions\HeBianGu.Avalonia.Extensions.ApplicationBase\HeBianGu.Avalonia.Extensions.ApplicationBase.csproj", "{3AB7B80B-BAF5-4BC2-8CB5-B1A00E646D89}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -163,6 +165,10 @@ Global
 		{0E6EC69E-CBE3-42DC-930D-B4E36E28B3AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0E6EC69E-CBE3-42DC-930D-B4E36E28B3AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0E6EC69E-CBE3-42DC-930D-B4E36E28B3AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3AB7B80B-BAF5-4BC2-8CB5-B1A00E646D89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3AB7B80B-BAF5-4BC2-8CB5-B1A00E646D89}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3AB7B80B-BAF5-4BC2-8CB5-B1A00E646D89}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3AB7B80B-BAF5-4BC2-8CB5-B1A00E646D89}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -190,6 +196,7 @@ Global
 		{FA72DDFA-4A91-4278-8C04-449DD8D8A52E} = {B0715156-EC67-4A7A-8F6A-C2965322DA49}
 		{882FEA6C-CA71-4939-B483-AFCB7B77E6E4} = {197618A0-BDD0-40C0-BBC3-678E58EAFF70}
 		{0E6EC69E-CBE3-42DC-930D-B4E36E28B3AF} = {D0458D64-77AD-4A31-A7A6-BC71EBC5C0D2}
+		{3AB7B80B-BAF5-4BC2-8CB5-B1A00E646D89} = {197618A0-BDD0-40C0-BBC3-678E58EAFF70}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EC68E9A1-91AC-4B6A-B817-573F85D4F550}
