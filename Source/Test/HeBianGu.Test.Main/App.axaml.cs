@@ -23,9 +23,22 @@ public partial class App : ApplicationBase
     {
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
         {
-            desktop.MainWindow = new MainWindow
+            //desktop.MainWindow = new MainWindow
+            //{
+            //    DataContext = new MainViewModel()
+            //};
+            ////desktop.MainWindow.Show();
+            MainWindow mainWindow = new MainWindow()
             {
                 DataContext = new MainViewModel()
+            };
+            LoginWindow loginWindow = new LoginWindow();
+            desktop.MainWindow = loginWindow;
+            loginWindow.Logined += () =>
+            {
+                desktop.MainWindow = mainWindow;
+                mainWindow.Show();
+                loginWindow.Close();
             };
         }
         else if (ApplicationLifetime is ISingleViewApplicationLifetime singleViewPlatform)
@@ -44,6 +57,8 @@ public partial class App : ApplicationBase
         base.ConfigureServices(services);
         services.AddSingleton<IMyIoc, MyIoc>();
     }
+
+
 }
 
 public interface IMyIoc
@@ -51,7 +66,7 @@ public interface IMyIoc
 
 }
 
-public class MyIoc: IMyIoc
+public class MyIoc : IMyIoc
 {
 
 }
@@ -71,6 +86,19 @@ public partial class ApplicationBase : Application
     protected virtual void ConfigureServices(IServiceCollection services)
     {
 
+    }
+    public override void RegisterServices()
+    {
+        base.RegisterServices();
+    }
+
+    public override void OnFrameworkInitializationCompleted()
+    {
+        base.OnFrameworkInitializationCompleted();
+    }
+    public override void Initialize()
+    {
+        base.Initialize();
     }
 }
 

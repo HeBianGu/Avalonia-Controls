@@ -8,6 +8,7 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using Avalonia.Controls.Presenters;
 using Avalonia.Layout;
 using System.Reactive.Disposables;
+using Avalonia.Threading;
 
 namespace HeBianGu.Test.Main.Views;
 
@@ -21,6 +22,7 @@ public partial class MainView : UserControl
     public void Ioc_Click(object source, RoutedEventArgs args)
     {
         var i = Ioc.GetService<IMyIoc>();
+        Dispatcher.UIThread.Invoke(() => { });
     }
     public void Adornr_Click(object source, RoutedEventArgs args)
     {
