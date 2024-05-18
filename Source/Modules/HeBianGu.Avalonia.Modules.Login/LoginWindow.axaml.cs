@@ -4,6 +4,7 @@ using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Input;
 using Avalonia.Interactivity;
 using HeBianGu.Avalonia.Core.Ioc;
+using HeBianGu.Avalonia.Windows.Dialog;
 using System;
 
 namespace HeBianGu.Avalonia.Modules.Login
@@ -11,7 +12,7 @@ namespace HeBianGu.Avalonia.Modules.Login
 
 
 
-    public partial class LoginWindow : Window, ILoginWindow
+    public partial class LoginWindow : DialogWindow, ILoginWindow
     {
         public LoginWindow()
         {

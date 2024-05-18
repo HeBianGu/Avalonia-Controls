@@ -8,4 +8,12 @@
   <ItemGroup>
     <ProjectReference Include="..\..\Core\HeBianGu.Avalonia.Core.Ioc\HeBianGu.Avalonia.Core.Ioc.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <AvaloniaXaml Include="DialogWindow.axaml">
+      <Generator>MSBuild:Compile</Generator>
+    </AvaloniaXaml>
+  </ItemGroup>
+  <ItemGroup>
+    <UpToDateCheckInput Remove="DialogWindow.axaml" />
+  </ItemGroup>
 </Project>

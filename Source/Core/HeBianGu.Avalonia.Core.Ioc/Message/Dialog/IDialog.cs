@@ -9,9 +9,9 @@ namespace HeBianGu.Avalonia.Core.Ioc
         Func<bool> CanSumit { get; set; }
         void Sumit();
         void Close();
-        string Title { get; set; }
+        string? Title { get; set; }
         bool? DialogResult { get; set; }
         DialogButton DialogButton { get; set; }
-        Window Owner { get; set; }
+        WindowBase? Owner { get; }
     }
 }

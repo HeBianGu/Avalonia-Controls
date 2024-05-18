@@ -12,6 +12,7 @@ using CommunityToolkit.Mvvm.DependencyInjection;
 using HeBianGu.Avalonia.Modules.Login;
 using HeBianGu.Avalonia.Core.Ioc;
 using HeBianGu.Avalonia.Extensions.ApplicationBase;
+using HeBianGu.Avalonia.Windows.Dialog;
 
 namespace HeBianGu.Test.Main;
 
@@ -44,6 +45,8 @@ public partial class App : ApplicationBase
         {
             DataContext = new MainViewModel()
         };
+
+        //return new DialogWindow() { Title = "sss", Content = "44444" };
     }
 }
 

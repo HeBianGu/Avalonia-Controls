@@ -90,9 +90,12 @@
         <TabItem Header="Adornr">
             <Button Click="Adornr_Click" Content="Adornr" />
         </TabItem>
-        <TabItem Header="Dialog">
-            <Button Click="Dialog_Click" Content="Dialog" />
+        <TabItem Header="AdornerDialog">
+            <Button Click="AdornerDialog_Click" Content="AdornerDialog" />
         </TabItem>
+      <TabItem Header="WindowDialog">
+        <Button Click="WindowDialog_Click" Content="WindowDialog" />
+      </TabItem>
         <TabItem Header="Behavior">
           <Button Content="Behavior">
             <i:Interaction.Behaviors>

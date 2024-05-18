@@ -9,6 +9,7 @@ using Avalonia.Controls.Presenters;
 using Avalonia.Layout;
 using System.Reactive.Disposables;
 using Avalonia.Threading;
+using HeBianGu.Avalonia.Windows.Dialog;
 
 namespace HeBianGu.Test.Main.Views;
 
@@ -37,10 +38,15 @@ public partial class MainView : UserControl
         AdornerLayer.SetAdorner(this, contentPresenter);
         //AdornerLayer.SetAdorner(this, new Button() { Content = "Adorner" });
     }
-    public void Dialog_Click(object source, RoutedEventArgs args)
+    public void AdornerDialog_Click(object source, RoutedEventArgs args)
     {
         AdornerDialogPresenter adornerDialogPresenter = new AdornerDialogPresenter(new Student());
         adornerDialogPresenter.ShowDialog();
     }
 
+    public void WindowDialog_Click(object source, RoutedEventArgs args)
+    {
+        DialogWindow dialogWindow=new DialogWindow();
+        dialogWindow.Show();
+    }
 }

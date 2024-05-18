@@ -7,8 +7,8 @@ namespace HeBianGu.Avalonia.Core.Ioc
 {
     public interface ILayoutable
     {
-        Brush Background { get; set; }
-        Brush BorderBrush { get; set; }
+        IBrush? Background { get; set; }
+        IBrush? BorderBrush { get; set; }
         Thickness BorderThickness { get; set; }
         double Height { get; set; }
         HorizontalAlignment HorizontalAlignment { get; set; }

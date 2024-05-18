@@ -6,5 +6,6 @@ namespace HeBianGu.Controls.TemplateControl
 {
     public class MyTemplatedControl : TemplatedControl
     {
+        
     }
 }

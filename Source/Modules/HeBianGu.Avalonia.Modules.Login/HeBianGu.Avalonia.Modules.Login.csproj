@@ -21,5 +21,6 @@
     <ProjectReference Include="..\..\Core\HeBianGu.Avalonia.Core.Ioc\HeBianGu.Avalonia.Core.Ioc.csproj" />
     <ProjectReference Include="..\..\Core\HeBianGu.Avalonia.Core.Mvvm\HeBianGu.Avalonia.Core.Mvvm.csproj" />
     <ProjectReference Include="..\..\Extensions\HeBianGu.Avalonia.Extensions.Setting\HeBianGu.Avalonia.Extensions.Setting.csproj" />
+    <ProjectReference Include="..\..\Windows\HeBianGu.Avalonia.Windows.Dialog\HeBianGu.Avalonia.Windows.Dialog.csproj" />
   </ItemGroup>
 </Project>

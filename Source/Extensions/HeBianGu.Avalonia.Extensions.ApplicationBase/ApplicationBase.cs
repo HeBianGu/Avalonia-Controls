@@ -41,14 +41,21 @@ namespace HeBianGu.Avalonia.Extensions.ApplicationBase
             {
                 Window mainWindow = this.GetMainWindow();
                 var service = Ioc.Services.GetService<ILoginWindow>();
-                Window loginWindow = service.GetWindow();
-                desktop.MainWindow = loginWindow;
-                service.Logined += (l, k) =>
+                if(service==null)
                 {
                     desktop.MainWindow = mainWindow;
-                    mainWindow.Show();
-                    loginWindow.Close();
-                };
+                }
+                else
+                {
+                    Window loginWindow = service.GetWindow();
+                    desktop.MainWindow = loginWindow;
+                    service.Logined += (l, k) =>
+                    {
+                        desktop.MainWindow = mainWindow;
+                        mainWindow.Show();
+                        loginWindow.Close();
+                    };
+                }
             }
             else if (ApplicationLifetime is ISingleViewApplicationLifetime singleViewPlatform)
             {

@@ -31,12 +31,12 @@ namespace HeBianGu.Avalonia.Windows.Dialog
 
         public override void Execute(object parameter)
         {
-            var value = Ioc.Services.GetService(typeof(Type));
-            DialogWindow.ShowPresenter(value, x =>
-            {
-                x.Width = this.Width;
-                x.Height = this.Height;
-            });
+            //var value = Ioc.Services.GetService(typeof(Type));
+            //DialogWindow.ShowPresenter(value, x =>
+            //{
+            //    x.Width = this.Width;
+            //    x.Height = this.Height;
+            //});
         }
 
         public override bool CanExecute(object? parameter)
