@@ -59,6 +59,14 @@
 
             </Grid>
         </DataTemplate>
+      <DataTemplate DataType="{x:Type h:StringPresenter}">
+        <TextBlock Margin="10,40" Width="{Binding Width}" MinWidth="300" Height="{Binding Height}"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center" TextAlignment="Center"
+                   Text="{Binding Value}"
+                   TextWrapping="Wrap"
+                   ToolTip.Tip="{Binding Value}" />
+      </DataTemplate>
         <DataTemplate DataType="v:Student">
             <Grid>
                 <TextBlock Text="{Binding Name}" />
