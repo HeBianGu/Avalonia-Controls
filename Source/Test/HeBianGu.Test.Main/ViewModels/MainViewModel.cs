@@ -1,5 +1,7 @@
 ﻿using Avalonia.Controls;
-using CommunityToolkit.Mvvm.Input;
+using Avalonia.Modules.Messages.Dialog;
+using HeBianGu.Avalonia.Core.Ioc;
+using HeBianGu.Avalonia.Core.Mvvm;
 using HeBianGu.Test.Main.Views;
 using ReactiveUI;
 using System.Collections.ObjectModel;
@@ -16,7 +18,7 @@ public class MainViewModel : ViewModelBase
     {
         this.Collection = new ObservableCollection<string>(Enumerable.Range(1, 30).Select(x => x.ToString()));
 
-        BehaviorCommand = new RelayCommand(() =>
+        BehaviorCommand = new RelayCommand(x =>
         {
             AdornerDialogPresenter adornerDialogPresenter = new AdornerDialogPresenter(new Student());
             adornerDialogPresenter.ShowDialog();
@@ -33,4 +35,14 @@ public class MainViewModel : ViewModelBase
     }
 
     public ICommand BehaviorCommand { get; }
+
+
+    public RelayCommand ShowMessageCommand => new RelayCommand((s, e) =>
+    {
+        IocMessage.Dialog.Show("111111");
+    });
+    public RelayCommand ShowFormMessageCommand => new RelayCommand((s, e) =>
+    {
+        IocMessage.Form.ShowEdit(Student.Random());
+    });
 }

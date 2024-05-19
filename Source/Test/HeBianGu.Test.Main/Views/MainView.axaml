@@ -139,5 +139,16 @@
                 </h:Form.SelectObject>
             </h:Form>
         </TabItem>
+
+        <TabItem Header="Setting">
+            <Button Click="Setting_Click" Content="Setting" />
+        </TabItem>
+
+        <TabItem Header="Message">
+            <UniformGrid>
+                <Button Command="{Binding ShowMessageCommand}" Content="ShowMessageCommand" />
+                <Button Command="{Binding ShowFormMessageCommand}" Content="ShowFormMessageCommand" />
+            </UniformGrid>
+        </TabItem>
     </TabControl>
 </UserControl>

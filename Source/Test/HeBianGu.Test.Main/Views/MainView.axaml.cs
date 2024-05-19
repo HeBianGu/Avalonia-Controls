@@ -11,6 +11,8 @@ using System.Reactive.Disposables;
 using Avalonia.Threading;
 using HeBianGu.Avalonia.Windows.Dialog;
 using Avalonia;
+using HeBianGu.Avalonia.Modules.Setting;
+using Avalonia.Modules.Messages.Dialog;
 
 namespace HeBianGu.Test.Main.Views;
 
@@ -54,4 +56,26 @@ public partial class MainView : UserControl
 
         await DialogWindow.ShowPresenter(r);
     }
+
+    public async void Setting_Click(object source, RoutedEventArgs args)
+    {
+        //DialogWindow dialogWindow=new DialogWindow();
+        //dialogWindow.Show();
+
+        SettingViewPresenter settingViewPresenter= new SettingViewPresenter();
+
+        //var r = await DialogWindow.ShowPresenter(settingViewPresenter, x =>
+        //{
+        //    x.Padding = new Thickness(10, 6, 10, 6);
+        //    x.Width = double.NaN;
+        //});
+
+        //await DialogWindow.ShowPresenter(r);
+
+
+        AdornerDialogPresenter adornerDialogPresenter = new AdornerDialogPresenter(settingViewPresenter);
+        adornerDialogPresenter.ShowDialog();
+    }
+
+    
 }

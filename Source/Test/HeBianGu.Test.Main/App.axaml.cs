@@ -13,6 +13,7 @@ using HeBianGu.Avalonia.Modules.Login;
 using HeBianGu.Avalonia.Core.Ioc;
 using HeBianGu.Avalonia.Extensions.ApplicationBase;
 using HeBianGu.Avalonia.Windows.Dialog;
+using Avalonia.Modules.Messages.Dialog;
 
 namespace HeBianGu.Test.Main;
 
@@ -29,6 +30,14 @@ public partial class App : ApplicationBase
         base.ConfigureServices(services);
         services.AddSingleton<IMyIoc, MyIoc>();
         services.AddSingleton<ILoginWindow, LoginWindow>();
+        services.AddSingleton<IDialogMessageService, AdornerDialogMessageService>();
+        services.AddFormMessageService();
+    }
+
+    protected override void Configure(IApplicationBuilder app)
+    {
+        base.Configure(app);
+        app.UseSettingDefault();
     }
 
     protected override Control GetMainView()

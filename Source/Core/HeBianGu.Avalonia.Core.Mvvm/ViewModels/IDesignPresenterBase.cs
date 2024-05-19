@@ -9,8 +9,8 @@ namespace HeBianGu.Avalonia.Core.Mvvm
 {
     public interface IDesignPresenterBase
     {
-        Brush Background { get; set; }
-        Brush BorderBrush { get; set; }
+        IBrush? Background { get; set; }
+        IBrush? BorderBrush { get; set; }
         Thickness BorderThickness { get; set; }
         int Column { get; set; }
         int ColumnSpan { get; set; }

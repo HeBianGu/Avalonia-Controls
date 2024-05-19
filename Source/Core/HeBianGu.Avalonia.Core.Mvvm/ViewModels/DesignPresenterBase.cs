@@ -178,10 +178,10 @@ namespace HeBianGu.Avalonia.Core.Mvvm
         }
 
 
-        private Brush _background;
+        private IBrush? _background;
         [Display(Name = "背景颜色", GroupName = "样式")]
         /// <summary> 说明  </summary>
-        public Brush Background
+        public IBrush? Background
         {
             get { return _background; }
             set
@@ -191,10 +191,10 @@ namespace HeBianGu.Avalonia.Core.Mvvm
             }
         }
 
-        private Brush _borderBrush;
+        private IBrush? _borderBrush;
         [Display(Name = "边框颜色", GroupName = "样式")]
         /// <summary> 说明  </summary>
-        public Brush BorderBrush
+        public IBrush? BorderBrush
         {
             get { return _borderBrush; }
             set
