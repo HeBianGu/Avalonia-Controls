@@ -56,7 +56,7 @@
                     <Border Background="{TemplateBinding Background}"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}">
-                      <!--<Border.DataTemplates>
+                        <!--<Border.DataTemplates>
                         <DataTemplate DataType="local:TextPropertyItem">
                           <TextBox Margin="0,2"
                                    VerticalContentAlignment="Center"
@@ -71,7 +71,7 @@
                             <!--<b:Interaction.Behaviors>
                 <h:ScrollViewerBebavior UseMouseWheelHijack="True" />
               </b:Interaction.Behaviors>-->
-                            <ItemsPresenter Margin="0"/>
+                            <ItemsPresenter Margin="0" />
                         </ScrollViewer>
 
                     </Border>
@@ -101,10 +101,11 @@
                                         <ColumnDefinition />
                                         <ColumnDefinition Width="Auto" />
                                     </Grid.ColumnDefinitions>
-                                    <ContentPresenter Grid.Column="0"
+                                    <ContentControl Grid.Column="0"
                                                       Content="{Binding Name}"
                                                       ContentTemplate="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:Form}}, Path=ItemHeaderTemplate}" />
                                     <TextBlock Grid.Column="1" Theme="{StaticResource S.TextBlock.Flag}" />
+                                    <!--<TextBlock Grid.Column="0" Text="{Binding Name}" />-->
                                     <ContentPresenter Grid.Column="2" Content="{Binding}" />
                                     <TextBlock Grid.Column="3" Theme="{StaticResource S.TextBlock.Error}" />
                                 </Grid>
