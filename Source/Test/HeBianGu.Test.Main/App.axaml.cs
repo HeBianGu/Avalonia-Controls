@@ -32,6 +32,8 @@ public partial class App : ApplicationBase
         services.AddSingleton<ILoginWindow, LoginWindow>();
         services.AddSingleton<IDialogMessageService, AdornerDialogMessageService>();
         services.AddFormMessageService();
+        services.AddNoticeMessage();
+        services.AddSnackMessage();
     }
 
     protected override void Configure(IApplicationBuilder app)
@@ -40,11 +42,6 @@ public partial class App : ApplicationBase
         app.UseSettingDefault();
     }
 
-    protected override void Configure(IApplicationBuilder app)
-    {
-        base.Configure(app);
-        app.UseSettingDefault();
-    }
 
     protected override Control GetMainView()
     {

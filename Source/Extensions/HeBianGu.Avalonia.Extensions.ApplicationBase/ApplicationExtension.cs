@@ -15,6 +15,15 @@ namespace HeBianGu.Avalonia.Extensions.ApplicationBase
             return null;
         }
 
+        public static Control GetMainAdornerControl(this Application application)
+        {
+            if (application?.ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
+                return desktop.MainWindow.Content as Control;
+            if (application?.ApplicationLifetime is ISingleViewApplicationLifetime singleView)
+                return singleView.MainView;
+            return null;
+        }
+
         public static void ShutDown(this Application application, int exitCode)
         {
             if (application.ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)

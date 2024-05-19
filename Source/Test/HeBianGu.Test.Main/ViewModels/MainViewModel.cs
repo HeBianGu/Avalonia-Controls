@@ -45,4 +45,13 @@ public class MainViewModel : ViewModelBase
     {
         IocMessage.Form.ShowEdit(Student.Random());
     });
+    public RelayCommand ShowNoticeMessageCommand => new RelayCommand((s, e) =>
+    {
+        IocMessage.Notify.ShowInfo("11111");
+    });
+
+    public RelayCommand ShowSnackMessageCommand => new RelayCommand((s, e) =>
+    {
+        IocMessage.Snack.ShowSuccess("11111");
+    });
 }

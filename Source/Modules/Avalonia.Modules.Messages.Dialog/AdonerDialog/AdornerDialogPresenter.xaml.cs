@@ -11,6 +11,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using Avalonia.Layout;
+using HeBianGu.Avalonia.Extensions.ApplicationBase;
 
 namespace Avalonia.Modules.Messages.Dialog
 {
@@ -41,27 +42,21 @@ namespace Avalonia.Modules.Messages.Dialog
         private ManualResetEvent _waitHandle = new ManualResetEvent(false);
         public async Task<bool?> ShowDialog(Window owner = null)
         {
-            if (Application.Current.ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
+           var control= Application.Current.GetMainAdornerControl();
+            if(control==null)
+                return false;
+            //AdornerLayer layer = AdornerLayer.GetAdornerLayer(control);
+            ContentPresenter contentPresenter = new ContentPresenter();
+            contentPresenter.Content = this;
+            contentPresenter.HorizontalAlignment = Avalonia.Layout.HorizontalAlignment.Stretch;
+            contentPresenter.VerticalAlignment = VerticalAlignment.Stretch;
+            AdornerLayer.SetAdorner(control, contentPresenter);
+            _waitHandle.Reset();
+            return await Task.Run(() =>
             {
-                Window window = owner ?? desktop.MainWindow;
-                AdornerLayer layer = AdornerLayer.GetAdornerLayer(window.Content as Visual);
-                //PresenterAdorner adorner = new PresenterAdorner(child, this);
-                //layer.Add(adorner);
-                ContentPresenter contentPresenter = new ContentPresenter();
-                contentPresenter.Content = this;
-                contentPresenter.HorizontalAlignment = Avalonia.Layout.HorizontalAlignment.Stretch;
-                contentPresenter.VerticalAlignment = VerticalAlignment.Stretch;
-                //AdornerLayer.SetAdornedElement(contentPresenter, layer);
-                AdornerLayer.SetAdorner(window.Content as Visual, contentPresenter);
-                //layer.Children.Add(contentPresenter);
-                _waitHandle.Reset();
-                return await Task.Run(() =>
-                {
-                    _waitHandle.WaitOne();
-                    return this.DialogResult;
-                });
-            }
-            return false;
+                _waitHandle.WaitOne();
+                return this.DialogResult;
+            });
 
         }
         #region - IDialogWindow -
@@ -80,19 +75,14 @@ namespace Avalonia.Modules.Messages.Dialog
 
         public void Close()
         {
-            if (Application.Current.ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
-            {
-                Window window = desktop.MainWindow;
-                AdornerLayer layer = AdornerLayer.GetAdornerLayer(window);
-                //PresenterAdorner adorner = new PresenterAdorner(child, this);
-                //layer.Add(adorner);
+            var control = Application.Current.GetMainAdornerControl();
+            if (control == null)
+                return;
 
-                AdornerLayer.SetAdorner(window.Content as Visual, null);
-
-                //ContentPresenter contentPresenter = layer.Children.OfType<ContentPresenter>().FirstOrDefault(x=>x.Content==this);
-                //layer.Children.Remove(contentPresenter);
-                _waitHandle.Set();
-            }
+            AdornerLayer.SetAdorner(control, null);
+            //ContentPresenter contentPresenter = layer.Children.OfType<ContentPresenter>().FirstOrDefault(x=>x.Content==this);
+            //layer.Children.Remove(contentPresenter);
+            _waitHandle.Set();
 
             //Dispatcher.UIThread.Invoke(() =>
             //{

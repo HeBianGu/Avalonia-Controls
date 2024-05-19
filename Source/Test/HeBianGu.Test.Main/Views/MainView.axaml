@@ -148,6 +148,8 @@
             <UniformGrid>
                 <Button Command="{Binding ShowMessageCommand}" Content="ShowMessageCommand" />
                 <Button Command="{Binding ShowFormMessageCommand}" Content="ShowFormMessageCommand" />
+                <Button Command="{Binding ShowNoticeMessageCommand}" Content="ShowNoticeMessageCommand" />
+              <Button Command="{Binding ShowSnackMessageCommand}" Content="ShowSnackMessageCommand" />
             </UniformGrid>
         </TabItem>
     </TabControl>

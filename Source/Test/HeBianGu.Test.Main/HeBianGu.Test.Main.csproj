@@ -32,6 +32,8 @@
     <ProjectReference Include="..\..\Extensions\HeBianGu.Avalonia.Extensions.Setting\HeBianGu.Avalonia.Extensions.Setting.csproj" />
     <ProjectReference Include="..\..\Modules\Avalonia.Modules.Messages.Dialog\Avalonia.Modules.Messages.Dialog.csproj" />
     <ProjectReference Include="..\..\Modules\Avalonia.Modules.Messages.Form\Avalonia.Modules.Messages.Form.csproj" />
+    <ProjectReference Include="..\..\Modules\Avalonia.Modules.Messages.Notice\Avalonia.Modules.Messages.Notice.csproj" />
+    <ProjectReference Include="..\..\Modules\Avalonia.Modules.Messages.Snack\Avalonia.Modules.Messages.Snack.csproj" />
     <ProjectReference Include="..\..\Modules\HeBianGu.Avalonia.Modules.Login\HeBianGu.Avalonia.Modules.Login.csproj" />
     <ProjectReference Include="..\..\Modules\HeBianGu.Avalonia.Modules.Setting\HeBianGu.Avalonia.Modules.Setting.csproj" />
     <ProjectReference Include="..\..\Windows\HeBianGu.Avalonia.Windows.Dialog\HeBianGu.Avalonia.Windows.Dialog.csproj" />
