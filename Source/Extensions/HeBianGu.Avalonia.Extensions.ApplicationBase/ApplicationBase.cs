@@ -12,7 +12,10 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace HeBianGu.Avalonia.Extensions.ApplicationBase
 {
+    public class ApplicationBuilder : IApplicationBuilder
+    {
 
+    }
     public abstract partial class ApplicationBase : Application
     {
         public ApplicationBase()
@@ -20,12 +23,20 @@ namespace HeBianGu.Avalonia.Extensions.ApplicationBase
             ServiceCollection sc = new ServiceCollection();
             this.ConfigureServices(sc);
             Ioc.Build(sc);
+
+            ApplicationBuilder bulder = new ApplicationBuilder();
+            this.Configure(bulder);
         }
         /// <summary>
         /// 依赖注入注册服务
         /// </summary>
         /// <param name="services"></param>
         protected virtual void ConfigureServices(IServiceCollection services)
+        {
+
+        }
+
+        protected virtual void Configure(IApplicationBuilder app)
         {
 
         }

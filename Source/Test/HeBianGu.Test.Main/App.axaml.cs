@@ -31,6 +31,12 @@ public partial class App : ApplicationBase
         services.AddSingleton<ILoginWindow, LoginWindow>();
     }
 
+    protected override void Configure(IApplicationBuilder app)
+    {
+        base.Configure(app);
+        app.UseSettingDefault();
+    }
+
     protected override Control GetMainView()
     {
         return new MainView

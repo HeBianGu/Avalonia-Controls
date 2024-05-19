@@ -139,5 +139,10 @@
                 </h:Form.SelectObject>
             </h:Form>
         </TabItem>
+
+      <TabItem Header="Setting">
+        <Button Content="Setting" Click="Setting_Click">
+        </Button>
+      </TabItem>
     </TabControl>
 </UserControl>
