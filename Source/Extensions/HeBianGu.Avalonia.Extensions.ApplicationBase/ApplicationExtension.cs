@@ -25,5 +25,23 @@ namespace HeBianGu.Avalonia.Extensions.ApplicationBase
         {
             Dispatcher.UIThread.Invoke(action);
         }
+
+        public static void BeginInvoke(this Application application, DispatcherPriority dispatcherPriority, Action action)
+        {
+            Dispatcher.UIThread.InvokeAsync(action, dispatcherPriority);
+        }
+    }
+
+    public static class ControlExtension
+    {
+        public static void Invoke(this Control control, Action action)
+        {
+            Dispatcher.UIThread.Invoke(action);
+        }
+
+        public static void BeginInvoke(this Control control, DispatcherPriority dispatcherPriority, Action action)
+        {
+            Dispatcher.UIThread.InvokeAsync(action, dispatcherPriority);
+        }
     }
 }

@@ -24,6 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Controls\HeBianGu.Avalonia.Controls.Form\HeBianGu.Avalonia.Controls.Form.csproj" />
     <ProjectReference Include="..\..\Controls\HeBianGu.Controls.MultiComboBox\HeBianGu.Controls.MultiComboBox.csproj" />
     <ProjectReference Include="..\..\Controls\HeBianGu.Controls.TemplateControl\HeBianGu.Controls.TemplateControl.csproj" />
     <ProjectReference Include="..\..\Core\HeBianGu.Avalonia.Core.Ioc\HeBianGu.Avalonia.Core.Ioc.csproj" />

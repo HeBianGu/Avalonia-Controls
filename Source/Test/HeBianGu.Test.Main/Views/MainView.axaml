@@ -105,5 +105,12 @@
                 </i:Interaction.Behaviors>
             </Button>
         </TabItem>
+        <TabItem Header="From">
+            <h:From>
+                <h:From.SelectObject>
+                    <h:Student />
+                </h:From.SelectObject>
+            </h:From>
+        </TabItem>
     </TabControl>
 </UserControl>

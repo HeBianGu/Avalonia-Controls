@@ -93,7 +93,7 @@ public partial class AdornerDialogPresenter:ViewModelBase
             _waitHandle.Set();
         }
 
-        //Application.Current.Dispatcher.Invoke(() =>
+        //Dispatcher.UIThread.Invoke(() =>
         //{
         //    UIElement child = Application.Current.MainWindow.Content as UIElement;
         //    AdornerLayer layer = AdornerLayer.GetAdornerLayer(child);
