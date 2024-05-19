@@ -1,49 +1,48 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:h="https://github.com/HeBianGu"
                     xmlns:local="clr-namespace:HeBianGu.Avalonia.Controls.Form"
                     xmlns:sys="clr-namespace:System;assembly=mscorlib">
-    <Style x:Key="S.TextBlock.Unit" TargetType="TextBlock">
+    <ControlTheme x:Key="S.TextBlock.Unit" TargetType="TextBlock">
         <Setter Property="Text" Value="{Binding Unit}" />
         <!--<Setter Property="Foreground" Value="{DynamicResource {x:Static h:BrushKeys.Red}}" />-->
         <Setter Property="Grid.Column" Value="4" />
         <Setter Property="VerticalAlignment" Value="Center" />
-    </Style>
+    </ControlTheme>
 
-    <Style x:Key="S.TextBlock.Flag" TargetType="TextBlock">
+    <ControlTheme x:Key="S.TextBlock.Flag" TargetType="TextBlock">
         <Setter Property="Text" Value="{Binding Flag}" />
         <Setter Property="Width" Value="10" />
         <Setter Property="Grid.Column" Value="1" />
         <Setter Property="VerticalAlignment" Value="Center" />
-        <Setter Property="Foreground" Value="{DynamicResource {x:Static BrushKeys.Red}}" />
-    </Style>
+        <!--<Setter Property="Foreground" Value="{DynamicResource {x:Static BrushKeys.Red}}" />-->
+    </ControlTheme>
 
-    <Style x:Key="S.TextBlock.Error" TargetType="TextBlock">
+    <ControlTheme x:Key="S.TextBlock.Error" TargetType="TextBlock">
         <Setter Property="FontSize" Value="14" />
         <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="HorizontalAlignment" Value="Center" />
         <Setter Property="Text" Value="！" />
-        <Setter Property="ToolTip" Value="{Binding Message}" />
+        <Setter Property="ToolTip.Tip" Value="{Binding Message}" />
         <Setter Property="TextTrimming" Value="{Binding CharacterEllipsis}" />
-        <Setter Property="Visibility" Value="{Binding Message, Converter={x:Static h:Converter.GetNullToCollapsed}, Mode=TwoWay}" />
+        <!--<Setter Property="Visibility" Value="{Binding Message, Converter={x:Static h:Converter.GetNullToCollapsed}, Mode=TwoWay}" />-->
         <Setter Property="Width" Value="{Binding RelativeSource={RelativeSource AncestorType=local:Form}, Path=MessageWidth}" />
         <Setter Property="TextAlignment" Value="Center" />
         <Setter Property="Grid.Column" Value="4" />
-        <Setter Property="Foreground" Value="{DynamicResource {x:Static BrushKeys.Red}}" />
-    </Style>
+        <!--<Setter Property="Foreground" Value="{DynamicResource {x:Static BrushKeys.Red}}" />-->
+    </ControlTheme>
 
-    <Style TargetType="local:Form">
+    <ControlTheme x:Key="{x:Type local:Form}" TargetType="local:Form">
         <Setter Property="BorderBrush" Value="Transparent" />
         <Setter Property="VerticalAlignment" Value="Top" />
-        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        <!--<Setter Property="HorizontalContentAlignment" Value="Stretch" />-->
         <Setter Property="Padding" Value="0,0,10,0" />
-        <Setter Property="Width" Value="Auto" />
-        <Setter Property="Height" Value="Auto" />
+        <!--<Setter Property="Width" Value="Auto" />
+        <Setter Property="Height" Value="Auto" />-->
         <Setter Property="Title" Value="Title" />
         <Setter Property="MessageWidth" Value="15" />
         <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
-        <Setter Property="VirtualizingStackPanel.IsVirtualizing" Value="True" />
-        <Setter Property="VirtualizingStackPanel.VirtualizationMode" Value="Recycling" />
+        <!--<Setter Property="VirtualizingStackPanel.IsVirtualizing" Value="True" />
+        <Setter Property="VirtualizingStackPanel.VirtualizationMode" Value="Recycling" />-->
         <Setter Property="ItemsPanel">
             <Setter.Value>
                 <ItemsPanelTemplate>
@@ -57,14 +56,24 @@
                     <Border Background="{TemplateBinding Background}"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}">
+                      <!--<Border.DataTemplates>
+                        <DataTemplate DataType="local:TextPropertyItem">
+                          <TextBox Margin="0,2"
+                                   VerticalContentAlignment="Center"
+                                   IsReadOnly="{Binding ReadOnly}"
+                                   Text="{Binding Value}"
+                                   TextWrapping="{Binding TextWrapping}"
+                                   ToolTip.Tip="{Binding Message}" />
+                        </DataTemplate>
+                      </Border.DataTemplates>-->
+
                         <ScrollViewer Margin="0" Padding="0">
                             <!--<b:Interaction.Behaviors>
                 <h:ScrollViewerBebavior UseMouseWheelHijack="True" />
               </b:Interaction.Behaviors>-->
-                            <ItemsPresenter Margin="0"
-                                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                            <ItemsPresenter Margin="0"/>
                         </ScrollViewer>
+
                     </Border>
                 </ControlTemplate>
             </Setter.Value>
@@ -79,13 +88,13 @@
                 </DataTemplate>
             </Setter.Value>
         </Setter>
-        <Setter Property="ItemContainerStyle">
+        <Setter Property="ItemContainerTheme">
             <Setter.Value>
-                <Style TargetType="ContentPresenter">
+                <ControlTheme TargetType="ContentPresenter">
                     <Setter Property="ContentTemplate">
                         <Setter.Value>
                             <DataTemplate>
-                                <Grid ToolTip="{Binding Description}">
+                                <Grid ToolTip.Tip="{Binding Description}">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="Auto" />
                                         <ColumnDefinition Width="Auto" />
@@ -95,14 +104,14 @@
                                     <ContentPresenter Grid.Column="0"
                                                       Content="{Binding Name}"
                                                       ContentTemplate="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:Form}}, Path=ItemHeaderTemplate}" />
-                                    <TextBlock Grid.Column="1" Style="{StaticResource S.TextBlock.Flag}" />
+                                    <TextBlock Grid.Column="1" Theme="{StaticResource S.TextBlock.Flag}" />
                                     <ContentPresenter Grid.Column="2" Content="{Binding}" />
-                                    <TextBlock Grid.Column="3" Style="{StaticResource S.TextBlock.Error}" />
+                                    <TextBlock Grid.Column="3" Theme="{StaticResource S.TextBlock.Error}" />
                                 </Grid>
                             </DataTemplate>
                         </Setter.Value>
                     </Setter>
-                </Style>
+                </ControlTheme>
             </Setter.Value>
         </Setter>
         <!--<Setter Property="GroupStyle">
@@ -148,5 +157,6 @@
         <!--
             </Setter.Value>
         </Setter>-->
-    </Style>
+
+    </ControlTheme>
 </ResourceDictionary>

@@ -46,6 +46,8 @@ namespace HeBianGu.Avalonia.Controls.Form
             //});
 
             this.RefreshMapper();
+
+            this.RefreshObject();
         }
 
         //public void TransitionSumit()

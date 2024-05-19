@@ -106,11 +106,38 @@
             </Button>
         </TabItem>
         <TabItem Header="From">
-            <h:From>
-                <h:From.SelectObject>
-                    <h:Student />
-                </h:From.SelectObject>
-            </h:From>
+            <h:Form>
+                <h:Form.Theme>
+                    <ControlTheme BasedOn="{StaticResource {x:Type h:Form}}" TargetType="h:Form">
+                        <!--<Setter Property="DataTemplates">
+                  <Setter.Value>
+                    <DataTemplate DataType="v:Student">
+                      <Grid>
+                        <TextBlock Text="{Binding Class}" />
+                      </Grid>
+                    </DataTemplate>
+                  </Setter.Value>
+                </Setter>-->
+                        <Setter Property="Background" Value="Red" />
+                    </ControlTheme>
+                </h:Form.Theme>
+                <!--<h:Form.StyleKey>
+
+            </h:Form.StyleKey>-->
+                <!--<h:Form.DataTemplates>
+                    <DataTemplate DataType="h:TextPropertyItem">
+                        <TextBox Margin="0,2"
+                                 VerticalContentAlignment="Center"
+                                 IsReadOnly="{Binding ReadOnly}"
+                                 Text="{Binding Value}"
+                                 TextWrapping="{Binding TextWrapping}"
+                                 ToolTip.Tip="{Binding Message}" />
+                    </DataTemplate>
+                </h:Form.DataTemplates>-->
+                <h:Form.SelectObject>
+                    <h:TypeCTestModel />
+                </h:Form.SelectObject>
+            </h:Form>
         </TabItem>
     </TabControl>
 </UserControl>
