@@ -3,8 +3,10 @@
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.ApplicationLifetimes;
+using HeBianGu.Avalonia.Core.Ioc;
 using System;
 using System.Windows;
+using System.Xml.Linq;
 
 namespace HeBianGu.Avalonia.Extensions.Command
 {
@@ -16,14 +18,13 @@ namespace HeBianGu.Avalonia.Extensions.Command
         {
             if (parameter is Window window && Application.Current.ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
             {
-                //bool isMain = desktop.MainWindow == window && WindowSetting.Instance.UseNoticeOnMainWindowClose;
-                //if (isMain || this.UseDialog)
-                //{
-                //    var r = await IocMessage.ShowDialogMessage(this.Message, "提示", DialogButton.SumitAndCancel);
-                //    if (r != true)
-                //        return;
-                //}
-                //SystemCommands.CloseWindow(window);
+                bool isMain = desktop.MainWindow == window && WindowSetting.Instance.UseNoticeOnMainWindowClose;
+                if (isMain || this.UseDialog)
+                {
+                    var r = await IocMessage.ShowDialogMessage(this.Message, "提示", DialogButton.SumitAndCancel);
+                    if (r != true)
+                        return;
+                }
                 window.Close();
             }
         }

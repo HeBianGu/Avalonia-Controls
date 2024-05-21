@@ -3,6 +3,7 @@ using Avalonia.Controls;
 using Avalonia.Controls.Presenters;
 using Avalonia.Controls.Primitives;
 using Avalonia.Layout;
+using Avalonia.Modules.Messages.Dialog;
 using HeBianGu.Avalonia.Core.Ioc;
 using HeBianGu.Avalonia.Extensions.ApplicationBase;
 using System;
@@ -19,22 +20,8 @@ namespace Avalonia.Modules.Messages.Notice
 
         private void CheckValid()
         {
-            var control = Application.Current.GetMainAdornerControl();
-            if (control == null)
-                return;
-            //AdornerLayer layer = AdornerLayer.GetAdornerLayer(control);
-            ContentPresenter contentPresenter = new ContentPresenter();
-            contentPresenter.Content = this._noticeBox;
-            contentPresenter.HorizontalAlignment = Avalonia.Layout.HorizontalAlignment.Stretch;
-            contentPresenter.VerticalAlignment = VerticalAlignment.Stretch;
-            AdornerLayer.SetAdorner(control, contentPresenter);
-
-            //System.Collections.Generic.IEnumerable<PresenterAdorner> adorners = layer.GetAdorners(child)?.OfType<PresenterAdorner>().Where(x => x.Presenter == this._noticeBox);
-            //if (adorners == null || adorners.Count() == 0)
-            //{
-            //    PresenterAdorner adorner = new PresenterAdorner(child, this._noticeBox);
-            //    layer.Add(adorner);
-            //}
+            if(!AdornerGrid.HasPresenter(_noticeBox))
+                AdornerGrid.AddPresenter(_noticeBox);
         }
 
         public async void ShowInfo(string message)

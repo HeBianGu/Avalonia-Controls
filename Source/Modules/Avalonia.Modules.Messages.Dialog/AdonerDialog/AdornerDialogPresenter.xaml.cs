@@ -42,22 +42,13 @@ namespace Avalonia.Modules.Messages.Dialog
         private ManualResetEvent _waitHandle = new ManualResetEvent(false);
         public async Task<bool?> ShowDialog(Window owner = null)
         {
-           var control= Application.Current.GetMainAdornerControl();
-            if(control==null)
-                return false;
-            //AdornerLayer layer = AdornerLayer.GetAdornerLayer(control);
-            ContentPresenter contentPresenter = new ContentPresenter();
-            contentPresenter.Content = this;
-            contentPresenter.HorizontalAlignment = Avalonia.Layout.HorizontalAlignment.Stretch;
-            contentPresenter.VerticalAlignment = VerticalAlignment.Stretch;
-            AdornerLayer.SetAdorner(control, contentPresenter);
+            AdornerGrid.AddPresenter(this);
             _waitHandle.Reset();
             return await Task.Run(() =>
             {
                 _waitHandle.WaitOne();
                 return this.DialogResult;
             });
-
         }
         #region - IDialogWindow -
         public bool? DialogResult { get; set; }
@@ -75,28 +66,8 @@ namespace Avalonia.Modules.Messages.Dialog
 
         public void Close()
         {
-            var control = Application.Current.GetMainAdornerControl();
-            if (control == null)
-                return;
-
-            AdornerLayer.SetAdorner(control, null);
-            //ContentPresenter contentPresenter = layer.Children.OfType<ContentPresenter>().FirstOrDefault(x=>x.Content==this);
-            //layer.Children.Remove(contentPresenter);
+            AdornerGrid.RemovePresenter(this);
             _waitHandle.Set();
-
-            //Dispatcher.UIThread.Invoke(() =>
-            //{
-            //    UIElement child = Application.Current.MainWindow.Content as UIElement;
-            //    AdornerLayer layer = AdornerLayer.GetAdornerLayer(child);
-            //    System.Collections.Generic.IEnumerable<PresenterAdorner> adorners = layer.GetAdorners(child)?.OfType<PresenterAdorner>().Where(x => x.Presenter == this);
-            //    if (adorners == null)
-            //        return;
-            //    foreach (PresenterAdorner adorner in adorners)
-            //    {
-            //        layer.Remove(adorner);
-            //    }
-            //    _waitHandle.Set();
-            //});
         }
 
         public Func<bool> CanSumit { get; set; }

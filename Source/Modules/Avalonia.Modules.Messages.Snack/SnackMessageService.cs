@@ -3,6 +3,7 @@
 using Avalonia.Controls.Presenters;
 using Avalonia.Controls.Primitives;
 using Avalonia.Layout;
+using Avalonia.Modules.Messages.Dialog;
 using HeBianGu.Avalonia.Core.Ioc;
 using HeBianGu.Avalonia.Extensions.ApplicationBase;
 using System;
@@ -19,33 +20,9 @@ namespace Avalonia.Modules.Messages.Snack
 
         private bool CheckValid()
         {
-            var control = Application.Current.GetMainAdornerControl();
-            if (control == null)
-                return false;
-            //AdornerLayer layer = AdornerLayer.GetAdornerLayer(control);
-            ContentPresenter contentPresenter = new ContentPresenter();
-            contentPresenter.Content = this._snackBox;
-            contentPresenter.HorizontalAlignment = Avalonia.Layout.HorizontalAlignment.Stretch;
-            contentPresenter.VerticalAlignment = VerticalAlignment.Stretch;
-            AdornerLayer.SetAdorner(control, contentPresenter);
+            if (!AdornerGrid.HasPresenter(_snackBox))
+                AdornerGrid.AddPresenter(_snackBox);
             return true;
-            //return Application.Current.Invoke(() =>
-            //  {
-            //      UIElement child = Application.Current.MainWindow?.Content as UIElement;
-
-            //      if (child == null)
-            //          return false;
-            //      AdornerLayer layer = AdornerLayer.GetAdornerLayer(child);
-            //      if (layer == null)
-            //          return false;
-            //      System.Collections.Generic.IEnumerable<PresenterAdorner> adorners = layer.GetAdorners(child)?.OfType<PresenterAdorner>().Where(x => x.Presenter == this._snackBox);
-            //      if (adorners == null || adorners.Count() == 0)
-            //      {
-            //          PresenterAdorner adorner = new PresenterAdorner(child, this._snackBox);
-            //          layer.Add(adorner);
-            //      }
-            //      return true;
-            //  });
         }
 
         public async void ShowInfo(string message)
