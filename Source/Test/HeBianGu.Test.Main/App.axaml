@@ -11,6 +11,7 @@
       <ResourceDictionary.MergedDictionaries>
         <ResourceInclude Source="avares://HeBianGu.Avalonia.Controls.Form/Form.axaml" />
       </ResourceDictionary.MergedDictionaries>
+
     </ResourceDictionary>
   </Application.Resources>
   <Application.Styles>
@@ -20,7 +21,6 @@
     <!--<StyleInclude Source="avares://HeBianGu.Avalonia.Windows.Dialog/DialogWindow.axaml" />-->
     <StyleInclude Source="avares://HeBianGu.Avalonia.Windows.Dialog/Styles.axaml" />
     <StyleInclude Source="avares://Avalonia.Windows.Main/Styles.axaml" />
-
   </Application.Styles>
   <Application.DataTemplates>
     <DataTemplate DataType="h:AdornerDialogPresenter">

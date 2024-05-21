@@ -10,10 +10,24 @@ namespace HeBianGu.Avalonia.Extensions.Command
         public override void Execute(object parameter)
         {
             if (parameter is Window window)
+            {
+                window.WindowState = WindowState.Normal;
 
+            }
+            //SystemCommands.RestoreWindow(window);
+        }
+    }
 
-            { }
-                //SystemCommands.RestoreWindow(window);
+    public class FullScreenWindowCommand : WindowCommandBase
+    {
+        public override void Execute(object parameter)
+        {
+            if (parameter is Window window)
+            {
+                window.WindowState = WindowState.FullScreen;
+
+            }
+            //SystemCommands.RestoreWindow(window);
         }
     }
 }

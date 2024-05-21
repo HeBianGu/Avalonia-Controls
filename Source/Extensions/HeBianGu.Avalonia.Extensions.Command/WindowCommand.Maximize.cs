@@ -11,7 +11,7 @@ namespace HeBianGu.Avalonia.Extensions.Command
         {
             if (parameter is Window window)
             {
-
+                window.WindowState = WindowState.Maximized;
             }
         }
     }

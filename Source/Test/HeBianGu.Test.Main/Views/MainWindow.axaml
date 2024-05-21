@@ -6,7 +6,11 @@
         xmlns:views="clr-namespace:HeBianGu.Test.Main.Views"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="HeBianGu.Test.Main.Views.MainWindow"
-        Icon="/Assets/avalonia-logo.ico"
+        Icon="/Assets/avalonia-logo.ico" WindowState="Maximized"
         Title="HeBianGu.Test.Main">
-        <views:MainView />
+  <views:MainView/>
+  <!--<Window.Styles>
+    <THEM
+  </Window.Styles>-->
+
 </Window>
