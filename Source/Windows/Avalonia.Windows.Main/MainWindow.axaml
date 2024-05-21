@@ -72,7 +72,7 @@
                      DockPanel.Dock="Right" />-->
                 <Image Source="{TemplateBinding Icon}" Width="30" Height="30"/>
               </DockPanel>
-              <TemplatedControl DockPanel.Dock="Bottom" Template="{TemplateBinding BottomTemplate}" />
+              <!--<TemplatedControl DockPanel.Dock="Bottom" Template="{TemplateBinding BottomTemplate}" />-->
               <ContentPresenter Name="PART_ContentPresenter"
                                 Margin="{TemplateBinding Padding}"
                                 HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
@@ -84,7 +84,7 @@
         </Panel>
       </ControlTemplate>
     </Setter>
-    <Setter Property="BottomTemplate">
+    <!--<Setter Property="BottomTemplate">
       <Setter.Value>
         <ControlTemplate>
           <Button Margin="10,6"
@@ -94,7 +94,7 @@
                   Content="确定" />
         </ControlTemplate>
       </Setter.Value>
-    </Setter>
+    </Setter>-->
 
     <Style Selector="^[WindowState=Maximized] /template/ Button#PART_ButtonMax">
       <Setter Property="IsVisible" Value="False" />

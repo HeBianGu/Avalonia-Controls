@@ -15,6 +15,7 @@ namespace System
             services.TryAdd(ServiceDescriptor.Singleton<ISplashScreenViewPresenter, SplashScreenViewPresenter>());
             if (setupAction != null)
                 services.Configure(setupAction);
+            services.AddSingleton<ISplashScreenWindow, SplashScreenWindow>();
             return services;
         }
 

@@ -16,6 +16,7 @@ using HeBianGu.Avalonia.Windows.Dialog;
 using Avalonia.Modules.Messages.Dialog;
 using Avalonia.Windows.Main;
 using MainWindow = Avalonia.Windows.Main.MainWindow;
+using Avalonia.Modules.SplashScreen;
 
 namespace HeBianGu.Test.Main;
 
@@ -36,6 +37,8 @@ public partial class App : ApplicationBase
         services.AddFormMessageService();
         services.AddNoticeMessage();
         services.AddSnackMessage();
+        services.AddSplashScreen();
+
     }
 
     protected override void Configure(IApplicationBuilder app)

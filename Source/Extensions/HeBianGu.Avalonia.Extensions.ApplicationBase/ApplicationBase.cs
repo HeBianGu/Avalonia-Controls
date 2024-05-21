@@ -52,21 +52,43 @@ namespace HeBianGu.Avalonia.Extensions.ApplicationBase
             {
                 Window mainWindow = this.GetMainWindow();
                 mainWindow.Content = this.GetMainView();
-                var service = Ioc.Services.GetService<ILoginWindow>();
-                if (service == null)
+
+                var splash = Ioc.Services.GetService<ISplashScreenWindow>();
+                void ShowLogin()
                 {
-                    desktop.MainWindow = mainWindow;
+                    var login = Ioc.Services.GetService<ILoginWindow>();
+                    if (login == null)
+                    {
+                        desktop.MainWindow = mainWindow;
+                    }
+                    else
+                    {
+                        Window loginWindow = login.GetWindow();
+                        desktop.MainWindow = loginWindow;
+                        login.Logined += (l, k) =>
+                        {
+                            desktop.MainWindow = mainWindow;
+                            mainWindow.Show();
+                            loginWindow.Close();
+                        };
+                        if (splash != null)
+                            loginWindow.Show();
+                    }
+                }
+
+                if (splash != null)
+                {
+                    Window w = splash.GetWindow();
+                    desktop.MainWindow = w;
+                    splash.Successed += (l, k) =>
+                    {
+                        ShowLogin();
+                        w.Close();
+                    };
                 }
                 else
                 {
-                    Window loginWindow = service.GetWindow();
-                    desktop.MainWindow = loginWindow;
-                    service.Logined += (l, k) =>
-                    {
-                        desktop.MainWindow = mainWindow;
-                        mainWindow.Show();
-                        loginWindow.Close();
-                    };
+                    ShowLogin();
                 }
             }
             else if (ApplicationLifetime is ISingleViewApplicationLifetime singleViewPlatform)
@@ -76,6 +98,12 @@ namespace HeBianGu.Avalonia.Extensions.ApplicationBase
 
             base.OnFrameworkInitializationCompleted();
         }
+
+        private void W_Closed(object? sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
         public override void Initialize()
         {
             base.Initialize();

@@ -34,16 +34,16 @@ namespace Avalonia.Windows.Main
             }
         }
 
-        public ControlTemplate BottomTemplate
-        {
-            get { return (ControlTemplate)GetValue(BottomTemplateProperty); }
-            set { SetValue(BottomTemplateProperty, value); }
-        }
+        //public ControlTemplate BottomTemplate
+        //{
+        //    get { return (ControlTemplate)GetValue(BottomTemplateProperty); }
+        //    set { SetValue(BottomTemplateProperty, value); }
+        //}
 
-        public DialogButton DialogButton { get; set; } = DialogButton.Sumit;
+        //public DialogButton DialogButton { get; set; } = DialogButton.Sumit;
 
 
-        public static readonly StyledProperty<ControlTemplate> BottomTemplateProperty =
-            AvaloniaProperty.Register<MainWindow, ControlTemplate>("BottomTemplate");
+        //public static readonly StyledProperty<ControlTemplate> BottomTemplateProperty =
+        //    AvaloniaProperty.Register<MainWindow, ControlTemplate>("BottomTemplate");
     }
 }

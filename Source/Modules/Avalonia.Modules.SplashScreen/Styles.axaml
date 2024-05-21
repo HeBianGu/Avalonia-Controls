@@ -8,7 +8,7 @@
   <Styles.Resources>
     <ResourceDictionary>
       <ResourceDictionary.MergedDictionaries>
-        <ResourceInclude Source="avares://HeBianGu.Avalonia.Modules.Dialog/DialogWindow.axaml" />
+        <ResourceInclude Source="avares://Avalonia.Modules.SplashScreen/SplashScreenWindow.axaml" />
       </ResourceDictionary.MergedDictionaries>
     </ResourceDictionary>
   </Styles.Resources>
