@@ -41,10 +41,22 @@
                         <DockPanel>
                             <DockPanel DockPanel.Dock="Top" LastChildFill="False">
                                 <TextBlock Margin="10,6" Text="{TemplateBinding Title}" />
-                                <Button Command="{h:CloseWindowCommand}"
+                                <!--<Button Command="{h:CloseWindowCommand}"
                                         CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"
                                         Content="×"
-                                        DockPanel.Dock="Right" />
+                                        DockPanel.Dock="Right" />-->
+                              <Button Command="{h:CloseWindowCommand}"
+                  CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"
+                  Content="×" Width="35" Height="35" Background="Transparent"
+                  DockPanel.Dock="Right">
+                                <Path Data="{x:Static h:Geometrys.Close}"
+                                    Fill="{DynamicResource ButtonForeground}"
+                                    Stretch="Uniform"
+                                    Width="10"
+                                    Height="10"
+                               VerticalAlignment="Center">
+                                </Path>
+                              </Button>
                             </DockPanel>
                             <TemplatedControl DockPanel.Dock="Bottom" Template="{TemplateBinding BottomTemplate}" />
                             <ContentPresenter Name="PART_ContentPresenter"

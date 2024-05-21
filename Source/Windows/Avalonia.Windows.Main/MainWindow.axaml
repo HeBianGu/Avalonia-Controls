@@ -43,33 +43,56 @@
                 <TextBlock Margin="10,6" Text="{TemplateBinding Title}" />
                 <Button Command="{h:CloseWindowCommand}"
                         CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"
-                        Content="×"
-                        DockPanel.Dock="Right" />
-                <Button Command="{h:MinimizeWindowCommand}"
-                     CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"
-                     Content="Minimize"
-                     DockPanel.Dock="Right" />
+                        Content="×" Width="35" Height="35" Background="Transparent"
+                        DockPanel.Dock="Right">
+                  <Path Data="{x:Static h:Geometrys.Close}"
+                      Fill="{DynamicResource ButtonForeground}"
+                      Stretch="Uniform"
+                      Width="10"
+                      Height="10"
+                 VerticalAlignment="Center">
+                  </Path>
+                </Button>
                 <Button x:Name="PART_ButtonMax" Command="{h:MaximizeWindowCommand}"
                 CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"
-                Content="Maximize"
+                Content="Maximize" Width="35" Height="35" Background="Transparent"
                 DockPanel.Dock="Right">
-                  <!--<Path
-                   Fill="Red"
-                   Stretch="Uniform" Width="10" Height="10"
+                  <Path Data="{x:Static h:Geometrys.Maximize}"
+                        Fill="{DynamicResource ButtonForeground}"
+                        Stretch="Uniform"
+                        Width="10"
+                        Height="10"
                    VerticalAlignment="Center">
-                    <Path.Data>
-                      <StreamGeometry>M5.5 10.586 1.707 6.793A1 1 0 0 0 .293 8.207l4.5 4.5a1 1 0 0 0 1.414 0l11-11A1 1 0 0 0 15.793.293L5.5 10.586Z</StreamGeometry>
-                    </Path.Data>
-                  </Path>-->
+                  </Path>
                 </Button>
                 <Button  x:Name="PART_ButtonRestore"  Command="{h:RestoreWindowCommand}"
                      CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"
-                     Content="Restore"
-                     DockPanel.Dock="Right" />
+                     Content="Restore" Width="35" Height="35" Background="Transparent"
+                     DockPanel.Dock="Right" >
+                  <Path Data="{x:Static h:Geometrys.Restore}"
+                      Fill="{DynamicResource ButtonForeground}"
+                      Stretch="Uniform"
+                      Width="10"
+                      Height="10"
+                 VerticalAlignment="Center">
+                  </Path>
+                </Button>
                 <!--<Button Command="{h:FullScreenWindowCommand}"
                      CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"
                      Content="FullScreen"
                      DockPanel.Dock="Right" />-->
+
+                <Button Command="{h:MinimizeWindowCommand}"  VerticalContentAlignment="Center"
+                     CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"
+                     Content="Minimize" Width="35" Height="35" Background="Transparent"
+                     DockPanel.Dock="Right" >
+                  <Path Data="{x:Static h:Geometrys.Minimize}"
+                      Fill="{DynamicResource ButtonForeground}"
+                      Stretch="Uniform"
+                      Width="10"
+                 VerticalAlignment="Center">
+                  </Path>
+                </Button>
                 <Image Source="{TemplateBinding Icon}" Width="30" Height="30"/>
               </DockPanel>
               <!--<TemplatedControl DockPanel.Dock="Bottom" Template="{TemplateBinding BottomTemplate}" />-->
