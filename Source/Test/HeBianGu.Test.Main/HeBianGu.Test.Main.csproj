@@ -29,6 +29,7 @@
     <ProjectReference Include="..\..\Controls\HeBianGu.Controls.TemplateControl\HeBianGu.Controls.TemplateControl.csproj" />
     <ProjectReference Include="..\..\Core\HeBianGu.Avalonia.Core.Ioc\HeBianGu.Avalonia.Core.Ioc.csproj" />
     <ProjectReference Include="..\..\Extensions\HeBianGu.Avalonia.Extensions.ApplicationBase\HeBianGu.Avalonia.Extensions.ApplicationBase.csproj" />
+    <ProjectReference Include="..\..\Extensions\HeBianGu.Avalonia.Extensions.Common\HeBianGu.Avalonia.Extensions.Common.csproj" />
     <ProjectReference Include="..\..\Extensions\HeBianGu.Avalonia.Extensions.Setting\HeBianGu.Avalonia.Extensions.Setting.csproj" />
     <ProjectReference Include="..\..\Modules\Avalonia.Modules.Messages.Dialog\Avalonia.Modules.Messages.Dialog.csproj" />
     <ProjectReference Include="..\..\Modules\Avalonia.Modules.Messages.Form\Avalonia.Modules.Messages.Form.csproj" />

@@ -9,7 +9,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace H.Extensions.Common
+namespace HeBianGu.Avalonia.Extensions.Common
 {
     public static partial class FileExtension
     {

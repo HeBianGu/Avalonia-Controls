@@ -1,6 +1,6 @@
 ﻿//// Copyright © 2024 By HeBianGu(QQ:908293466) https://github.com/HeBianGu/WPF-Control
 
-//using H.Extensions.Common;
+//using HeBianGu.Avalonia.Extensions.Common;
 //using System.Collections.Generic;
 //using System.Linq;
 //using System.Runtime.CompilerServices;

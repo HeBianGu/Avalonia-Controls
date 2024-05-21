@@ -1,6 +1,6 @@
 ﻿using System.Reflection;
 
-namespace H.Extensions.Common
+namespace HeBianGu.Avalonia.Extensions.Common
 {
     public class ApplicationProvider
     {
