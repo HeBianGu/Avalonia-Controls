@@ -75,11 +75,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avalonia.Modules.Messages.D
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avalonia.Modules.Messages.Form", "..\Source\Modules\Avalonia.Modules.Messages.Form\Avalonia.Modules.Messages.Form.csproj", "{22C5A669-249D-4F21-AA0B-D959EE16E653}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avalonia.Modules.Messages.Notice", "..\Source\Modules\Avalonia.Modules.Messages.Notice\Avalonia.Modules.Messages.Notice.csproj", "{6C3762C6-366A-4E5D-BED4-A9A53ADDB19A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avalonia.Modules.Messages.Notice", "..\Source\Modules\Avalonia.Modules.Messages.Notice\Avalonia.Modules.Messages.Notice.csproj", "{6C3762C6-366A-4E5D-BED4-A9A53ADDB19A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avalonia.Modules.Messages.Snack", "..\Source\Modules\Avalonia.Modules.Messages.Snack\Avalonia.Modules.Messages.Snack.csproj", "{940B7B27-62FA-4F01-B688-F4A5F7332059}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avalonia.Modules.Messages.Snack", "..\Source\Modules\Avalonia.Modules.Messages.Snack\Avalonia.Modules.Messages.Snack.csproj", "{940B7B27-62FA-4F01-B688-F4A5F7332059}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avalonia.Extensions.Geometry", "..\Source\Extensions\Avalonia.Extensions.Geometry\Avalonia.Extensions.Geometry.csproj", "{D6322174-4E49-437D-9F63-AEC0AF137229}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avalonia.Extensions.Geometry", "..\Source\Extensions\Avalonia.Extensions.Geometry\Avalonia.Extensions.Geometry.csproj", "{D6322174-4E49-437D-9F63-AEC0AF137229}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avalonia.Windows.Main", "..\Source\Windows\Avalonia.Windows.Main\Avalonia.Windows.Main.csproj", "{FBCD292D-1DA7-49AF-9257-DEDB08EF457C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -217,6 +219,10 @@ Global
 		{D6322174-4E49-437D-9F63-AEC0AF137229}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D6322174-4E49-437D-9F63-AEC0AF137229}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D6322174-4E49-437D-9F63-AEC0AF137229}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FBCD292D-1DA7-49AF-9257-DEDB08EF457C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBCD292D-1DA7-49AF-9257-DEDB08EF457C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBCD292D-1DA7-49AF-9257-DEDB08EF457C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBCD292D-1DA7-49AF-9257-DEDB08EF457C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -253,6 +259,7 @@ Global
 		{6C3762C6-366A-4E5D-BED4-A9A53ADDB19A} = {B0715156-EC67-4A7A-8F6A-C2965322DA49}
 		{940B7B27-62FA-4F01-B688-F4A5F7332059} = {B0715156-EC67-4A7A-8F6A-C2965322DA49}
 		{D6322174-4E49-437D-9F63-AEC0AF137229} = {197618A0-BDD0-40C0-BBC3-678E58EAFF70}
+		{FBCD292D-1DA7-49AF-9257-DEDB08EF457C} = {D0458D64-77AD-4A31-A7A6-BC71EBC5C0D2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EC68E9A1-91AC-4B6A-B817-573F85D4F550}

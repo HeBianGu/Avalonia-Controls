@@ -51,6 +51,7 @@ namespace HeBianGu.Avalonia.Extensions.ApplicationBase
             if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
             {
                 Window mainWindow = this.GetMainWindow();
+                mainWindow.Content = this.GetMainView();
                 var service = Ioc.Services.GetService<ILoginWindow>();
                 if (service == null)
                 {

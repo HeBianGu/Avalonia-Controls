@@ -36,6 +36,7 @@
     <ProjectReference Include="..\..\Modules\Avalonia.Modules.Messages.Snack\Avalonia.Modules.Messages.Snack.csproj" />
     <ProjectReference Include="..\..\Modules\HeBianGu.Avalonia.Modules.Login\HeBianGu.Avalonia.Modules.Login.csproj" />
     <ProjectReference Include="..\..\Modules\HeBianGu.Avalonia.Modules.Setting\HeBianGu.Avalonia.Modules.Setting.csproj" />
+    <ProjectReference Include="..\..\Windows\Avalonia.Windows.Main\Avalonia.Windows.Main.csproj" />
     <ProjectReference Include="..\..\Windows\HeBianGu.Avalonia.Windows.Dialog\HeBianGu.Avalonia.Windows.Dialog.csproj" />
   </ItemGroup>
 </Project>

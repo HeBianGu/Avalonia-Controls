@@ -14,6 +14,8 @@ using HeBianGu.Avalonia.Core.Ioc;
 using HeBianGu.Avalonia.Extensions.ApplicationBase;
 using HeBianGu.Avalonia.Windows.Dialog;
 using Avalonia.Modules.Messages.Dialog;
+using Avalonia.Windows.Main;
+using MainWindow = Avalonia.Windows.Main.MainWindow;
 
 namespace HeBianGu.Test.Main;
 
@@ -57,6 +59,8 @@ public partial class App : ApplicationBase
         {
             DataContext = new MainViewModel()
         };
+
+
 
         //return new DialogWindow() { Title = "sss", Content = "44444" };
     }

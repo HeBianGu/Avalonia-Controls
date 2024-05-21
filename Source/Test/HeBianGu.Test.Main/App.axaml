@@ -4,248 +4,250 @@
              xmlns:h="https://github.com/HeBianGu"
              xmlns:v="clr-namespace:HeBianGu.Test.Main.Views"
              RequestedThemeVariant="Default">
-    <!--  "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options.  -->
+  <!--  "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options.  -->
 
-    <Application.Resources>
-        <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceInclude Source="avares://HeBianGu.Avalonia.Controls.Form/Form.axaml" />
-            </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
-    </Application.Resources>
-    <Application.Styles>
-        <FluentTheme />
-        <StyleInclude Source="avares://HeBianGu.Controls.MultiComboBox/Styles/MultiComboBox.xaml" />
-        <StyleInclude Source="avares://HeBianGu.Controls.TemplateControl/MyTemplatedControl.axaml" />
-        <!--<StyleInclude Source="avares://HeBianGu.Avalonia.Windows.Dialog/DialogWindow.axaml" />-->
-        <StyleInclude Source="avares://HeBianGu.Avalonia.Windows.Dialog/Styles.axaml" />
-    </Application.Styles>
-    <Application.DataTemplates>
-        <DataTemplate DataType="h:AdornerDialogPresenter">
-            <Grid>
-                <Grid.Background>
-                    <SolidColorBrush Opacity="0.5" Color="Gray" />
-                </Grid.Background>
-                <Border Width="{Binding Width}"
-                        Height="{Binding Height}"
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Center"
-                        Background="{DynamicResource SystemRegionBrush}"
-                        BorderBrush="{DynamicResource ButtonBorderThemeThickness}"
-                        CornerRadius="{DynamicResource ControlCornerRadius}">
-                    <Grid HorizontalAlignment="Center"
-                          VerticalAlignment="Center"
-                          RowDefinitions="Auto,*,Auto">
-                        <Button HorizontalAlignment="Right"
-                                VerticalAlignment="Top"
-                                Command="{h:CloseAdornerDialogCommand}"
-                                CommandParameter="{Binding}"
-                                Content="×" />
+  <Application.Resources>
+    <ResourceDictionary>
+      <ResourceDictionary.MergedDictionaries>
+        <ResourceInclude Source="avares://HeBianGu.Avalonia.Controls.Form/Form.axaml" />
+      </ResourceDictionary.MergedDictionaries>
+    </ResourceDictionary>
+  </Application.Resources>
+  <Application.Styles>
+    <FluentTheme />
+    <StyleInclude Source="avares://HeBianGu.Controls.MultiComboBox/Styles/MultiComboBox.xaml" />
+    <StyleInclude Source="avares://HeBianGu.Controls.TemplateControl/MyTemplatedControl.axaml" />
+    <!--<StyleInclude Source="avares://HeBianGu.Avalonia.Windows.Dialog/DialogWindow.axaml" />-->
+    <StyleInclude Source="avares://HeBianGu.Avalonia.Windows.Dialog/Styles.axaml" />
+    <StyleInclude Source="avares://Avalonia.Windows.Main/Styles.axaml" />
 
-                        <TextBlock Margin="10,6" Text="{Binding Title}" />
-                        <ContentControl Grid.Row="1"
-                                        HorizontalAlignment="Center"
-                                        VerticalAlignment="Center"
-                                        Content="{Binding Presenter}" />
-                        <Button Grid.Row="2"
-                                Margin="10,6"
-                                HorizontalAlignment="Center"
-                                Command="{h:CloseAdornerDialogCommand}"
-                                CommandParameter="{Binding}"
-                                Content="确定" />
-                    </Grid>
+  </Application.Styles>
+  <Application.DataTemplates>
+    <DataTemplate DataType="h:AdornerDialogPresenter">
+      <Grid>
+        <Grid.Background>
+          <SolidColorBrush Opacity="0.5" Color="Gray" />
+        </Grid.Background>
+        <Border Width="{Binding Width}"
+                Height="{Binding Height}"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Background="{DynamicResource SystemRegionBrush}"
+                BorderBrush="{DynamicResource ButtonBorderThemeThickness}"
+                CornerRadius="{DynamicResource ControlCornerRadius}">
+          <Grid HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                RowDefinitions="Auto,*,Auto">
+            <Button HorizontalAlignment="Right"
+                    VerticalAlignment="Top"
+                    Command="{h:CloseAdornerDialogCommand}"
+                    CommandParameter="{Binding}"
+                    Content="×" />
 
-                </Border>
+            <TextBlock Margin="10,6" Text="{Binding Title}" />
+            <ContentControl Grid.Row="1"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Content="{Binding Presenter}" />
+            <Button Grid.Row="2"
+                    Margin="10,6"
+                    HorizontalAlignment="Center"
+                    Command="{h:CloseAdornerDialogCommand}"
+                    CommandParameter="{Binding}"
+                    Content="确定" />
+          </Grid>
 
-            </Grid>
-        </DataTemplate>
-      <DataTemplate DataType="{x:Type h:StringPresenter}">
-        <TextBlock Margin="10,40" Width="{Binding Width}" MinWidth="300" Height="{Binding Height}"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center" TextAlignment="Center"
-                   Text="{Binding Value}"
-                   TextWrapping="Wrap"
-                   ToolTip.Tip="{Binding Value}" />
-      </DataTemplate>
-        <DataTemplate DataType="v:Student">
-            <Grid>
-                <TextBlock Text="{Binding Name}" />
-            </Grid>
-        </DataTemplate>
-        <DataTemplate DataType="h:TextPropertyItem">
-            <TextBox Margin="0,2"
-                     VerticalContentAlignment="Center"
-                     IsReadOnly="{Binding ReadOnly}"
-                     Text="{Binding Value}"
-                     TextWrapping="{Binding TextWrapping}"
-                     ToolTip.Tip="{Binding Message}" />
-        </DataTemplate>
+        </Border>
 
-        <DataTemplate DataType="{x:Type h:SettingViewPresenter}">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition />
-                    <RowDefinition Height="Auto" />
-                </Grid.RowDefinitions>
-                <TabControl ItemsSource="{Binding Data}">
-                    <TabControl.ContentTemplate>
+      </Grid>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type h:StringPresenter}">
+      <TextBlock Margin="10,40" Width="{Binding Width}" MinWidth="300" Height="{Binding Height}"
+                 HorizontalAlignment="Center"
+                 VerticalAlignment="Center" TextAlignment="Center"
+                 Text="{Binding Value}"
+                 TextWrapping="Wrap"
+                 ToolTip.Tip="{Binding Value}" />
+    </DataTemplate>
+    <DataTemplate DataType="v:Student">
+      <Grid>
+        <TextBlock Text="{Binding Name}" />
+      </Grid>
+    </DataTemplate>
+    <DataTemplate DataType="h:TextPropertyItem">
+      <TextBox Margin="0,2"
+               VerticalContentAlignment="Center"
+               IsReadOnly="{Binding ReadOnly}"
+               Text="{Binding Value}"
+               TextWrapping="{Binding TextWrapping}"
+               ToolTip.Tip="{Binding Message}" />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type h:SettingViewPresenter}">
+      <Grid>
+        <Grid.RowDefinitions>
+          <RowDefinition />
+          <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <TabControl ItemsSource="{Binding Data}">
+          <TabControl.ContentTemplate>
+            <DataTemplate>
+              <TabControl Margin="0"
+                          Padding="0,0,0,0"
+                          HorizontalContentAlignment="Stretch"
+                          ItemsSource="{Binding}"
+                          ScrollViewer.VerticalScrollBarVisibility="Auto"
+                          TabStripPlacement="Left">
+                <TabControl.ItemTemplate>
+                  <DataTemplate>
+                    <TextBlock MinWidth="120" Text="{Binding Name}" />
+                  </DataTemplate>
+                </TabControl.ItemTemplate>
+
+                <TabControl.ContentTemplate>
+                  <DataTemplate DataType="{x:Type h:ISettable}">
+                    <Expander HorizontalAlignment="Stretch"
+                              VerticalAlignment="Top"
+                              BorderBrush="Transparent"
+                              Header="{Binding}"
+                              IsExpanded="True">
+                      <Expander.HeaderTemplate>
                         <DataTemplate>
-                            <TabControl Margin="0"
-                                        Padding="0,0,0,0"
-                                        HorizontalContentAlignment="Stretch"
-                                        ItemsSource="{Binding}"
-                                        ScrollViewer.VerticalScrollBarVisibility="Auto"
-                                        TabStripPlacement="Left">
-                                <TabControl.ItemTemplate>
-                                    <DataTemplate>
-                                        <TextBlock MinWidth="120" Text="{Binding Name}" />
-                                    </DataTemplate>
-                                </TabControl.ItemTemplate>
-
-                                <TabControl.ContentTemplate>
-                                    <DataTemplate DataType="{x:Type h:ISettable}">
-                                        <Expander HorizontalAlignment="Stretch"
-                                                  VerticalAlignment="Top"
-                                                  BorderBrush="Transparent"
-                                                  Header="{Binding}"
-                                                  IsExpanded="True">
-                                            <Expander.HeaderTemplate>
-                                                <DataTemplate>
-                                                    <DockPanel>
-                                                        <TextBlock Margin="10,0,0,0"
-                                                                   VerticalAlignment="Bottom"
-                                                                   FontWeight="Bold"
-                                                                   Text="{Binding Name}"
-                                                                   ToolTip.Tip="{Binding Description}" />
-                                                    </DockPanel>
-                                                </DataTemplate>
-                                            </Expander.HeaderTemplate>
-                                            <h:Form ScrollViewer.VerticalScrollBarVisibility="Disabled" SelectObject="{Binding}" />
-                                        </Expander>
-                                    </DataTemplate>
-                                </TabControl.ContentTemplate>
-                            </TabControl>
+                          <DockPanel>
+                            <TextBlock Margin="10,0,0,0"
+                                       VerticalAlignment="Bottom"
+                                       FontWeight="Bold"
+                                       Text="{Binding Name}"
+                                       ToolTip.Tip="{Binding Description}" />
+                          </DockPanel>
                         </DataTemplate>
-                    </TabControl.ContentTemplate>
-                    <TabControl.ItemTemplate>
-                        <DataTemplate>
-                            <TextBlock Margin="10,0" Text="{Binding Key}" />
-                        </DataTemplate>
-                    </TabControl.ItemTemplate>
-                    <!--<TabControl.ItemContainerStyle>
+                      </Expander.HeaderTemplate>
+                      <h:Form ScrollViewer.VerticalScrollBarVisibility="Disabled" SelectObject="{Binding}" />
+                    </Expander>
+                  </DataTemplate>
+                </TabControl.ContentTemplate>
+              </TabControl>
+            </DataTemplate>
+          </TabControl.ContentTemplate>
+          <TabControl.ItemTemplate>
+            <DataTemplate>
+              <TextBlock Margin="10,0" Text="{Binding Key}" />
+            </DataTemplate>
+          </TabControl.ItemTemplate>
+          <!--<TabControl.ItemContainerStyle>
                 <Style TargetType="TabItem">
                     -->
-                    <!--<Setter Property="h:Cattach.GuideData" Value="{Binding Descption}" />-->
-                    <!--<Setter Property="h:Cattach.GuideTitle" Value="{Binding Key}" />
+          <!--<Setter Property="h:Cattach.GuideData" Value="{Binding Descption}" />-->
+          <!--<Setter Property="h:Cattach.GuideTitle" Value="{Binding Key}" />
                     <Setter Property="h:Cattach.GuideUseClick" Value="True" />
                     <Setter Property="h:Cattach.UseGuide" Value="True" />-->
-                    <!--
+          <!--
                 </Style>
             </TabControl.ItemContainerStyle>-->
-                </TabControl>
+        </TabControl>
 
-                <DockPanel Grid.Row="1"
-                           Margin="0,5,0,0"
-                           Background="Transparent"
-                           DockPanel.Dock="Bottom"
-                           LastChildFill="False">
+        <DockPanel Grid.Row="1"
+                   Margin="0,5,0,0"
+                   Background="Transparent"
+                   DockPanel.Dock="Bottom"
+                   LastChildFill="False">
 
-                    <Button Margin="0"
-                            Command="{h:SettingDefaultCommand}"
-                            Content="恢复默认"
-                            DockPanel.Dock="Left"
-                            ToolTip.Tip="此功能会重新加载参数默认配置" />
+          <Button Margin="0"
+                  Command="{h:SettingDefaultCommand}"
+                  Content="恢复默认"
+                  DockPanel.Dock="Left"
+                  ToolTip.Tip="此功能会重新加载参数默认配置" />
 
-                    <Button Margin="10,0"
-                            Command="{h:ClearSettingDataCommand}"
-                            Content="初始化配置(重启以生效)"
-                            DockPanel.Dock="Left"
-                            ToolTip.Tip="此功能会清空配置文件，重启后重新加载" />
+          <Button Margin="10,0"
+                  Command="{h:ClearSettingDataCommand}"
+                  Content="初始化配置(重启以生效)"
+                  DockPanel.Dock="Left"
+                  ToolTip.Tip="此功能会清空配置文件，重启后重新加载" />
 
-                    <Button MinWidth="100"
-                            Margin="2,0"
-                            Command="{h:SumitDialogCommand}"
-                            CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
-                            Content="确定"
-                            DockPanel.Dock="Right" />
+          <Button MinWidth="100"
+                  Margin="2,0"
+                  Command="{h:SumitDialogCommand}"
+                  CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
+                  Content="确定"
+                  DockPanel.Dock="Right" />
 
-                    <!--<Button MinWidth="100"
+          <!--<Button MinWidth="100"
                         Margin="2,0"
                         Command="{CloseDialogCommand}"
                         CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
                         Content="取消"
                         DockPanel.Dock="Right" />-->
-                </DockPanel>
-            </Grid>
-        </DataTemplate>
+        </DockPanel>
+      </Grid>
+    </DataTemplate>
 
-        <DataTemplate DataType="{x:Type h:StaticFormPresenter}">
-            <h:Form SelectObject="{Binding Value}"
-                    UseAsync="False"
-                    UsePropertyView="{Binding UsePropertyView}" />
-        </DataTemplate>
+    <DataTemplate DataType="{x:Type h:StaticFormPresenter}">
+      <h:Form SelectObject="{Binding Value}"
+              UseAsync="False"
+              UsePropertyView="{Binding UsePropertyView}" />
+    </DataTemplate>
 
-        <DataTemplate DataType="{x:Type h:NoticeBoxPresenter}">
-            <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                <!--<Grid.Background>
+    <DataTemplate DataType="{x:Type h:NoticeBoxPresenter}">
+      <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <!--<Grid.Background>
                     <SolidColorBrush Opacity="0.5" Color="Gray" />
                 </Grid.Background>-->
-                <ItemsControl ItemsSource="{Binding Collection}" ScrollViewer.VerticalScrollBarVisibility="Disabled">
-                    <ItemsControl.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <WrapPanel HorizontalAlignment="Right" Orientation="Vertical" />
-                        </ItemsPanelTemplate>
-                    </ItemsControl.ItemsPanel>
-                </ItemsControl>
-            </Grid>
-        </DataTemplate>
+        <ItemsControl ItemsSource="{Binding Collection}" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+          <ItemsControl.ItemsPanel>
+            <ItemsPanelTemplate>
+              <WrapPanel HorizontalAlignment="Right" Orientation="Vertical" />
+            </ItemsPanelTemplate>
+          </ItemsControl.ItemsPanel>
+        </ItemsControl>
+      </Grid>
+    </DataTemplate>
 
-        <DataTemplate DataType="{x:Type h:MessagePresenterBase}">
-            <Grid Width="350"
-                  Height="60"
-                  Margin="0,0,5,5"
-                  ToolTip.Tip="{Binding Message}">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="50" />
-                    <ColumnDefinition />
-                </Grid.ColumnDefinitions>
-                <Border Grid.ColumnSpan="2"
-                        Padding="1"
-                        Background="{DynamicResource SystemRegionBrush}"
-                        BorderBrush="Gray"
-                        BorderThickness="1"
-                        CornerRadius="{DynamicResource ControlCornerRadius}" />
-                <Grid x:Name="g"
-                      Width="25"
-                      Height="25">
-                    <Grid.Background>
-                        <DrawingBrush>
-                            <DrawingBrush.Drawing>
-                                <GeometryDrawing Brush="{Binding ElementName=g, Path=(TextElement.Foreground)}" Geometry="{Binding Geometry}" />
-                            </DrawingBrush.Drawing>
-                        </DrawingBrush>
-                    </Grid.Background>
-                </Grid>
-                <StackPanel Grid.Column="1"
-                            VerticalAlignment="Center"
-                            TextBlock.Foreground="{DynamicResource SystemControlForegroundBaseHighBrush}">
-                    <TextBlock Margin="0,2"
-                               Text="{Binding Message}"
-                               TextTrimming="CharacterEllipsis" />
-                    <TextBlock Text="{Binding Time}" />
-                </StackPanel>
+    <DataTemplate DataType="{x:Type h:MessagePresenterBase}">
+      <Grid Width="350"
+            Height="60"
+            Margin="0,0,5,5"
+            ToolTip.Tip="{Binding Message}">
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="50" />
+          <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Border Grid.ColumnSpan="2"
+                Padding="1"
+                Background="{DynamicResource SystemRegionBrush}"
+                BorderBrush="Gray"
+                BorderThickness="1"
+                CornerRadius="{DynamicResource ControlCornerRadius}" />
+        <Grid x:Name="g"
+              Width="25"
+              Height="25">
+          <Grid.Background>
+            <DrawingBrush>
+              <DrawingBrush.Drawing>
+                <GeometryDrawing Brush="{Binding ElementName=g, Path=(TextElement.Foreground)}" Geometry="{Binding Geometry}" />
+              </DrawingBrush.Drawing>
+            </DrawingBrush>
+          </Grid.Background>
+        </Grid>
+        <StackPanel Grid.Column="1"
+                    VerticalAlignment="Center"
+                    TextBlock.Foreground="{DynamicResource SystemControlForegroundBaseHighBrush}">
+          <TextBlock Margin="0,2"
+                     Text="{Binding Message}"
+                     TextTrimming="CharacterEllipsis" />
+          <TextBlock Text="{Binding Time}" />
+        </StackPanel>
 
-                <Button Grid.ColumnSpan="2"
-                        Margin="5,0"
-                        HorizontalAlignment="Right"
-                        VerticalAlignment="Center"
-                        Content="×">
-                    <!--<b:Interaction.Behaviors>
+        <Button Grid.ColumnSpan="2"
+                Margin="5,0"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                Content="×">
+          <!--<b:Interaction.Behaviors>
               <h:ButtonRemoveItemBehavior />
             </b:Interaction.Behaviors>-->
-                </Button>
-            </Grid>
-            <!--<DataTemplate.Triggers>
+        </Button>
+      </Grid>
+      <!--<DataTemplate.Triggers>
 
           <DataTrigger Binding="{Binding Level}"
                        Value="5">
@@ -268,67 +270,67 @@
             <Setter TargetName="g" Property="TextElement.Foreground" Value="{DynamicResource {x:Static h:BrushKeys.Green}}" />
           </DataTrigger>
         </DataTemplate.Triggers>-->
-        </DataTemplate>
+    </DataTemplate>
 
-        <DataTemplate DataType="{x:Type h:SnackMessagePresenterBase}">
-            <Grid Width="350"
-                  Height="50"
-                  Margin="0,0,5,5"
-                  ToolTip.Tip="{Binding Message}">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="50" />
-                    <ColumnDefinition />
-                </Grid.ColumnDefinitions>
-                <Border Grid.ColumnSpan="2"
-                        Padding="1"
-                        Background="{DynamicResource SystemRegionBrush}"
-                        BorderBrush="Gray"
-                        BorderThickness="1"
-                        CornerRadius="{DynamicResource ControlCornerRadius}" />
-                <Grid x:Name="g"
-                      Width="25"
-                      Height="25">
-                    <Grid.Background>
-                        <DrawingBrush>
-                            <DrawingBrush.Drawing>
-                                <GeometryDrawing Brush="{Binding ElementName=g, Path=(TextElement.Foreground)}" Geometry="{Binding Geometry}" />
-                            </DrawingBrush.Drawing>
-                        </DrawingBrush>
-                    </Grid.Background>
-                </Grid>
-                <StackPanel Grid.Column="1"
-                            VerticalAlignment="Center"
-                            TextBlock.Foreground="{DynamicResource SystemControlForegroundBaseHighBrush}">
-                    <TextBlock Margin="0,2"
-                               Text="{Binding Message}"
-                               TextTrimming="CharacterEllipsis" />
-                    <TextBlock Text="{Binding Time}" />
-                </StackPanel>
+    <DataTemplate DataType="{x:Type h:SnackMessagePresenterBase}">
+      <Grid Width="350"
+            Height="50"
+            Margin="0,0,5,5"
+            ToolTip.Tip="{Binding Message}">
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="50" />
+          <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Border Grid.ColumnSpan="2"
+                Padding="1"
+                Background="{DynamicResource SystemRegionBrush}"
+                BorderBrush="Gray"
+                BorderThickness="1"
+                CornerRadius="{DynamicResource ControlCornerRadius}" />
+        <Grid x:Name="g"
+              Width="25"
+              Height="25">
+          <Grid.Background>
+            <DrawingBrush>
+              <DrawingBrush.Drawing>
+                <GeometryDrawing Brush="{Binding ElementName=g, Path=(TextElement.Foreground)}" Geometry="{Binding Geometry}" />
+              </DrawingBrush.Drawing>
+            </DrawingBrush>
+          </Grid.Background>
+        </Grid>
+        <StackPanel Grid.Column="1"
+                    VerticalAlignment="Center"
+                    TextBlock.Foreground="{DynamicResource SystemControlForegroundBaseHighBrush}">
+          <TextBlock Margin="0,2"
+                     Text="{Binding Message}"
+                     TextTrimming="CharacterEllipsis" />
+          <TextBlock Text="{Binding Time}" />
+        </StackPanel>
 
-                <Button Grid.ColumnSpan="2"
-                        Margin="5,0"
-                        HorizontalAlignment="Right"
-                        VerticalAlignment="Center"
-                        Content="×">
-                    <!--<b:Interaction.Behaviors>
+        <Button Grid.ColumnSpan="2"
+                Margin="5,0"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                Content="×">
+          <!--<b:Interaction.Behaviors>
               <h:ButtonRemoveItemBehavior />
             </b:Interaction.Behaviors>-->
-                </Button>
-            </Grid>
-        </DataTemplate>
+        </Button>
+      </Grid>
+    </DataTemplate>
 
-        <DataTemplate DataType="{x:Type h:SnackBoxPresenter}">
-            <Grid Margin="50"
-                  HorizontalAlignment="Center"
-                  VerticalAlignment="Top">
-                <ItemsControl ItemsSource="{Binding Collection}" ScrollViewer.VerticalScrollBarVisibility="Disabled">
-                    <ItemsControl.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <WrapPanel HorizontalAlignment="Right" Orientation="Vertical" />
-                        </ItemsPanelTemplate>
-                    </ItemsControl.ItemsPanel>
-                </ItemsControl>
-            </Grid>
-        </DataTemplate>
-    </Application.DataTemplates>
+    <DataTemplate DataType="{x:Type h:SnackBoxPresenter}">
+      <Grid Margin="50"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top">
+        <ItemsControl ItemsSource="{Binding Collection}" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+          <ItemsControl.ItemsPanel>
+            <ItemsPanelTemplate>
+              <WrapPanel HorizontalAlignment="Right" Orientation="Vertical" />
+            </ItemsPanelTemplate>
+          </ItemsControl.ItemsPanel>
+        </ItemsControl>
+      </Grid>
+    </DataTemplate>
+  </Application.DataTemplates>
 </Application>

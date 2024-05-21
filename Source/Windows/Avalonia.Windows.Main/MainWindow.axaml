@@ -1,0 +1,73 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:h="https://github.com/HeBianGu"
+                    xmlns:local="clr-namespace:Avalonia.Windows.Main">
+    <ControlTheme x:Key="{x:Type local:MainWindow}" TargetType="local:MainWindow">
+        <Setter Property="Background" Value="{DynamicResource SystemRegionBrush}" />
+        <Setter Property="TransparencyBackgroundFallback" Value="{DynamicResource SystemControlBackgroundAltHighBrush}" />
+        <Setter Property="TopLevel.SystemBarColor" Value="{DynamicResource SystemControlBackgroundAltHighBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource SystemControlForegroundBaseHighBrush}" />
+        <Setter Property="FontSize" Value="{DynamicResource ControlContentThemeFontSize}" />
+        <Setter Property="FontFamily" Value="{DynamicResource ContentControlThemeFontFamily}" />
+        <Setter Property="BorderThickness" Value="{DynamicResource ButtonBorderThemeThickness}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource ControlCornerRadius}" />
+
+        <Setter Property="ExtendClientAreaToDecorationsHint" Value="True" />
+        <Setter Property="ExtendClientAreaChromeHints" Value="NoChrome" />
+        <Setter Property="ExtendClientAreaTitleBarHeightHint" Value="-1" />
+        <Setter Property="SystemDecorations" Value="None" />
+        <Setter Property="CanResize" Value="False" />
+        <Setter Property="Height" Value="700" />
+        <Setter Property="Width" Value="1100" />
+        <Setter Property="WindowStartupLocation" Value="CenterScreen" />
+        <!--<Setter Property="Background">
+            <Setter.Value>
+                <SolidColorBrush Opacity="0" Color="White" />
+            </Setter.Value>
+        </Setter>-->
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Panel>
+                    <Border Name="PART_TransparencyFallback"
+                            Background="Pink"
+                            IsHitTestVisible="False" />
+                    <Border Background="{TemplateBinding Background}" IsHitTestVisible="False" />
+                    <Panel Margin="{TemplateBinding WindowDecorationMargin}" Background="Transparent" />
+                    <VisualLayerManager>
+                        <VisualLayerManager.ChromeOverlayLayer>
+                            <TitleBar Background="Red" />
+                        </VisualLayerManager.ChromeOverlayLayer>
+
+                        <DockPanel>
+                            <DockPanel DockPanel.Dock="Top" LastChildFill="False">
+                                <TextBlock Margin="10,6" Text="{TemplateBinding Title}" />
+                                <Button Command="{h:CloseWindowCommand}"
+                                        CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"
+                                        Content="×"
+                                        DockPanel.Dock="Right" />
+                            </DockPanel>
+                            <TemplatedControl DockPanel.Dock="Bottom" Template="{TemplateBinding BottomTemplate}" />
+                            <ContentPresenter Name="PART_ContentPresenter"
+                                              Margin="{TemplateBinding Padding}"
+                                              HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                              Content="{TemplateBinding Content}"
+                                              ContentTemplate="{TemplateBinding ContentTemplate}" />
+                        </DockPanel>
+                    </VisualLayerManager>
+                </Panel>
+            </ControlTemplate>
+        </Setter>
+        <Setter Property="BottomTemplate">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Button Margin="10,6"
+                            HorizontalAlignment="Center"
+                            Command="{h:SumitWindowCommand}"
+                            CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"
+                            Content="确定" />
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </ControlTheme>
+</ResourceDictionary>

@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Avalonia" Version="11.0.2" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\HeBianGu.Avalonia.Core.Ioc\HeBianGu.Avalonia.Core.Ioc.csproj" />
+    <ProjectReference Include="..\..\Extensions\HeBianGu.Avalonia.Extensions.ApplicationBase\HeBianGu.Avalonia.Extensions.ApplicationBase.csproj" />
+    <ProjectReference Include="..\..\Extensions\HeBianGu.Avalonia.Extensions.Command\HeBianGu.Avalonia.Extensions.Command.csproj" />
+  </ItemGroup>
+</Project>
