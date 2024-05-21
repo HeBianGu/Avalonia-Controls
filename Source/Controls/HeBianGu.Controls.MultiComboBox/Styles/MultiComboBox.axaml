@@ -1,6 +1,7 @@
 <Styles xmlns="https://github.com/avaloniaui"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:controls="using:HeBianGu.Controls.MultiComboBox">
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:controls="using:HeBianGu.Controls.MultiComboBox">
+    <!--  Add Resources Here  -->
     <Design.PreviewWith>
         <controls:MultiComboBox />
     </Design.PreviewWith>
@@ -32,8 +33,7 @@
                                     <Border Margin="1"
                                             Background="#FF0078d7"
                                             CornerRadius="5">
-                                        <DockPanel Margin="10,6,0,6"
-                                                   VerticalAlignment="Center">
+                                        <DockPanel Margin="10,6,0,6" VerticalAlignment="Center">
                                             <Button Background="Transparent"
                                                     Command="{x:Static controls:MultiComboBoxCommands.RemoveCommand}"
                                                     CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=ListBoxItem}}"
@@ -81,8 +81,7 @@
                             <Border Background="{DynamicResource ThemeBackgroundBrush}"
                                     BorderBrush="{DynamicResource ThemeBorderMidBrush}"
                                     BorderThickness="1">
-                                <ScrollViewer HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
-                                              VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}">
+                                <ScrollViewer HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}" VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}">
                                     <ListBox Name="PART_ListBox"
                                              ItemsSource="{TemplateBinding ItemsSource}"
                                              SelectedItems="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=SelectedItems}"
@@ -90,8 +89,7 @@
                                         <ListBox.ItemTemplate>
                                             <DataTemplate>
                                                 <DockPanel>
-                                                    <CheckBox Content="{Binding}"
-                                                              IsChecked="{Binding RelativeSource={RelativeSource AncestorType=ListBoxItem}, Path=IsSelected}" />
+                                                    <CheckBox Content="{Binding}" IsChecked="{Binding RelativeSource={RelativeSource AncestorType=ListBoxItem}, Path=IsSelected}" />
                                                 </DockPanel>
                                             </DataTemplate>
                                         </ListBox.ItemTemplate>

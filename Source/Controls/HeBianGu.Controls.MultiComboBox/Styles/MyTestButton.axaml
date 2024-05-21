@@ -1,0 +1,26 @@
+﻿<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:local="using:HeBianGu.Controls.MultiComboBox"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Design.PreviewWith>
+        <Border Padding="20">
+            <!-- Add Controls for Previewer Here -->
+        </Border>
+    </Design.PreviewWith>
+
+    <!-- Add Styles Here -->
+  <Design.PreviewWith>
+    <local:MyTestButton />
+  </Design.PreviewWith>
+
+  <Style Selector="local|MyTestButton">
+    <Setter Property="Background" Value="Red" />
+    <!-- Set Defaults -->
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Grid Background="Red">
+          <TextBlock Text="自动加载成功" />
+        </Grid>
+      </ControlTemplate>
+    </Setter>
+  </Style>
+</Styles>

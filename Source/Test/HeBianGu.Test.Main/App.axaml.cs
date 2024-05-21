@@ -17,6 +17,8 @@ using Avalonia.Modules.Messages.Dialog;
 using Avalonia.Windows.Main;
 using MainWindow = Avalonia.Windows.Main.MainWindow;
 using Avalonia.Modules.SplashScreen;
+using System.Xml;
+using Avalonia.Markup.Xaml.Templates;
 
 namespace HeBianGu.Test.Main;
 
@@ -25,6 +27,7 @@ public partial class App : ApplicationBase
     public override void Initialize()
     {
         AvaloniaXamlLoader.Load(this);
+        base.Initialize();
     }
 
 

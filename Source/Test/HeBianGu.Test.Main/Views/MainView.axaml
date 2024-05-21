@@ -152,5 +152,19 @@
               <Button Command="{Binding ShowSnackMessageCommand}" Content="ShowSnackMessageCommand" />
             </UniformGrid>
         </TabItem>
+      <TabItem Header="DataTemplate自动加载">
+        <UniformGrid>
+          <ContentControl>
+            <h:My/>
+          </ContentControl>
+        </UniformGrid>
+      </TabItem>
+      <TabItem Header="Styles自动加载">
+        <UniformGrid>
+          <ContentControl>
+            <h:MyTestButton Content="ssss"/>
+          </ContentControl>
+        </UniformGrid>
+      </TabItem>
     </TabControl>
 </UserControl>
