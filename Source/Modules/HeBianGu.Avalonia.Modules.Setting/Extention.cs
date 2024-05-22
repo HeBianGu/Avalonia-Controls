@@ -2,6 +2,7 @@
 
 using HeBianGu.Avalonia.Core.Ioc;
 using HeBianGu.Avalonia.Modules.Setting;
+using HeBianGu.Avalonia.Modules.Setting;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace System

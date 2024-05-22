@@ -11,8 +11,8 @@ using System.Reactive.Disposables;
 using Avalonia.Threading;
 using HeBianGu.Avalonia.Windows.Dialog;
 using Avalonia;
-using HeBianGu.Avalonia.Modules.Setting;
 using Avalonia.Modules.Messages.Dialog;
+using HeBianGu.Avalonia.Modules.Setting;
 
 namespace HeBianGu.Test.Main.Views;
 

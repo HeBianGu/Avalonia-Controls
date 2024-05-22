@@ -22,44 +22,6 @@
     <StyleInclude Source="avares://Avalonia.Windows.Main/Styles.axaml" />
   </Application.Styles>
   <Application.DataTemplates>
-    <DataTemplate DataType="h:AdornerDialogPresenter">
-      <Grid>
-        <Grid.Background>
-          <SolidColorBrush Opacity="0.5" Color="Gray" />
-        </Grid.Background>
-        <Border Width="{Binding Width}"
-                Height="{Binding Height}"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                Background="{DynamicResource SystemRegionBrush}"
-                BorderBrush="{DynamicResource ButtonBorderThemeThickness}"
-                CornerRadius="{DynamicResource ControlCornerRadius}">
-          <Grid HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                RowDefinitions="Auto,*,Auto">
-            <Button HorizontalAlignment="Right"
-                    VerticalAlignment="Top"
-                    Command="{h:CloseAdornerDialogCommand}"
-                    CommandParameter="{Binding}"
-                    Content="×" />
-
-            <TextBlock Margin="10,6" Text="{Binding Title}" />
-            <ContentControl Grid.Row="1"
-                            HorizontalAlignment="Center"
-                            VerticalAlignment="Center"
-                            Content="{Binding Presenter}" />
-            <Button Grid.Row="2"
-                    Margin="10,6"
-                    HorizontalAlignment="Center"
-                    Command="{h:CloseAdornerDialogCommand}"
-                    CommandParameter="{Binding}"
-                    Content="确定" />
-          </Grid>
-
-        </Border>
-
-      </Grid>
-    </DataTemplate>
     <DataTemplate DataType="{x:Type h:StringPresenter}">
       <TextBlock Margin="10,40" Width="{Binding Width}" MinWidth="300" Height="{Binding Height}"
                  HorizontalAlignment="Center"
@@ -82,7 +44,7 @@
                ToolTip.Tip="{Binding Message}" />
     </DataTemplate>
 
-    <DataTemplate DataType="{x:Type h:SettingViewPresenter}">
+    <!--<DataTemplate DataType="{x:Type h:SettingViewPresenter}">
       <Grid>
         <Grid.RowDefinitions>
           <RowDefinition />
@@ -133,16 +95,16 @@
               <TextBlock Margin="10,0" Text="{Binding Key}" />
             </DataTemplate>
           </TabControl.ItemTemplate>
-          <!--<TabControl.ItemContainerStyle>
+          --><!--<TabControl.ItemContainerStyle>
                 <Style TargetType="TabItem">
-                    -->
-          <!--<Setter Property="h:Cattach.GuideData" Value="{Binding Descption}" />-->
-          <!--<Setter Property="h:Cattach.GuideTitle" Value="{Binding Key}" />
+                    --><!--
+          --><!--<Setter Property="h:Cattach.GuideData" Value="{Binding Descption}" />--><!--
+          --><!--<Setter Property="h:Cattach.GuideTitle" Value="{Binding Key}" />
                     <Setter Property="h:Cattach.GuideUseClick" Value="True" />
-                    <Setter Property="h:Cattach.UseGuide" Value="True" />-->
-          <!--
+                    <Setter Property="h:Cattach.UseGuide" Value="True" />--><!--
+          --><!--
                 </Style>
-            </TabControl.ItemContainerStyle>-->
+            </TabControl.ItemContainerStyle>--><!--
         </TabControl>
 
         <DockPanel Grid.Row="1"
@@ -170,15 +132,15 @@
                   Content="确定"
                   DockPanel.Dock="Right" />
 
-          <!--<Button MinWidth="100"
+          --><!--<Button MinWidth="100"
                         Margin="2,0"
                         Command="{CloseDialogCommand}"
                         CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
                         Content="取消"
-                        DockPanel.Dock="Right" />-->
+                        DockPanel.Dock="Right" />--><!--
         </DockPanel>
       </Grid>
-    </DataTemplate>
+    </DataTemplate>-->
 
     <DataTemplate DataType="{x:Type h:StaticFormPresenter}">
       <h:Form SelectObject="{Binding Value}"

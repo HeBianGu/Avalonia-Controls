@@ -13,7 +13,7 @@ namespace HeBianGu.Avalonia.Modules.Setting
     {
         public SettingViewPresenter()
         {
-            this.Data = SettingDataManager.Instance.Settings?.GroupBy(l => l.GroupName);
+            Data = SettingDataManager.Instance.Settings?.GroupBy(l => l.GroupName);
         }
 
         private IEnumerable<IGrouping<string, ISettable>> _data;

@@ -19,7 +19,7 @@ namespace Avalonia.Modules.Messages.Dialog
     {
         public AdornerDialogPresenter(object presenter)
         {
-            this.Presenter = presenter;
+            Presenter = presenter;
         }
         //public string Title { get; set; } = "提示";
         public object Presenter { get; set; }
@@ -34,7 +34,7 @@ namespace Avalonia.Modules.Messages.Dialog
             {
                 _title = value;
                 //RaisePropertyChanged();
-                this.RaisePropertyChanged();
+                RaisePropertyChanged();
             }
         }
         public DialogButton DialogButton { get; set; }
@@ -47,21 +47,21 @@ namespace Avalonia.Modules.Messages.Dialog
             return await Task.Run(() =>
             {
                 _waitHandle.WaitOne();
-                return this.DialogResult;
+                return DialogResult;
             });
         }
         #region - IDialogWindow -
         public bool? DialogResult { get; set; }
         public void Sumit()
         {
-            this.DialogResult = true;
-            this.Close();
+            DialogResult = true;
+            Close();
         }
 
         public void Cancel()
         {
-            this.DialogResult = false;
-            this.Close();
+            DialogResult = false;
+            Close();
         }
 
         public void Close()
@@ -71,7 +71,7 @@ namespace Avalonia.Modules.Messages.Dialog
         }
 
         public Func<bool> CanSumit { get; set; }
-        public bool IsCancel => this.DialogResult == false;
+        public bool IsCancel => DialogResult == false;
         //public DialogButton DialogButton { get; set; } = DialogButton.Sumit;
         public WindowBase? Owner { get; set; }
         #endregion

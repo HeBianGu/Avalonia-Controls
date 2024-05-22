@@ -5,6 +5,7 @@ using Avalonia.Controls;
 using Avalonia.Layout;
 using HeBianGu.Avalonia.Core.Ioc;
 using HeBianGu.Avalonia.Core.Mvvm;
+using HeBianGu.Avalonia.Modules.Setting;
 using System.Windows;
 
 namespace HeBianGu.Avalonia.Modules.Setting
