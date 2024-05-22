@@ -151,10 +151,10 @@ namespace HeBianGu.Avalonia.Controls.Form
         }
 
         public static readonly StyledProperty<object> SelectObjectProperty =
-            AvaloniaProperty.Register<Form, object>("SelectObject",null,false,BindingMode.Default,x=>
+            AvaloniaProperty.Register<Form, object>("SelectObject", null, false, BindingMode.Default, x =>
             {
                 return true;
-            },(x,y)=>
+            }, (x, y) =>
             {
                 if (x is Form form)
                     form.RefreshObject();
@@ -349,7 +349,7 @@ namespace HeBianGu.Avalonia.Controls.Form
 
 
         public static readonly StyledProperty<bool> UseStringProperty =
-            AvaloniaProperty.Register<Form, bool>("UseString",true);
+            AvaloniaProperty.Register<Form, bool>("UseString", true);
 
         public bool UseDateTime
         {
@@ -428,7 +428,7 @@ namespace HeBianGu.Avalonia.Controls.Form
 
 
         public static readonly StyledProperty<bool> UsePrimitiveProperty =
-            AvaloniaProperty.Register<Form, bool>("UsePrimitive",true);
+            AvaloniaProperty.Register<Form, bool>("UsePrimitive", true);
 
         public Func<PropertyInfo, object, IPropertyItem> Mapper
         {

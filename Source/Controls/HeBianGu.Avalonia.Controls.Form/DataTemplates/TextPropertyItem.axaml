@@ -1,0 +1,10 @@
+<DataTemplate DataType="local:TextPropertyItem" xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:HeBianGu.Avalonia.Controls.Form">
+  <TextBox Margin="0,2"
+           VerticalContentAlignment="Center"
+           IsReadOnly="{Binding ReadOnly}"
+           Text="{Binding Value}"
+           TextWrapping="{Binding TextWrapping}"
+           ToolTip.Tip="{Binding Message}" />
+</DataTemplate>

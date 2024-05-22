@@ -8,7 +8,7 @@
   <Application.Resources>
     <ResourceDictionary>
       <ResourceDictionary.MergedDictionaries>
-        <ResourceInclude Source="avares://HeBianGu.Avalonia.Controls.Form/Form.axaml" />
+        <!--<ResourceInclude Source="avares://HeBianGu.Avalonia.Controls.Form/Resources/Form.axaml" />-->
       </ResourceDictionary.MergedDictionaries>
     </ResourceDictionary>
   </Application.Resources>
@@ -27,20 +27,5 @@
         <TextBlock Text="{Binding Name}" />
       </Grid>
     </DataTemplate>-->
-    <DataTemplate DataType="h:TextPropertyItem">
-      <TextBox Margin="0,2"
-               VerticalContentAlignment="Center"
-               IsReadOnly="{Binding ReadOnly}"
-               Text="{Binding Value}"
-               TextWrapping="{Binding TextWrapping}"
-               ToolTip.Tip="{Binding Message}" />
-    </DataTemplate>
-
-    <DataTemplate DataType="{x:Type h:StaticFormPresenter}">
-      <h:Form SelectObject="{Binding Value}"
-              UseAsync="False"
-              UsePropertyView="{Binding UsePropertyView}" />
-    </DataTemplate>
-   
   </Application.DataTemplates>
 </Application>

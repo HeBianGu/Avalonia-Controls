@@ -107,9 +107,9 @@
         </TabItem>
         <TabItem Header="From">
             <h:Form>
-                <h:Form.Theme>
+                <!--<h:Form.Theme>
                     <ControlTheme BasedOn="{StaticResource {x:Type h:Form}}" TargetType="h:Form">
-                        <!--<Setter Property="DataTemplates">
+                        --><!--<Setter Property="DataTemplates">
                   <Setter.Value>
                     <DataTemplate DataType="v:Student">
                       <Grid>
@@ -117,10 +117,10 @@
                       </Grid>
                     </DataTemplate>
                   </Setter.Value>
-                </Setter>-->
+                </Setter>--><!--
                         <Setter Property="Background" Value="Red" />
                     </ControlTheme>
-                </h:Form.Theme>
+                </h:Form.Theme>-->
                 <!--<h:Form.StyleKey>
 
             </h:Form.StyleKey>-->

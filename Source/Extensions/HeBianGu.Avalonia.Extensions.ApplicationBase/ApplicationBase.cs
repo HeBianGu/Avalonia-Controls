@@ -14,6 +14,7 @@ using System.Reflection;
 using System.Linq;
 using Avalonia.Styling;
 using Avalonia.Markup.Xaml.Styling;
+using System.Net.WebSockets;
 
 namespace HeBianGu.Avalonia.Extensions.ApplicationBase
 {
@@ -59,47 +60,88 @@ namespace HeBianGu.Avalonia.Extensions.ApplicationBase
 
         public override void Initialize()
         {
-            this.LoadDataTemplates();
-            this.LoadResources();
-            this.LoadStyles();
+            var assemblies = this.GetReferanceAssemblies();
+            this.LoadDataTemplates(assemblies);
+            this.LoadResources(assemblies);
+            this.LoadStyles(assemblies);
         }
 
-        protected virtual void LoadStyles()
+        protected virtual void LoadStyles(List<Assembly> assemblies)
         {
-            this.LoadAxamls<ApplicationStylesLoaderAttribute>(x =>
+            this.LoadAxamls<ApplicationStylesLoaderAttribute>(assemblies, x =>
             {
                 var s = AvaloniaXamlLoader.Load(new Uri(x));
                 if (s is Styles styles)
                     this.Styles.Add(styles);
+                System.Diagnostics.Debug.WriteLine($"LoadStyles:{x}");
             });
         }
-        protected virtual void LoadResources()
+        protected virtual void LoadResources(List<Assembly> assemblies)
         {
-            this.LoadAxamls<ApplicationResourceLoaderAttribute>(x =>
+            this.LoadAxamls<ApplicationResourceLoaderAttribute>(assemblies, x =>
             {
                 ResourceInclude resourceInclude = new ResourceInclude(new Uri(x));
                 resourceInclude.Source = new Uri(x);
                 this.Resources.MergedDictionaries.Add(resourceInclude);
+                System.Diagnostics.Debug.WriteLine($"LoadResources:{x}");
             });
         }
 
-        protected virtual void LoadDataTemplates()
+        protected virtual void LoadDataTemplates(List<Assembly> assemblies)
         {
-            this.LoadAxamls<ApplicationDataTemplateLoaderAttribute>(x =>
+            this.LoadAxamls<ApplicationDataTemplateLoaderAttribute>(assemblies, x =>
             {
                 var s = AvaloniaXamlLoader.Load(new Uri(x));
                 if (s is DataTemplate dataTemplate)
                     this.DataTemplates.Add(dataTemplate);
+                System.Diagnostics.Debug.WriteLine($"LoadDataTemplates:{x}");
             });
         }
 
-        private void LoadAxamls<T>(Action<string> action) where T : ApplicationAxamlLoaderAttribute
+        private List<Assembly> GetReferanceAssemblies(Func<Assembly, bool> mactch)
         {
-            //var all = AppDomain.CurrentDomain.GetAssemblies().Where(x=>x.FullName.Contains("HeBianGu.Controls"));
+            void GetReferanceAssemblies(Assembly assembly, List<Assembly> list)
+            {
+                var all = assembly.GetReferencedAssemblies();
+                foreach (AssemblyName item in all)
+                {
+                    var ass = Assembly.Load(item);
+                    if (!mactch(ass))
+                        continue;
+                    if (!list.Contains(ass))
+                    {
+                        list.Add(ass);
+                        GetReferanceAssemblies(ass, list);
+                    }
+                }
+            }
 
-            var all = AppDomain.CurrentDomain.GetAssemblies();
-            var ass = all.Where(x => x.GetCustomAttribute<T>() != null).ToList();
-            foreach (var assembly in ass)
+            var list = new List<Assembly>();
+            var all = AppDomain.CurrentDomain.GetAssemblies().Where(mactch);
+            foreach (var item in all)
+            {
+                if (!list.Contains(item))
+                    list.Add(item);
+                GetReferanceAssemblies(item, list);
+            }
+            return list;
+        }
+
+        private List<Assembly> GetReferanceAssemblies()
+        {
+            return GetReferanceAssemblies(x => x.GetCustomAttribute<ApplicationDataTemplateLoaderAttribute>() != null || x.GetCustomAttribute<ApplicationStylesLoaderAttribute>() != null || x.GetCustomAttribute<ApplicationResourceLoaderAttribute>() != null);
+        }
+
+        private void LoadAxamls<T>(List<Assembly> assemblies, Action<string> action) where T : ApplicationAxamlLoaderAttribute
+        {
+            var all = assemblies.Where(x => x.GetCustomAttribute<T>() != null);
+#if DEBUG
+            foreach (var item in all)
+            {
+                System.Diagnostics.Debug.WriteLine($"GetAssemblies:{item}");
+            }
+#endif
+            foreach (var assembly in all)
             {
                 var attribute = assembly.GetCustomAttribute<T>();
                 var ts = assembly.ExportedTypes.Where(x => x.Name.Contains($"/{attribute.FolderName}/") && x.Name.EndsWith(".axaml"));
@@ -109,7 +151,6 @@ namespace HeBianGu.Avalonia.Extensions.ApplicationBase
                     string uri = t.Name.Replace("NamespaceInfo:", $"avares://{assName}");
                     //var s = AvaloniaXamlLoader.Load(new Uri(uri));
                     action?.Invoke(uri);
-
                 }
             }
 
