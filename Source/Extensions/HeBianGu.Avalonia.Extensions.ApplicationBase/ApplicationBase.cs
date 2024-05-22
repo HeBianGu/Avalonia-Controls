@@ -13,6 +13,7 @@ using Avalonia.Markup.Xaml.Templates;
 using System.Reflection;
 using System.Linq;
 using Avalonia.Styling;
+using Avalonia.Markup.Xaml.Styling;
 
 namespace HeBianGu.Avalonia.Extensions.ApplicationBase
 {
@@ -67,7 +68,8 @@ namespace HeBianGu.Avalonia.Extensions.ApplicationBase
         {
             this.LoadAxamls<ApplicationStylesLoaderAttribute>(x =>
             {
-                if (x is Styles styles)
+                var s = AvaloniaXamlLoader.Load(new Uri(x));
+                if (s is Styles styles)
                     this.Styles.Add(styles);
             });
         }
@@ -75,8 +77,9 @@ namespace HeBianGu.Avalonia.Extensions.ApplicationBase
         {
             this.LoadAxamls<ApplicationResourceLoaderAttribute>(x =>
             {
-                if (x is ResourceDictionary resource)
-                    this.Resources.MergedDictionaries.Add(resource);
+                ResourceInclude resourceInclude = new ResourceInclude(new Uri(x));
+                resourceInclude.Source = new Uri(x);
+                this.Resources.MergedDictionaries.Add(resourceInclude);
             });
         }
 
@@ -84,12 +87,13 @@ namespace HeBianGu.Avalonia.Extensions.ApplicationBase
         {
             this.LoadAxamls<ApplicationDataTemplateLoaderAttribute>(x =>
             {
-                if (x is DataTemplate dataTemplate)
+                var s = AvaloniaXamlLoader.Load(new Uri(x));
+                if (s is DataTemplate dataTemplate)
                     this.DataTemplates.Add(dataTemplate);
             });
         }
 
-        private void LoadAxamls<T>(Action<object> action) where T : ApplicationAxamlLoaderAttribute
+        private void LoadAxamls<T>(Action<string> action) where T : ApplicationAxamlLoaderAttribute
         {
             //var all = AppDomain.CurrentDomain.GetAssemblies().Where(x=>x.FullName.Contains("HeBianGu.Controls"));
 
@@ -103,9 +107,9 @@ namespace HeBianGu.Avalonia.Extensions.ApplicationBase
                 foreach (var t in ts)
                 {
                     string uri = t.Name.Replace("NamespaceInfo:", $"avares://{assName}");
-                    var s = AvaloniaXamlLoader.Load(new Uri(uri));
-                    action?.Invoke(s);
-                  
+                    //var s = AvaloniaXamlLoader.Load(new Uri(uri));
+                    action?.Invoke(uri);
+
                 }
             }
 
