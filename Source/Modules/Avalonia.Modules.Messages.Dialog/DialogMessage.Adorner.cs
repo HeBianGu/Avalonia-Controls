@@ -7,6 +7,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using Avalonia.Layout;
+using Avalonia.Modules.Messages.Dialog;
 
 namespace Avalonia.Modules.Messages.Dialog
 {

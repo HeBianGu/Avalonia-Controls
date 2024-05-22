@@ -2,6 +2,7 @@
 
 
 using Avalonia.Extensions.Geometry;
+using Avalonia.Modules.Messages.Snack;
 
 namespace Avalonia.Modules.Messages.Snack
 {

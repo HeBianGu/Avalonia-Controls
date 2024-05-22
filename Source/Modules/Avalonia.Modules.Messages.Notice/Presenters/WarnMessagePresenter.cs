@@ -3,6 +3,7 @@
 //using H.Extensions.Geometry;
 
 using Avalonia.Extensions.Geometry;
+using Avalonia.Modules.Messages.Notice;
 
 namespace Avalonia.Modules.Messages.Notice
 {

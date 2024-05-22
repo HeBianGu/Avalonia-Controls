@@ -1,0 +1,12 @@
+<DataTemplate xmlns="https://github.com/avaloniaui"
+              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+              xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
+              xmlns:local="clr-namespace:Avalonia.Modules.Messages.Dialog"
+              xmlns:h="https://github.com/HeBianGu" DataType="{x:Type local:StringPresenter}">
+  <TextBlock Margin="10,40" Width="{Binding Width}" MinWidth="300" Height="{Binding Height}"
+             HorizontalAlignment="Center"
+             VerticalAlignment="Center" TextAlignment="Center"
+             Text="{Binding Value}"
+             TextWrapping="Wrap"
+             ToolTip.Tip="{Binding Value}" />
+</DataTemplate>

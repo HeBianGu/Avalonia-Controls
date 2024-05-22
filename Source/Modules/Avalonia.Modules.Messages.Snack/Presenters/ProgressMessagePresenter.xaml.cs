@@ -1,6 +1,7 @@
 ﻿// Copyright © 2024 By HeBianGu(QQ:908293466) https://github.com/HeBianGu/WPF-Control
 
 using Avalonia.Extensions.Geometry;
+using Avalonia.Modules.Messages.Snack;
 using HeBianGu.Avalonia.Core.Ioc;
 
 namespace Avalonia.Modules.Messages.Snack

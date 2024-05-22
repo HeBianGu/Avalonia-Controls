@@ -1,5 +1,4 @@
-﻿
-using HeBianGu.Avalonia.Core.Ioc;
+﻿using HeBianGu.Avalonia.Core.Ioc;
 using HeBianGu.Avalonia.Core.Mvvm;
 
 namespace Avalonia.Modules.Messages.Dialog

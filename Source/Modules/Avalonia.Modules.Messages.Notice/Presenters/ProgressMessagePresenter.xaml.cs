@@ -2,6 +2,7 @@
 
 
 using Avalonia.Extensions.Geometry;
+using Avalonia.Modules.Messages.Notice;
 using HeBianGu.Avalonia.Core.Ioc;
 
 namespace Avalonia.Modules.Messages.Notice
