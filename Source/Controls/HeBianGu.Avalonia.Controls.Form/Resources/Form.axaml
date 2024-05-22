@@ -9,6 +9,17 @@
         <Setter Property="VerticalAlignment" Value="Center" />
     </ControlTheme>
 
+    <ControlTheme x:Key="S.TextBlock.Header" TargetType="TextBlock">
+        <Setter Property="Text" Value="{Binding Name}" />
+        <!--<Setter Property="Foreground" Value="{DynamicResource {x:Static h:BrushKeys.Red}}" />-->
+        <Setter Property="Grid.Column" Value="0" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="MinWidth" Value="80" />
+        <Setter Property="MaxWidth" Value="200" />
+
+        <!--<Setter Property="Margin" Value="10 0" />-->
+    </ControlTheme>
+
     <ControlTheme x:Key="S.TextBlock.Flag" TargetType="TextBlock">
         <Setter Property="Text" Value="{Binding Flag}" />
         <Setter Property="Width" Value="10" />
@@ -56,17 +67,6 @@
                     <Border Background="{TemplateBinding Background}"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}">
-                        <!--<Border.DataTemplates>
-                        <DataTemplate DataType="local:TextPropertyItem">
-                          <TextBox Margin="0,2"
-                                   VerticalContentAlignment="Center"
-                                   IsReadOnly="{Binding ReadOnly}"
-                                   Text="{Binding Value}"
-                                   TextWrapping="{Binding TextWrapping}"
-                                   ToolTip.Tip="{Binding Message}" />
-                        </DataTemplate>
-                      </Border.DataTemplates>-->
-
                         <ScrollViewer Margin="0" Padding="0">
                             <!--<b:Interaction.Behaviors>
                 <h:ScrollViewerBebavior UseMouseWheelHijack="True" />
@@ -101,11 +101,11 @@
                                         <ColumnDefinition />
                                         <ColumnDefinition Width="Auto" />
                                     </Grid.ColumnDefinitions>
-                                    <ContentControl Grid.Column="0"
+                                    <!--<ContentControl Grid.Column="0"
                                                       Content="{Binding Name}"
-                                                      ContentTemplate="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:Form}}, Path=ItemHeaderTemplate}" />
+                                                      ContentTemplate="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:Form}}, Path=ItemHeaderTemplate}" />-->
                                     <TextBlock Grid.Column="1" Theme="{StaticResource S.TextBlock.Flag}" />
-                                    <!--<TextBlock Grid.Column="0" Text="{Binding Name}" />-->
+                                    <TextBlock Grid.Column="0" Theme="{StaticResource S.TextBlock.Header}" />
                                     <ContentPresenter Grid.Column="2" Content="{Binding}" />
                                     <TextBlock Grid.Column="3" Theme="{StaticResource S.TextBlock.Error}" />
                                 </Grid>

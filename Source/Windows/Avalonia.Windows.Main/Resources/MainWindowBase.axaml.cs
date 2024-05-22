@@ -14,11 +14,11 @@ using System.Windows;
 
 namespace Avalonia.Windows.Main
 {
-    public partial class MainWindow : Window
+    public abstract partial class MainWindowBase : Window
     {
-        protected override Type StyleKeyOverride => typeof(MainWindow);
+        protected override Type StyleKeyOverride => typeof(MainWindowBase);
 
-        public MainWindow()
+        public MainWindowBase()
         {
             PointerPressed += OnPointerPressed;
 

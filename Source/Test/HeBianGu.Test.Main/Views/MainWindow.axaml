@@ -1,14 +1,51 @@
-<Window xmlns="https://github.com/avaloniaui"
+<Window x:Class="HeBianGu.Test.Main.Views.MainWindow"
+        xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:vm="using:HeBianGu.Test.Main.ViewModels"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:h="https://github.com/HeBianGu"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:views="clr-namespace:HeBianGu.Test.Main.Views"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-        x:Class="HeBianGu.Test.Main.Views.MainWindow"
-                     xmlns:h="https://github.com/HeBianGu"
-
-        Icon="/Assets/avalonia-logo.ico" WindowState="Maximized"
-        Title="HeBianGu.Test.Main">
-  <views:MainView/>
+        xmlns:vm="using:HeBianGu.Test.Main.ViewModels"
+        Title="HeBianGu.Test.Main"
+        d:DesignHeight="450"
+        d:DesignWidth="800"
+        Icon="/Assets/avalonia-logo.ico"
+        WindowState="Maximized"
+        mc:Ignorable="d">
+    <h:Attach.BottomTemplate>
+        <ControlTemplate>
+            <Button Content="BottomTemplate" />
+        </ControlTemplate>
+    </h:Attach.BottomTemplate>
+    <h:Attach.TopTemplate>
+        <ControlTemplate>
+            <Button Content="TopTemplate" />
+        </ControlTemplate>
+    </h:Attach.TopTemplate>
+    <h:Attach.RightTemplate>
+        <ControlTemplate>
+            <Button Content="RightTemplate" />
+        </ControlTemplate>
+    </h:Attach.RightTemplate>
+    <h:Attach.LeftTemplate>
+        <ControlTemplate>
+            <Button Content="LeftTemplate" />
+        </ControlTemplate>
+    </h:Attach.LeftTemplate>
+    <h:Attach.HeaderLeftTemplate>
+        <ControlTemplate>
+            <Button Content="HeaderLeftTemplate" />
+        </ControlTemplate>
+    </h:Attach.HeaderLeftTemplate>
+    <h:Attach.HeaderRightTemplate>
+        <ControlTemplate>
+            <Button Content="HeaderRightTemplate" />
+        </ControlTemplate>
+    </h:Attach.HeaderRightTemplate>
+    <h:Attach.HeaderCenterTemplate>
+        <ControlTemplate>
+            <Button Content="HeaderCenterTemplate" />
+        </ControlTemplate>
+    </h:Attach.HeaderCenterTemplate>
+    <views:MainView />
 </Window>

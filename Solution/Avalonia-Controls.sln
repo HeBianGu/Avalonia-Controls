@@ -81,9 +81,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avalonia.Modules.Messages.S
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avalonia.Extensions.Geometry", "..\Source\Extensions\Avalonia.Extensions.Geometry\Avalonia.Extensions.Geometry.csproj", "{D6322174-4E49-437D-9F63-AEC0AF137229}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avalonia.Windows.Main", "..\Source\Windows\Avalonia.Windows.Main\Avalonia.Windows.Main.csproj", "{FBCD292D-1DA7-49AF-9257-DEDB08EF457C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avalonia.Windows.Main", "..\Source\Windows\Avalonia.Windows.Main\Avalonia.Windows.Main.csproj", "{FBCD292D-1DA7-49AF-9257-DEDB08EF457C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avalonia.Modules.SplashScreen", "..\Source\Modules\Avalonia.Modules.SplashScreen\Avalonia.Modules.SplashScreen.csproj", "{936A9E09-9227-4587-8CAA-82DD3310DDF9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avalonia.Modules.SplashScreen", "..\Source\Modules\Avalonia.Modules.SplashScreen\Avalonia.Modules.SplashScreen.csproj", "{936A9E09-9227-4587-8CAA-82DD3310DDF9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avalonia.Extensions.Attach", "..\Source\Extensions\Avalonia.Extensions.Attach\Avalonia.Extensions.Attach.csproj", "{3FEB6058-25AA-4B3F-859B-D12B65DAD02F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -229,6 +231,10 @@ Global
 		{936A9E09-9227-4587-8CAA-82DD3310DDF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{936A9E09-9227-4587-8CAA-82DD3310DDF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{936A9E09-9227-4587-8CAA-82DD3310DDF9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3FEB6058-25AA-4B3F-859B-D12B65DAD02F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3FEB6058-25AA-4B3F-859B-D12B65DAD02F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3FEB6058-25AA-4B3F-859B-D12B65DAD02F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3FEB6058-25AA-4B3F-859B-D12B65DAD02F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -267,6 +273,7 @@ Global
 		{D6322174-4E49-437D-9F63-AEC0AF137229} = {197618A0-BDD0-40C0-BBC3-678E58EAFF70}
 		{FBCD292D-1DA7-49AF-9257-DEDB08EF457C} = {D0458D64-77AD-4A31-A7A6-BC71EBC5C0D2}
 		{936A9E09-9227-4587-8CAA-82DD3310DDF9} = {B0715156-EC67-4A7A-8F6A-C2965322DA49}
+		{3FEB6058-25AA-4B3F-859B-D12B65DAD02F} = {197618A0-BDD0-40C0-BBC3-678E58EAFF70}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EC68E9A1-91AC-4B6A-B817-573F85D4F550}

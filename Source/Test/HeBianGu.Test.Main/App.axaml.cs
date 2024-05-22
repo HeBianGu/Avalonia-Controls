@@ -14,7 +14,7 @@ using HeBianGu.Avalonia.Core.Ioc;
 using HeBianGu.Avalonia.Extensions.ApplicationBase;
 using HeBianGu.Avalonia.Windows.Dialog;
 using Avalonia.Modules.Messages.Dialog;
-using MainWindow = Avalonia.Windows.Main.MainWindow;
+//using MainWindow = Avalonia.Windows.Main.MainWindow;
 using Avalonia.Modules.SplashScreen;
 using System.Xml;
 using Avalonia.Markup.Xaml.Templates;

@@ -1,8 +1,9 @@
 <DataTemplate xmlns="https://github.com/avaloniaui"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:local="clr-namespace:HeBianGu.Avalonia.Controls.Form"
+              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+              xmlns:local="clr-namespace:HeBianGu.Avalonia.Controls.Form"
               DataType="{x:Type local:StaticFormPresenter}">
-  <local:Form SelectObject="{Binding Value}"
-          UseAsync="False"
-          UsePropertyView="{Binding UsePropertyView}" />
+    <local:Form Margin="10,6"
+                SelectObject="{Binding Value}"
+                UseAsync="False"
+                UsePropertyView="{Binding UsePropertyView}" />
 </DataTemplate>

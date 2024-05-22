@@ -7,8 +7,14 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Core\HeBianGu.Avalonia.Core.Ioc\HeBianGu.Avalonia.Core.Ioc.csproj" />
+    <ProjectReference Include="..\..\Extensions\Avalonia.Extensions.Attach\Avalonia.Extensions.Attach.csproj" />
     <ProjectReference Include="..\..\Extensions\Avalonia.Extensions.Geometry\Avalonia.Extensions.Geometry.csproj" />
     <ProjectReference Include="..\..\Extensions\HeBianGu.Avalonia.Extensions.ApplicationBase\HeBianGu.Avalonia.Extensions.ApplicationBase.csproj" />
     <ProjectReference Include="..\..\Extensions\HeBianGu.Avalonia.Extensions.Command\HeBianGu.Avalonia.Extensions.Command.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Resources\MainWindowBase.axaml.cs">
+      <DependentUpon>MainWindowBase.axaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 </Project>
