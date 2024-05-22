@@ -109,7 +109,8 @@
             <h:Form>
                 <!--<h:Form.Theme>
                     <ControlTheme BasedOn="{StaticResource {x:Type h:Form}}" TargetType="h:Form">
-                        --><!--<Setter Property="DataTemplates">
+                -->
+                <!--<Setter Property="DataTemplates">
                   <Setter.Value>
                     <DataTemplate DataType="v:Student">
                       <Grid>
@@ -117,7 +118,8 @@
                       </Grid>
                     </DataTemplate>
                   </Setter.Value>
-                </Setter>--><!--
+                </Setter>-->
+                <!--
                         <Setter Property="Background" Value="Red" />
                     </ControlTheme>
                 </h:Form.Theme>-->
@@ -149,22 +151,49 @@
                 <Button Command="{Binding ShowMessageCommand}" Content="ShowMessageCommand" />
                 <Button Command="{Binding ShowFormMessageCommand}" Content="ShowFormMessageCommand" />
                 <Button Command="{Binding ShowNoticeMessageCommand}" Content="ShowNoticeMessageCommand" />
-              <Button Command="{Binding ShowSnackMessageCommand}" Content="ShowSnackMessageCommand" />
+                <Button Command="{Binding ShowSnackMessageCommand}" Content="ShowSnackMessageCommand" />
             </UniformGrid>
         </TabItem>
-      <TabItem Header="DataTemplate自动加载">
-        <UniformGrid>
-          <ContentControl>
-            <h:My/>
-          </ContentControl>
-        </UniformGrid>
-      </TabItem>
-      <TabItem Header="Styles自动加载">
-        <UniformGrid>
-          <ContentControl>
-            <h:MyTestButton Content="ssss"/>
-          </ContentControl>
-        </UniformGrid>
-      </TabItem>
+        <TabItem Header="DataTemplate自动加载">
+            <UniformGrid>
+                <ContentControl>
+                    <h:My />
+                </ContentControl>
+            </UniformGrid>
+        </TabItem>
+        <TabItem Header="Styles自动加载">
+            <UniformGrid>
+                <ContentControl>
+                    <h:MyTestButton Content="ssss" />
+                </ContentControl>
+            </UniformGrid>
+        </TabItem>
+        <TabItem Header="S.Button.Geomerty">
+            <UniformGrid>
+                <Button Content="{x:Static h:Geometrys.Close}">
+                    <Button.Theme>
+                        <ControlTheme BasedOn="{StaticResource {x:Type Button}}" TargetType="Button">
+                            <Setter Property="Width" Value="30" />
+                            <Setter Property="Height" Value="30" />
+                            <Setter Property="Padding" Value="2" />
+                            <Setter Property="ContentTemplate">
+                                <Setter.Value>
+                                    <DataTemplate>
+                                        <Path VerticalAlignment="Center"
+                                              Data="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Content}"
+                                              Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}"
+                                              Stretch="Uniform" />
+                                    </DataTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </ControlTheme>
+                    </Button.Theme>
+                </Button>
+
+                <Button Content="{x:Static h:Geometrys.Warn}" Theme="{DynamicResource S.Button.Geometry}" />
+
+            
+            </UniformGrid>
+        </TabItem>
     </TabControl>
 </UserControl>

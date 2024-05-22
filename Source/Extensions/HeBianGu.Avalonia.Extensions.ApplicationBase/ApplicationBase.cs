@@ -114,6 +114,10 @@ namespace HeBianGu.Avalonia.Extensions.ApplicationBase
             {
                 void GetReferanceAssemblies(Assembly assembly, List<Assembly> list)
                 {
+                    if(assembly.FullName.Contains("Main"))
+                    {
+
+                    }
                     var all = assembly.GetReferencedAssemblies();
                     foreach (AssemblyName item in all)
                     {

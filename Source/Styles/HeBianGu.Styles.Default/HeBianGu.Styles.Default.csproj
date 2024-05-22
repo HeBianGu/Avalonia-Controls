@@ -18,6 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Extensions\HeBianGu.Avalonia.Extensions.ApplicationBase\HeBianGu.Avalonia.Extensions.ApplicationBase.csproj" />
     <ProjectReference Include="..\..\Themes\HeBianGu.Themes.Default\HeBianGu.Themes.Default.csproj" />
   </ItemGroup>
   <ItemGroup>

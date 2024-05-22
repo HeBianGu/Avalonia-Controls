@@ -5,13 +5,13 @@
              xmlns:v="clr-namespace:HeBianGu.Test.Main.Views"
              RequestedThemeVariant="Default">
   <!--  "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options.  -->
-  <!--<Application.Resources>
+  <Application.Resources>
     <ResourceDictionary>
       <ResourceDictionary.MergedDictionaries>
-        --><!--<ResourceInclude Source="avares://HeBianGu.Avalonia.Controls.Form/Resources/Form.axaml" />--><!--
+        <ResourceInclude Source="avares://HeBianGu.Styles.Default/Resources/Button.axaml" />
       </ResourceDictionary.MergedDictionaries>
     </ResourceDictionary>
-  </Application.Resources>-->
+  </Application.Resources>
   <Application.Styles>
     <FluentTheme />
     <!--<StyleInclude Source="avares://HeBianGu.Controls.MultiComboBox/Styles/MultiComboBox.axaml" />
