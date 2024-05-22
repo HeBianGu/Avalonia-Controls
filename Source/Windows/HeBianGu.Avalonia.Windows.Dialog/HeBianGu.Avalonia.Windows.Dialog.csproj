@@ -12,11 +12,11 @@
     <ProjectReference Include="..\..\Extensions\HeBianGu.Avalonia.Extensions.Command\HeBianGu.Avalonia.Extensions.Command.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <AvaloniaXaml Include="DialogWindow.axaml">
-      <Generator>MSBuild:Compile</Generator>
-    </AvaloniaXaml>
+    <UpToDateCheckInput Remove="DialogWindow.axaml" />
   </ItemGroup>
   <ItemGroup>
-    <UpToDateCheckInput Remove="DialogWindow.axaml" />
+    <AvaloniaXaml Update="Resources\DialogWindow.axaml">
+      <Generator>MSBuild:Compile</Generator>
+    </AvaloniaXaml>
   </ItemGroup>
 </Project>

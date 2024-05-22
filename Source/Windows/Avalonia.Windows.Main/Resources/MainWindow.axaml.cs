@@ -1,5 +1,4 @@
-﻿using Avalonia;
-using Avalonia.Controls;
+﻿using Avalonia.Controls;
 using Avalonia.Input;
 using Avalonia.Markup.Xaml.Templates;
 using Avalonia.Media;
@@ -21,7 +20,7 @@ namespace Avalonia.Windows.Main
 
         public MainWindow()
         {
-            this.PointerPressed += OnPointerPressed;
+            PointerPressed += OnPointerPressed;
 
         }
 
@@ -30,7 +29,7 @@ namespace Avalonia.Windows.Main
             if (e.Pointer.Type == PointerType.Mouse)
             {
 
-                this.BeginMoveDrag(e);
+                BeginMoveDrag(e);
             }
         }
 

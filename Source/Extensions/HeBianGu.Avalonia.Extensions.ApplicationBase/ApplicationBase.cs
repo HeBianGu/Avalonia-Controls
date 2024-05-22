@@ -60,7 +60,14 @@ namespace HeBianGu.Avalonia.Extensions.ApplicationBase
 
         public override void Initialize()
         {
-            var assemblies = this.GetReferanceAssemblies();
+            var assemblies = this.GetAxamlLoaderAssemblies();
+
+#if DEBUG
+            foreach (var item in assemblies)
+            {
+                System.Diagnostics.Debug.WriteLine($"GetReferanceAssemblies:{item}");
+            }
+#endif
             this.LoadDataTemplates(assemblies);
             this.LoadResources(assemblies);
             this.LoadStyles(assemblies);
@@ -98,49 +105,51 @@ namespace HeBianGu.Avalonia.Extensions.ApplicationBase
             });
         }
 
-        private List<Assembly> GetReferanceAssemblies(Func<Assembly, bool> mactch)
+
+
+
+        protected virtual List<Assembly> GetAxamlLoaderAssemblies()
         {
-            void GetReferanceAssemblies(Assembly assembly, List<Assembly> list)
+            List<Assembly> GetReferanceAssemblies(Func<Assembly, bool> mactch)
             {
-                var all = assembly.GetReferencedAssemblies();
-                foreach (AssemblyName item in all)
+                void GetReferanceAssemblies(Assembly assembly, List<Assembly> list)
                 {
-                    var ass = Assembly.Load(item);
-                    if (!mactch(ass))
-                        continue;
-                    if (!list.Contains(ass))
+                    var all = assembly.GetReferencedAssemblies();
+                    foreach (AssemblyName item in all)
                     {
-                        list.Add(ass);
-                        GetReferanceAssemblies(ass, list);
+                        if (list.Any(x => x.FullName == item.FullName))
+                            continue;
+                        var ass = Assembly.Load(item);
+                        if (!list.Contains(ass))
+                        {
+                            list.Add(ass);
+                            GetReferanceAssemblies(ass, list);
+                        }
                     }
                 }
+
+                var list = new List<Assembly>();
+                var all = AppDomain.CurrentDomain.GetAssemblies().Where(x => x.GetCustomAttribute<ApplicationDataTemplateLoaderAttribute>() != null || x.GetCustomAttribute<ApplicationStylesLoaderAttribute>() != null || x.GetCustomAttribute<ApplicationResourceLoaderAttribute>() != null || x == Assembly.GetEntryAssembly());
+                foreach (var item in all)
+                {
+                    if (!list.Contains(item))
+                        list.Add(item);
+                    GetReferanceAssemblies(item, list);
+                }
+                return list;
             }
 
-            var list = new List<Assembly>();
-            var all = AppDomain.CurrentDomain.GetAssemblies().Where(mactch);
-            foreach (var item in all)
-            {
-                if (!list.Contains(item))
-                    list.Add(item);
-                GetReferanceAssemblies(item, list);
-            }
-            return list;
-        }
+            var all = GetReferanceAssemblies(x => x.GetCustomAttribute<ApplicationDataTemplateLoaderAttribute>() != null || x.GetCustomAttribute<ApplicationStylesLoaderAttribute>() != null || x.GetCustomAttribute<ApplicationResourceLoaderAttribute>() != null || x == Assembly.GetEntryAssembly());
 
-        private List<Assembly> GetReferanceAssemblies()
-        {
-            return GetReferanceAssemblies(x => x.GetCustomAttribute<ApplicationDataTemplateLoaderAttribute>() != null || x.GetCustomAttribute<ApplicationStylesLoaderAttribute>() != null || x.GetCustomAttribute<ApplicationResourceLoaderAttribute>() != null);
+            return all.Where(x =>
+            x.GetCustomAttribute<ApplicationDataTemplateLoaderAttribute>() != null ||
+            x.GetCustomAttribute<ApplicationStylesLoaderAttribute>() != null ||
+            x.GetCustomAttribute<ApplicationResourceLoaderAttribute>() != null).ToList();
         }
 
         private void LoadAxamls<T>(List<Assembly> assemblies, Action<string> action) where T : ApplicationAxamlLoaderAttribute
         {
             var all = assemblies.Where(x => x.GetCustomAttribute<T>() != null);
-#if DEBUG
-            foreach (var item in all)
-            {
-                System.Diagnostics.Debug.WriteLine($"GetAssemblies:{item}");
-            }
-#endif
             foreach (var assembly in all)
             {
                 var attribute = assembly.GetCustomAttribute<T>();

@@ -12,8 +12,21 @@ using System.Threading.Tasks;
 using System.Windows;
 using Avalonia.Layout;
 using HeBianGu.Avalonia.Extensions.ApplicationBase;
+using System.Collections.ObjectModel;
 
-namespace Avalonia.Modules.Messages.Dialog
+namespace Avalonia.Modules.Messages.Snack
 {
-
+    public class SnackBoxPresenter : BindableBase
+    {
+        private ObservableCollection<ISnackItem> _collection = new ObservableCollection<ISnackItem>();
+        public ObservableCollection<ISnackItem> Collection
+        {
+            get { return _collection; }
+            set
+            {
+                _collection = value;
+                RaisePropertyChanged();
+            }
+        }
+    }
 }
