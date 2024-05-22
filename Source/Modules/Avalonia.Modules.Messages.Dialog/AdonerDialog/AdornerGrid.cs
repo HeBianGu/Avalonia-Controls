@@ -4,11 +4,16 @@ using System.Linq;
 using Avalonia.Layout;
 using Avalonia.Controls.Primitives;
 using HeBianGu.Avalonia.Extensions.ApplicationBase;
+using Avalonia.Media;
 
 namespace Avalonia.Modules.Messages.Dialog
 {
     public class AdornerGrid : Grid
     {
+        //public AdornerGrid()
+        //{
+        //    this.Background = Brushes.Orange;
+        //}
         public static void AddPresenter(object presenter)
         {
             var visual = Application.Current.GetMainAdornerControl();

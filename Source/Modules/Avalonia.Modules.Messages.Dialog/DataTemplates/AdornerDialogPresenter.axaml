@@ -1,45 +1,45 @@
 ﻿<DataTemplate xmlns="https://github.com/avaloniaui"
               xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
               xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
-              xmlns:local="clr-namespace:Avalonia.Modules.Messages.Dialog"
               xmlns:h="https://github.com/HeBianGu"
+              xmlns:local="clr-namespace:Avalonia.Modules.Messages.Dialog"
               DataType="{x:Type local:AdornerDialogPresenter}">
-  <Grid>
-    <Grid.Background>
-      <SolidColorBrush Opacity="0.5" Color="Gray" />
-    </Grid.Background>
-    <Border Width="{Binding Width}"
-       Height="{Binding Height}"
-       HorizontalAlignment="Center"
-       VerticalAlignment="Center"
-       Background="{DynamicResource SystemRegionBrush}"
-       BorderBrush="{DynamicResource ButtonBorderThemeThickness}"
-       CornerRadius="{DynamicResource ControlCornerRadius}">
-      <Grid HorizontalAlignment="Center"
-     VerticalAlignment="Center"
-     RowDefinitions="Auto,*,Auto">
-        <Button HorizontalAlignment="Right"
-       VerticalAlignment="Top"
-       Command="{local:CloseAdornerDialogCommand}"
-       CommandParameter="{Binding}"
-       Content="×" />
+    <Grid>
+        <Grid.Background>
+            <SolidColorBrush Opacity="0.5" Color="Gray" />
+        </Grid.Background>
+        <Border Width="{Binding Width}"
+                Height="{Binding Height}"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch"
+                Background="{DynamicResource SystemRegionBrush}"
+                BorderBrush="{DynamicResource ButtonBorderThemeThickness}"
+                CornerRadius="{DynamicResource ControlCornerRadius}">
+            <Grid HorizontalAlignment="Stretch"
+                  VerticalAlignment="Stretch"
+                  RowDefinitions="Auto,*,Auto">
+                <Button HorizontalAlignment="Right"
+                        VerticalAlignment="Top"
+                        Command="{local:CloseAdornerDialogCommand}"
+                        CommandParameter="{Binding}"
+                        Content="×" />
 
-        <TextBlock Margin="10,6" Text="{Binding Title}" />
-        <ContentControl Grid.Row="1"
-               HorizontalAlignment="Center"
-               VerticalAlignment="Center"
-               Content="{Binding Presenter}" />
-        <Button Grid.Row="2"
-       Margin="10,6"
-       HorizontalAlignment="Center"
-       Command="{local:SumitAdornerDialogCommand}"
-       CommandParameter="{Binding}"
-       Content="确定" />
-      </Grid>
+                <TextBlock Margin="10,6" Text="{Binding Title}" />
+                <ContentControl Grid.Row="1"
+                                HorizontalAlignment="{Binding HorizontalContentAlignment}"
+                                VerticalAlignment="{Binding VerticalContentAlignment}"
+                                Content="{Binding Presenter}" />
+                <Button Grid.Row="2"
+                        Margin="10,6"
+                        HorizontalAlignment="Center"
+                        Command="{local:SumitAdornerDialogCommand}"
+                        CommandParameter="{Binding}"
+                        Content="确定" />
+            </Grid>
 
-    </Border>
+        </Border>
 
-  </Grid>
+    </Grid>
 </DataTemplate>
 
 <!--<DataTemplate DataType="{x:Type local:AdornerDialogPresenter}">

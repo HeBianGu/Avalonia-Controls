@@ -3,6 +3,8 @@ using Avalonia.Controls;
 using System;
 using Avalonia;
 using Avalonia.Threading;
+using Avalonia.VisualTree;
+using System.Linq;
 
 namespace HeBianGu.Avalonia.Extensions.ApplicationBase
 {
@@ -15,10 +17,14 @@ namespace HeBianGu.Avalonia.Extensions.ApplicationBase
             return null;
         }
 
-        public static Control GetMainAdornerControl(this Application application)
+        public static Visual GetMainAdornerControl(this Application application)
         {
             if (application?.ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
-                return desktop.MainWindow.Content as Control;
+            {
+                var f= desktop.MainWindow.Content as Visual;
+                return f;
+            }
+             
             if (application?.ApplicationLifetime is ISingleViewApplicationLifetime singleView)
                 return singleView.MainView;
             return null;
