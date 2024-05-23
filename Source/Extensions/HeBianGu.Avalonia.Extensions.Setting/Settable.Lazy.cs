@@ -6,6 +6,6 @@ namespace HeBianGu.Avalonia.Extensions.Setting
 {
     public abstract class LazySettableInstance<T> : SettableBase where T : new()
     {
-        public static T Instance = new Lazy<T>(() => new T()).Value;
+        public static T Instance { get; } = new Lazy<T>(() => new T()).Value;
     }
 }

@@ -11,9 +11,4 @@
   <ItemGroup>
     <ProjectReference Include="..\..\Extensions\HeBianGu.Avalonia.Extensions.ApplicationBase\HeBianGu.Avalonia.Extensions.ApplicationBase.csproj" />
   </ItemGroup>
-  <ItemGroup>
-    <Compile Update="FontSizes\Large.axaml.cs">
-      <DependentUpon>Large.axaml</DependentUpon>
-    </Compile>
-  </ItemGroup>
 </Project>

@@ -1,0 +1,30 @@
+<DataTemplate xmlns="https://github.com/avaloniaui"
+              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+              xmlns:h="https://github.com/HeBianGu"
+              xmlns:local="clr-namespace:Avalonia.Modules.ThemeSetting"
+              DataType="local:ThemeSettingViewPresenter">
+    <StackPanel HorizontalAlignment="Stretch">
+        <Expander Padding="0"
+                  HorizontalAlignment="Stretch"
+                  Header="主题颜色"
+                  IsExpanded="True">
+            <ListBox ItemsSource="{Binding Source={x:Static local:ThemeSetting.Instance}, Path=ColorResources}" 
+                     SelectedItem="{Binding Source={x:Static local:ThemeSetting.Instance}, Path=ColorResource}" />
+        </Expander>
+        <Expander Padding="0"
+                  HorizontalAlignment="Stretch"
+                  Header="字号"
+                  IsExpanded="True">
+            <ListBox ItemsSource="{Binding Source={x:Static local:ThemeSetting.Instance}, Path=FontSizeResources}" 
+                     SelectedItem="{Binding Source={x:Static local:ThemeSetting.Instance}, Path=FontSizeResource}" />
+        </Expander>
+        <Expander Padding="0"
+                  HorizontalAlignment="Stretch"
+                  Header="布局"
+                  IsExpanded="True">
+            <ListBox ItemsSource="{Binding Source={x:Static local:ThemeSetting.Instance}, Path=LayoutResources}"
+                     SelectedItem="{Binding Source={x:Static local:ThemeSetting.Instance}, Path=LayoutResource}" 
+                     />
+        </Expander>
+    </StackPanel>
+</DataTemplate>

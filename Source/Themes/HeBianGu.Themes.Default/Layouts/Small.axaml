@@ -6,18 +6,18 @@
   <system:Double x:Key="{local:StringResourceKey ResourceId=S.Layout.WindowCaptionHeight,
                                                   TypeInTargetAssembly={x:Type local:LayoutKeys}}">25</system:Double>
   <system:Double x:Key="{local:StringResourceKey ResourceId=S.Layout.ItemHeight,
-                                                  TypeInTargetAssembly={x:Type local:LayoutKeys}}">35</system:Double>
+                                                  TypeInTargetAssembly={x:Type local:LayoutKeys}}">30</system:Double>
   <system:Double x:Key="{local:StringResourceKey ResourceId=S.Layout.RowHeight,
-                                                  TypeInTargetAssembly={x:Type local:LayoutKeys}}">40</system:Double>
+                                                  TypeInTargetAssembly={x:Type local:LayoutKeys}}">35</system:Double>
   <system:Double x:Key="{local:StringResourceKey ResourceId=S.Layout.Disabled,
                                                   TypeInTargetAssembly={x:Type local:LayoutKeys}}">0.4</system:Double>
   <system:Double x:Key="{local:StringResourceKey ResourceId=S.Layout.Pressed,
                                                   TypeInTargetAssembly={x:Type local:LayoutKeys}}">0.8</system:Double>
 
   <CornerRadius x:Key="{local:StringResourceKey ResourceId=S.Layout.CornerRadius,
-                                                  TypeInTargetAssembly={x:Type local:LayoutKeys}}">5</CornerRadius>
+                                                  TypeInTargetAssembly={x:Type local:LayoutKeys}}">2</CornerRadius>
   <Thickness x:Key="{local:StringResourceKey ResourceId=S.Layout.BorderThickness,
                                                   TypeInTargetAssembly={x:Type local:LayoutKeys}}">1</Thickness>
   <Thickness x:Key="{local:StringResourceKey ResourceId=S.Layout.Padding,
-                                                  TypeInTargetAssembly={x:Type local:LayoutKeys}}">10 6</Thickness>
+                                                  TypeInTargetAssembly={x:Type local:LayoutKeys}}">5 3</Thickness>
 </ResourceDictionary>

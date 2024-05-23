@@ -56,7 +56,7 @@
 
       <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
         <Setter Property="Background" Value="{DynamicResource {x:Static h:BrushKeys.Selected}}" />
-        <Setter Property="Foreground" Value="{DynamicResource {x:Static h:BrushKeys.ForegroundTitle}}" />
+        <Setter Property="Foreground" Value="{DynamicResource {x:Static h:BrushKeys.CaptionForeground}}" />
       </Style>
 
       <!--  Selected Unfocused State  -->

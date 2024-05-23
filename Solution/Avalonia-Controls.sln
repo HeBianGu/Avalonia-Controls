@@ -89,7 +89,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avalonia.Extensions.Attach"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avalonia.Styles", "..\Source\Styles\Avalonia.Styles\Avalonia.Styles.csproj", "{4837DDC7-2AA5-44AC-AE12-EF010FD9B15A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avalonia.Extensions.BackgroundImage", "..\Source\Extensions\Avalonia.Extensions.BackgroundImage\Avalonia.Extensions.BackgroundImage.csproj", "{5833DD60-4C48-4793-9FEB-33B09B330BE5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avalonia.Extensions.BackgroundImage", "..\Source\Extensions\Avalonia.Extensions.BackgroundImage\Avalonia.Extensions.BackgroundImage.csproj", "{5833DD60-4C48-4793-9FEB-33B09B330BE5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avalonia.Modules.ThemeSetting", "..\Source\Modules\Avalonia.Modules.ThemeSetting\Avalonia.Modules.ThemeSetting.csproj", "{4CB508A4-F729-4A95-A941-638365F961A0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -247,6 +249,10 @@ Global
 		{5833DD60-4C48-4793-9FEB-33B09B330BE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5833DD60-4C48-4793-9FEB-33B09B330BE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5833DD60-4C48-4793-9FEB-33B09B330BE5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4CB508A4-F729-4A95-A941-638365F961A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4CB508A4-F729-4A95-A941-638365F961A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4CB508A4-F729-4A95-A941-638365F961A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4CB508A4-F729-4A95-A941-638365F961A0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -288,6 +294,7 @@ Global
 		{3FEB6058-25AA-4B3F-859B-D12B65DAD02F} = {197618A0-BDD0-40C0-BBC3-678E58EAFF70}
 		{4837DDC7-2AA5-44AC-AE12-EF010FD9B15A} = {20A5A6F5-B1C4-44C4-B29E-AF35F015B582}
 		{5833DD60-4C48-4793-9FEB-33B09B330BE5} = {197618A0-BDD0-40C0-BBC3-678E58EAFF70}
+		{4CB508A4-F729-4A95-A941-638365F961A0} = {B0715156-EC67-4A7A-8F6A-C2965322DA49}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EC68E9A1-91AC-4B6A-B817-573F85D4F550}

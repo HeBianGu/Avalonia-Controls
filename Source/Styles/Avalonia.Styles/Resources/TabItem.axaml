@@ -65,7 +65,7 @@
     <!--  We don't use selector to PART_LayoutRoot, so developer can override selected item background with TabStripItem.Background  -->
     <Style Selector="^:selected">
       <Setter Property="Background" Value="{DynamicResource {x:Static h:BrushKeys.Selected}}" />
-      <Setter Property="Foreground" Value="{DynamicResource {x:Static h:BrushKeys.ForegroundTitle}}" />
+      <Setter Property="Foreground" Value="{DynamicResource {x:Static h:BrushKeys.CaptionForeground}}" />
     </Style>
     <Style Selector="^:selected /template/ Border#PART_SelectedPipe">
       <Setter Property="IsVisible" Value="True" />
@@ -79,7 +79,7 @@
     <!--  Selected PointerOver state  -->
     <Style Selector="^:selected:pointerover /template/ Border#PART_LayoutRoot">
       <Setter Property="Background" Value="{DynamicResource {x:Static h:BrushKeys.MouseOver}}" />
-      <Setter Property="TextElement.Foreground" Value="{DynamicResource {x:Static h:BrushKeys.ForegroundTitle}}" />
+      <Setter Property="TextElement.Foreground" Value="{DynamicResource {x:Static h:BrushKeys.CaptionForeground}}" />
     </Style>
 
     <!--  Pressed state  -->
