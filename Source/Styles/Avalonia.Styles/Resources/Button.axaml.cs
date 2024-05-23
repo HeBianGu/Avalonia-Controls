@@ -11,10 +11,6 @@ namespace Avalonia.Styles
     public static class ButtonKeys
     {
         //public static AvaloniaResourceKey Geometry => new AvaloniaResourceKey(typeof(ButtonKeys), "S.Button.Geometry");
-
         public static StringResourceKey Geometry => new StringResourceKey(typeof(Button), nameof(Geometry));
-
     }
-
-
 }

@@ -205,5 +205,13 @@
         <Image Source="avares://Avalonia.Extensions.BackgroundImage/Assets/b13.png"/>
       </UniformGrid>
     </TabItem>
+    <TabItem Header="ListBox">
+      <ListBox ItemsSource="{Binding Collection}">
+
+      </ListBox>
+    </TabItem>
+    <TabItem Header="设置字体大小">
+      <Button Content="设置字体大小" Command="{Binding SetFontSizeCommand}"/>
+    </TabItem>
   </TabControl>
 </UserControl>

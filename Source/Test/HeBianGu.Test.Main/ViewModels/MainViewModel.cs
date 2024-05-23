@@ -1,4 +1,5 @@
-﻿using Avalonia.Controls;
+﻿using Avalonia;
+using Avalonia.Controls;
 using Avalonia.Modules.Messages.Dialog;
 using Avalonia.Styles;
 using HeBianGu.Avalonia.Core.Ioc;
@@ -53,5 +54,10 @@ public class MainViewModel : ViewModelBase
     public RelayCommand ShowSnackMessageCommand => new RelayCommand((s, e) =>
     {
         IocMessage.Snack.ShowSuccess("11111");
+    });
+
+    public RelayCommand SetFontSizeCommand => new RelayCommand((s, e) =>
+    {
+        var ss= Application.Current;
     });
 }
