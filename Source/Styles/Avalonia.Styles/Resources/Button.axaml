@@ -24,7 +24,7 @@
   </ControlTheme>
 
   <ControlTheme x:Key="{x:Type Button}" TargetType="Button">
-    <Setter Property="Background" Value="{DynamicResource {x:Static h:BrushKeys.Background}}" />
+    <Setter Property="Background" Value="{DynamicResource {x:Static h:BrushKeys.MouseOver}}" />
     <Setter Property="Foreground" Value="{DynamicResource {x:Static h:BrushKeys.Foreground}}" />
     <Setter Property="BorderBrush" Value="Transparent" />
     <Setter Property="BorderThickness" Value="{DynamicResource {x:Static h:LayoutKeys.BorderThickness}}" />

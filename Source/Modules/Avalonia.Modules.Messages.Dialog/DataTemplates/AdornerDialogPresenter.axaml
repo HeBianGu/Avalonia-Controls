@@ -4,17 +4,18 @@
               xmlns:h="https://github.com/HeBianGu"
               xmlns:local="clr-namespace:Avalonia.Modules.Messages.Dialog"
               DataType="{x:Type local:AdornerDialogPresenter}">
-    <Grid>
-        <Grid.Background>
+    <Grid Background="{DynamicResource {x:Static h:BrushKeys.DialogCover}}">
+        <!--<Grid.Background>
             <SolidColorBrush Opacity="0.5" Color="Gray" />
-        </Grid.Background>
+        </Grid.Background>-->
         <Border Width="{Binding Width}"
                 Height="{Binding Height}"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
-                Background="{DynamicResource SystemRegionBrush}"
-                BorderBrush="{DynamicResource ButtonBorderThemeThickness}"
-                CornerRadius="{DynamicResource ControlCornerRadius}">
+                Background="{DynamicResource {x:Static h:BrushKeys.Background}}"
+                BorderBrush="{DynamicResource {x:Static h:BrushKeys.BorderBrush}}" 
+                BorderThickness="0"
+                CornerRadius="{DynamicResource {x:Static h:LayoutKeys.CornerRadius}}">
             <Grid HorizontalAlignment="Stretch"
                   VerticalAlignment="Stretch"
                   RowDefinitions="Auto,*,Auto">

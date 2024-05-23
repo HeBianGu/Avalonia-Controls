@@ -5,27 +5,6 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
-
-  <ItemGroup>
-    <None Remove="Brushes.xaml" />
-    <None Remove="Colors.xaml" />
-    <None Remove="Layouts.xaml" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <AvaloniaXaml Include="Brushes.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </AvaloniaXaml>
-    <AvaloniaXaml Include="Colors.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </AvaloniaXaml>
-    <AvaloniaXaml Include="Layouts.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </AvaloniaXaml>
-    <AvaloniaXaml Include="FontSizes.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </AvaloniaXaml>
-  </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Avalonia" Version="11.0.2" />
   </ItemGroup>

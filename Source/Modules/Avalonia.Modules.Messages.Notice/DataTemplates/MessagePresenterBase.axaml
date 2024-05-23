@@ -11,10 +11,10 @@
     </Grid.ColumnDefinitions>
     <Border Grid.ColumnSpan="2"
             Padding="1"
-            Background="{DynamicResource SystemRegionBrush}"
-            BorderBrush="Gray"
-            BorderThickness="1"
-            CornerRadius="{DynamicResource ControlCornerRadius}" />
+          Background="{DynamicResource {x:Static h:BrushKeys.Background}}"
+                BorderBrush="{DynamicResource {x:Static h:BrushKeys.BorderBrush}}"
+                BorderThickness="{DynamicResource {x:Static h:LayoutKeys.BorderThickness}}"
+                CornerRadius="{DynamicResource {x:Static h:LayoutKeys.CornerRadius}}" />
     <Grid x:Name="g"
           Width="25"
           Height="25">

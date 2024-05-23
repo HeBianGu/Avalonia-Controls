@@ -11,6 +11,7 @@
     <ProjectReference Include="..\..\Extensions\Avalonia.Extensions.Geometry\Avalonia.Extensions.Geometry.csproj" />
     <ProjectReference Include="..\..\Extensions\HeBianGu.Avalonia.Extensions.ApplicationBase\HeBianGu.Avalonia.Extensions.ApplicationBase.csproj" />
     <ProjectReference Include="..\..\Styles\Avalonia.Styles\Avalonia.Styles.csproj" />
+    <ProjectReference Include="..\..\Themes\HeBianGu.Themes.Default\HeBianGu.Themes.Default.csproj" />
     <ProjectReference Include="..\Avalonia.Modules.Messages.Dialog\Avalonia.Modules.Messages.Dialog.csproj" />
   </ItemGroup>
 </Project>

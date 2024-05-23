@@ -3,15 +3,15 @@
                     xmlns:h="https://github.com/HeBianGu"
                     xmlns:local="clr-namespace:HeBianGu.Avalonia.Windows.Dialog">
   <ControlTheme x:Key="{x:Type local:DialogWindow}" TargetType="local:DialogWindow">
-    <Setter Property="Background" Value="{DynamicResource SystemRegionBrush}" />
     <Setter Property="TransparencyBackgroundFallback" Value="{DynamicResource SystemControlBackgroundAltHighBrush}" />
     <Setter Property="TopLevel.SystemBarColor" Value="{DynamicResource SystemControlBackgroundAltHighBrush}" />
-    <Setter Property="Foreground" Value="{DynamicResource SystemControlForegroundBaseHighBrush}" />
-    <Setter Property="FontSize" Value="{DynamicResource ControlContentThemeFontSize}" />
     <Setter Property="FontFamily" Value="{DynamicResource ContentControlThemeFontFamily}" />
-    <Setter Property="BorderThickness" Value="{DynamicResource ButtonBorderThemeThickness}" />
-    <Setter Property="CornerRadius" Value="{DynamicResource ControlCornerRadius}" />
-
+    <Setter Property="FontSize" Value="{DynamicResource {x:Static h:FontSizeKeys.Default}}" />
+    <Setter Property="Background" Value="{DynamicResource {x:Static h:BrushKeys.Background}}" />
+    <Setter Property="Foreground" Value="{DynamicResource {x:Static h:BrushKeys.Foreground}}" />
+    <Setter Property="BorderThickness" Value="{DynamicResource {x:Static h:LayoutKeys.BorderThickness}}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource {x:Static h:BrushKeys.BorderBrush}}" />
+    <Setter Property="CornerRadius" Value="{DynamicResource {x:Static h:LayoutKeys.CornerRadius}}" />
     <Setter Property="ExtendClientAreaToDecorationsHint" Value="True" />
     <Setter Property="ExtendClientAreaChromeHints" Value="NoChrome" />
     <Setter Property="ExtendClientAreaTitleBarHeightHint" Value="-1" />
@@ -20,11 +20,6 @@
     <Setter Property="Height" Value="300" />
     <Setter Property="Width" Value="500" />
     <Setter Property="WindowStartupLocation" Value="CenterScreen" />
-    <!--<Setter Property="Background">
-            <Setter.Value>
-                <SolidColorBrush Opacity="0" Color="White" />
-            </Setter.Value>
-        </Setter>-->
     <Setter Property="Template">
       <ControlTemplate>
         <Panel>

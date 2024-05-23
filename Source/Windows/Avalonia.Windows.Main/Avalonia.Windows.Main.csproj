@@ -12,6 +12,7 @@
     <ProjectReference Include="..\..\Extensions\HeBianGu.Avalonia.Extensions.ApplicationBase\HeBianGu.Avalonia.Extensions.ApplicationBase.csproj" />
     <ProjectReference Include="..\..\Extensions\HeBianGu.Avalonia.Extensions.Command\HeBianGu.Avalonia.Extensions.Command.csproj" />
     <ProjectReference Include="..\..\Styles\Avalonia.Styles\Avalonia.Styles.csproj" />
+    <ProjectReference Include="..\..\Themes\HeBianGu.Themes.Default\HeBianGu.Themes.Default.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="Resources\MainWindowBase.axaml.cs">
