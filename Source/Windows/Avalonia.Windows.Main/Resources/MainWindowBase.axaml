@@ -46,7 +46,7 @@
                 <Button  Theme="{DynamicResource {x:Static h:ButtonKeys.Geometry}}"
                         Command="{h:CloseWindowCommand}"
                         CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"
-                        ToolTip.Tip="×"  Content="{x:Static h:Geometrys.Close}"
+                        ToolTip.Tip="×"  Content="{x:Static h:Geometrys.Close}"  Background="Red" Foreground="White"
                         DockPanel.Dock="Right">
                 </Button>
                 <Button x:Name="PART_ButtonMax"

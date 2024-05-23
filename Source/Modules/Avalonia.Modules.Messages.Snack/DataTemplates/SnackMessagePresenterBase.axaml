@@ -41,7 +41,9 @@
             Margin="5,0"
             HorizontalAlignment="Right"
             VerticalAlignment="Center"
-            Content="×">
+                    Content="{x:Static h:Geometrys.Close}"
+                        Theme="{DynamicResource {x:Static h:ButtonKeys.Geometry}}"
+                        ToolTip.Tip="×">
       <!--<b:Interaction.Behaviors>
               <h:ButtonRemoveItemBehavior />
             </b:Interaction.Behaviors>-->

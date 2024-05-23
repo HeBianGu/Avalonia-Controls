@@ -10,8 +10,8 @@
         </Grid.Background>
         <Border Width="{Binding Width}"
                 Height="{Binding Height}"
-                HorizontalAlignment="Stretch"
-                VerticalAlignment="Stretch"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
                 Background="{DynamicResource SystemRegionBrush}"
                 BorderBrush="{DynamicResource ButtonBorderThemeThickness}"
                 CornerRadius="{DynamicResource ControlCornerRadius}">
@@ -21,8 +21,11 @@
                 <Button HorizontalAlignment="Right"
                         VerticalAlignment="Top"
                         Command="{local:CloseAdornerDialogCommand}"
-                        CommandParameter="{Binding}"
-                        Content="×" />
+                        Content="{x:Static h:Geometrys.Close}"
+                        Theme="{DynamicResource {x:Static h:ButtonKeys.Geometry}}"
+                        ToolTip.Tip="×"
+                        CommandParameter="{Binding}"  
+                         />
 
                 <TextBlock Margin="10,6" Text="{Binding Title}" />
                 <ContentControl Grid.Row="1"
@@ -36,9 +39,7 @@
                         CommandParameter="{Binding}"
                         Content="确定" />
             </Grid>
-
         </Border>
-
     </Grid>
 </DataTemplate>
 
