@@ -211,7 +211,7 @@
       </ListBox>
     </TabItem>
     <TabItem Header="设置字体大小">
-      <Button Content="设置字体大小" Command="{Binding SetFontSizeCommand}"/>
+      <Button Content="设置字体大小" FontSize="{DynamicResource {x:Static h:FontSizeKeys.Default}}" Command="{Binding SetFontSizeCommand}"/>
     </TabItem>
   </TabControl>
 </UserControl>

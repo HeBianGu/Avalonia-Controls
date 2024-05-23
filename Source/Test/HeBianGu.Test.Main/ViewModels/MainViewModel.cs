@@ -1,14 +1,17 @@
 ﻿using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Markup.Xaml.Styling;
 using Avalonia.Modules.Messages.Dialog;
 using Avalonia.Styles;
 using HeBianGu.Avalonia.Core.Ioc;
 using HeBianGu.Avalonia.Core.Mvvm;
 using HeBianGu.Test.Main.Views;
 using ReactiveUI;
+using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel.Design;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Windows.Input;
 
 namespace HeBianGu.Test.Main.ViewModels;
@@ -58,6 +61,10 @@ public class MainViewModel : ViewModelBase
 
     public RelayCommand SetFontSizeCommand => new RelayCommand((s, e) =>
     {
-        var ss= Application.Current;
+        var find = Application.Current.Resources.MergedDictionaries.OfType<ResourceInclude>().FirstOrDefault(x => x.Source.AbsoluteUri.Contains("FontSize"));
+        int index = Application.Current.Resources.MergedDictionaries.IndexOf(find);
+        Uri uri = new Uri("avares://HeBianGu.Themes.Default/FontSizes/Large.axaml");
+        ResourceInclude include = new ResourceInclude(uri) { Source = uri };
+        Application.Current.Resources.MergedDictionaries[index] = include;
     });
 }
