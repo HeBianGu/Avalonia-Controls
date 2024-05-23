@@ -39,7 +39,6 @@ namespace HeBianGu.Themes.Default
         public static StringResourceKey BorderBrushDisabled => new StringResourceKey(typeof(BrushKeys), "S.Brush.TextBorderBrush.Disabled");
         #endregion
 
-
         #region - Accent -
         public static StringResourceKey Accent => new StringResourceKey(typeof(BrushKeys), "S.Brush.Accent");
         #endregion 

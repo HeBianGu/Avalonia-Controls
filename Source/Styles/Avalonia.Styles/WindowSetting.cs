@@ -1,18 +1,20 @@
-﻿// Copyright © 2024 By HeBianGu(QQ:908293466) https://github.com/HeBianGu/WPF-Control
-
-using Avalonia.Media;
+﻿using Avalonia.Media;
 using HeBianGu.Avalonia.Core.Ioc;
+using HeBianGu.Avalonia.Extensions.Setting;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
-using HeBianGu.Avalonia.Extensions.Setting;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace HeBianGu.Avalonia.Extensions.Command
+namespace Avalonia.Styles
 {
     [Display(Name = "窗口设置", GroupName = SettingGroupNames.GroupSystem, Description = "设置窗口参数")]
-    public class WindowSetting : Settable<WindowSetting>
+    public class WindowSetting : IocOptionInstance<WindowSetting>
     {
         private string _backImagePath;
-        [DefaultValue("pack://application:,,,/H.Extensions.BackgroundImage;component/b41.png")]
+        [DefaultValue("avares://Avalonia.Extensions.BackgroundImage/Assets/b13.png")]
         [Display(Name = "窗口背景图片")]
         public string BackImagePath
         {

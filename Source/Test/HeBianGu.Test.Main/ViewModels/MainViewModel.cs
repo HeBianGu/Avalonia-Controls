@@ -1,5 +1,6 @@
 ﻿using Avalonia.Controls;
 using Avalonia.Modules.Messages.Dialog;
+using Avalonia.Styles;
 using HeBianGu.Avalonia.Core.Ioc;
 using HeBianGu.Avalonia.Core.Mvvm;
 using HeBianGu.Test.Main.Views;
@@ -23,7 +24,6 @@ public class MainViewModel : ViewModelBase
             AdornerDialogPresenter adornerDialogPresenter = new AdornerDialogPresenter(new Student());
             adornerDialogPresenter.ShowDialog();
         });
-
     }
 
     private ObservableCollection<string> _collection = new ObservableCollection<string>();

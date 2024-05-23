@@ -15,7 +15,7 @@
                                                   TypeInTargetAssembly={x:Type local:LayoutKeys}}">0.8</system:Double>
 
   <CornerRadius x:Key="{local:StringResourceKey ResourceId=S.Layout.CornerRadius,
-                                                  TypeInTargetAssembly={x:Type local:LayoutKeys}}">2</CornerRadius>
+                                                  TypeInTargetAssembly={x:Type local:LayoutKeys}}">5</CornerRadius>
   <Thickness x:Key="{local:StringResourceKey ResourceId=S.Layout.BorderThickness,
                                                   TypeInTargetAssembly={x:Type local:LayoutKeys}}">1</Thickness>
   <Thickness x:Key="{local:StringResourceKey ResourceId=S.Layout.Padding,

@@ -179,7 +179,7 @@ as set out in XAML.</TextBlock>
                         </CompositePageTransition>
                     </Carousel.PageTransition>
                     <Carousel.Items>
-                        <Image Source="avares://HeBianGu.Test.Controls/Assets/1.jpg" />
+                        <Image Source="c" />
                         <Image Source="avares://HeBianGu.Test.Controls/Assets/2.jpg" />
                         <Image Source="avares://HeBianGu.Test.Controls/Assets/3.jpg" />
                     </Carousel.Items>

@@ -27,8 +27,7 @@
       </Grid.Background>
     </Grid>
     <StackPanel Grid.Column="1"
-                VerticalAlignment="Center"
-                TextBlock.Foreground="{DynamicResource SystemControlForegroundBaseHighBrush}">
+                VerticalAlignment="Center">
       <TextBlock Margin="0,2"
                  Text="{Binding Message}"
                  TextTrimming="CharacterEllipsis" />

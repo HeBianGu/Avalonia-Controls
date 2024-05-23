@@ -38,7 +38,6 @@
             <VisualLayerManager.ChromeOverlayLayer>
               <TitleBar Background="Red" />
             </VisualLayerManager.ChromeOverlayLayer>
-
             <DockPanel>
               <DockPanel DockPanel.Dock="Top" LastChildFill="False">
                 <TemplatedControl DockPanel.Dock="Left" Template="{TemplateBinding h:Attach.HeaderLeftTemplate}" />
@@ -95,6 +94,10 @@
                                 ContentTemplate="{TemplateBinding ContentTemplate}" />
             </DockPanel>
           </VisualLayerManager>
+          <Image Stretch="UniformToFill"
+                 Opacity="0.1"
+                 IsHitTestVisible="False"
+                 Source="{Binding Source={x:Static h:WindowSetting.Instance},Path=BackImagePath}"/>
         </Panel>
       </ControlTemplate>
     </Setter>

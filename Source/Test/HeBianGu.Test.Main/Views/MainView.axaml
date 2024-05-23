@@ -13,104 +13,104 @@
              d:DesignWidth="800"
              x:DataType="vm:MainViewModel"
              mc:Ignorable="d">
-    <Design.DataContext>
-        <!--
+  <Design.DataContext>
+    <!--
             This only sets the DataContext for the previewer in an IDE,
             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs)
         -->
-        <vm:MainViewModel />
-    </Design.DataContext>
-    <TabControl>
-        <TabItem Header="MultiComboBox">
-            <h:MultiComboBox Name="mcb"
-                             MinHeight="35"
-                             VerticalAlignment="Top"
-                             Background="Transparent"
-                             BorderBrush="Black"
-                             BorderThickness="1"
-                             CornerRadius="5"
-                             ItemsSource="{Binding Collection}"
-                             MaxDropDownHeight="800"
-                             SelectionMode="" />
-        </TabItem>
+    <vm:MainViewModel />
+  </Design.DataContext>
+  <TabControl>
+    <TabItem Header="MultiComboBox">
+      <h:MultiComboBox Name="mcb"
+                       MinHeight="35"
+                       VerticalAlignment="Top"
+                       Background="Transparent"
+                       BorderBrush="Black"
+                       BorderThickness="1"
+                       CornerRadius="5"
+                       ItemsSource="{Binding Collection}"
+                       MaxDropDownHeight="800"
+                       SelectionMode="" />
+    </TabItem>
 
-        <TabItem Header="MyTemplatedControl">
-            <h:MyTemplatedControl />
-        </TabItem>
-        <TabItem Header="MyButton">
-            <h:MyButton Content="MyButton" />
-        </TabItem>
-        <TabItem Header="ControlTheme">
-            <TabItem.Resources>
-                <ControlTheme x:Key="EllipseButton" TargetType="Button">
-                    <Setter Property="Background" Value="Blue" />
-                    <Setter Property="Foreground" Value="Yellow" />
-                    <Setter Property="Padding" Value="8" />
-                    <Setter Property="Template">
-                        <ControlTemplate>
-                            <Panel>
-                                <Ellipse HorizontalAlignment="Stretch"
-                                         VerticalAlignment="Stretch"
-                                         Fill="{TemplateBinding Background}" />
-                                <ContentPresenter x:Name="PART_ContentPresenter"
-                                                  Margin="{TemplateBinding Padding}"
-                                                  Content="{TemplateBinding Content}" />
-                            </Panel>
-                        </ControlTemplate>
-                    </Setter>
-                </ControlTheme>
-            </TabItem.Resources>
-            <Button Content="ControlTheme" Theme="{StaticResource EllipseButton}" />
-        </TabItem>
-        <TabItem Header="ControlTheme-应用全部">
-            <TabItem.Resources>
-                <ControlTheme x:Key="{x:Type Button}" TargetType="Button">
-                    <Setter Property="Background" Value="Blue" />
-                    <Setter Property="Foreground" Value="Yellow" />
-                    <Setter Property="Padding" Value="8" />
-                    <Setter Property="Template">
-                        <ControlTemplate>
-                            <Panel>
-                                <Ellipse HorizontalAlignment="Stretch"
-                                         VerticalAlignment="Stretch"
-                                         Fill="{TemplateBinding Background}" />
-                                <ContentPresenter x:Name="PART_ContentPresenter"
-                                                  Margin="{TemplateBinding Padding}"
-                                                  Content="{TemplateBinding Content}" />
-                            </Panel>
-                        </ControlTemplate>
-                    </Setter>
-                </ControlTheme>
-            </TabItem.Resources>
-            <Button Content="ControlTheme" />
-        </TabItem>
-        <TabItem Header="Ioc">
-            <Button Click="Ioc_Click" Content="Ioc" />
-        </TabItem>
-        <TabItem Header="Adornr">
-            <Button Click="Adornr_Click" Content="Adornr" />
-        </TabItem>
-        <TabItem Header="AdornerDialog">
-            <Button Click="AdornerDialog_Click" Content="AdornerDialog" />
-        </TabItem>
-        <TabItem Header="WindowDialog">
-            <Button Click="WindowDialog_Click" Content="WindowDialog" />
-        </TabItem>
-        <TabItem Header="Behavior">
-            <Button Content="Behavior">
-                <i:Interaction.Behaviors>
-                    <ic:ButtonClickEventTriggerBehavior>
-                        <ia:InvokeCommandAction Command="{Binding BehaviorCommand}" />
-                    </ic:ButtonClickEventTriggerBehavior>
-                </i:Interaction.Behaviors>
-            </Button>
-        </TabItem>
-        <TabItem Header="From">
-            <h:Form>
-                <!--<h:Form.Theme>
+    <TabItem Header="MyTemplatedControl">
+      <h:MyTemplatedControl />
+    </TabItem>
+    <TabItem Header="MyButton">
+      <h:MyButton Content="MyButton" />
+    </TabItem>
+    <TabItem Header="ControlTheme">
+      <TabItem.Resources>
+        <ControlTheme x:Key="EllipseButton" TargetType="Button">
+          <Setter Property="Background" Value="Blue" />
+          <Setter Property="Foreground" Value="Yellow" />
+          <Setter Property="Padding" Value="8" />
+          <Setter Property="Template">
+            <ControlTemplate>
+              <Panel>
+                <Ellipse HorizontalAlignment="Stretch"
+                         VerticalAlignment="Stretch"
+                         Fill="{TemplateBinding Background}" />
+                <ContentPresenter x:Name="PART_ContentPresenter"
+                                  Margin="{TemplateBinding Padding}"
+                                  Content="{TemplateBinding Content}" />
+              </Panel>
+            </ControlTemplate>
+          </Setter>
+        </ControlTheme>
+      </TabItem.Resources>
+      <Button Content="ControlTheme" Theme="{StaticResource EllipseButton}" />
+    </TabItem>
+    <TabItem Header="ControlTheme-应用全部">
+      <TabItem.Resources>
+        <ControlTheme x:Key="{x:Type Button}" TargetType="Button">
+          <Setter Property="Background" Value="Blue" />
+          <Setter Property="Foreground" Value="Yellow" />
+          <Setter Property="Padding" Value="8" />
+          <Setter Property="Template">
+            <ControlTemplate>
+              <Panel>
+                <Ellipse HorizontalAlignment="Stretch"
+                         VerticalAlignment="Stretch"
+                         Fill="{TemplateBinding Background}" />
+                <ContentPresenter x:Name="PART_ContentPresenter"
+                                  Margin="{TemplateBinding Padding}"
+                                  Content="{TemplateBinding Content}" />
+              </Panel>
+            </ControlTemplate>
+          </Setter>
+        </ControlTheme>
+      </TabItem.Resources>
+      <Button Content="ControlTheme" />
+    </TabItem>
+    <TabItem Header="Ioc">
+      <Button Click="Ioc_Click" Content="Ioc" />
+    </TabItem>
+    <TabItem Header="Adornr">
+      <Button Click="Adornr_Click" Content="Adornr" />
+    </TabItem>
+    <TabItem Header="AdornerDialog">
+      <Button Click="AdornerDialog_Click" Content="AdornerDialog" />
+    </TabItem>
+    <TabItem Header="WindowDialog">
+      <Button Click="WindowDialog_Click" Content="WindowDialog" />
+    </TabItem>
+    <TabItem Header="Behavior">
+      <Button Content="Behavior">
+        <i:Interaction.Behaviors>
+          <ic:ButtonClickEventTriggerBehavior>
+            <ia:InvokeCommandAction Command="{Binding BehaviorCommand}" />
+          </ic:ButtonClickEventTriggerBehavior>
+        </i:Interaction.Behaviors>
+      </Button>
+    </TabItem>
+    <TabItem Header="From">
+      <h:Form>
+        <!--<h:Form.Theme>
                     <ControlTheme BasedOn="{StaticResource {x:Type h:Form}}" TargetType="h:Form">
                 -->
-                <!--<Setter Property="DataTemplates">
+        <!--<Setter Property="DataTemplates">
                   <Setter.Value>
                     <DataTemplate DataType="v:Student">
                       <Grid>
@@ -119,14 +119,14 @@
                     </DataTemplate>
                   </Setter.Value>
                 </Setter>-->
-                <!--
+        <!--
                         <Setter Property="Background" Value="Red" />
                     </ControlTheme>
                 </h:Form.Theme>-->
-                <!--<h:Form.StyleKey>
+        <!--<h:Form.StyleKey>
 
             </h:Form.StyleKey>-->
-                <!--<h:Form.DataTemplates>
+        <!--<h:Form.DataTemplates>
                     <DataTemplate DataType="h:TextPropertyItem">
                         <TextBox Margin="0,2"
                                  VerticalContentAlignment="Center"
@@ -136,65 +136,74 @@
                                  ToolTip.Tip="{Binding Message}" />
                     </DataTemplate>
                 </h:Form.DataTemplates>-->
-                <h:Form.SelectObject>
-                    <h:TypeCTestModel />
-                </h:Form.SelectObject>
-            </h:Form>
-        </TabItem>
+        <h:Form.SelectObject>
+          <h:TypeCTestModel />
+        </h:Form.SelectObject>
+      </h:Form>
+    </TabItem>
 
-        <TabItem Header="Setting">
-            <Button Click="Setting_Click" Content="Setting" />
-        </TabItem>
+    <TabItem Header="Setting">
+      <Button Click="Setting_Click" Content="Setting" />
+    </TabItem>
 
-        <TabItem Header="Message">
-            <UniformGrid>
-                <Button Command="{Binding ShowMessageCommand}" Content="ShowMessageCommand" />
-                <Button Command="{Binding ShowFormMessageCommand}" Content="ShowFormMessageCommand" />
-                <Button Command="{Binding ShowNoticeMessageCommand}" Content="ShowNoticeMessageCommand" />
-                <Button Command="{Binding ShowSnackMessageCommand}" Content="ShowSnackMessageCommand" />
-            </UniformGrid>
-        </TabItem>
-        <TabItem Header="DataTemplate自动加载">
-            <UniformGrid>
-                <ContentControl>
-                    <h:My />
-                </ContentControl>
-            </UniformGrid>
-        </TabItem>
-        <TabItem Header="Styles自动加载">
-            <UniformGrid>
-                <ContentControl>
-                    <h:MyTestButton Content="ssss" />
-                </ContentControl>
-            </UniformGrid>
-        </TabItem>
-        <TabItem Header="S.Button.Geomerty">
-            <UniformGrid>
-                <Button Content="{x:Static h:Geometrys.Close}">
-                    <Button.Theme>
-                        <ControlTheme BasedOn="{StaticResource {x:Type Button}}" TargetType="Button">
-                            <Setter Property="Width" Value="30" />
-                            <Setter Property="Height" Value="30" />
-                            <Setter Property="Padding" Value="2" />
-                            <Setter Property="ContentTemplate">
-                                <Setter.Value>
-                                    <DataTemplate>
-                                        <Path VerticalAlignment="Center"
-                                              Data="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Content}"
-                                              Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}"
-                                              Stretch="Uniform" />
-                                    </DataTemplate>
-                                </Setter.Value>
-                            </Setter>
-                        </ControlTheme>
-                    </Button.Theme>
-                </Button>
+    <TabItem Header="Message">
+      <UniformGrid>
+        <Button Command="{Binding ShowMessageCommand}" Content="ShowMessageCommand" />
+        <Button Command="{Binding ShowFormMessageCommand}" Content="ShowFormMessageCommand" />
+        <Button Command="{Binding ShowNoticeMessageCommand}" Content="ShowNoticeMessageCommand" />
+        <Button Command="{Binding ShowSnackMessageCommand}" Content="ShowSnackMessageCommand" />
+        <Image Stretch="UniformToFill" Opacity="0.1" IsHitTestVisible="False"/>
+      </UniformGrid>
+    </TabItem>
+    <TabItem Header="DataTemplate自动加载">
+      <UniformGrid>
+        <ContentControl>
+          <h:My />
+        </ContentControl>
+      </UniformGrid>
+    </TabItem>
+    <TabItem Header="Styles自动加载">
+      <UniformGrid>
+        <ContentControl>
+          <h:MyTestButton Content="ssss" />
+        </ContentControl>
+      </UniformGrid>
+    </TabItem>
+    <TabItem Header="S.Button.Geomerty">
+      <UniformGrid>
+        <Button Content="{x:Static h:Geometrys.Close}">
+          <Button.Theme>
+            <ControlTheme BasedOn="{StaticResource {x:Type Button}}" TargetType="Button">
+              <Setter Property="Width" Value="30" />
+              <Setter Property="Height" Value="30" />
+              <Setter Property="Padding" Value="2" />
+              <Setter Property="ContentTemplate">
+                <Setter.Value>
+                  <DataTemplate>
+                    <Path VerticalAlignment="Center"
+                          Data="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Content}"
+                          Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}"
+                          Stretch="Uniform" />
+                  </DataTemplate>
+                </Setter.Value>
+              </Setter>
+            </ControlTheme>
+          </Button.Theme>
+        </Button>
 
-                <Button Content="{x:Static h:Geometrys.Warn}" Theme="{DynamicResource S.Button.Geometry}" />
+        <Button Content="{x:Static h:Geometrys.Warn}" Theme="{DynamicResource S.Button.Geometry}" />
 
-              <Button Content="{x:Static h:Geometrys.Warn}" Theme="{DynamicResource {x:Static h:ButtonKeys.Geometry}}" />
+        <Button Content="{x:Static h:Geometrys.Warn}" Theme="{DynamicResource {x:Static h:ButtonKeys.Geometry}}" />
 
-            </UniformGrid>
-        </TabItem>
-    </TabControl>
+      </UniformGrid>
+    </TabItem>
+    <TabItem Header="h:WindowSetting.Instance">
+      <UniformGrid>
+        <Image Source="{Binding Source={x:Static h:WindowSetting.Instance},Path=BackImagePath}"/>
+        <Image Source="{Binding Source={x:Static h:LoginOptions.Instance}}"/>
+        <TextBlock Text="{Binding Source={x:Static h:WindowSetting.Instance},Path=BackImagePath}"/>
+        <Image Source="avares://Avalonia.Extensions.BackgroundImage/Assets/b13.png"/>
+      </UniformGrid>
+    </TabItem>
+  </TabControl>
 </UserControl>
