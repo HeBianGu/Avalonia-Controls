@@ -192,7 +192,8 @@
 
                 <Button Content="{x:Static h:Geometrys.Warn}" Theme="{DynamicResource S.Button.Geometry}" />
 
-            
+              <Button Content="{x:Static h:Geometrys.Warn}" Theme="{DynamicResource {x:Static h:ButtonKeys.Geometry}}" />
+
             </UniformGrid>
         </TabItem>
     </TabControl>

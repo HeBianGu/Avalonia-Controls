@@ -7,15 +7,11 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Core\HeBianGu.Avalonia.Core.Ioc\HeBianGu.Avalonia.Core.Ioc.csproj" />
-    <ProjectReference Include="..\..\Extensions\Avalonia.Extensions.Attach\Avalonia.Extensions.Attach.csproj" />
-    <ProjectReference Include="..\..\Extensions\Avalonia.Extensions.Geometry\Avalonia.Extensions.Geometry.csproj" />
+    <ProjectReference Include="..\..\Core\HeBianGu.Avalonia.Core.Mvvm\HeBianGu.Avalonia.Core.Mvvm.csproj" />
     <ProjectReference Include="..\..\Extensions\HeBianGu.Avalonia.Extensions.ApplicationBase\HeBianGu.Avalonia.Extensions.ApplicationBase.csproj" />
     <ProjectReference Include="..\..\Extensions\HeBianGu.Avalonia.Extensions.Command\HeBianGu.Avalonia.Extensions.Command.csproj" />
-    <ProjectReference Include="..\..\Styles\Avalonia.Styles\Avalonia.Styles.csproj" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Update="Resources\MainWindowBase.axaml.cs">
-      <DependentUpon>MainWindowBase.axaml</DependentUpon>
-    </Compile>
+    <ProjectReference Include="..\..\Extensions\HeBianGu.Avalonia.Extensions.Common\HeBianGu.Avalonia.Extensions.Common.csproj" />
+    <ProjectReference Include="..\..\Extensions\HeBianGu.Avalonia.Extensions.Setting\HeBianGu.Avalonia.Extensions.Setting.csproj" />
+    <ProjectReference Include="..\..\Windows\HeBianGu.Avalonia.Windows.Dialog\HeBianGu.Avalonia.Windows.Dialog.csproj" />
   </ItemGroup>
 </Project>

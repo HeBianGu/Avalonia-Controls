@@ -38,7 +38,7 @@
     <ProjectReference Include="..\..\Modules\Avalonia.Modules.SplashScreen\Avalonia.Modules.SplashScreen.csproj" />
     <ProjectReference Include="..\..\Modules\HeBianGu.Avalonia.Modules.Login\HeBianGu.Avalonia.Modules.Login.csproj" />
     <ProjectReference Include="..\..\Modules\HeBianGu.Avalonia.Modules.Setting\HeBianGu.Avalonia.Modules.Setting.csproj" />
-    <ProjectReference Include="..\..\Styles\HeBianGu.Styles.Default\HeBianGu.Styles.Default.csproj" />
+    <ProjectReference Include="..\..\Styles\Avalonia.Styles\Avalonia.Styles.csproj" />
     <ProjectReference Include="..\..\Windows\Avalonia.Windows.Main\Avalonia.Windows.Main.csproj" />
     <ProjectReference Include="..\..\Windows\HeBianGu.Avalonia.Windows.Dialog\HeBianGu.Avalonia.Windows.Dialog.csproj" />
   </ItemGroup>
