@@ -4,6 +4,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:model="clr-namespace:HeBianGu.Test.Controls.Models"
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
              xmlns:vm="clr-namespace:HeBianGu.Test.Controls.ViewModels"
              d:DesignHeight="450"
              d:DesignWidth="800"
@@ -179,7 +180,7 @@ as set out in XAML.</TextBlock>
                         </CompositePageTransition>
                     </Carousel.PageTransition>
                     <Carousel.Items>
-                        <Image Source="c" />
+                        <Image Source="avares://HeBianGu.Test.Controls/Assets/1.jpg" />
                         <Image Source="avares://HeBianGu.Test.Controls/Assets/2.jpg" />
                         <Image Source="avares://HeBianGu.Test.Controls/Assets/3.jpg" />
                     </Carousel.Items>
@@ -259,8 +260,8 @@ as set out in XAML.</TextBlock>
                       BorderBrush="Gray"
                       BorderThickness="1"
                       GridLinesVisibility="All"
-                      IsReadOnly="True"
-                      ItemsSource="{Binding People}">
+                      IsReadOnly="True">
+                <!--  ItemsSource="{Binding People}"  -->
                 <DataGrid.Columns>
                     <DataGridTextColumn Width="*"
                                         Binding="{Binding FirstName}"
@@ -269,6 +270,9 @@ as set out in XAML.</TextBlock>
                                         Binding="{Binding LastName}"
                                         Header="Last Name" />
                 </DataGrid.Columns>
+                <!--<system:String>111</system:String>
+              <system:String>111</system:String>
+              <system:String>111</system:String>-->
             </DataGrid>
         </TabItem>
         <TabItem Header="DatePicker">
@@ -777,11 +781,11 @@ as set out in XAML.</TextBlock>
         </TabItem>
         <TabItem Header="HeaderedContentControl">
             <HeaderedContentControl Header="HeaderedContentControl">
-              <HeaderedContentControl.HeaderTemplate>
-                <DataTemplate>
-                  <TextBlock Text="2222"/>
-                </DataTemplate>
-              </HeaderedContentControl.HeaderTemplate>
+                <HeaderedContentControl.HeaderTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="2222" />
+                    </DataTemplate>
+                </HeaderedContentControl.HeaderTemplate>
                 <Button Content="HeaderedContentControl" />
             </HeaderedContentControl>
         </TabItem>

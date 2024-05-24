@@ -97,6 +97,18 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Messages", "Messages", "{D5
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avalonia.Modules.About", "..\Source\Modules\Avalonia.Modules.About\Avalonia.Modules.About.csproj", "{B117D262-E0E5-4861-8FC9-3390555DD0E6}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - DataBases", "2 - DataBases", "{2642476A-C116-400E-942A-D79A4EF6A1FC}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Avalonia.DataBases.Share", "..\Source\DataBases\Avalonia.DataBases.Share\Avalonia.DataBases.Share.shproj", "{11735D45-89B6-4F79-978D-72024DA8CD89}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avalonia.DataBases.Sqlite", "..\Source\DataBases\Avalonia.DataBases.Sqlite\Avalonia.DataBases.Sqlite.csproj", "{4C780F31-78D7-467A-AAF7-708D7BE1619A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avalonia.Test.Sqlite", "..\Source\Test\Avalonia.Test.Sqlite\Avalonia.Test.Sqlite.csproj", "{85E6E1B1-DD30-4445-9405-05FF249C6FE4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avalonia.Test.Sqlite.Android", "..\Source\Test\Avalonia.Test.Sqlite.Android\Avalonia.Test.Sqlite.Android.csproj", "{2C3ABC53-B00D-4E99-A9FE-461B2FD6A293}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avalonia.Test.Sqlite.Desktop", "..\Source\Test\Avalonia.Test.Sqlite.Desktop\Avalonia.Test.Sqlite.Desktop.csproj", "{44A24814-9030-4018-AE68-8A8DD645E8BA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -261,6 +273,22 @@ Global
 		{B117D262-E0E5-4861-8FC9-3390555DD0E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B117D262-E0E5-4861-8FC9-3390555DD0E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B117D262-E0E5-4861-8FC9-3390555DD0E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C780F31-78D7-467A-AAF7-708D7BE1619A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C780F31-78D7-467A-AAF7-708D7BE1619A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C780F31-78D7-467A-AAF7-708D7BE1619A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C780F31-78D7-467A-AAF7-708D7BE1619A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{85E6E1B1-DD30-4445-9405-05FF249C6FE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{85E6E1B1-DD30-4445-9405-05FF249C6FE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{85E6E1B1-DD30-4445-9405-05FF249C6FE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{85E6E1B1-DD30-4445-9405-05FF249C6FE4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C3ABC53-B00D-4E99-A9FE-461B2FD6A293}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C3ABC53-B00D-4E99-A9FE-461B2FD6A293}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C3ABC53-B00D-4E99-A9FE-461B2FD6A293}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C3ABC53-B00D-4E99-A9FE-461B2FD6A293}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44A24814-9030-4018-AE68-8A8DD645E8BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44A24814-9030-4018-AE68-8A8DD645E8BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44A24814-9030-4018-AE68-8A8DD645E8BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44A24814-9030-4018-AE68-8A8DD645E8BA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -305,8 +333,17 @@ Global
 		{4CB508A4-F729-4A95-A941-638365F961A0} = {B0715156-EC67-4A7A-8F6A-C2965322DA49}
 		{D553D9DE-AA60-43A5-B767-2A590686155C} = {B0715156-EC67-4A7A-8F6A-C2965322DA49}
 		{B117D262-E0E5-4861-8FC9-3390555DD0E6} = {B0715156-EC67-4A7A-8F6A-C2965322DA49}
+		{11735D45-89B6-4F79-978D-72024DA8CD89} = {2642476A-C116-400E-942A-D79A4EF6A1FC}
+		{4C780F31-78D7-467A-AAF7-708D7BE1619A} = {2642476A-C116-400E-942A-D79A4EF6A1FC}
+		{85E6E1B1-DD30-4445-9405-05FF249C6FE4} = {C4BE41AE-DD8E-4D34-9951-5BADAF85BE53}
+		{2C3ABC53-B00D-4E99-A9FE-461B2FD6A293} = {C4BE41AE-DD8E-4D34-9951-5BADAF85BE53}
+		{44A24814-9030-4018-AE68-8A8DD645E8BA} = {C4BE41AE-DD8E-4D34-9951-5BADAF85BE53}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EC68E9A1-91AC-4B6A-B817-573F85D4F550}
+	EndGlobalSection
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		..\Source\DataBases\Avalonia.DataBases.Share\Avalonia.DataBases.Share.projitems*{11735d45-89b6-4f79-978d-72024da8cd89}*SharedItemsImports = 13
+		..\Source\DataBases\Avalonia.DataBases.Share\Avalonia.DataBases.Share.projitems*{4c780f31-78d7-467a-aaf7-708d7be1619a}*SharedItemsImports = 5
 	EndGlobalSection
 EndGlobal

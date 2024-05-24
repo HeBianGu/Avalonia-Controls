@@ -18,34 +18,6 @@ using System.Net.WebSockets;
 
 namespace HeBianGu.Avalonia.Extensions.ApplicationBase
 {
-
-    public abstract class ApplicationAxamlLoaderAttribute : Attribute
-    {
-        public abstract string FolderName { get; set; }
-    }
-
-    [System.AttributeUsage(AttributeTargets.Assembly, Inherited = false, AllowMultiple = false)]
-    public sealed class ApplicationDataTemplateLoaderAttribute : ApplicationAxamlLoaderAttribute
-    {
-        public override string FolderName { get; set; } = "DataTemplates";
-    }
-
-    [System.AttributeUsage(AttributeTargets.Assembly, Inherited = false, AllowMultiple = false)]
-    public sealed class ApplicationStylesLoaderAttribute : ApplicationAxamlLoaderAttribute
-    {
-        public override string FolderName { get; set; } = "Styles";
-    }
-
-    [System.AttributeUsage(AttributeTargets.Assembly, Inherited = false, AllowMultiple = false)]
-    public sealed class ApplicationResourceLoaderAttribute : ApplicationAxamlLoaderAttribute
-    {
-        public override string FolderName { get; set; } = "Resources";
-    }
-
-    public class ApplicationBuilder : IApplicationBuilder
-    {
-
-    }
     public abstract partial class ApplicationBase : Application
     {
         public ApplicationBase()
