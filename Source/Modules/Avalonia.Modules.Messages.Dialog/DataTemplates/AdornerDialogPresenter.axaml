@@ -10,10 +10,11 @@
         </Grid.Background>-->
         <Border Width="{Binding Width}"
                 Height="{Binding Height}"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
+                Margin="{Binding Margin}"
+                HorizontalAlignment="{Binding HorizontalAlignment}"
+                VerticalAlignment="{Binding VerticalAlignment}"
                 Background="{DynamicResource {x:Static h:BrushKeys.Background}}"
-                BorderBrush="{DynamicResource {x:Static h:BrushKeys.BorderBrush}}" 
+                BorderBrush="{DynamicResource {x:Static h:BrushKeys.BorderBrush}}"
                 BorderThickness="0"
                 CornerRadius="{DynamicResource {x:Static h:LayoutKeys.CornerRadius}}">
             <Grid HorizontalAlignment="Stretch"
@@ -22,14 +23,14 @@
                 <Button HorizontalAlignment="Right"
                         VerticalAlignment="Top"
                         Command="{local:CloseAdornerDialogCommand}"
+                        CommandParameter="{Binding}"
                         Content="{x:Static h:Geometrys.Close}"
                         Theme="{DynamicResource {x:Static h:ButtonKeys.Geometry}}"
-                        ToolTip.Tip="×"
-                        CommandParameter="{Binding}"  
-                         />
+                        ToolTip.Tip="×" />
 
                 <TextBlock Margin="10,6" Text="{Binding Title}" />
                 <ContentControl Grid.Row="1"
+                                Padding="{Binding Padding}"
                                 HorizontalAlignment="{Binding HorizontalContentAlignment}"
                                 VerticalAlignment="{Binding VerticalContentAlignment}"
                                 Content="{Binding Presenter}" />

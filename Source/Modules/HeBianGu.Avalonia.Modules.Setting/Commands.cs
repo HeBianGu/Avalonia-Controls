@@ -20,6 +20,7 @@ namespace HeBianGu.Avalonia.Modules.Setting
                 x.Width = 800;
                 x.Height = 500;
                 x.DialogButton = DialogButton.None;
+                x.Title = "系统设置";
                 if (x is Window window)
                 {
                     window.SizeToContent = SizeToContent.Manual;

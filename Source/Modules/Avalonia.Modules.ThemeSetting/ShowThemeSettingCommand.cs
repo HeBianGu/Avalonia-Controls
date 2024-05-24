@@ -12,8 +12,14 @@ namespace Avalonia.Modules.ThemeSetting
             ThemeSettingViewPresenter setting = new ThemeSettingViewPresenter();
             bool? r = await IocMessage.Dialog.Show(setting, x =>
             {
-                x.Width = 800;
+                //x.Width = 800;
+                x.Title = "主题设置";
                 x.DialogButton = DialogButton.None;
+                x.HorizontalAlignment= HorizontalAlignment.Right;
+                x.HorizontalContentAlignment= HorizontalAlignment.Right;
+                x.VerticalAlignment= VerticalAlignment.Stretch;
+                x.VerticalContentAlignment= VerticalAlignment.Stretch;
+                x.Margin= new Thickness(2);
                 if (x is Window window)
                 {
                     window.SizeToContent = SizeToContent.Manual;

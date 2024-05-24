@@ -125,7 +125,7 @@ namespace HeBianGu.Avalonia.Core.Mvvm
             }
         }
 
-        private HorizontalAlignment _horizontalAlignment = HorizontalAlignment.Stretch;
+        private HorizontalAlignment _horizontalAlignment = HorizontalAlignment.Center;
         [Display(Name = "水平对齐", GroupName = "布局")]
         /// <summary> 说明  </summary>
         public HorizontalAlignment HorizontalAlignment
@@ -151,7 +151,7 @@ namespace HeBianGu.Avalonia.Core.Mvvm
             }
         }
 
-        private VerticalAlignment _verticalAlignment = VerticalAlignment.Stretch;
+        private VerticalAlignment _verticalAlignment = VerticalAlignment.Center;
         [Display(Name = "垂直对齐", GroupName = "布局")]
         /// <summary> 说明  </summary>
         public VerticalAlignment VerticalAlignment
