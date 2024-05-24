@@ -10,7 +10,6 @@
     <ProjectReference Include="..\..\Core\HeBianGu.Avalonia.Core.Mvvm\HeBianGu.Avalonia.Core.Mvvm.csproj" />
     <ProjectReference Include="..\..\Extensions\HeBianGu.Avalonia.Extensions.ApplicationBase\HeBianGu.Avalonia.Extensions.ApplicationBase.csproj" />
     <ProjectReference Include="..\..\Extensions\HeBianGu.Avalonia.Extensions.Command\HeBianGu.Avalonia.Extensions.Command.csproj" />
-    <ProjectReference Include="..\..\Extensions\HeBianGu.Avalonia.Extensions.Common\HeBianGu.Avalonia.Extensions.Common.csproj" />
     <ProjectReference Include="..\..\Extensions\HeBianGu.Avalonia.Extensions.Setting\HeBianGu.Avalonia.Extensions.Setting.csproj" />
     <ProjectReference Include="..\..\Windows\HeBianGu.Avalonia.Windows.Dialog\HeBianGu.Avalonia.Windows.Dialog.csproj" />
   </ItemGroup>

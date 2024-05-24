@@ -8,5 +8,6 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Core\HeBianGu.Avalonia.Core.Ioc\HeBianGu.Avalonia.Core.Ioc.csproj" />
+    <ProjectReference Include="..\HeBianGu.Avalonia.Extensions.Common\HeBianGu.Avalonia.Extensions.Common.csproj" />
   </ItemGroup>
 </Project>

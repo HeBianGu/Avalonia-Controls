@@ -19,7 +19,7 @@ namespace HeBianGu.Avalonia.Extensions.Command
             if (parameter is Window window && Application.Current.ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
             {
                 bool isMain = desktop.MainWindow == window;// && WindowSetting.Instance.UseNoticeOnMainWindowClose;
-                if (isMain || this.UseDialog)
+                if (isMain && this.UseDialog)
                 {
                     var r = await IocMessage.ShowDialogMessage(this.Message, "提示", DialogButton.SumitAndCancel);
                     if (r != true)

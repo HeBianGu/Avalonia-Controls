@@ -1,6 +1,6 @@
 ﻿
 using HeBianGu.Avalonia.Core.Ioc;
-using HeBianGu.Avalonia.Extensions.Common;
+using HeBianGu.Avalonia.Extensions.ApplicationBase;
 using HeBianGu.Avalonia.Extensions.Setting;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -14,6 +14,20 @@ namespace Avalonia.Modules.SplashScreen
         {
             base.LoadDefault();
             this.Product = ApplicationProvider.Product;
+            this.Copyright= ApplicationProvider.Copyright;
+            this.Title= ApplicationProvider.Version;
+        }
+
+        private string _title;
+        [Display(Name = "窗口标题")]
+        public string Title
+        {
+            get { return _title; }
+            set
+            {
+                _title = value;
+                RaisePropertyChanged();
+            }
         }
 
         private string _product;
@@ -24,6 +38,18 @@ namespace Avalonia.Modules.SplashScreen
             set
             {
                 _product = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        private string _copyright;
+        [Display(Name = "版权信息")]
+        public string Copyright
+        {
+            get { return _copyright; }
+            set
+            {
+                _copyright = value;
                 RaisePropertyChanged();
             }
         }

@@ -15,6 +15,9 @@ using System.Linq;
 using Avalonia.Styling;
 using Avalonia.Markup.Xaml.Styling;
 using System.Net.WebSockets;
+using Avalonia.Threading;
+using System.Threading;
+using HeBianGu.Avalonia.Extensions.Common;
 
 namespace HeBianGu.Avalonia.Extensions.ApplicationBase
 {
@@ -225,4 +228,5 @@ namespace HeBianGu.Avalonia.Extensions.ApplicationBase
         protected abstract Control GetMainView();
 
     }
+
 }
