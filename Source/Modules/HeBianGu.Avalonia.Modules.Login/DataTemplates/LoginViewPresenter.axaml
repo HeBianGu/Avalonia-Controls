@@ -1,0 +1,61 @@
+<DataTemplate xmlns="https://github.com/avaloniaui"
+              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+              xmlns:h="https://github.com/HeBianGu"
+              xmlns:local="clr-namespace:HeBianGu.Avalonia.Modules.Login"
+              DataType="local:LoginViewPresenter">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <TextBlock Margin="0,20"
+                   HorizontalAlignment="Center"
+                   FontSize="{Binding Source={x:Static h:LoginOptions.Instance}, Path=ProductFontSize}"
+                   Text="{Binding Source={x:Static h:LoginOptions.Instance}, Path=Product}" />
+        <StackPanel Grid.Row="1"
+                    Width="300"
+                    Margin="10,10,20,0"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+            <DockPanel Margin="5">
+                <TextBlock Width="30"
+                           VerticalAlignment="Center"
+                           Text="账号" />
+                <TextBox Text="{Binding UserName}"  Watermark="请输入账号"  />
+            </DockPanel>
+            <DockPanel Margin="5">
+                <TextBlock Width="30"
+                           VerticalAlignment="Center"
+                           Text="密码" />
+                <TextBox PasswordChar="*"
+                         Text="{Binding Password}"
+                         Watermark="请输入密码" />
+
+                <!--<PasswordBox>
+                -->
+                <!--<b:Interaction.Behaviors>
+            <h:PasswordBindingBehavior Password="{Binding Password, Mode=TwoWay}" />
+          </b:Interaction.Behaviors>-->
+                <!--
+                </PasswordBox>-->
+            </DockPanel>
+
+            <CheckBox HorizontalAlignment="Right"
+                      Content="记住密码"
+                      IsChecked="{Binding Source={x:Static h:LoginOptions.Instance}, Path=Remember}" />
+            <!--<h:ProgressButton Margin="33,5,3,15"
+                        HorizontalAlignment="Stretch"
+                        Command="{Binding LoginCommand}"
+                        CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type h:IDialog}}}"
+                        Content="登录"
+                        Style="{DynamicResource {x:Static h:ProgressButton.CommandKey}}" />-->
+            <Button Margin="33,5,3,15"
+                    HorizontalAlignment="Stretch"
+                    HorizontalContentAlignment="Center"
+                    Command="{Binding LoginCommand}"
+                    CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type h:IDialog}}}"
+                    Content="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Command.Message}"
+                    IsEnabled="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Command.IsEnabled}" />
+        </StackPanel>
+    </Grid>
+</DataTemplate>

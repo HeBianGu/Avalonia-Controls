@@ -9,20 +9,20 @@ using System;
 
 namespace HeBianGu.Avalonia.Modules.Login
 {
-
-
-
     public partial class LoginWindow : DialogWindow, ILoginWindow
     {
+        private readonly ILoginViewPresenter _presenter;
+
         public LoginWindow()
         {
             InitializeComponent();
-            this.PointerPressed += OnPointerPressed;
-            this.btn_close.Click += this.Btn_close_Click;
-            this.btn_login.Click += this.Btn_login_Click;
+            //this.Width=double.NaN;
+            //this.Height=double.NaN;
+            _presenter = Ioc.GetService<ILoginViewPresenter>();
+            this.Content = _presenter;
         }
 
-        protected void OnLogined()
+        public void OnLogined()
         {
             RoutedEventArgs args = new RoutedEventArgs(LoginedEvent, this);
             this.RaiseEvent(args);
@@ -51,14 +51,7 @@ namespace HeBianGu.Avalonia.Modules.Login
             window.Close();
         }
 
-        private void OnPointerPressed(object? sender, PointerPressedEventArgs e)
-        {
-            if (e.Pointer.Type == PointerType.Mouse)
-            {
 
-                this.BeginMoveDrag(e);
-            }
-        }
 
         public Window GetWindow()
         {

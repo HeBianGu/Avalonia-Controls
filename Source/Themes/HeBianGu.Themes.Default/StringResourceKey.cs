@@ -1,5 +1,7 @@
-﻿using Avalonia.Markup.Xaml;
+﻿using Avalonia;
+using Avalonia.Markup.Xaml;
 using System;
+using System.Xml.Linq;
 
 namespace HeBianGu.Themes.Default
 {
@@ -17,7 +19,6 @@ namespace HeBianGu.Themes.Default
 
         public string ResourceId { get; set; }
         public Type TypeInTargetAssembly { get; set; }
-
         public override object ProvideValue(IServiceProvider serviceProvider)
         {
             return $"S.{this.TypeInTargetAssembly.Name}.{ResourceId}";

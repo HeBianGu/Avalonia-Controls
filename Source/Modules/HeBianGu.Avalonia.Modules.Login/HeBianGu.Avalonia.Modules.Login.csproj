@@ -3,7 +3,6 @@
     <TargetFramework>net7.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Remove="Extension.cs" />
     <Compile Remove="LoginViewPresenter.xaml.cs" />
     <Compile Remove="RigisterLoginViewPresenter.xaml.cs" />
   </ItemGroup>
@@ -22,5 +21,10 @@
     <ProjectReference Include="..\..\Core\HeBianGu.Avalonia.Core.Mvvm\HeBianGu.Avalonia.Core.Mvvm.csproj" />
     <ProjectReference Include="..\..\Extensions\HeBianGu.Avalonia.Extensions.Setting\HeBianGu.Avalonia.Extensions.Setting.csproj" />
     <ProjectReference Include="..\..\Windows\HeBianGu.Avalonia.Windows.Dialog\HeBianGu.Avalonia.Windows.Dialog.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="DataTemplates\LoginViewPresenter.axaml.cs">
+      <DependentUpon>LoginViewPresenter.axaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 </Project>

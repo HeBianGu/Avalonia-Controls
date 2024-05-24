@@ -18,6 +18,7 @@ using Avalonia.Modules.Messages.Dialog;
 using Avalonia.Modules.SplashScreen;
 using System.Xml;
 using Avalonia.Markup.Xaml.Templates;
+using HeBianGu.Themes.Default;
 
 namespace HeBianGu.Test.Main;
 
@@ -35,18 +36,20 @@ public partial class App : ApplicationBase
         base.ConfigureServices(services);
         services.AddSingleton<IMyIoc, MyIoc>();
         services.AddSingleton<ILoginWindow, LoginWindow>();
+        services.AddLoginViewPresenter();
         services.AddSingleton<IDialogMessageService, AdornerDialogMessageService>();
         services.AddFormMessageService();
         services.AddNoticeMessage();
         services.AddSnackMessage();
         services.AddSplashScreen();
-
+        services.AddTestLoginService();
     }
 
     protected override void Configure(IApplicationBuilder app)
     {
         base.Configure(app);
         app.UseSettingDefault();
+        app.UseSetting(x => x.Add(SystemSetting.Instance));
     }
 
 

@@ -25,7 +25,7 @@ namespace Avalonia.Modules.SplashScreen
 
         private async void SplashScreenWindow_Loaded(object? sender, RoutedEventArgs e)
         {
-            int sleep = 3000;
+            int sleep = 1000;
             Func<IDialog, ISplashScreenViewPresenter, bool?> func = (c, s) =>
             {
                 if (c?.IsCancel != true)

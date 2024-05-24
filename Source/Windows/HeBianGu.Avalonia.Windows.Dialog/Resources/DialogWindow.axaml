@@ -5,7 +5,10 @@
     <ControlTheme x:Key="{x:Type local:DialogWindow}" TargetType="local:DialogWindow">
         <Setter Property="TransparencyBackgroundFallback" Value="{DynamicResource SystemControlBackgroundAltHighBrush}" />
         <Setter Property="TopLevel.SystemBarColor" Value="{DynamicResource SystemControlBackgroundAltHighBrush}" />
-        <Setter Property="FontFamily" Value="{DynamicResource ContentControlThemeFontFamily}" />
+        <!--<Setter Property="FontFamily" Value="微软雅黑" />-->
+        <Setter Property="FontFamily" Value="{Binding Source={x:Static h:SystemSetting.Instance}, Path=FontFamily}" />
+
+        <!--<Setter Property="FontFamily" Value="{DynamicResource ContentControlThemeFontFamily}" />-->
         <Setter Property="FontSize" Value="{DynamicResource {x:Static h:FontSizeKeys.Default}}" />
         <Setter Property="Background" Value="{DynamicResource {x:Static h:BrushKeys.Background}}" />
         <Setter Property="Foreground" Value="{DynamicResource {x:Static h:BrushKeys.Foreground}}" />

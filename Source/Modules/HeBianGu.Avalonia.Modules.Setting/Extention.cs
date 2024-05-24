@@ -36,12 +36,20 @@ namespace System
         /// <summary>
         /// 设置系统路径
         /// </summary>  
-        public static IApplicationBuilder UseSetting(this IApplicationBuilder builder, Action<ISettingViewPresenterOption> option = null)
+        public static IApplicationBuilder UseSettingViewPresenter(this IApplicationBuilder builder, Action<ISettingViewPresenterOption> option = null)
         {
             option?.Invoke(SettingViewPresenter.Instance);
             return builder;
         }
 
+        /// <summary>
+        /// 设置系统路径
+        /// </summary>  
+        public static IApplicationBuilder UseSetting(this IApplicationBuilder builder, Action<ISettingDataManagerOption> option = null)
+        {
+            option?.Invoke(SettingDataManager.Instance);
+            return builder;
+        }
         /// <summary>
         /// 设置系统路径
         /// </summary>  

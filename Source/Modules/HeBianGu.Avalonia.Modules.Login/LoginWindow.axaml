@@ -4,13 +4,15 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:local="clr-namespace:HeBianGu.Avalonia.Modules.Login"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        Title="LoginWindow"
+        Title="{Binding Source={x:Static local:LoginOptions.Instance}, Path=Title}"
+        Height="320"
+        Width="400"
         d:DesignHeight="450"
         d:DesignWidth="800"
         BottomTemplate="{x:Null}"
         mc:Ignorable="d">
 
-    <Grid>
+    <!--<Grid>
         <StackPanel VerticalAlignment="Center">
             <TextBlock HorizontalAlignment="Center"
                        VerticalAlignment="Center"
@@ -21,54 +23,6 @@
             <Button x:Name="btn_login" HorizontalAlignment="Center">
                 Login
             </Button>
-        </StackPanel>
-    </Grid>
-    <!--<ContentControl>
-    <local:LoginViewPresenter/>
-
-  </ContentControl>-->
-
-    <!--<Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
-            <RowDefinition Height="Auto" />
-        </Grid.RowDefinitions>
-        <TextBlock Margin="0,20"
-                   HorizontalAlignment="Center"
-                   FontSize="{Binding Source={x:Static h:LoginOptions.Instance}, Path=ProductFontSize}"
-                   Text="{Binding Source={x:Static h:LoginOptions.Instance}, Path=Product}" />
-        <StackPanel Grid.Row="1"
-                    Width="300"
-                    Margin="10,10,20,0"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Center">
-            <BulletDecorator Margin="5">
-                <BulletDecorator.Bullet>
-                    <TextBlock Width="30" Text="账号" />
-                </BulletDecorator.Bullet>
-                <TextBox Text="{Binding UserName}" />
-            </BulletDecorator>
-            <BulletDecorator Margin="5">
-                <BulletDecorator.Bullet>
-                    <TextBlock Width="30" Text="密码" />
-                </BulletDecorator.Bullet>
-                <PasswordBox>
-    -->
-    <!--<b:Interaction.Behaviors>
-            <h:PasswordBindingBehavior Password="{Binding Password, Mode=TwoWay}" />
-          </b:Interaction.Behaviors>-->
-    <!--
-                </PasswordBox>
-            </BulletDecorator>
-
-            <CheckBox HorizontalAlignment="Right"
-                      Content="记住密码"
-                      IsChecked="{Binding Source={x:Static h:LoginOptions.Instance}, Path=Remember}" />
-            <Button Margin="33,5,3,15"
-                    HorizontalAlignment="Stretch"
-                    Command="{Binding LoginCommand}"
-                    CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type h:IDialog}}}"
-                    Content="登录" />
         </StackPanel>
     </Grid>-->
 </Window>
