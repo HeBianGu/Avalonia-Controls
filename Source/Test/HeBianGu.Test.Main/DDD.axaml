@@ -1,8 +1,10 @@
-<DataTemplate xmlns="https://github.com/avaloniaui" xmlns:v="clr-namespace:HeBianGu.Test.Main.Views" DataType="v:Student"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <!-- Add Resources Here -->
-  <DockPanel>
-    <TextBlock Text="名称：" />
-    <TextBlock Text="{Binding Name}" />
-  </DockPanel>
+<DataTemplate xmlns="https://github.com/avaloniaui"
+              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+              xmlns:v="clr-namespace:HeBianGu.Test.Main.Views"
+              DataType="v:Student">
+    <!--  Add Resources Here  -->
+    <DockPanel>
+        <TextBlock Text="名称：" />
+        <TextBlock Text="{Binding Name}" />
+    </DockPanel>
 </DataTemplate>

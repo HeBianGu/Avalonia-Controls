@@ -1,100 +1,100 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:h="https://github.com/HeBianGu"
-                    xmlns:local="clr-namespace:Avalonia.Styles"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-  <!--  Add Resources Here  -->
-  <ControlTheme x:Key="{local:StringResourceKey ResourceId=Geometry,
+                    xmlns:local="clr-namespace:Avalonia.Styles">
+    <!--  Add Resources Here  -->
+    <ControlTheme x:Key="{local:StringResourceKey ResourceId=Geometry,
                                                   TypeInTargetAssembly=Button}"
-                BasedOn="{StaticResource {x:Type Button}}"
-                TargetType="Button">
-    <Setter Property="Width" Value="30" />
-    <Setter Property="Height" Value="30" />
-    <Setter Property="Padding" Value="8" />
-    <Setter Property="Background" Value="Transparent" />
-    <Setter Property="Foreground" Value="{DynamicResource {x:Static h:BrushKeys.Foreground}}" />
-    <Setter Property="ContentTemplate">
-      <Setter.Value>
-        <DataTemplate>
-          <Path VerticalAlignment="Center"
-                Data="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Content}"
-                Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}"
-                Stretch="Uniform" />
-        </DataTemplate>
-      </Setter.Value>
-    </Setter>
-  </ControlTheme>
+                  BasedOn="{StaticResource {x:Type Button}}"
+                  TargetType="Button">
+        <Setter Property="Width" Value="30" />
+        <Setter Property="Height" Value="30" />
+        <Setter Property="Padding" Value="8" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Foreground" Value="{DynamicResource {x:Static h:BrushKeys.Foreground}}" />
+        <Setter Property="ContentTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <Path VerticalAlignment="Center"
+                          Data="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Content}"
+                          Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}"
+                          Stretch="Uniform" />
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+    </ControlTheme>
 
-  <ControlTheme x:Key="{x:Type Button}" TargetType="Button">
-    <Setter Property="Background" Value="{DynamicResource {x:Static h:BrushKeys.CaptionBackground}}" />
-    <Setter Property="Foreground" Value="{DynamicResource {x:Static h:BrushKeys.CaptionForeground}}" />
-    <Setter Property="BorderBrush" Value="Transparent" />
-    <Setter Property="BorderThickness" Value="{DynamicResource {x:Static h:LayoutKeys.BorderThickness}}" />
-    <Setter Property="CornerRadius" Value="{DynamicResource {x:Static h:LayoutKeys.CornerRadius}}" />
-    <Setter Property="Padding" Value="{DynamicResource {x:Static h:LayoutKeys.Padding}}" />
-    <Setter Property="Height" Value="{DynamicResource {x:Static h:LayoutKeys.ItemHeight}}" />
-    <!--<Setter Property="FontSize" Value="{DynamicResource S.FontSize.Default}" />-->
-    <Setter Property="HorizontalAlignment" Value="Left" />
-    <Setter Property="VerticalAlignment" Value="Center" />
-    <Setter Property="VerticalContentAlignment" Value="Center" />
-    <Setter Property="RenderTransform" Value="none" />
-    <Setter Property="Transitions">
-      <Transitions>
-        <TransformOperationsTransition Property="RenderTransform" Duration="0:0:.075" />
-      </Transitions>
-    </Setter>
-
-    <Setter Property="Template">
-      <ControlTemplate>
-        <ContentPresenter x:Name="PART_ContentPresenter"
-                          Padding="{TemplateBinding Padding}"
-                          HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                          VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                          Background="{TemplateBinding Background}"
-                          BorderBrush="{TemplateBinding BorderBrush}"
-                          BorderThickness="{TemplateBinding BorderThickness}"
-                          Content="{TemplateBinding Content}"
-                          ContentTemplate="{TemplateBinding ContentTemplate}"
-                          CornerRadius="{TemplateBinding CornerRadius}"
-                          RecognizesAccessKey="True" />
-      </ControlTemplate>
-    </Setter>
-
-    <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
-      <Setter Property="Background" Value="{DynamicResource {x:Static h:BrushKeys.MouseOver}}" />
-      <Setter Property="BorderBrush" Value="Transparent" />
-      <Setter Property="Foreground" Value="{DynamicResource {x:Static h:BrushKeys.ForegroundTitle}}" />
-    </Style>
-
-    <Style Selector="^:pressed">
-      <Setter Property="RenderTransform" Value="scale(0.98)" />
-    </Style>
-
-    <Style Selector="^:pressed  /template/ ContentPresenter#PART_ContentPresenter">
-      <Setter Property="Opacity" Value="0.5" />
-    </Style>
-
-    <Style Selector="^:disabled /template/ ContentPresenter#PART_ContentPresenter">
-      <Setter Property="Opacity" Value="0.4" />
-    </Style>
-
-    <Style Selector="^.accent">
-      <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
-        <Setter Property="Background" Value="{DynamicResource {x:Static h:BrushKeys.Accent}}" />
-        <Setter Property="Foreground" Value="White" />
+    <ControlTheme x:Key="{x:Type Button}" TargetType="Button">
+        <Setter Property="Background" Value="{DynamicResource {x:Static h:BrushKeys.CaptionBackground}}" />
+        <Setter Property="Foreground" Value="{DynamicResource {x:Static h:BrushKeys.CaptionForeground}}" />
         <Setter Property="BorderBrush" Value="Transparent" />
-      </Style>
+        <Setter Property="BorderThickness" Value="{DynamicResource {x:Static h:LayoutKeys.BorderThickness}}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource {x:Static h:LayoutKeys.CornerRadius}}" />
+        <Setter Property="Padding" Value="{DynamicResource {x:Static h:LayoutKeys.Padding}}" />
+        <Setter Property="Height" Value="{DynamicResource {x:Static h:LayoutKeys.ItemHeight}}" />
+        <!--<Setter Property="FontSize" Value="{DynamicResource S.FontSize.Default}" />-->
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="RenderTransform" Value="none" />
+        <Setter Property="Transitions">
+            <Transitions>
+                <TransformOperationsTransition Property="RenderTransform" Duration="0:0:.075" />
+            </Transitions>
+        </Setter>
 
-      <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
-        <Setter Property="Opacity" Value="0.8" />
-      </Style>
+        <Setter Property="Template">
+            <ControlTemplate>
+                <ContentPresenter x:Name="PART_ContentPresenter"
+                                  Padding="{TemplateBinding Padding}"
+                                  HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                  VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                  Background="{TemplateBinding Background}"
+                                  BorderBrush="{TemplateBinding BorderBrush}"
+                                  BorderThickness="{TemplateBinding BorderThickness}"
+                                  Content="{TemplateBinding Content}"
+                                  ContentTemplate="{TemplateBinding ContentTemplate}"
+                                  CornerRadius="{TemplateBinding CornerRadius}"
+                                  RecognizesAccessKey="True" />
+            </ControlTemplate>
+        </Setter>
 
-      <Style Selector="^:pressed  /template/ ContentPresenter#PART_ContentPresenter">
-        <Setter Property="Opacity" Value="0.5" />
-      </Style>
+        <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Background" Value="{DynamicResource {x:Static h:BrushKeys.MouseOver}}" />
+            <Setter Property="BorderBrush" Value="Transparent" />
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static h:BrushKeys.ForegroundTitle}}" />
+        </Style>
 
-      <Style Selector="^:disabled /template/ ContentPresenter#PART_ContentPresenter">
-        <Setter Property="Opacity" Value="0.4" />
-      </Style>
-    </Style>
-  </ControlTheme>
+        <Style Selector="^:pressed">
+            <Setter Property="RenderTransform" Value="scale(0.98)" />
+        </Style>
+
+        <Style Selector="^:pressed  /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Opacity" Value="0.5" />
+        </Style>
+
+        <Style Selector="^:disabled /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Opacity" Value="0.4" />
+        </Style>
+
+        <Style Selector="^.accent">
+            <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+                <Setter Property="Background" Value="{DynamicResource {x:Static h:BrushKeys.Accent}}" />
+                <Setter Property="Foreground" Value="White" />
+                <Setter Property="BorderBrush" Value="Transparent" />
+            </Style>
+
+            <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+                <Setter Property="Opacity" Value="0.8" />
+            </Style>
+
+            <Style Selector="^:pressed  /template/ ContentPresenter#PART_ContentPresenter">
+                <Setter Property="Opacity" Value="0.5" />
+            </Style>
+
+            <Style Selector="^:disabled /template/ ContentPresenter#PART_ContentPresenter">
+                <Setter Property="Opacity" Value="0.4" />
+            </Style>
+        </Style>
+    </ControlTheme>
 </ResourceDictionary>

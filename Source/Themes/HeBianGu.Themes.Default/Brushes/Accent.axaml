@@ -11,7 +11,10 @@
     <SolidColorBrush x:Key="{local:StringResourceKey ResourceId=S.Brush.TextForeground.Title, TypeInTargetAssembly={x:Type local:BrushKeys}}" Color="#000000" />
 
     <SolidColorBrush x:Key="{local:StringResourceKey ResourceId=S.Brush.CaptionForeground, TypeInTargetAssembly={x:Type local:BrushKeys}}" Color="#ffffff" />
-    <SolidColorBrush x:Key="{local:StringResourceKey ResourceId=S.Brush.TextMouseOver, TypeInTargetAssembly={x:Type local:BrushKeys}}" Opacity="0.5" Color="#FF3399FF" />
+    <SolidColorBrush x:Key="{local:StringResourceKey ResourceId=S.Brush.TextMouseOver,
+                                                     TypeInTargetAssembly={x:Type local:BrushKeys}}"
+                     Opacity="0.5"
+                     Color="#FF3399FF" />
     <SolidColorBrush x:Key="{local:StringResourceKey ResourceId=S.Brush.TextSelected, TypeInTargetAssembly={x:Type local:BrushKeys}}" Color="#FF3399FF" />
 
     <SolidColorBrush x:Key="{local:StringResourceKey ResourceId=S.Brush.TextBorderBrush, TypeInTargetAssembly={x:Type local:BrushKeys}}" Color="#ebebeb" />

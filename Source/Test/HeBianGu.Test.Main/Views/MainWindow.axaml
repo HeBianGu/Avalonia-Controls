@@ -66,12 +66,12 @@
                 </Button>
 
                 <Button Command="{h:ShowThemeSettingCommand}"
-                        Content="主题设置" 
+                        Content="主题设置"
                         DockPanel.Dock="Right" />
 
-              <Button Command="{h:ShowAboutCommand}"
-                           Content="关于"
-                           DockPanel.Dock="Right" />
+                <Button Command="{h:ShowAboutCommand}"
+                        Content="关于"
+                        DockPanel.Dock="Right" />
             </DockPanel>
         </ControlTemplate>
     </h:Attach.HeaderCenterTemplate>
