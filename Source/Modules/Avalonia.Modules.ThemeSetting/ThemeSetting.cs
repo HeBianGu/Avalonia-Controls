@@ -62,6 +62,7 @@ namespace Avalonia.Modules.ThemeSetting
             {
                 _colorResource = value;
                 RaisePropertyChanged();
+                this.RefreshColorTheme();
             }
         }
 
@@ -74,6 +75,7 @@ namespace Avalonia.Modules.ThemeSetting
             {
                 _fontSizeResource = value;
                 RaisePropertyChanged();
+                this.RefreshFontSizeTheme();
             }
         }
 
@@ -86,6 +88,7 @@ namespace Avalonia.Modules.ThemeSetting
             {
                 _layoutResource = value;
                 RaisePropertyChanged();
+                this.RefreshLayoutTheme();
             }
         }
 
@@ -148,7 +151,15 @@ namespace Avalonia.Modules.ThemeSetting
             this.RefreshTheme();
             return r;
         }
+
         internal void RefreshTheme()
+        {
+            this.RefreshColorTheme();
+            this.RefreshFontSizeTheme();
+            this.RefreshLayoutTheme();
+        }
+
+        internal void RefreshColorTheme()
         {
             {
                 var find = Application.Current.Resources.MergedDictionaries.OfType<ResourceInclude>().FirstOrDefault(x => x.Source.AbsoluteUri.StartsWith("avares://HeBianGu.Themes.Default/Brushes/") || x.Source.AbsoluteUri == "avares://HeBianGu.Themes.Default/Resources/Brush.axaml");
@@ -158,7 +169,10 @@ namespace Avalonia.Modules.ThemeSetting
                     Application.Current.Resources.MergedDictionaries[index] = this.ColorResource.Resource;
                 }
             }
+        }
 
+        internal void RefreshFontSizeTheme()
+        {
             {
                 var find = Application.Current.Resources.MergedDictionaries.OfType<ResourceInclude>().FirstOrDefault(x => x.Source.AbsoluteUri.StartsWith("avares://HeBianGu.Themes.Default/FontSizes/") || x.Source.AbsoluteUri == "avares://HeBianGu.Themes.Default/Resources/FontSize.axaml");
                 if (find != this.FontSizeResource.Resource)
@@ -167,7 +181,10 @@ namespace Avalonia.Modules.ThemeSetting
                     Application.Current.Resources.MergedDictionaries[index] = this.FontSizeResource.Resource;
                 }
             }
+        }
 
+        internal void RefreshLayoutTheme()
+        {
             {
                 var find = Application.Current.Resources.MergedDictionaries.OfType<ResourceInclude>().FirstOrDefault(x => x.Source.AbsoluteUri.StartsWith("avares://HeBianGu.Themes.Default/Layouts/") || x.Source.AbsoluteUri == "avares://HeBianGu.Themes.Default/Resources/Layout.axaml");
                 if (find != this.LayoutResource.Resource)
@@ -177,8 +194,6 @@ namespace Avalonia.Modules.ThemeSetting
                 }
             }
         }
-
-
         protected override string GetDefaultFolder()
         {
             return AppPaths.Instance.UserSetting;

@@ -1,0 +1,64 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:HeBianGu.Themes.Default">
+  <!--  Add Resources Here  -->
+  <ResourceDictionary.MergedDictionaries>
+    <ResourceInclude Source="avares://HeBianGu.Themes.Default/Brushes/Dark.axaml" />
+  </ResourceDictionary.MergedDictionaries>
+
+  <!--  Add Resources Here  -->
+  <SolidColorBrush x:Key="{local:StringResourceKey ResourceId=S.Brush.Accent, TypeInTargetAssembly={x:Type local:BrushKeys}}" Color="#FF0093FF" />
+  <!--  Background  -->
+  <SolidColorBrush x:Key="{local:StringResourceKey ResourceId=S.Brush.CaptionBackground, TypeInTargetAssembly={x:Type local:BrushKeys}}" Color="#353352" />
+  <SolidColorBrush x:Key="{local:StringResourceKey ResourceId=S.Brush.TextBackground, TypeInTargetAssembly={x:Type local:BrushKeys}}" Color="#353352" />
+  <SolidColorBrush x:Key="{local:StringResourceKey ResourceId=S.Brush.TextBackground.Disabled, TypeInTargetAssembly={x:Type local:BrushKeys}}" Color="#3a3758" />
+
+  <SolidColorBrush x:Key="{local:StringResourceKey ResourceId=S.Brush.RowIndex.BackGround, TypeInTargetAssembly={x:Type local:BrushKeys}}" Color="#3a3758" />
+
+  <!--  Foreground  -->
+  <SolidColorBrush x:Key="{local:StringResourceKey ResourceId=S.Brush.CaptionForeground, TypeInTargetAssembly={x:Type local:BrushKeys}}" Color="#c2c0de" />
+  <SolidColorBrush x:Key="{local:StringResourceKey ResourceId=S.Brush.TextForeground.Title, TypeInTargetAssembly={x:Type local:BrushKeys}}" Color="#c3cbd9" />
+  <SolidColorBrush x:Key="{local:StringResourceKey ResourceId=S.Brush.TextForeground, TypeInTargetAssembly={x:Type local:BrushKeys}}" Color="#c2c0de" />
+  <SolidColorBrush x:Key="{local:StringResourceKey ResourceId=S.Brush.TextForeground.Disabled, TypeInTargetAssembly={x:Type local:BrushKeys}}" Color="#7470a2" />
+
+  <SolidColorBrush x:Key="{local:StringResourceKey ResourceId=S.Brush.TextMouseOver, TypeInTargetAssembly={x:Type local:BrushKeys}}" Color="#3e3b5f" />
+  <SolidColorBrush x:Key="{local:StringResourceKey ResourceId=S.Brush.TextSelected, TypeInTargetAssembly={x:Type local:BrushKeys}}" Color="#48446c" />
+  <SolidColorBrush x:Key="{local:StringResourceKey ResourceId=S.Brush.TextForeground.Assist, TypeInTargetAssembly={x:Type local:BrushKeys}}" Color="#7470a2" />
+  <SolidColorBrush x:Key="{local:StringResourceKey ResourceId=S.Brush.TextForeground.Link, TypeInTargetAssembly={x:Type local:BrushKeys}}" Color="#6296d8" />
+
+  <!--  BorderBrush  -->
+  <SolidColorBrush x:Key="{local:StringResourceKey ResourceId=S.Brush.TextBorderBrush, TypeInTargetAssembly={x:Type local:BrushKeys}}" Color="#4d4973" />
+  <SolidColorBrush x:Key="{local:StringResourceKey ResourceId=S.Brush.TextBorderBrush.Title, TypeInTargetAssembly={x:Type local:BrushKeys}}" Color="#575380" />
+  <SolidColorBrush x:Key="{local:StringResourceKey ResourceId=S.Brush.TextBorderBrush.Assist, TypeInTargetAssembly={x:Type local:BrushKeys}}" Color="#434066" />
+  <SolidColorBrush x:Key="{local:StringResourceKey ResourceId=S.Brush.TextBorderBrush.Disabled, TypeInTargetAssembly={x:Type local:BrushKeys}}" Color="#434066" />
+
+  <SolidColorBrush x:Key="{local:StringResourceKey ResourceId=S.Brush.Dark.10, TypeInTargetAssembly={x:Type local:BrushKeys}}" Color="#ffffff" />
+  <SolidColorBrush x:Key="{local:StringResourceKey ResourceId=S.Brush.Dark.9.5, TypeInTargetAssembly={x:Type local:BrushKeys}}" Color="#f9f8fc" />
+  <SolidColorBrush x:Key="{local:StringResourceKey ResourceId=S.Brush.Dark.9, TypeInTargetAssembly={x:Type local:BrushKeys}}" Color="#f2f2f8" />
+  <SolidColorBrush x:Key="{local:StringResourceKey ResourceId=S.Brush.Dark.8.5, TypeInTargetAssembly={x:Type local:BrushKeys}}" Color="#ecebf5" />
+  <SolidColorBrush x:Key="{local:StringResourceKey ResourceId=S.Brush.Dark.8, TypeInTargetAssembly={x:Type local:BrushKeys}}" Color="#e6e4f2" />
+  <SolidColorBrush x:Key="{local:StringResourceKey ResourceId=S.Brush.Dark.7.5, TypeInTargetAssembly={x:Type local:BrushKeys}}" Color="#d9d8eb" />
+  <SolidColorBrush x:Key="{local:StringResourceKey ResourceId=S.Brush.Dark.7, TypeInTargetAssembly={x:Type local:BrushKeys}}" Color="#cdcbe4" />
+  <SolidColorBrush x:Key="{local:StringResourceKey ResourceId=S.Brush.Dark.6.5, TypeInTargetAssembly={x:Type local:BrushKeys}}" Color="#c2c0de" />
+  <SolidColorBrush x:Key="{local:StringResourceKey ResourceId=S.Brush.Dark.6, TypeInTargetAssembly={x:Type local:BrushKeys}}" Color="#b7b5d7" />
+  <SolidColorBrush x:Key="{local:StringResourceKey ResourceId=S.Brush.Dark.5.5, TypeInTargetAssembly={x:Type local:BrushKeys}}" Color="#adaad0" />
+  <SolidColorBrush x:Key="{local:StringResourceKey ResourceId=S.Brush.Dark.5, TypeInTargetAssembly={x:Type local:BrushKeys}}" Color="#a4a0ca" />
+  <SolidColorBrush x:Key="{local:StringResourceKey ResourceId=S.Brush.Dark.4.5, TypeInTargetAssembly={x:Type local:BrushKeys}}" Color="#9a97c3" />
+  <SolidColorBrush x:Key="{local:StringResourceKey ResourceId=S.Brush.Dark.4, TypeInTargetAssembly={x:Type local:BrushKeys}}" Color="#928ebc" />
+  <SolidColorBrush x:Key="{local:StringResourceKey ResourceId=S.Brush.Dark.3.5, TypeInTargetAssembly={x:Type local:BrushKeys}}" Color="#8a86b6" />
+  <SolidColorBrush x:Key="{local:StringResourceKey ResourceId=S.Brush.Dark.3, TypeInTargetAssembly={x:Type local:BrushKeys}}" Color="#827eaf" />
+  <SolidColorBrush x:Key="{local:StringResourceKey ResourceId=S.Brush.Dark.2.5, TypeInTargetAssembly={x:Type local:BrushKeys}}" Color="#7b77a8" />
+  <SolidColorBrush x:Key="{local:StringResourceKey ResourceId=S.Brush.Dark.2, TypeInTargetAssembly={x:Type local:BrushKeys}}" Color="#7470a2" />
+  <SolidColorBrush x:Key="{local:StringResourceKey ResourceId=S.Brush.Dark.1.5, TypeInTargetAssembly={x:Type local:BrushKeys}}" Color="#6e6a9b" />
+  <SolidColorBrush x:Key="{local:StringResourceKey ResourceId=S.Brush.Dark.1, TypeInTargetAssembly={x:Type local:BrushKeys}}" Color="#686494" />
+  <SolidColorBrush x:Key="{local:StringResourceKey ResourceId=S.Brush.Dark.0.9, TypeInTargetAssembly={x:Type local:BrushKeys}}" Color="#625e8e" />
+  <SolidColorBrush x:Key="{local:StringResourceKey ResourceId=S.Brush.Dark.0.8, TypeInTargetAssembly={x:Type local:BrushKeys}}" Color="#5c5887" />
+  <SolidColorBrush x:Key="{local:StringResourceKey ResourceId=S.Brush.Dark.0.7, TypeInTargetAssembly={x:Type local:BrushKeys}}" Color="#575380" />
+  <SolidColorBrush x:Key="{local:StringResourceKey ResourceId=S.Brush.Dark.0.6, TypeInTargetAssembly={x:Type local:BrushKeys}}" Color="#524e7a" />
+  <SolidColorBrush x:Key="{local:StringResourceKey ResourceId=S.Brush.Dark.0.5, TypeInTargetAssembly={x:Type local:BrushKeys}}" Color="#4d4973" />
+  <SolidColorBrush x:Key="{local:StringResourceKey ResourceId=S.Brush.Dark.0.4, TypeInTargetAssembly={x:Type local:BrushKeys}}" Color="#48446c" />
+  <SolidColorBrush x:Key="{local:StringResourceKey ResourceId=S.Brush.Dark.0.3, TypeInTargetAssembly={x:Type local:BrushKeys}}" Color="#434066" />
+  <SolidColorBrush x:Key="{local:StringResourceKey ResourceId=S.Brush.Dark.0.2, TypeInTargetAssembly={x:Type local:BrushKeys}}" Color="#3e3b5f" />
+  <SolidColorBrush x:Key="{local:StringResourceKey ResourceId=S.Brush.Dark.0.1, TypeInTargetAssembly={x:Type local:BrushKeys}}" Color="#3a3758" />
+  <SolidColorBrush x:Key="{local:StringResourceKey ResourceId=S.Brush.Dark.0, TypeInTargetAssembly={x:Type local:BrushKeys}}" Color="#353352" />
+</ResourceDictionary>
