@@ -1,7 +1,7 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:h="https://github.com/HeBianGu"
-                    xmlns:local="clr-namespace:HeBianGu.Avalonia.Windows.Dialog">
+                    xmlns:local="clr-namespace:Avalonia.Windows.Dialog">
     <ControlTheme x:Key="{x:Type local:DialogWindow}" TargetType="local:DialogWindow">
         <Setter Property="TransparencyBackgroundFallback" Value="{DynamicResource SystemControlBackgroundAltHighBrush}" />
         <Setter Property="TopLevel.SystemBarColor" Value="{DynamicResource SystemControlBackgroundAltHighBrush}" />

@@ -53,6 +53,6 @@
     <ProjectReference Include="..\..\Styles\Avalonia.Styles.Extension\Avalonia.Styles.Extension.csproj" />
     <ProjectReference Include="..\..\Styles\Avalonia.Styles\Avalonia.Styles.csproj" />
     <ProjectReference Include="..\..\Windows\Avalonia.Windows.Main\Avalonia.Windows.Main.csproj" />
-    <ProjectReference Include="..\..\Windows\HeBianGu.Avalonia.Windows.Dialog\HeBianGu.Avalonia.Windows.Dialog.csproj" />
+    <ProjectReference Include="..\..\Windows\Avalonia.Windows.Dialog\Avalonia.Windows.Dialog.csproj" />
   </ItemGroup>
 </Project>

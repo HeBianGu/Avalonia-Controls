@@ -1,19 +1,19 @@
 ﻿using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Extensions.Application;
+using Avalonia.Input;
+using Avalonia.Ioc;
 using Avalonia.Markup.Xaml.Templates;
 using Avalonia.Media;
-using Avalonia.Ioc;
+using Avalonia.Platform;
 using System;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Reflection;
 using System.Threading.Tasks;
 using System.Windows;
-using Avalonia.Platform;
-using Avalonia.Input;
-using Avalonia.Extensions.Application;
 
-namespace HeBianGu.Avalonia.Windows.Dialog
+namespace Avalonia.Windows.Dialog
 {
     public partial class DialogWindow : Window, IDialog
     {

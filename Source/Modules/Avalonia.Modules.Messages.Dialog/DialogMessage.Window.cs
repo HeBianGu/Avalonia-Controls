@@ -2,7 +2,7 @@
 using Avalonia.Layout;
 using Avalonia.Modules.Messages.Dialog;
 using Avalonia.Ioc;
-using HeBianGu.Avalonia.Windows.Dialog;
+using Avalonia.Windows.Dialog;
 using System;
 using System.Collections.Generic;
 using System.Linq;

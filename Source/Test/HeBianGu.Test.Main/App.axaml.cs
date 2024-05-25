@@ -12,7 +12,7 @@ using CommunityToolkit.Mvvm.DependencyInjection;
 using HeBianGu.Avalonia.Modules.Login;
 using Avalonia.Ioc;
 using Avalonia.Extensions.Application;
-using HeBianGu.Avalonia.Windows.Dialog;
+using Avalonia.Windows.Dialog;
 using Avalonia.Modules.Messages.Dialog;
 //using MainWindow = Avalonia.Windows.Main.MainWindow;
 using Avalonia.Modules.SplashScreen;

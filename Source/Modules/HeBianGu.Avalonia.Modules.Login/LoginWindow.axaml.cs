@@ -4,7 +4,7 @@ using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Input;
 using Avalonia.Interactivity;
 using Avalonia.Ioc;
-using HeBianGu.Avalonia.Windows.Dialog;
+using Avalonia.Windows.Dialog;
 using System;
 
 namespace HeBianGu.Avalonia.Modules.Login

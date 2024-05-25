@@ -2,7 +2,7 @@ using Avalonia.Controls;
 using Avalonia.Interactivity;
 using Avalonia.Platform;
 using Avalonia.Ioc;
-using HeBianGu.Avalonia.Windows.Dialog;
+using Avalonia.Windows.Dialog;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Linq;

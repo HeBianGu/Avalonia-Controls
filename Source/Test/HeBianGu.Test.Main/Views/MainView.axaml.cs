@@ -9,7 +9,7 @@ using Avalonia.Controls.Presenters;
 using Avalonia.Layout;
 using System.Reactive.Disposables;
 using Avalonia.Threading;
-using HeBianGu.Avalonia.Windows.Dialog;
+using Avalonia.Windows.Dialog;
 using Avalonia;
 using Avalonia.Modules.Messages.Dialog;
 using HeBianGu.Avalonia.Modules.Setting;

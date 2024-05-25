@@ -3,7 +3,7 @@ using System;
 using System.Windows.Input;
 using System.Windows.Markup;
 
-namespace HeBianGu.Avalonia.Windows.Dialog
+namespace Avalonia.Windows.Dialog
 {
     public abstract class DialogCommandBase : MarkupExtension, ICommand
     {

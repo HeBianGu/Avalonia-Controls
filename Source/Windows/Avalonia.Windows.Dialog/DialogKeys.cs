@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace HeBianGu.Avalonia.Windows.Dialog
+namespace Avalonia.Windows.Dialog
 {
     public class DialogKeys
     {
