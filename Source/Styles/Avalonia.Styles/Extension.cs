@@ -1,7 +1,8 @@
-﻿using HeBianGu.Avalonia.Core.Ioc;
+﻿using Avalonia.Styles;
+using HeBianGu.Avalonia.Core.Ioc;
 using System;
 
-namespace Avalonia.Styles
+namespace System
 {
     public static partial class Extension
     {

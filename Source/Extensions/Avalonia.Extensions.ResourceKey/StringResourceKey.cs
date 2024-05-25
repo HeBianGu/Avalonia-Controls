@@ -1,15 +1,17 @@
-﻿using Avalonia;
+﻿using Avalonia.Data.Converters;
 using Avalonia.Markup.Xaml;
 using System;
-using System.Xml.Linq;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Globalization;
 
-namespace HeBianGu.Themes.Default
+namespace Avalonia.Extensions.ResourceKey
 {
     public class StringResourceKey : MarkupExtension
     {
         public StringResourceKey()
         {
-                
+
         }
         public StringResourceKey(Type type, string resourceId)
         {

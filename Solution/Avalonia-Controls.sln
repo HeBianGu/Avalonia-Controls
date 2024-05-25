@@ -95,19 +95,23 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avalonia.Modules.ThemeSetti
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Messages", "Messages", "{D553D9DE-AA60-43A5-B767-2A590686155C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avalonia.Modules.About", "..\Source\Modules\Avalonia.Modules.About\Avalonia.Modules.About.csproj", "{B117D262-E0E5-4861-8FC9-3390555DD0E6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avalonia.Modules.About", "..\Source\Modules\Avalonia.Modules.About\Avalonia.Modules.About.csproj", "{B117D262-E0E5-4861-8FC9-3390555DD0E6}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - DataBases", "2 - DataBases", "{2642476A-C116-400E-942A-D79A4EF6A1FC}"
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Avalonia.DataBases.Share", "..\Source\DataBases\Avalonia.DataBases.Share\Avalonia.DataBases.Share.shproj", "{11735D45-89B6-4F79-978D-72024DA8CD89}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avalonia.DataBases.Sqlite", "..\Source\DataBases\Avalonia.DataBases.Sqlite\Avalonia.DataBases.Sqlite.csproj", "{4C780F31-78D7-467A-AAF7-708D7BE1619A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avalonia.DataBases.Sqlite", "..\Source\DataBases\Avalonia.DataBases.Sqlite\Avalonia.DataBases.Sqlite.csproj", "{4C780F31-78D7-467A-AAF7-708D7BE1619A}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avalonia.Test.Sqlite", "..\Source\Test\Avalonia.Test.Sqlite\Avalonia.Test.Sqlite.csproj", "{85E6E1B1-DD30-4445-9405-05FF249C6FE4}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avalonia.Test.Sqlite.Android", "..\Source\Test\Avalonia.Test.Sqlite.Android\Avalonia.Test.Sqlite.Android.csproj", "{2C3ABC53-B00D-4E99-A9FE-461B2FD6A293}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avalonia.Test.Sqlite.Desktop", "..\Source\Test\Avalonia.Test.Sqlite.Desktop\Avalonia.Test.Sqlite.Desktop.csproj", "{44A24814-9030-4018-AE68-8A8DD645E8BA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avalonia.Styles.Extension", "..\Source\Styles\Avalonia.Styles.Extension\Avalonia.Styles.Extension.csproj", "{E90B1BEA-7832-4355-AB62-5DA27377103D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avalonia.Extensions.ResourceKey", "..\Source\Extensions\Avalonia.Extensions.ResourceKey\Avalonia.Extensions.ResourceKey.csproj", "{17474220-0972-456E-BFE4-30D426649343}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -289,6 +293,14 @@ Global
 		{44A24814-9030-4018-AE68-8A8DD645E8BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{44A24814-9030-4018-AE68-8A8DD645E8BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{44A24814-9030-4018-AE68-8A8DD645E8BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E90B1BEA-7832-4355-AB62-5DA27377103D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E90B1BEA-7832-4355-AB62-5DA27377103D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E90B1BEA-7832-4355-AB62-5DA27377103D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E90B1BEA-7832-4355-AB62-5DA27377103D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17474220-0972-456E-BFE4-30D426649343}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17474220-0972-456E-BFE4-30D426649343}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17474220-0972-456E-BFE4-30D426649343}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17474220-0972-456E-BFE4-30D426649343}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -338,6 +350,8 @@ Global
 		{85E6E1B1-DD30-4445-9405-05FF249C6FE4} = {C4BE41AE-DD8E-4D34-9951-5BADAF85BE53}
 		{2C3ABC53-B00D-4E99-A9FE-461B2FD6A293} = {C4BE41AE-DD8E-4D34-9951-5BADAF85BE53}
 		{44A24814-9030-4018-AE68-8A8DD645E8BA} = {C4BE41AE-DD8E-4D34-9951-5BADAF85BE53}
+		{E90B1BEA-7832-4355-AB62-5DA27377103D} = {20A5A6F5-B1C4-44C4-B29E-AF35F015B582}
+		{17474220-0972-456E-BFE4-30D426649343} = {197618A0-BDD0-40C0-BBC3-678E58EAFF70}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EC68E9A1-91AC-4B6A-B817-573F85D4F550}

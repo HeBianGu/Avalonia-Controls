@@ -1,16 +1,17 @@
 ﻿using Avalonia.Controls;
+using Avalonia.Extensions.ResourceKey;
 using Avalonia.Media;
+using HeBianGu.Themes.Default;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Avalonia.Styles
+namespace Avalonia.Styles.Extension
 {
     public static class ButtonKeys
     {
-        //public static AvaloniaResourceKey Geometry => new AvaloniaResourceKey(typeof(ButtonKeys), "S.Button.Geometry");
         public static StringResourceKey Geometry => new StringResourceKey(typeof(Button), nameof(Geometry));
     }
 }

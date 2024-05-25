@@ -1,0 +1,11 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <!-- Add Resources Here -->
+  <ResourceDictionary.MergedDictionaries>
+    <ResourceInclude Source="avares://Avalonia.Styles/Controls/Button.axaml" />
+    <ResourceInclude Source="avares://Avalonia.Styles/Controls/ListBox.axaml" />
+    <ResourceInclude Source="avares://Avalonia.Styles/Controls/ListBoxItem.axaml" />
+    <ResourceInclude Source="avares://Avalonia.Styles/Controls/TabControl.axaml" />
+    <ResourceInclude Source="avares://Avalonia.Styles/Controls/TabItem.axaml" />
+  </ResourceDictionary.MergedDictionaries>
+</ResourceDictionary>

@@ -2,15 +2,15 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:HeBianGu.Themes.Default"
                     xmlns:system="clr-namespace:System;assembly=mscorlib">
-    <system:Double x:Key="{local:StringResourceKey ResourceId=S.FontSize.Default, TypeInTargetAssembly={x:Type local:FontSizeKeys}}">15</system:Double>
-    <system:Double x:Key="{local:StringResourceKey ResourceId=S.FontSize.Header, TypeInTargetAssembly={x:Type local:FontSizeKeys}}">17</system:Double>
-    <system:Double x:Key="{local:StringResourceKey ResourceId=S.FontSize.Header.1, TypeInTargetAssembly={x:Type local:FontSizeKeys}}">25</system:Double>
-    <system:Double x:Key="{local:StringResourceKey ResourceId=S.FontSize.Header.2, TypeInTargetAssembly={x:Type local:FontSizeKeys}}">23</system:Double>
-    <system:Double x:Key="{local:StringResourceKey ResourceId=S.FontSize.Header.3, TypeInTargetAssembly={x:Type local:FontSizeKeys}}">21</system:Double>
-    <system:Double x:Key="{local:StringResourceKey ResourceId=S.FontSize.Header.4, TypeInTargetAssembly={x:Type local:FontSizeKeys}}">19</system:Double>
-    <system:Double x:Key="{local:StringResourceKey ResourceId=S.FontSize.Header.5, TypeInTargetAssembly={x:Type local:FontSizeKeys}}">17</system:Double>
-    <system:Double x:Key="{local:StringResourceKey ResourceId=S.FontSize.Header.6, TypeInTargetAssembly={x:Type local:FontSizeKeys}}">15</system:Double>
-    <system:Double x:Key="{local:StringResourceKey ResourceId=S.FontSize.Header.7, TypeInTargetAssembly={x:Type local:FontSizeKeys}}">13</system:Double>
-    <system:Double x:Key="{local:StringResourceKey ResourceId=S.FontSize.Header.8, TypeInTargetAssembly={x:Type local:FontSizeKeys}}">11</system:Double>
-    <system:Double x:Key="{local:StringResourceKey ResourceId=S.FontSize.Header.9, TypeInTargetAssembly={x:Type local:FontSizeKeys}}">9</system:Double>
+    <system:Double x:Key="{StringResourceKey ResourceId=S.FontSize.Default, TypeInTargetAssembly={x:Type local:FontSizeKeys}}">15</system:Double>
+    <system:Double x:Key="{StringResourceKey ResourceId=S.FontSize.Header, TypeInTargetAssembly={x:Type local:FontSizeKeys}}">17</system:Double>
+    <system:Double x:Key="{StringResourceKey ResourceId=S.FontSize.Header.1, TypeInTargetAssembly={x:Type local:FontSizeKeys}}">25</system:Double>
+    <system:Double x:Key="{StringResourceKey ResourceId=S.FontSize.Header.2, TypeInTargetAssembly={x:Type local:FontSizeKeys}}">23</system:Double>
+    <system:Double x:Key="{StringResourceKey ResourceId=S.FontSize.Header.3, TypeInTargetAssembly={x:Type local:FontSizeKeys}}">21</system:Double>
+    <system:Double x:Key="{StringResourceKey ResourceId=S.FontSize.Header.4, TypeInTargetAssembly={x:Type local:FontSizeKeys}}">19</system:Double>
+    <system:Double x:Key="{StringResourceKey ResourceId=S.FontSize.Header.5, TypeInTargetAssembly={x:Type local:FontSizeKeys}}">17</system:Double>
+    <system:Double x:Key="{StringResourceKey ResourceId=S.FontSize.Header.6, TypeInTargetAssembly={x:Type local:FontSizeKeys}}">15</system:Double>
+    <system:Double x:Key="{StringResourceKey ResourceId=S.FontSize.Header.7, TypeInTargetAssembly={x:Type local:FontSizeKeys}}">13</system:Double>
+    <system:Double x:Key="{StringResourceKey ResourceId=S.FontSize.Header.8, TypeInTargetAssembly={x:Type local:FontSizeKeys}}">11</system:Double>
+    <system:Double x:Key="{StringResourceKey ResourceId=S.FontSize.Header.9, TypeInTargetAssembly={x:Type local:FontSizeKeys}}">9</system:Double>
 </ResourceDictionary>

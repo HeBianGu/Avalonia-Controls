@@ -50,6 +50,7 @@ public partial class App : ApplicationBase
         base.Configure(app);
         app.UseSettingDefault();
         app.UseSetting(x => x.Add(SystemSetting.Instance));
+        //app.UseStylesExtension();
     }
 
 

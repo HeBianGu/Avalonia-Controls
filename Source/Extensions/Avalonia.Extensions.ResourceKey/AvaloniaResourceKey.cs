@@ -1,15 +1,15 @@
 ﻿using Avalonia.Markup.Xaml;
 using System;
 
-namespace Avalonia.Styles
+namespace Avalonia.Extensions.ResourceKey
 {
-    public class StringResourceKey : MarkupExtension
+    public class AvaloniaResourceKey : MarkupExtension
     {
-        public StringResourceKey()
+        public AvaloniaResourceKey()
         {
-                
+
         }
-        public StringResourceKey(Type type, string resourceId)
+        public AvaloniaResourceKey(Type type, string resourceId)
         {
             this.TypeInTargetAssembly = type;
             this.ResourceId = resourceId;
@@ -20,7 +20,7 @@ namespace Avalonia.Styles
 
         public override object ProvideValue(IServiceProvider serviceProvider)
         {
-            return $"S.{this.TypeInTargetAssembly.Name}.{ResourceId}";
+            return ResourceId;
         }
     }
 }

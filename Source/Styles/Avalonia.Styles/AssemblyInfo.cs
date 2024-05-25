@@ -11,5 +11,5 @@ using HeBianGu.Avalonia.Extensions.ApplicationBase;
 [assembly: XmlnsDefinition("https://github.com/HeBianGu", "Avalonia.Styles")]
 [assembly: XmlnsPrefix("https://github.com/HeBianGu", "h")]
 
-[assembly: XmlnsDefinition("http://schemas.microsoft.com/winfx/2006/xaml/presentation", "Avalonia.Styles")]
-[assembly: XmlnsPrefix("http://schemas.microsoft.com/winfx/2006/xaml/presentation", "h")]
+[assembly: XmlnsDefinition("https://github.com/avaloniaui", "Avalonia.Styles")]
+[assembly: XmlnsPrefix("https://github.com/avaloniaui", "h")]

@@ -50,6 +50,7 @@
     <ProjectReference Include="..\..\Modules\Avalonia.Modules.ThemeSetting\Avalonia.Modules.ThemeSetting.csproj" />
     <ProjectReference Include="..\..\Modules\HeBianGu.Avalonia.Modules.Login\HeBianGu.Avalonia.Modules.Login.csproj" />
     <ProjectReference Include="..\..\Modules\HeBianGu.Avalonia.Modules.Setting\HeBianGu.Avalonia.Modules.Setting.csproj" />
+    <ProjectReference Include="..\..\Styles\Avalonia.Styles.Extension\Avalonia.Styles.Extension.csproj" />
     <ProjectReference Include="..\..\Styles\Avalonia.Styles\Avalonia.Styles.csproj" />
     <ProjectReference Include="..\..\Windows\Avalonia.Windows.Main\Avalonia.Windows.Main.csproj" />
     <ProjectReference Include="..\..\Windows\HeBianGu.Avalonia.Windows.Dialog\HeBianGu.Avalonia.Windows.Dialog.csproj" />
