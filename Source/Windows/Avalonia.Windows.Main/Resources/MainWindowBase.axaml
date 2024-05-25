@@ -99,7 +99,7 @@
                     <Image IsHitTestVisible="False"
                            Opacity="{DynamicResource {x:Static BackgroundImageKeys.Opacity}}"
                            Source="{DynamicResource {x:Static BackgroundImageKeys.BackgroundImage}}"
-                           Stretch="UniformToFill" />
+                           Stretch="{DynamicResource {x:Static BackgroundImageKeys.Stretch}}" />
                 </Panel>
             </ControlTemplate>
         </Setter>

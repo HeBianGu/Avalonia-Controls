@@ -3,6 +3,7 @@ using Avalonia.Ioc;
 using Avalonia.Extensions.Setting;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using Avalonia.Controls;
 
 namespace Avalonia.Theme
 {

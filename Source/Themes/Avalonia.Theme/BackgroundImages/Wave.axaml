@@ -7,4 +7,5 @@
       avares://Avalonia.Extensions.BackgroundImage/Assets/Wave.png
     </h:AssetBitmap>
   <system:Double x:Key="{StringResourceKey ResourceId=S.BackgroundImage.Opacity, TypeInTargetAssembly={x:Type local:BackgroundImageKeys}}">0.4</system:Double>
+  <Stretch x:Key="{StringResourceKey ResourceId=S.BackgroundImage.Stretch, TypeInTargetAssembly={x:Type local:BackgroundImageKeys}}">UniformToFill</Stretch>
 </ResourceDictionary>
