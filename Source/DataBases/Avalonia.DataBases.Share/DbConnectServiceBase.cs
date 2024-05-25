@@ -4,7 +4,7 @@
 
 using System;
 using System.Windows.Input;
-using HeBianGu.Avalonia.Core.Ioc;
+using Avalonia.Ioc;
 
 
 #if NETFRAMEWORK

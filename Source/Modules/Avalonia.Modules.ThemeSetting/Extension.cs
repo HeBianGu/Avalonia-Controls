@@ -1,5 +1,5 @@
 ﻿using Avalonia.Modules.ThemeSetting;
-using HeBianGu.Avalonia.Core.Ioc;
+using Avalonia.Ioc;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;

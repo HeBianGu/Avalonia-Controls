@@ -1,5 +1,5 @@
 ﻿
-using HeBianGu.Avalonia.Core.Mvvm;
+using Avalonia.Mvvm;
 using System.Collections.ObjectModel;
 
 namespace HeBianGu.Avalonia.Controls.Form

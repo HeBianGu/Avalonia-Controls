@@ -22,6 +22,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\DataBases\Avalonia.DataBases.Sqlite\Avalonia.DataBases.Sqlite.csproj" />
-    <ProjectReference Include="..\..\Extensions\HeBianGu.Avalonia.Extensions.ApplicationBase\HeBianGu.Avalonia.Extensions.ApplicationBase.csproj" />
+    <ProjectReference Include="..\..\Extensions\Avalonia.Extensions.Application\Avalonia.Extensions.Application.csproj" />
   </ItemGroup>
 </Project>

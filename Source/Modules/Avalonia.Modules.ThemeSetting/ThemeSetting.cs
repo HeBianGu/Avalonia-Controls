@@ -3,7 +3,7 @@ using Avalonia.Data.Converters;
 using Avalonia.Markup.Xaml;
 using Avalonia.Markup.Xaml.Styling;
 using HeBianGu.Avalonia.Controls.Form;
-using HeBianGu.Avalonia.Core.Ioc;
+using Avalonia.Ioc;
 using HeBianGu.Avalonia.Extensions.Setting;
 using Avalonia.Theme;
 using System;

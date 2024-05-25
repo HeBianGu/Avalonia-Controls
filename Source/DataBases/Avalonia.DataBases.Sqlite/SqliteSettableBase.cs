@@ -8,7 +8,7 @@ using System.Data.Entity;
 #if NETCOREAPP
 #endif
 using Avalonia.DataBases.Share;
-using HeBianGu.Avalonia.Core.Ioc;
+using Avalonia.Ioc;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.IO;

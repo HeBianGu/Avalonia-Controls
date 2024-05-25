@@ -3,7 +3,7 @@
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.ApplicationLifetimes;
-using HeBianGu.Avalonia.Core.Ioc;
+using Avalonia.Ioc;
 using System;
 using System.Windows;
 using System.Xml.Linq;

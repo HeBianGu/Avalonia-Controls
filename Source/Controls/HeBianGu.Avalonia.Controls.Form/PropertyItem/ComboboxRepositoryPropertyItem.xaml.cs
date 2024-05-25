@@ -1,5 +1,5 @@
 ﻿
-using HeBianGu.Avalonia.Core.Ioc;
+using Avalonia.Ioc;
 using System;
 using System.Collections;
 using System.Reflection;

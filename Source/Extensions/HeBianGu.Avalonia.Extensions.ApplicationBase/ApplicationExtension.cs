@@ -6,7 +6,7 @@ using Avalonia.Threading;
 using Avalonia.VisualTree;
 using System.Linq;
 
-namespace HeBianGu.Avalonia.Extensions.ApplicationBase
+namespace Avalonia.Extensions.Application
 {
     public static class ApplicationExtension
     {

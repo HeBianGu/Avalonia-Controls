@@ -2,7 +2,7 @@
 
 using Avalonia.Extensions.Geometry;
 using Avalonia.Modules.Messages.Notice;
-using HeBianGu.Avalonia.Core.Mvvm;
+using Avalonia.Mvvm;
 using System;
 using System.Threading;
 using System.Threading.Tasks;

@@ -3,7 +3,7 @@
 
 
 using System;
-using HeBianGu.Avalonia.Core.Ioc;
+using Avalonia.Ioc;
 
 #if NETFRAMEWORK
 using System.Data.Entity;

@@ -3,8 +3,8 @@
 
 using Avalonia.Controls;
 using Avalonia.Layout;
-using HeBianGu.Avalonia.Core.Ioc;
-using HeBianGu.Avalonia.Core.Mvvm;
+using Avalonia.Ioc;
+using Avalonia.Mvvm;
 using HeBianGu.Avalonia.Modules.Setting;
 using System.Windows;
 

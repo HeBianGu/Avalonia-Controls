@@ -1,5 +1,5 @@
 ﻿using Avalonia.Modules.Messages.Form;
-using HeBianGu.Avalonia.Core.Ioc;
+using Avalonia.Ioc;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace System

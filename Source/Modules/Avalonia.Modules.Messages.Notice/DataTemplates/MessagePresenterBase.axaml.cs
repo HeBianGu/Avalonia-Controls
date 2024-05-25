@@ -2,8 +2,8 @@
 
 
 using Avalonia.Media;
-using HeBianGu.Avalonia.Core.Ioc;
-using HeBianGu.Avalonia.Core.Mvvm;
+using Avalonia.Ioc;
+using Avalonia.Mvvm;
 using System;
 
 namespace Avalonia.Modules.Messages.Notice

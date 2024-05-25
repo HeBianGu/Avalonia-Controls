@@ -1,6 +1,6 @@
 ﻿using Avalonia.Threading;
-using HeBianGu.Avalonia.Core.Ioc;
-using HeBianGu.Avalonia.Core.Mvvm;
+using Avalonia.Ioc;
+using Avalonia.Mvvm;
 using System;
 using System.Collections.ObjectModel;
 using System.Reactive.Linq;

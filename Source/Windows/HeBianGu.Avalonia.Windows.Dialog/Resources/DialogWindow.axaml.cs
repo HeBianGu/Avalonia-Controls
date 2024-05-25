@@ -2,7 +2,7 @@
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml.Templates;
 using Avalonia.Media;
-using HeBianGu.Avalonia.Core.Ioc;
+using Avalonia.Ioc;
 using System;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using Avalonia.Platform;
 using Avalonia.Input;
-using HeBianGu.Avalonia.Extensions.ApplicationBase;
+using Avalonia.Extensions.Application;
 
 namespace HeBianGu.Avalonia.Windows.Dialog
 {

@@ -1,7 +1,7 @@
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 using Avalonia.Platform;
-using HeBianGu.Avalonia.Core.Ioc;
+using Avalonia.Ioc;
 using HeBianGu.Avalonia.Windows.Dialog;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -18,7 +18,7 @@ namespace Avalonia.Modules.SplashScreen
         {
             InitializeComponent();
             //this.btn_success.Click += this.Btn_success_Click;
-            _presenter = Ioc.GetService<ISplashScreenViewPresenter>();
+            _presenter = System.Ioc.GetService<ISplashScreenViewPresenter>();
             this.Content = _presenter;
             this.Loaded += this.SplashScreenWindow_Loaded;
         }
@@ -45,7 +45,7 @@ namespace Avalonia.Modules.SplashScreen
 
                 {
                     int index = 0;
-                    var loads = Ioc.GetAssignableFromServices<ISplashLoad>().Distinct();
+                    var loads = System.Ioc.GetAssignableFromServices<ISplashLoad>().Distinct();
                     foreach (ISplashLoad load in loads)
                     {
                         if (c?.IsCancel == true)

@@ -6,10 +6,10 @@
     <PackageReference Include="Avalonia" Version="11.0.2" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Core\HeBianGu.Avalonia.Core.Ioc\HeBianGu.Avalonia.Core.Ioc.csproj" />
+    <ProjectReference Include="..\..\Cores\Avalonia.Ioc\Avalonia.Ioc.csproj" />
     <ProjectReference Include="..\..\Extensions\Avalonia.Extensions.Attach\Avalonia.Extensions.Attach.csproj" />
     <ProjectReference Include="..\..\Extensions\Avalonia.Extensions.Geometry\Avalonia.Extensions.Geometry.csproj" />
-    <ProjectReference Include="..\..\Extensions\HeBianGu.Avalonia.Extensions.ApplicationBase\HeBianGu.Avalonia.Extensions.ApplicationBase.csproj" />
+    <ProjectReference Include="..\..\Extensions\Avalonia.Extensions.Application\Avalonia.Extensions.Application.csproj" />
     <ProjectReference Include="..\..\Extensions\HeBianGu.Avalonia.Extensions.Command\HeBianGu.Avalonia.Extensions.Command.csproj" />
     <ProjectReference Include="..\..\Styles\Avalonia.Styles.Extension\Avalonia.Styles.Extension.csproj" />
     <ProjectReference Include="..\..\Styles\Avalonia.Styles\Avalonia.Styles.csproj" />

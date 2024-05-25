@@ -2,7 +2,7 @@
 
 
 using Avalonia.Media;
-using HeBianGu.Avalonia.Core.Mvvm;
+using Avalonia.Mvvm;
 using Microsoft.Win32;
 using System;
 using System.ComponentModel;

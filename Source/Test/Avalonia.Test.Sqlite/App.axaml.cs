@@ -3,8 +3,8 @@ using Avalonia.DataBases.Share;
 using Avalonia.Markup.Xaml;
 using Avalonia.Test.Sqlite.ViewModels;
 using Avalonia.Test.Sqlite.Views;
-using HeBianGu.Avalonia.Core.Ioc;
-using HeBianGu.Avalonia.Extensions.ApplicationBase;
+using Avalonia.Ioc;
+using Avalonia.Extensions.Application;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 

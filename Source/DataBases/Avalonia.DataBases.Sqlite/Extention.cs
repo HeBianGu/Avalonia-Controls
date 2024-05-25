@@ -10,7 +10,7 @@ using System.Data.Entity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using System.IO;
-using HeBianGu.Avalonia.Core.Ioc;
+using Avalonia.Ioc;
 using Avalonia.DataBases.Share;
 #endif
 

@@ -8,7 +8,7 @@
     <PackageReference Include="Microsoft.Extensions.Options" Version="7.0.0" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Core\HeBianGu.Avalonia.Core.Ioc\HeBianGu.Avalonia.Core.Ioc.csproj" />
-    <ProjectReference Include="..\..\Core\HeBianGu.Avalonia.Core.Mvvm\HeBianGu.Avalonia.Core.Mvvm.csproj" />
+    <ProjectReference Include="..\..\Cores\Avalonia.Ioc\Avalonia.Ioc.csproj" />
+    <ProjectReference Include="..\..\Cores\Avalonia.Mvvm\Avalonia.Mvvm.csproj" />
   </ItemGroup>
 </Project>

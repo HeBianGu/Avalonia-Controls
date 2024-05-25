@@ -1,4 +1,4 @@
-﻿using HeBianGu.Avalonia.Core.Ioc;
+﻿using Avalonia.Ioc;
 using System.ComponentModel.DataAnnotations;
 
 namespace Avalonia.Test.Sqlite;

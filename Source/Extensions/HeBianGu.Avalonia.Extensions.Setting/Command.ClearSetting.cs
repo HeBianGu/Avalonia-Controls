@@ -1,8 +1,8 @@
 ﻿// Copyright © 2024 By HeBianGu(QQ:908293466) https://github.com/HeBianGu/WPF-Control
 
 using Avalonia;
-using HeBianGu.Avalonia.Core.Ioc;
-using HeBianGu.Avalonia.Core.Mvvm;
+using Avalonia.Ioc;
+using Avalonia.Mvvm;
 using System.Windows;
 
 namespace HeBianGu.Avalonia.Extensions.Setting

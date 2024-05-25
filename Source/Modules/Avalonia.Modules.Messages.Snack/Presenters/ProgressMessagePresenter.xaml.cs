@@ -2,7 +2,7 @@
 
 using Avalonia.Extensions.Geometry;
 using Avalonia.Modules.Messages.Snack;
-using HeBianGu.Avalonia.Core.Ioc;
+using Avalonia.Ioc;
 
 namespace Avalonia.Modules.Messages.Snack
 {

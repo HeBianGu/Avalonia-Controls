@@ -19,7 +19,7 @@ using Avalonia.Threading;
 using System.Threading;
 using HeBianGu.Avalonia.Extensions.Common;
 
-namespace HeBianGu.Avalonia.Extensions.ApplicationBase
+namespace Avalonia.Extensions.Application
 {
     public abstract partial class ApplicationBase : Application
     {

@@ -1,7 +1,7 @@
 // Copyright ? 2022 By HeBianGu(QQ:908293466) https://github.com/HeBianGu/WPF-Control
 
 using Avalonia.Metadata;
-using HeBianGu.Avalonia.Extensions.ApplicationBase;
+using Avalonia.Extensions.Application;
 using System.Windows;
 using System.Windows.Markup;
 

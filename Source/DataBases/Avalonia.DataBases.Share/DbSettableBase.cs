@@ -1,6 +1,6 @@
 ﻿
-using HeBianGu.Avalonia.Core.Ioc;
-using HeBianGu.Avalonia.Core.Mvvm;
+using Avalonia.Ioc;
+using Avalonia.Mvvm;
 using HeBianGu.Avalonia.Extensions.Setting;
 
 

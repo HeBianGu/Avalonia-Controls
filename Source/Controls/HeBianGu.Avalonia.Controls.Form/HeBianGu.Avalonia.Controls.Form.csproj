@@ -8,9 +8,9 @@
     <PackageReference Include="Avalonia.Xaml.Behaviors" Version="11.0.10.9" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Core\HeBianGu.Avalonia.Core.Ioc\HeBianGu.Avalonia.Core.Ioc.csproj" />
-    <ProjectReference Include="..\..\Core\HeBianGu.Avalonia.Core.Mvvm\HeBianGu.Avalonia.Core.Mvvm.csproj" />
-    <ProjectReference Include="..\..\Extensions\HeBianGu.Avalonia.Extensions.ApplicationBase\HeBianGu.Avalonia.Extensions.ApplicationBase.csproj" />
+    <ProjectReference Include="..\..\Cores\Avalonia.Ioc\Avalonia.Ioc.csproj" />
+    <ProjectReference Include="..\..\Cores\Avalonia.Mvvm\Avalonia.Mvvm.csproj" />
+    <ProjectReference Include="..\..\Extensions\Avalonia.Extensions.Application\Avalonia.Extensions.Application.csproj" />
     <ProjectReference Include="..\..\Extensions\HeBianGu.Avalonia.Extensions.Common\HeBianGu.Avalonia.Extensions.Common.csproj" />
   </ItemGroup>
 </Project>

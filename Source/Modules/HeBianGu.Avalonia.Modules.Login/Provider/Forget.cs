@@ -1,5 +1,5 @@
 ﻿
-using HeBianGu.Avalonia.Core.Mvvm;
+using Avalonia.Mvvm;
 
 namespace HeBianGu.Avalonia.Modules.Login
 {

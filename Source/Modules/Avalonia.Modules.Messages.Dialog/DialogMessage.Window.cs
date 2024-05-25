@@ -1,7 +1,7 @@
 ﻿
 using Avalonia.Layout;
 using Avalonia.Modules.Messages.Dialog;
-using HeBianGu.Avalonia.Core.Ioc;
+using Avalonia.Ioc;
 using HeBianGu.Avalonia.Windows.Dialog;
 using System;
 using System.Collections.Generic;
