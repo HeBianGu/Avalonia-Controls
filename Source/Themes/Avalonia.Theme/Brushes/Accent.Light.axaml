@@ -24,7 +24,7 @@
                      Color="#FF3399FF" />
 
     <SolidColorBrush x:Key="{StringResourceKey ResourceId=S.Brush.TextBorderBrush, TypeInTargetAssembly={x:Type local:BrushKeys}}" Color="#ebebeb" />
-    <SolidColorBrush x:Key="{StringResourceKey ResourceId=S.Brush.TextBorderBrush.Title, TypeInTargetAssembly={x:Type local:BrushKeys}}" Color="#e2e2e2" />
+    <SolidColorBrush x:Key="{StringResourceKey ResourceId=S.Brush.TextBorderBrush.Title, TypeInTargetAssembly={x:Type local:BrushKeys}}" Color="#FF3399FF" />
     <SolidColorBrush x:Key="{StringResourceKey ResourceId=S.Brush.TextBorderBrush.Assist, TypeInTargetAssembly={x:Type local:BrushKeys}}" Color="#f0f0f0" />
     <SolidColorBrush x:Key="{StringResourceKey ResourceId=S.Brush.TextBorderBrush.Disabled, TypeInTargetAssembly={x:Type local:BrushKeys}}" Color="#202229" />
 </ResourceDictionary>

@@ -117,7 +117,7 @@
         <Setter Property="MinWidth" Value="5" />
         <!--<Setter Property="Padding" Value="{DynamicResource TextControlThemePadding}" />-->
 
-        <Setter Property="Background" Value="{DynamicResource {x:Static h:BrushKeys.MouseOver}}" />
+        <Setter Property="Background" Value="{DynamicResource {x:Static h:BrushKeys.Dark0_1}}" />
         <Setter Property="Foreground" Value="{DynamicResource {x:Static h:BrushKeys.Foreground}}" />
         <Setter Property="BorderBrush" Value="{DynamicResource {x:Static h:BrushKeys.BorderBrush}}" />
         <Setter Property="BorderThickness" Value="{DynamicResource {x:Static h:LayoutKeys.BorderThickness}}" />
@@ -236,7 +236,7 @@
             <Setter Property="Foreground" Value="{DynamicResource {x:Static h:BrushKeys.Foreground}}" />
             <Style Selector="^ /template/ Border#PART_BorderElement">
                 <!--<Setter Property="BorderBrush" Value="{DynamicResource {x:Static h:BrushKeys.Foreground}}" />-->
-                <Setter Property="Background" Value="{DynamicResource {x:Static h:BrushKeys.Selected}}" />
+                <Setter Property="Background" Value="{DynamicResource {x:Static h:BrushKeys.MouseOver}}" />
             </Style>
 
             <Style Selector="^ /template/ TextBlock#PART_Watermark">
@@ -247,14 +247,13 @@
         <!--  Focused State  -->
         <Style Selector="^:focus">
             <Setter Property="Foreground" Value="{DynamicResource {x:Static h:BrushKeys.ForegroundTitle}}" />
-
             <Style Selector="^ /template/ TextBlock#PART_Watermark">
                 <Setter Property="Foreground" Value="{DynamicResource {x:Static h:BrushKeys.ForegroundAssist}}" />
             </Style>
 
             <Style Selector="^ /template/ Border#PART_BorderElement">
                 <Setter Property="Background" Value="{DynamicResource {x:Static h:BrushKeys.Selected}}" />
-                <Setter Property="BorderBrush" Value="{DynamicResource {x:Static h:BrushKeys.ForegroundAssist}}" />
+                <Setter Property="BorderBrush" Value="{DynamicResource {x:Static h:BrushKeys.BorderBrushTitle}}" />
                 <Setter Property="BorderThickness" Value="1" />
             </Style>
         </Style>
