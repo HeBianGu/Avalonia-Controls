@@ -10,5 +10,6 @@
     <ResourceInclude Source="avares://Avalonia.Styles/Controls/Window.axaml" />
     <ResourceInclude Source="avares://Avalonia.Styles/Controls/CheckBox.axaml" />
     <ResourceInclude Source="avares://Avalonia.Styles/Controls/RadioButton.axaml" />
+    <ResourceInclude Source="avares://Avalonia.Styles/Controls/ToggleButton.axaml" />
   </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

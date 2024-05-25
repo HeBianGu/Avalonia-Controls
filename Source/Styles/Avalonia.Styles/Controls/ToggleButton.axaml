@@ -1,0 +1,109 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:h="https://github.com/HeBianGu"
+                    xmlns:local="clr-namespace:Avalonia.Styles">
+    <!--  Add Resources Here  -->
+    <ControlTheme x:Key="{x:Type ToggleButton}" TargetType="ToggleButton">
+        <!--<Setter Property="Background" Value="{DynamicResource ToggleButtonBackground}" />
+        <Setter Property="Foreground" Value="{DynamicResource ToggleButtonForeground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource ToggleButtonBorderBrush}" />
+        <Setter Property="BorderThickness" Value="{DynamicResource ToggleButtonBorderThemeThickness}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource ControlCornerRadius}" />
+        <Setter Property="Padding" Value="{DynamicResource ButtonPadding}" />-->
+
+        <Setter Property="Background" Value="{DynamicResource {x:Static h:BrushKeys.CaptionBackground}}" />
+        <Setter Property="Foreground" Value="{DynamicResource {x:Static h:BrushKeys.CaptionForeground}}" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="BorderThickness" Value="{DynamicResource {x:Static h:LayoutKeys.BorderThickness}}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource {x:Static h:LayoutKeys.CornerRadius}}" />
+        <Setter Property="Padding" Value="{DynamicResource {x:Static h:LayoutKeys.Padding}}" />
+        <Setter Property="Height" Value="{DynamicResource {x:Static h:LayoutKeys.ItemHeight}}" />
+
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="RenderTransform" Value="none" />
+        <Setter Property="Transitions">
+            <Transitions>
+                <TransformOperationsTransition Property="RenderTransform" Duration="0:0:.075" />
+            </Transitions>
+        </Setter>
+
+        <Setter Property="Template">
+            <ControlTemplate>
+                <ContentPresenter x:Name="PART_ContentPresenter"
+                                  Padding="{TemplateBinding Padding}"
+                                  HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                  VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                  Background="{TemplateBinding Background}"
+                                  BorderBrush="{TemplateBinding BorderBrush}"
+                                  BorderThickness="{TemplateBinding BorderThickness}"
+                                  Content="{TemplateBinding Content}"
+                                  ContentTemplate="{TemplateBinding ContentTemplate}"
+                                  CornerRadius="{TemplateBinding CornerRadius}"
+                                  RecognizesAccessKey="True" />
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Background" Value="{DynamicResource {x:Static h:BrushKeys.Selected}}" />
+            <!--<Setter Property="BorderBrush" Value="{DynamicResource {x:Static h:BrushKeys.CaptionBackground}}" />-->
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static h:BrushKeys.ForegroundTitle}}" />
+        </Style>
+
+        <Style Selector="^:pressed">
+            <Setter Property="RenderTransform" Value="scale(0.98)" />
+        </Style>
+
+        <Style Selector="^:pressed /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Opacity" Value="{DynamicResource {x:Static h:LayoutKeys.Pressed}}" />
+        </Style>
+
+        <Style Selector="^:disabled /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Opacity" Value="{DynamicResource {x:Static h:LayoutKeys.Disabled}}" />
+        </Style>
+
+        <Style Selector="^:indeterminate">
+            <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+                <Setter Property="Background" Value="{DynamicResource ToggleButtonBackgroundIndeterminate}" />
+                <Setter Property="BorderBrush" Value="{DynamicResource ToggleButtonBorderBrushIndeterminate}" />
+                <Setter Property="Foreground" Value="{DynamicResource ToggleButtonForegroundIndeterminate}" />
+            </Style>
+
+            <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+                <Setter Property="Background" Value="{DynamicResource ToggleButtonBackgroundIndeterminatePointerOver}" />
+                <Setter Property="BorderBrush" Value="{DynamicResource ToggleButtonBorderBrushIndeterminatePointerOver}" />
+                <Setter Property="Foreground" Value="{DynamicResource ToggleButtonForegroundIndeterminatePointerOver}" />
+            </Style>
+
+            <Style Selector="^:pressed /template/ ContentPresenter#PART_ContentPresenter">
+                <Setter Property="Opacity" Value="{DynamicResource {x:Static h:LayoutKeys.Pressed}}" />
+            </Style>
+
+            <Style Selector="^:disabled /template/ ContentPresenter#PART_ContentPresenter">
+                <Setter Property="Opacity" Value="{DynamicResource {x:Static h:LayoutKeys.Disabled}}" />
+            </Style>
+        </Style>
+
+        <Style Selector="^:checked">
+            <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+                <Setter Property="Background" Value="{DynamicResource {x:Static h:BrushKeys.BorderBrushTitle}}" />
+                <!--<Setter Property="BorderBrush" Value="{DynamicResource ToggleButtonBorderBrushChecked}" />-->
+                <Setter Property="Foreground" Value="{DynamicResource {x:Static h:BrushKeys.ForegroundTitle}}" />
+            </Style>
+
+            <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+                <Setter Property="Background" Value="{DynamicResource {x:Static h:BrushKeys.Selected}}" />
+                <!--<Setter Property="BorderBrush" Value="{DynamicResource {x:Static h:BrushKeys.CaptionBackground}}" />-->
+                <Setter Property="Foreground" Value="{DynamicResource {x:Static h:BrushKeys.ForegroundTitle}}" />
+            </Style>
+
+            <Style Selector="^:pressed /template/ ContentPresenter#PART_ContentPresenter">
+                <Setter Property="Opacity" Value="{DynamicResource {x:Static h:LayoutKeys.Pressed}}" />
+            </Style>
+
+            <Style Selector="^:disabled /template/ ContentPresenter#PART_ContentPresenter">
+                <Setter Property="Opacity" Value="{DynamicResource {x:Static h:LayoutKeys.Disabled}}" />
+            </Style>
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>
