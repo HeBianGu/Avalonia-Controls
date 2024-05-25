@@ -3,9 +3,17 @@
              x:Class="HeBianGu.Test.Style.App"
              RequestedThemeVariant="Default">
   <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
-
+  <Application.Resources>
+    <ResourceDictionary>
+      <ResourceDictionary.MergedDictionaries>
+        <ResourceInclude Source="avares://Avalonia.Styles/Resources/ControlTheme.axaml"/>
+        <ResourceInclude Source="avares://Avalonia.Styles/Controls/TabControl.axaml"/>
+        <ResourceInclude Source="avares://Avalonia.Styles/Controls/TabItem.axaml"/>
+      </ResourceDictionary.MergedDictionaries>
+    </ResourceDictionary>
+  </Application.Resources>
   <Application.Styles>
     <FluentTheme />
-    <StyleInclude Source="avares://HeBianGu.Styles.Default/Styles.axaml"/>
+    <!--<StyleInclude Source="avares://Avalonia.Styles/Resources/ControlTheme.axaml"/>-->
   </Application.Styles>
 </Application>

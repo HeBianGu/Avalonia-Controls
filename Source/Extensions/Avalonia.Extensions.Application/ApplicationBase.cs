@@ -31,20 +31,20 @@ namespace Avalonia.Extensions.Application
             this.Configure(bulder);
         }
 
-        public override void Initialize()
-        {
-            var assemblies = this.GetAxamlLoaderAssemblies();
+//        public override void Initialize()
+//        {
+//            var assemblies = this.GetAxamlLoaderAssemblies();
 
-#if DEBUG
-            foreach (var item in assemblies)
-            {
-                System.Diagnostics.Debug.WriteLine($"GetReferanceAssemblies:{item}");
-            }
-#endif
-            this.LoadDataTemplates(assemblies);
-            this.LoadResources(assemblies);
-            this.LoadStyles(assemblies);
-        }
+//#if DEBUG
+//            foreach (var item in assemblies)
+//            {
+//                System.Diagnostics.Debug.WriteLine($"GetReferanceAssemblies:{item}");
+//            }
+//#endif
+//            this.LoadDataTemplates(assemblies);
+//            this.LoadResources(assemblies);
+//            this.LoadStyles(assemblies);
+//        }
 
         protected virtual void LoadStyles(List<Assembly> assemblies)
         {
@@ -164,8 +164,25 @@ namespace Avalonia.Extensions.Application
         }
 
 
+        private void LoadAssemblies()
+        {
+            var assemblies = this.GetAxamlLoaderAssemblies();
+
+#if DEBUG
+            foreach (var item in assemblies)
+            {
+                System.Diagnostics.Debug.WriteLine($"GetReferanceAssemblies:{item}");
+            }
+#endif
+            this.LoadDataTemplates(assemblies);
+            this.LoadResources(assemblies);
+            this.LoadStyles(assemblies);
+        }
+
+
         public override void OnFrameworkInitializationCompleted()
         {
+            this.LoadAssemblies();
             if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
             {
                 Window mainWindow = this.GetMainWindow();
