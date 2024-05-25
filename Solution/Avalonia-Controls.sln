@@ -111,6 +111,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avalonia.Modules.Setting", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avalonia.Controls.Form", "..\Source\Controls\Avalonia.Controls.Form\Avalonia.Controls.Form.csproj", "{56315C33-B3B8-46DB-82A0-3AF80292D588}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".sln", ".sln", "{AD4F47D9-124C-434E-BEE6-39A988ED2857}"
+	ProjectSection(SolutionItems) = preProject
+		..\.editorconfig = ..\.editorconfig
+		..\Directory.Build.props = ..\Directory.Build.props
+		..\LICENSE = ..\LICENSE
+		..\README.md = ..\README.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

@@ -4,7 +4,6 @@ using Avalonia.Markup.Xaml.Styling;
 using Avalonia.Modules.Messages.Dialog;
 using Avalonia.Styles;
 using Avalonia.Ioc;
-using Avalonia.Mvvm;
 using HeBianGu.Test.Main.Views;
 using ReactiveUI;
 using System;
@@ -13,6 +12,7 @@ using System.ComponentModel.Design;
 using System.Linq;
 using System.Net.Http.Headers;
 using System.Windows.Input;
+using Avalonia.Mvvm.Commands;
 
 namespace HeBianGu.Test.Main.ViewModels;
 

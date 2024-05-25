@@ -1,10 +1,11 @@
 ﻿using Avalonia.Threading;
 using Avalonia.Ioc;
-using Avalonia.Mvvm;
 using System;
 using System.Collections.ObjectModel;
 using System.Reactive.Linq;
 using System.Threading.Tasks;
+using Avalonia.Mvvm.ViewModels;
+using Avalonia.Mvvm.Commands;
 
 namespace Avalonia.Test.Sqlite.ViewModels;
 
