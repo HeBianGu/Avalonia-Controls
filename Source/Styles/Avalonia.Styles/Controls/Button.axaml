@@ -49,11 +49,11 @@
         </Style>
 
         <Style Selector="^:pressed  /template/ ContentPresenter#PART_ContentPresenter">
-            <Setter Property="Opacity" Value="0.5" />
+          <Setter Property="Opacity" Value="{DynamicResource {x:Static h:LayoutKeys.Pressed}}" />
         </Style>
 
         <Style Selector="^:disabled /template/ ContentPresenter#PART_ContentPresenter">
-            <Setter Property="Opacity" Value="0.4" />
+          <Setter Property="Opacity" Value="{DynamicResource {x:Static h:LayoutKeys.Disabled}}" />
         </Style>
 
         <Style Selector="^.accent">
@@ -64,15 +64,15 @@
             </Style>
 
             <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
-                <Setter Property="Opacity" Value="0.8" />
+              <Setter Property="Opacity" Value="{DynamicResource {x:Static h:LayoutKeys.MouseOver}}" />
             </Style>
 
             <Style Selector="^:pressed  /template/ ContentPresenter#PART_ContentPresenter">
-                <Setter Property="Opacity" Value="0.5" />
+              <Setter Property="Opacity" Value="{DynamicResource {x:Static h:LayoutKeys.Pressed}}" />
             </Style>
 
             <Style Selector="^:disabled /template/ ContentPresenter#PART_ContentPresenter">
-                <Setter Property="Opacity" Value="0.4" />
+              <Setter Property="Opacity" Value="{DynamicResource {x:Static h:LayoutKeys.Disabled}}" />
             </Style>
         </Style>
     </ControlTheme>

@@ -16,6 +16,8 @@ namespace Avalonia.Theme
 
         public static StringResourceKey Disabled => new StringResourceKey(typeof(LayoutKeys), "S.Layout.Disabled");
         public static StringResourceKey Pressed => new StringResourceKey(typeof(LayoutKeys), "S.Layout.Pressed");
+
+        public static StringResourceKey MouseOver => new StringResourceKey(typeof(LayoutKeys), "S.Layout.MouseOver");
         public static StringResourceKey BorderThickness => new StringResourceKey(typeof(LayoutKeys), "S.Layout.BorderThickness");
         public static StringResourceKey Padding => new StringResourceKey(typeof(LayoutKeys), "S.Layout.Padding");
     }

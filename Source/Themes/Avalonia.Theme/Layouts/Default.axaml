@@ -13,6 +13,9 @@
                                                   TypeInTargetAssembly={x:Type local:LayoutKeys}}">0.4</system:Double>
   <system:Double x:Key="{StringResourceKey ResourceId=S.Layout.Pressed,
                                                   TypeInTargetAssembly={x:Type local:LayoutKeys}}">0.8</system:Double>
+  
+  <system:Double x:Key="{StringResourceKey ResourceId=S.Layout.MouseOver,
+                                                  TypeInTargetAssembly={x:Type local:LayoutKeys}}">0.8</system:Double>
 
   <CornerRadius x:Key="{StringResourceKey ResourceId=S.Layout.CornerRadius,
                                                   TypeInTargetAssembly={x:Type local:LayoutKeys}}">4</CornerRadius>
