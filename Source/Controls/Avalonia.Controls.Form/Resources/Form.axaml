@@ -1,0 +1,163 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:Avalonia.Controls.Form"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+    <ControlTheme x:Key="S.TextBlock.Unit" TargetType="TextBlock">
+        <Setter Property="Text" Value="{Binding Unit}" />
+        <!--<Setter Property="Foreground" Value="{DynamicResource {x:Static h:BrushKeys.Red}}" />-->
+        <Setter Property="Grid.Column" Value="4" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="S.TextBlock.Header" TargetType="TextBlock">
+        <Setter Property="Text" Value="{Binding Name}" />
+        <!--<Setter Property="Foreground" Value="{DynamicResource {x:Static h:BrushKeys.Red}}" />-->
+        <Setter Property="Grid.Column" Value="0" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="MinWidth" Value="80" />
+        <Setter Property="MaxWidth" Value="200" />
+
+        <!--<Setter Property="Margin" Value="10 0" />-->
+    </ControlTheme>
+
+    <ControlTheme x:Key="S.TextBlock.Flag" TargetType="TextBlock">
+        <Setter Property="Text" Value="{Binding Flag}" />
+        <Setter Property="Width" Value="10" />
+        <Setter Property="Grid.Column" Value="1" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <!--<Setter Property="Foreground" Value="{DynamicResource {x:Static BrushKeys.Red}}" />-->
+    </ControlTheme>
+
+    <ControlTheme x:Key="S.TextBlock.Error" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="Text" Value="！" />
+        <Setter Property="ToolTip.Tip" Value="{Binding Message}" />
+        <Setter Property="TextTrimming" Value="{Binding CharacterEllipsis}" />
+        <!--<Setter Property="Visibility" Value="{Binding Message, Converter={x:Static h:Converter.GetNullToCollapsed}, Mode=TwoWay}" />-->
+        <Setter Property="Width" Value="{Binding RelativeSource={RelativeSource AncestorType=local:Form}, Path=MessageWidth}" />
+        <Setter Property="TextAlignment" Value="Center" />
+        <Setter Property="Grid.Column" Value="4" />
+        <!--<Setter Property="Foreground" Value="{DynamicResource {x:Static BrushKeys.Red}}" />-->
+    </ControlTheme>
+
+    <ControlTheme x:Key="{x:Type local:Form}" TargetType="local:Form">
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="VerticalAlignment" Value="Top" />
+        <!--<Setter Property="HorizontalContentAlignment" Value="Stretch" />-->
+        <Setter Property="Padding" Value="0,0,10,0" />
+        <!--<Setter Property="Width" Value="Auto" />
+        <Setter Property="Height" Value="Auto" />-->
+        <Setter Property="Title" Value="Title" />
+        <Setter Property="MessageWidth" Value="15" />
+        <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
+        <!--<Setter Property="VirtualizingStackPanel.IsVirtualizing" Value="True" />
+        <Setter Property="VirtualizingStackPanel.VirtualizationMode" Value="Recycling" />-->
+        <Setter Property="ItemsPanel">
+            <Setter.Value>
+                <ItemsPanelTemplate>
+                    <VirtualizingStackPanel />
+                </ItemsPanelTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:Form">
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                        <ScrollViewer Margin="0" Padding="0">
+                            <!--<b:Interaction.Behaviors>
+                <h:ScrollViewerBebavior UseMouseWheelHijack="True" />
+              </b:Interaction.Behaviors>-->
+                            <ItemsPresenter Margin="0" />
+                        </ScrollViewer>
+
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="ItemHeaderTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <TextBlock Width="100"
+                               Margin="10,6"
+                               VerticalAlignment="Center"
+                               Text="{Binding}" />
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="ItemContainerTheme">
+            <Setter.Value>
+                <ControlTheme TargetType="ContentPresenter">
+                    <Setter Property="ContentTemplate">
+                        <Setter.Value>
+                            <DataTemplate>
+                                <Grid ToolTip.Tip="{Binding Description}">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <!--<ContentControl Grid.Column="0"
+                                                      Content="{Binding Name}"
+                                                      ContentTemplate="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:Form}}, Path=ItemHeaderTemplate}" />-->
+                                    <TextBlock Grid.Column="1" Theme="{StaticResource S.TextBlock.Flag}" />
+                                    <TextBlock Grid.Column="0" Theme="{StaticResource S.TextBlock.Header}" />
+                                    <ContentPresenter Grid.Column="2" Content="{Binding}" />
+                                    <TextBlock Grid.Column="3" Theme="{StaticResource S.TextBlock.Error}" />
+                                </Grid>
+                            </DataTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </ControlTheme>
+            </Setter.Value>
+        </Setter>
+        <!--<Setter Property="GroupStyle">
+            <Setter.Value>
+                <GroupStyle>
+                    <GroupStyle.ContainerStyle>
+                        <Style TargetType="{x:Type GroupItem}">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type GroupItem}">
+                                        <Expander IsExpanded="True">
+                                            <Expander.Header>
+                                                <DockPanel>
+                                                    <TextBlock Margin="10,6" FontWeight="Bold" Text="{Binding Path=Name}" />
+                                                    <TextBlock FontWeight="Bold">
+                                                        <Run Text="[" />
+                                                        <Run Text="{Binding Path=ItemCount, Mode=OneWay}" />
+                                                        <Run Text="]" />
+                                                    </TextBlock>
+                                                </DockPanel>
+                                            </Expander.Header>
+                                            <Expander.Content>
+                                                <ItemsPresenter />
+                                            </Expander.Content>
+                                        </Expander>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </GroupStyle.ContainerStyle>
+                </GroupStyle>
+        -->
+        <!--<GroupStyle>
+                                <GroupStyle.HeaderTemplate>
+                                    <DataTemplate>
+                                        <DockPanel Background="LightBlue" Height="40">
+                                            <TextBlock Text="{Binding Path=Name}" Foreground="Blue" Margin="30,0,0,0" Width="100"/>
+                                            <TextBlock Text="{Binding Path=ItemCount}" Foreground="Blue"/>
+                                        </DockPanel>
+                                    </DataTemplate>
+                                </GroupStyle.HeaderTemplate>
+                            </GroupStyle>-->
+        <!--
+            </Setter.Value>
+        </Setter>-->
+
+    </ControlTheme>
+</ResourceDictionary>

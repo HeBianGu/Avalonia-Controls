@@ -33,7 +33,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Controls\HeBianGu.Avalonia.Controls.Form\HeBianGu.Avalonia.Controls.Form.csproj" />
+    <ProjectReference Include="..\..\Controls\Avalonia.Controls.Form\Avalonia.Controls.Form.csproj" />
     <ProjectReference Include="..\..\Controls\HeBianGu.Controls.MultiComboBox\HeBianGu.Controls.MultiComboBox.csproj" />
     <ProjectReference Include="..\..\Controls\HeBianGu.Controls.TemplateControl\HeBianGu.Controls.TemplateControl.csproj" />
     <ProjectReference Include="..\..\Cores\Avalonia.Ioc\Avalonia.Ioc.csproj" />
@@ -48,8 +48,8 @@
     <ProjectReference Include="..\..\Modules\Avalonia.Modules.Messages.Snack\Avalonia.Modules.Messages.Snack.csproj" />
     <ProjectReference Include="..\..\Modules\Avalonia.Modules.SplashScreen\Avalonia.Modules.SplashScreen.csproj" />
     <ProjectReference Include="..\..\Modules\Avalonia.Modules.ThemeSetting\Avalonia.Modules.ThemeSetting.csproj" />
-    <ProjectReference Include="..\..\Modules\HeBianGu.Avalonia.Modules.Login\HeBianGu.Avalonia.Modules.Login.csproj" />
-    <ProjectReference Include="..\..\Modules\HeBianGu.Avalonia.Modules.Setting\HeBianGu.Avalonia.Modules.Setting.csproj" />
+    <ProjectReference Include="..\..\Modules\Avalonia.Modules.Login\Avalonia.Modules.Login.csproj" />
+    <ProjectReference Include="..\..\Modules\Avalonia.Modules.Setting\Avalonia.Modules.Setting.csproj" />
     <ProjectReference Include="..\..\Styles\Avalonia.Styles.Extension\Avalonia.Styles.Extension.csproj" />
     <ProjectReference Include="..\..\Styles\Avalonia.Styles\Avalonia.Styles.csproj" />
     <ProjectReference Include="..\..\Windows\Avalonia.Windows.Main\Avalonia.Windows.Main.csproj" />

@@ -1,6 +1,5 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
-
-  <PropertyGroup>
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+    <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
@@ -9,5 +8,6 @@
   <ItemGroup>
     <ProjectReference Include="..\..\Controls\Avalonia.Controls.Form\Avalonia.Controls.Form.csproj" />
     <ProjectReference Include="..\..\Cores\Avalonia.Ioc\Avalonia.Ioc.csproj" />
+    <ProjectReference Include="..\..\Extensions\Avalonia.Extensions.Setting\Avalonia.Extensions.Setting.csproj" />
   </ItemGroup>
 </Project>

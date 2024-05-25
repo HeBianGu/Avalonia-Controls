@@ -12,7 +12,7 @@ using Avalonia.Threading;
 using Avalonia.Windows.Dialog;
 using Avalonia;
 using Avalonia.Modules.Messages.Dialog;
-using HeBianGu.Avalonia.Modules.Setting;
+using Avalonia.Modules.Setting;
 
 namespace HeBianGu.Test.Main.Views;
 

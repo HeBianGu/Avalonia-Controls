@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using System;
 using Microsoft.Extensions.DependencyInjection;
 using CommunityToolkit.Mvvm.DependencyInjection;
-using HeBianGu.Avalonia.Modules.Login;
+using Avalonia.Modules.Login;
 using Avalonia.Ioc;
 using Avalonia.Extensions.Application;
 using Avalonia.Windows.Dialog;

@@ -7,7 +7,7 @@
     <PackageReference Include="Avalonia" Version="11.0.2" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Controls\HeBianGu.Avalonia.Controls.Form\HeBianGu.Avalonia.Controls.Form.csproj" />
+    <ProjectReference Include="..\..\Controls\Avalonia.Controls.Form\Avalonia.Controls.Form.csproj" />
     <ProjectReference Include="..\..\Extensions\Avalonia.Extensions.Application\Avalonia.Extensions.Application.csproj" />
     <ProjectReference Include="..\..\Extensions\Avalonia.Extensions.Setting\Avalonia.Extensions.Setting.csproj" />
     <ProjectReference Include="..\..\Themes\Avalonia.Theme\Avalonia.Theme.csproj" />
