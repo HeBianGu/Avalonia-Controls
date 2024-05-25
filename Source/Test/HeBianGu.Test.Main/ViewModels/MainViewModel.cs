@@ -63,7 +63,7 @@ public class MainViewModel : ViewModelBase
     {
         var find = Application.Current.Resources.MergedDictionaries.OfType<ResourceInclude>().FirstOrDefault(x => x.Source.AbsoluteUri.Contains("FontSize"));
         int index = Application.Current.Resources.MergedDictionaries.IndexOf(find);
-        Uri uri = new Uri("avares://HeBianGu.Themes.Default/FontSizes/Large.axaml");
+        Uri uri = new Uri("avares://Avalonia.Theme/FontSizes/Large.axaml");
         ResourceInclude include = new ResourceInclude(uri) { Source = uri };
         Application.Current.Resources.MergedDictionaries[index] = include;
     });

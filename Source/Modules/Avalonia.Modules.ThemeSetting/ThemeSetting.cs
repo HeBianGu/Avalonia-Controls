@@ -5,7 +5,7 @@ using Avalonia.Markup.Xaml.Styling;
 using HeBianGu.Avalonia.Controls.Form;
 using HeBianGu.Avalonia.Core.Ioc;
 using HeBianGu.Avalonia.Extensions.Setting;
-using HeBianGu.Themes.Default;
+using Avalonia.Theme;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -162,7 +162,7 @@ namespace Avalonia.Modules.ThemeSetting
         internal void RefreshColorTheme()
         {
             {
-                var find = Application.Current.Resources.MergedDictionaries.OfType<ResourceInclude>().FirstOrDefault(x => x.Source.AbsoluteUri.StartsWith("avares://HeBianGu.Themes.Default/Brushes/") || x.Source.AbsoluteUri == "avares://HeBianGu.Themes.Default/Resources/Brush.axaml");
+                var find = Application.Current.Resources.MergedDictionaries.OfType<ResourceInclude>().FirstOrDefault(x => x.Source.AbsoluteUri.StartsWith("avares://Avalonia.Theme/Brushes/") || x.Source.AbsoluteUri == "avares://Avalonia.Theme/Resources/Brush.axaml");
                 if (find != this.ColorResource.Resource)
                 {
                     int index = Application.Current.Resources.MergedDictionaries.IndexOf(find);
@@ -174,7 +174,7 @@ namespace Avalonia.Modules.ThemeSetting
         internal void RefreshFontSizeTheme()
         {
             {
-                var find = Application.Current.Resources.MergedDictionaries.OfType<ResourceInclude>().FirstOrDefault(x => x.Source.AbsoluteUri.StartsWith("avares://HeBianGu.Themes.Default/FontSizes/") || x.Source.AbsoluteUri == "avares://HeBianGu.Themes.Default/Resources/FontSize.axaml");
+                var find = Application.Current.Resources.MergedDictionaries.OfType<ResourceInclude>().FirstOrDefault(x => x.Source.AbsoluteUri.StartsWith("avares://Avalonia.Theme/FontSizes/") || x.Source.AbsoluteUri == "avares://Avalonia.Theme/Resources/FontSize.axaml");
                 if (find != this.FontSizeResource.Resource)
                 {
                     int index = Application.Current.Resources.MergedDictionaries.IndexOf(find);
@@ -186,7 +186,7 @@ namespace Avalonia.Modules.ThemeSetting
         internal void RefreshLayoutTheme()
         {
             {
-                var find = Application.Current.Resources.MergedDictionaries.OfType<ResourceInclude>().FirstOrDefault(x => x.Source.AbsoluteUri.StartsWith("avares://HeBianGu.Themes.Default/Layouts/") || x.Source.AbsoluteUri == "avares://HeBianGu.Themes.Default/Resources/Layout.axaml");
+                var find = Application.Current.Resources.MergedDictionaries.OfType<ResourceInclude>().FirstOrDefault(x => x.Source.AbsoluteUri.StartsWith("avares://Avalonia.Theme/Layouts/") || x.Source.AbsoluteUri == "avares://Avalonia.Theme/Resources/Layout.axaml");
                 if (find != this.LayoutResource.Resource)
                 {
                     int index = Application.Current.Resources.MergedDictionaries.IndexOf(find);

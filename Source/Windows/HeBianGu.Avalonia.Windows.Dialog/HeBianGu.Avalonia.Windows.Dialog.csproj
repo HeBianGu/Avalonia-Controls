@@ -12,7 +12,7 @@
     <ProjectReference Include="..\..\Extensions\HeBianGu.Avalonia.Extensions.Command\HeBianGu.Avalonia.Extensions.Command.csproj" />
     <ProjectReference Include="..\..\Styles\Avalonia.Styles.Extension\Avalonia.Styles.Extension.csproj" />
     <ProjectReference Include="..\..\Styles\Avalonia.Styles\Avalonia.Styles.csproj" />
-    <ProjectReference Include="..\..\Themes\HeBianGu.Themes.Default\HeBianGu.Themes.Default.csproj" />
+    <ProjectReference Include="..\..\Themes\Avalonia.Theme\Avalonia.Theme.csproj" />
   </ItemGroup>
   <ItemGroup>
     <UpToDateCheckInput Remove="DialogWindow.axaml" />

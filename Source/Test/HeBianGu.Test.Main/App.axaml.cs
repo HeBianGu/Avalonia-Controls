@@ -18,7 +18,7 @@ using Avalonia.Modules.Messages.Dialog;
 using Avalonia.Modules.SplashScreen;
 using System.Xml;
 using Avalonia.Markup.Xaml.Templates;
-using HeBianGu.Themes.Default;
+using Avalonia.Theme;
 
 namespace HeBianGu.Test.Main;
 

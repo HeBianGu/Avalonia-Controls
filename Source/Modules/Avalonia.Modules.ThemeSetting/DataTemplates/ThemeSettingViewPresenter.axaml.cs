@@ -1,6 +1,6 @@
 ﻿using HeBianGu.Avalonia.Core.Ioc;
 using HeBianGu.Avalonia.Core.Mvvm;
-using HeBianGu.Themes.Default;
+using Avalonia.Theme;
 using System;
 using System.Collections.Generic;
 using System.Linq;

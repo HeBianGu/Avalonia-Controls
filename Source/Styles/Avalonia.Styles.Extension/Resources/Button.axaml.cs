@@ -1,7 +1,7 @@
 ﻿using Avalonia.Controls;
 using Avalonia.Extensions.ResourceKey;
 using Avalonia.Media;
-using HeBianGu.Themes.Default;
+using Avalonia.Theme;
 using System;
 using System.Collections.Generic;
 using System.Linq;
