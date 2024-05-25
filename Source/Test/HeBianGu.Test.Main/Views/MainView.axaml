@@ -204,7 +204,7 @@
                 <Image Source="{Binding Source={x:Static h:WindowSetting.Instance}, Path=BackImagePath}" />
                 <Image Source="{Binding Source={x:Static h:LoginOptions.Instance}}" />
                 <TextBlock Text="{Binding Source={x:Static h:WindowSetting.Instance}, Path=BackImagePath}" />
-                <Image Source="avares://Avalonia.Extensions.BackgroundImage/Assets/b13.png" />
+                <Image Source="avares://Avalonia.Extensions.BackgroundImage/Assets/Star.png" />
             </UniformGrid>
         </TabItem>
         <TabItem Header="ListBox">
@@ -215,7 +215,7 @@
                     Content="设置字体大小"
                     FontSize="{DynamicResource {x:Static h:FontSizeKeys.Default}}" />
         </TabItem>
-      <!--<TabItem Header="Step">
+        <!--<TabItem Header="Step">
         <TabControl>
           <TabItem Header="Horizontal">
             <h:Step Height="Auto"
@@ -276,5 +276,45 @@
           </TabItem>
         </TabControl>
       </TabItem>-->
+
+        <TabItem Header="Image">
+            <TabItem.Resources>
+                <ImageDrawing x:Key="ImageDrawing" ImageSource="avares://Avalonia.Extensions.BackgroundImage/Assets/Star.png" />
+                <ImageDrawing x:Key="ImageDrawing1" ImageSource="avares://Avalonia.Extensions.BackgroundImage/Assets/Star.png" />
+            </TabItem.Resources>
+            <UniformGrid>
+                <!--<Image Source="avares://Avalonia.Extensions.BackgroundImage/Assets/Star.png" />-->
+                <Image Source="{DynamicResource {x:Static BackgroundImageKeys.BackgroundImage}}" />
+              <TextBlock Text="{DynamicResource {x:Static BackgroundImageKeys.BackgroundImage}}"/>
+                <Grid>
+                    <Grid.Background>
+                        <ImageBrush Source="avares://Avalonia.Extensions.BackgroundImage/Assets/Star.png" />
+                    </Grid.Background>
+                </Grid>
+                <Image>
+                    <Image.Source>
+                        <DrawingImage>
+                            <DrawingImage.Drawing>
+                                <ImageDrawing ImageSource="avares://Avalonia.Extensions.BackgroundImage/Assets/Star.png" />
+                            </DrawingImage.Drawing>
+                        </DrawingImage>
+                    </Image.Source>
+                </Image>
+                <Image>
+                    <Image.Source>
+                        <Bitmap>
+                            avares://Avalonia.Extensions.BackgroundImage/Assets/Star.png
+                        </Bitmap>
+                    </Image.Source>
+                </Image>
+                <Image>
+                    <Image.Source>
+                        <AssetBitmap>
+                            avares://Avalonia.Extensions.BackgroundImage/Assets/Star.png
+                        </AssetBitmap>
+                    </Image.Source>
+                </Image>
+            </UniformGrid>
+        </TabItem>
     </TabControl>
 </UserControl>

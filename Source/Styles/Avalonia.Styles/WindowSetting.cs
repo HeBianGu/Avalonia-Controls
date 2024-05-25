@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System;
 using Avalonia.Media.Imaging;
 using Avalonia.Platform;
+using Avalonia.Markup.Xaml.Converters;
 
 namespace Avalonia.Styles
 {
@@ -18,7 +19,10 @@ namespace Avalonia.Styles
     {
         public WindowSetting()
         {
-            this.BackImage = new Bitmap(AssetLoader.Open(new Uri("avares://Avalonia.Extensions.BackgroundImage/Assets/b13.png")));
+            this.BackImage = new Bitmap(AssetLoader.Open(new Uri("avares://Avalonia.Extensions.BackgroundImage/Assets/Star.png")));
+            //BitmapTypeConverter
+            //ImageDrawing imageDrawing=new ImageDrawing();
+            //imageDrawing.ImageSource
         }
         private Bitmap _backImage;
         [Display(Name = "窗口背景图片")]
@@ -37,10 +41,10 @@ namespace Avalonia.Styles
         public override void LoadDefault()
         {
             base.LoadDefault();
-            this.BackImagePath = new Uri("avares://Avalonia.Extensions.BackgroundImage/Assets/b13.png",UriKind.RelativeOrAbsolute);
+            this.BackImagePath = new Uri("avares://Avalonia.Extensions.BackgroundImage/Assets/Star.png",UriKind.RelativeOrAbsolute);
         }
         private Uri _backImagePath;
-        //[DefaultValue("avares://Avalonia.Extensions.BackgroundImage/Assets/b13.png")]
+        //[DefaultValue("avares://Avalonia.Extensions.BackgroundImage/Assets/Star.png")]
         [Display(Name = "窗口背景图片")]
         public Uri BackImagePath
         {

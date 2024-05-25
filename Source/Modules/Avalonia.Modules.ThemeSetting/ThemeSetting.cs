@@ -43,6 +43,15 @@ namespace Avalonia.Modules.ThemeSetting
             this.LayoutResources.Add(new LargeLayoutResource());
             this.LayoutResources.Add(new SmallLayoutResource());
             this.LayoutResource = this.LayoutResources.FirstOrDefault();
+
+            this.BackgroundImageResources.Add(new StarBackgroundImageResource());
+            this.BackgroundImageResources.Add(new EmptyBackgroundImageResource());
+            this.BackgroundImageResources.Add(new GridBackgroundImageResource());
+            this.BackgroundImageResources.Add(new ArrowBackgroundImageResource());
+            this.BackgroundImageResources.Add(new CoverBackgroundImageResource());
+            this.BackgroundImageResources.Add(new WaveBackgroundImageResource());
+            this.BackgroundImageResources.Add(new MountainBackgroundImageResource());
+            this.BackgroundImageResource = this.BackgroundImageResources.FirstOrDefault();
         }
 
         //[DefaultValue(FontSizeThemeType.Default)]
@@ -92,6 +101,19 @@ namespace Avalonia.Modules.ThemeSetting
             }
         }
 
+        private IBackgroundImageResource _backgroundImageResource;
+        /// <summary> 说明  </summary>
+        public IBackgroundImageResource BackgroundImageResource
+        {
+            get { return _backgroundImageResource; }
+            set
+            {
+                _backgroundImageResource = value;
+                RaisePropertyChanged();
+                this.RefreshBackgroundImageTheme();
+            }
+        }
+
         //[XmlIgnore]
         //[JsonIgnore]
         //[BindingGetSelectSourceProperty(nameof(ColorResources))]
@@ -114,6 +136,12 @@ namespace Avalonia.Modules.ThemeSetting
         [JsonIgnore]
         [Browsable(false)]
         public List<ILayoutResource> LayoutResources { get; } = new List<ILayoutResource>();
+
+        [XmlIgnore]
+        [JsonIgnore]
+        [Browsable(false)]
+        public List<IBackgroundImageResource> BackgroundImageResources { get; } = new List<IBackgroundImageResource>();
+
 
         [Browsable(false)]
         public int ColorResourceSelectedIndex { get; set; }
@@ -191,6 +219,18 @@ namespace Avalonia.Modules.ThemeSetting
                 {
                     int index = Application.Current.Resources.MergedDictionaries.IndexOf(find);
                     Application.Current.Resources.MergedDictionaries[index] = this.LayoutResource.Resource;
+                }
+            }
+        }
+
+        internal void RefreshBackgroundImageTheme()
+        {
+            {
+                var find = Application.Current.Resources.MergedDictionaries.OfType<ResourceInclude>().FirstOrDefault(x => x.Source.AbsoluteUri.StartsWith("avares://Avalonia.Theme/BackgroundImages/") || x.Source.AbsoluteUri == "avares://Avalonia.Theme/Resources/BackgroundImage.axaml");
+                if (find != this.BackgroundImageResource.Resource)
+                {
+                    int index = Application.Current.Resources.MergedDictionaries.IndexOf(find);
+                    Application.Current.Resources.MergedDictionaries[index] = this.BackgroundImageResource.Resource;
                 }
             }
         }

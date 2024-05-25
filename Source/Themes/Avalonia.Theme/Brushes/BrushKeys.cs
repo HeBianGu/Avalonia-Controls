@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace Avalonia.Theme
 {
+
     public static class BrushKeys
     {
         #region - Background -
@@ -102,4 +103,5 @@ namespace Avalonia.Theme
 
         public static StringResourceKey Tranparent => new StringResourceKey(typeof(BrushKeys), "S.Brush.Tranparent");
     }
+
 }

@@ -1,7 +1,11 @@
-﻿using Avalonia.Media.Imaging;
+﻿using Avalonia.Markup.Xaml.Converters;
+using Avalonia.Media.Imaging;
 using Avalonia.Platform;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
@@ -10,19 +14,53 @@ using System.Threading.Tasks;
 
 namespace Avalonia.Extensions.BackgroundImage
 {
+    public class AssetBitmapTypeConverter: BitmapTypeConverter
+    {
+        public override object ConvertFrom(ITypeDescriptorContext? context, CultureInfo? culture, object value)
+        {
+            var s = (string)value;
+            var uri = s.StartsWith("/")
+                ? new Uri(s, UriKind.Relative)
+                : new Uri(s, UriKind.RelativeOrAbsolute);
+
+            if (uri.IsAbsoluteUri && uri.IsFile)
+                return new Bitmap(uri.LocalPath);
+
+            return new AssetBitmap(uri);
+        }
+    }
+    [TypeConverter(typeof(AssetBitmapTypeConverter))]
+    public class AssetBitmap : Bitmap
+    {
+        public AssetBitmap(Uri uri) : base(AssetLoader.Open(uri))
+        {
+
+        }
+        public AssetBitmap(string uri) : base(AssetLoader.Open(new Uri(uri)))
+        {
+
+        }
+
+        public AssetBitmap(Stream uri) : base(uri)
+        {
+
+        }
+
+        public string Uri { get; set; }
+    }
     internal class Class1
     {
 
         public void Method()
         {
 
-            Bitmap bitmap = new Bitmap("avares://Avalonia.Extensions.BackgroundImage/Assets/b13.png");
+            Bitmap bitmap = new Bitmap("avares://Avalonia.Extensions.BackgroundImage/Assets/Star.png");
 
         }
 
         public Bitmap GetBitmap(string uri)
         {
-           return  new Bitmap(AssetLoader.Open(new Uri(uri)));
+            return new Bitmap(AssetLoader.Open(new Uri(uri)));
 
         }
 

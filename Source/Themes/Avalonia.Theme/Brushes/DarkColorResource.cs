@@ -1,4 +1,5 @@
-﻿using Avalonia.Theme.Provider;
+﻿using Avalonia.Extensions.ResourceKey;
+using Avalonia.Theme.Provider;
 
 namespace Avalonia.Theme
 {
