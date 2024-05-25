@@ -5,6 +5,7 @@ using Avalonia.Layout;
 using Avalonia.Controls.Primitives;
 using Avalonia.Extensions.Application;
 using Avalonia.Media;
+using Avalonia.Threading;
 
 namespace Avalonia.Modules.Messages.Dialog
 {
@@ -45,17 +46,20 @@ namespace Avalonia.Modules.Messages.Dialog
 
         public static void RemovePresenter(object presenter)
         {
-            var visual = Application.Current.GetMainAdornerControl();
-            if (visual == null)
-                return;
-            var control = AdornerLayer.GetAdorner(visual);
-            if (control is AdornerGrid grid)
+            Dispatcher.UIThread.Invoke(() =>
             {
-                var finds = grid.Children.OfType<ContentPresenter>().Where(x => x.Content == presenter).ToList();
-                grid.Children.RemoveAll(finds);
-                if (grid.Children.Count == 0)
-                    AdornerLayer.SetAdorner(visual, null);
-            }
+                var visual = Application.Current.GetMainAdornerControl();
+                if (visual == null)
+                    return;
+                var control = AdornerLayer.GetAdorner(visual);
+                if (control is AdornerGrid grid)
+                {
+                    var finds = grid.Children.OfType<ContentPresenter>().Where(x => x.Content == presenter).ToList();
+                    grid.Children.RemoveAll(finds);
+                    if (grid.Children.Count == 0)
+                        AdornerLayer.SetAdorner(visual, null);
+                }
+            });
         }
 
         public static bool HasPresenter(object presenter)

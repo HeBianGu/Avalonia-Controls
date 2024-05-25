@@ -17,7 +17,7 @@ namespace Avalonia.Ioc
                     if (c.IsCancel)
                         break;
                     p.Value = string.Format(Format, i);
-                    Thread.Sleep(100);
+                    Thread.Sleep(20);
                 }
                 p.Value = c.IsCancel ? "取消操作" : "加载完成";
                 Thread.Sleep(1000);

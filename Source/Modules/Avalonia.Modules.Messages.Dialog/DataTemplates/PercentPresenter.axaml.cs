@@ -3,10 +3,10 @@ using Avalonia.Mvvm;
 
 namespace Avalonia.Modules.Messages.Dialog
 {
-    public class StringPresenter : DisplayBindableBase, IStringPresenter
+    public class PercentPresenter : DisplayBindableBase, IPercentPresenter
     {
-        private string _value;
-        public string Value
+        private int _value;
+        public int Value
         {
             get { return _value; }
             set

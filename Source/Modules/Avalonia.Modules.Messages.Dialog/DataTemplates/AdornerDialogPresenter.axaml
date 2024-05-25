@@ -10,6 +10,8 @@
         </Grid.Background>-->
         <Border Width="{Binding Width}"
                 Height="{Binding Height}"
+                MinWidth="{Binding MinWidth}"
+                MinHeight="{Binding MinHeight}"
                 Margin="{Binding Margin}"
                 HorizontalAlignment="{Binding HorizontalAlignment}"
                 VerticalAlignment="{Binding VerticalAlignment}"

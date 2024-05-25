@@ -148,6 +148,9 @@
 
         <TabItem Header="Message">
             <UniformGrid>
+                <Button Command="{ShowStringCommand}" Content="ShowStringCommand" />
+                <Button Command="{ShowPercentCommand}" Content="ShowPercentCommand" />
+                <Button Command="{ShowWaitCommand}" Content="ShowWaitCommand" />
                 <Button Command="{Binding ShowMessageCommand}" Content="ShowMessageCommand" />
                 <Button Command="{Binding ShowFormMessageCommand}" Content="ShowFormMessageCommand" />
                 <Button Command="{Binding ShowNoticeMessageCommand}" Content="ShowNoticeMessageCommand" />
@@ -285,7 +288,7 @@
             <UniformGrid>
                 <!--<Image Source="avares://Avalonia.Extensions.BackgroundImage/Assets/Star.png" />-->
                 <Image Source="{DynamicResource {x:Static BackgroundImageKeys.BackgroundImage}}" />
-              <TextBlock Text="{DynamicResource {x:Static BackgroundImageKeys.BackgroundImage}}"/>
+                <TextBlock Text="{DynamicResource {x:Static BackgroundImageKeys.BackgroundImage}}" />
                 <Grid>
                     <Grid.Background>
                         <ImageBrush Source="avares://Avalonia.Extensions.BackgroundImage/Assets/Star.png" />

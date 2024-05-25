@@ -20,13 +20,10 @@ namespace Avalonia.Extensions.Application
         public static Visual GetMainAdornerControl(this Avalonia.Application application)
         {
             if (application?.ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
-            {
-                var f = desktop.MainWindow.Content as Visual;
-                return f;
-            }
+                return Dispatcher.UIThread.Invoke(() => desktop.MainWindow.Content as Visual);
 
             if (application?.ApplicationLifetime is ISingleViewApplicationLifetime singleView)
-                return singleView.MainView;
+                return Dispatcher.UIThread.Invoke(() => singleView.MainView);
             return null;
         }
 
