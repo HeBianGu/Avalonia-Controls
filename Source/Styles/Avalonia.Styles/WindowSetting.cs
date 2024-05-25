@@ -7,16 +7,42 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System;
+using Avalonia.Media.Imaging;
+using Avalonia.Platform;
 
 namespace Avalonia.Styles
 {
     [Display(Name = "窗口设置", GroupName = SettingGroupNames.GroupSystem, Description = "设置窗口参数")]
     public class WindowSetting : IocOptionInstance<WindowSetting>
     {
-        private string _backImagePath;
-        [DefaultValue("avares://Avalonia.Extensions.BackgroundImage/Assets/b13.png")]
+        public WindowSetting()
+        {
+            this.BackImage = new Bitmap(AssetLoader.Open(new Uri("avares://Avalonia.Extensions.BackgroundImage/Assets/b13.png")));
+        }
+        private Bitmap _backImage;
         [Display(Name = "窗口背景图片")]
-        public string BackImagePath
+        public Bitmap BackImage
+        {
+            get { return _backImage; }
+            set
+            {
+                _backImage = value;
+                RaisePropertyChanged();
+            }
+
+           
+        }
+
+        public override void LoadDefault()
+        {
+            base.LoadDefault();
+            this.BackImagePath = new Uri("avares://Avalonia.Extensions.BackgroundImage/Assets/b13.png",UriKind.RelativeOrAbsolute);
+        }
+        private Uri _backImagePath;
+        //[DefaultValue("avares://Avalonia.Extensions.BackgroundImage/Assets/b13.png")]
+        [Display(Name = "窗口背景图片")]
+        public Uri BackImagePath
         {
             get { return _backImagePath; }
             set

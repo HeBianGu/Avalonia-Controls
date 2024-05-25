@@ -97,8 +97,8 @@
                         </DockPanel>
                     </VisualLayerManager>
                     <Image IsHitTestVisible="False"
-                           Opacity="0.1"
-                           Source="{Binding Source={x:Static h:WindowSetting.Instance}, Path=BackImagePath}"
+                           Opacity="0.4"
+                           Source="{Binding Source={x:Static h:WindowSetting.Instance}, Path=BackImage}"
                            Stretch="UniformToFill" />
                 </Panel>
             </ControlTemplate>

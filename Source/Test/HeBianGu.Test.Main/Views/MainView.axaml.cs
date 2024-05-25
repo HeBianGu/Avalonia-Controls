@@ -13,6 +13,8 @@ using Avalonia.Windows.Dialog;
 using Avalonia;
 using Avalonia.Modules.Messages.Dialog;
 using Avalonia.Modules.Setting;
+using Avalonia.Media;
+using Avalonia.Media.Imaging;
 
 namespace HeBianGu.Test.Main.Views;
 

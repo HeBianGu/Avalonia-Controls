@@ -215,5 +215,66 @@
                     Content="设置字体大小"
                     FontSize="{DynamicResource {x:Static h:FontSizeKeys.Default}}" />
         </TabItem>
+      <!--<TabItem Header="Step">
+        <TabControl>
+          <TabItem Header="Horizontal">
+            <h:Step Height="Auto"
+                    VerticalAlignment="Center"
+                    Cattach.ItemHeight="Auto">
+              <h:StepItemPresenter DisplayName="1"
+                                   Message="成功"
+                                   State="Success" />
+              <h:StepItemPresenter DisplayName="2"
+                                   Message="成功"
+                                   State="Success" />
+              <h:StepItemPresenter DisplayName="3"
+                                   Message="成功"
+                                   State="Success" />
+              <h:StepItemPresenter DisplayName="4"
+                                   Message="失败"
+                                   State="Error" />
+              <h:StepItemPresenter DisplayName="5"
+                                   Message="正在运行"
+                                   State="Running" />
+              <h:StepItemPresenter DisplayName="6"
+                                   Message=""
+                                   State="Ready" />
+              <h:StepItemPresenter DisplayName="7"
+                                   Message=""
+                                   State="Ready" />
+            </h:Step>
+          </TabItem>
+          <TabItem Header="Vertical">
+            <h:Step Height="Auto">
+              <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                  <StackPanel />
+                </ItemsPanelTemplate>
+              </ItemsControl.ItemsPanel>
+              <h:StepItemVerticalPresenter DisplayName="1"
+                                           Message="成功"
+                                           State="Success" />
+              <h:StepItemVerticalPresenter DisplayName="2"
+                                           Message="成功"
+                                           State="Success" />
+              <h:StepItemVerticalPresenter DisplayName="3"
+                                           Message="成功"
+                                           State="Success" />
+              <h:StepItemVerticalPresenter DisplayName="4"
+                                           Message="失败"
+                                           State="Error" />
+              <h:StepItemVerticalPresenter DisplayName="5"
+                                           Message="正在运行"
+                                           State="Running" />
+              <h:StepItemVerticalPresenter DisplayName="6"
+                                           Message=""
+                                           State="Ready" />
+              <h:StepItemVerticalPresenter DisplayName="7"
+                                           Message=""
+                                           State="Ready" />
+            </h:Step>
+          </TabItem>
+        </TabControl>
+      </TabItem>-->
     </TabControl>
 </UserControl>

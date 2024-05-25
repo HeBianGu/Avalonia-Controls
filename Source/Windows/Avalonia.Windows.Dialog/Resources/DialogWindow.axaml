@@ -55,6 +55,10 @@
                                               ContentTemplate="{TemplateBinding ContentTemplate}" />
                         </DockPanel>
                     </VisualLayerManager>
+                    <Image IsHitTestVisible="False"
+                           Opacity="0.4"
+                           Source="{Binding Source={x:Static h:WindowSetting.Instance}, Path=BackImage}"
+                           Stretch="UniformToFill" />
                 </Panel>
             </ControlTemplate>
         </Setter>

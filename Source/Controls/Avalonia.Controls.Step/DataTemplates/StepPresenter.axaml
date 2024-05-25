@@ -1,0 +1,16 @@
+<DataTemplate xmlns="https://github.com/avaloniaui"
+              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+              xmlns:h="https://github.com/HeBianGu"
+              xmlns:local="clr-namespace:Avalonia.Controls.Step"
+              DataType="local:StepPresenter">
+    <local:Step ItemsSource="{Binding Collection}">
+        <ItemsControl.ItemsPanel>
+            <ItemsPanelTemplate>
+                <StackPanel HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            IsItemsHost="True"
+                            Orientation="{Binding Orientation}" />
+            </ItemsPanelTemplate>
+        </ItemsControl.ItemsPanel>
+    </local:Step>
+</DataTemplate>
