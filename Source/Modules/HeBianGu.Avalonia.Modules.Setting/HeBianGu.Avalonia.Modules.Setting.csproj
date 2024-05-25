@@ -8,6 +8,6 @@
   <ItemGroup>
     <ProjectReference Include="..\..\Controls\HeBianGu.Avalonia.Controls.Form\HeBianGu.Avalonia.Controls.Form.csproj" />
     <ProjectReference Include="..\..\Cores\Avalonia.Ioc\Avalonia.Ioc.csproj" />
-    <ProjectReference Include="..\..\Extensions\HeBianGu.Avalonia.Extensions.Setting\HeBianGu.Avalonia.Extensions.Setting.csproj" />
+    <ProjectReference Include="..\..\Extensions\Avalonia.Extensions.Setting\Avalonia.Extensions.Setting.csproj" />
   </ItemGroup>
 </Project>

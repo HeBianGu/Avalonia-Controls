@@ -4,7 +4,7 @@ using Avalonia.Markup.Xaml;
 using Avalonia.Markup.Xaml.Styling;
 using HeBianGu.Avalonia.Controls.Form;
 using Avalonia.Ioc;
-using HeBianGu.Avalonia.Extensions.Setting;
+using Avalonia.Extensions.Setting;
 using Avalonia.Theme;
 using System;
 using System.Collections.Generic;

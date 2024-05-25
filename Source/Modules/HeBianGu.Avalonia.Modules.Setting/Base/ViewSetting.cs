@@ -2,7 +2,7 @@
 
 
 using Avalonia.Ioc;
-using HeBianGu.Avalonia.Extensions.Setting;
+using Avalonia.Extensions.Setting;
 using System.ComponentModel.DataAnnotations;
 
 namespace HeBianGu.Avalonia.Modules.Setting

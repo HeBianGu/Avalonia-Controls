@@ -11,6 +11,6 @@
   <ItemGroup>
     <ProjectReference Include="..\..\Extensions\Avalonia.Extensions.ResourceKey\Avalonia.Extensions.ResourceKey.csproj" />
     <ProjectReference Include="..\..\Extensions\Avalonia.Extensions.Application\Avalonia.Extensions.Application.csproj" />
-    <ProjectReference Include="..\..\Extensions\HeBianGu.Avalonia.Extensions.Setting\HeBianGu.Avalonia.Extensions.Setting.csproj" />
+    <ProjectReference Include="..\..\Extensions\Avalonia.Extensions.Setting\Avalonia.Extensions.Setting.csproj" />
   </ItemGroup>
 </Project>

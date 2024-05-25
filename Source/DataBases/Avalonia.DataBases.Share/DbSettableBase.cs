@@ -1,7 +1,7 @@
 ﻿
 using Avalonia.Ioc;
 using Avalonia.Mvvm;
-using HeBianGu.Avalonia.Extensions.Setting;
+using Avalonia.Extensions.Setting;
 
 
 

@@ -9,8 +9,8 @@
     <ProjectReference Include="..\..\Cores\Avalonia.Ioc\Avalonia.Ioc.csproj" />
     <ProjectReference Include="..\..\Cores\Avalonia.Mvvm\Avalonia.Mvvm.csproj" />
     <ProjectReference Include="..\..\Extensions\Avalonia.Extensions.Application\Avalonia.Extensions.Application.csproj" />
-    <ProjectReference Include="..\..\Extensions\HeBianGu.Avalonia.Extensions.Command\HeBianGu.Avalonia.Extensions.Command.csproj" />
-    <ProjectReference Include="..\..\Extensions\HeBianGu.Avalonia.Extensions.Setting\HeBianGu.Avalonia.Extensions.Setting.csproj" />
+    <ProjectReference Include="..\..\Extensions\Avalonia.Extensions.Command\Avalonia.Extensions.Command.csproj" />
+    <ProjectReference Include="..\..\Extensions\Avalonia.Extensions.Setting\Avalonia.Extensions.Setting.csproj" />
     <ProjectReference Include="..\..\Windows\HeBianGu.Avalonia.Windows.Dialog\HeBianGu.Avalonia.Windows.Dialog.csproj" />
   </ItemGroup>
 </Project>

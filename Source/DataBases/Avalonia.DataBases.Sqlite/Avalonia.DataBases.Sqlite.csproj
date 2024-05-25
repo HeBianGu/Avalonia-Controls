@@ -12,7 +12,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Cores\Avalonia.Ioc\Avalonia.Ioc.csproj" />
-    <ProjectReference Include="..\..\Extensions\HeBianGu.Avalonia.Extensions.Setting\HeBianGu.Avalonia.Extensions.Setting.csproj" />
+    <ProjectReference Include="..\..\Extensions\Avalonia.Extensions.Setting\Avalonia.Extensions.Setting.csproj" />
   </ItemGroup>
   <Import Project="..\Avalonia.DataBases.Share\Avalonia.DataBases.Share.projitems" Label="Shared" />
 </Project>
