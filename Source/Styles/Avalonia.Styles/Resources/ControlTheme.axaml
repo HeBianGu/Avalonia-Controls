@@ -18,5 +18,6 @@
     <ResourceInclude Source="avares://Avalonia.Styles/Controls/ProgressBar.axaml" />
     <ResourceInclude Source="avares://Avalonia.Styles/Controls/TreeView.axaml" />
     <ResourceInclude Source="avares://Avalonia.Styles/Controls/TreeViewItem.axaml" />
+    <ResourceInclude Source="avares://Avalonia.Styles/Controls/Slider.axaml" />
   </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>
