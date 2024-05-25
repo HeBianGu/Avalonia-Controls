@@ -23,5 +23,16 @@ namespace Avalonia.Modules.Messages.Notice
             }
         }
         public int Level { get; set; }
+
+        private Brush _iconBrush;
+        public Brush IconBrush
+        {
+            get { return _iconBrush; }
+            set
+            {
+                _iconBrush = value;
+                RaisePropertyChanged();
+            }
+        }
     }
 }

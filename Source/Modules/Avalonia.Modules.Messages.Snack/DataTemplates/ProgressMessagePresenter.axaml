@@ -1,0 +1,57 @@
+<DataTemplate xmlns="https://github.com/avaloniaui"
+              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+              xmlns:h="https://github.com/HeBianGu"
+              xmlns:local="clr-namespace:Avalonia.Modules.Messages.Snack"
+              DataType="local:ProgressMessagePresenter">
+    <!--  Add Resources Here  -->
+    <Grid Width="350"
+          Height="60"
+          Margin="0,0,5,5"
+          ToolTip.Tip="{Binding Message}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50" />
+            <ColumnDefinition />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+        <Border Grid.ColumnSpan="5"
+                Background="{DynamicResource {x:Static h:BrushKeys.Background}}"
+                BorderBrush="{DynamicResource {x:Static h:BrushKeys.BorderBrush}}"
+                BorderThickness="1"
+                CornerRadius="2" />
+        <Grid Width="25" Height="25">
+            <Grid.Background>
+                <DrawingBrush>
+                    <DrawingBrush.Drawing>
+                        <GeometryDrawing Brush="{DynamicResource {x:Static h:BrushKeys.Foreground}}" Geometry="{Binding Geometry}" />
+                    </DrawingBrush.Drawing>
+                </DrawingBrush>
+            </Grid.Background>
+        </Grid>
+        <StackPanel Grid.Column="1"
+                    VerticalAlignment="Center"
+                    TextBlock.Foreground="{DynamicResource {x:Static h:BrushKeys.Foreground}}">
+            <TextBlock Margin="0,2"
+                       HorizontalAlignment="Right"
+                       Text="{Binding Message}"
+                       TextTrimming="CharacterEllipsis" />
+            <ProgressBar Height="10"
+                         Margin="0,5"
+                         Padding="2"
+                         Maximum="100.0"
+                         Minimum="0.0"
+                         Value="{Binding Value}" />
+            <TextBlock Text="{Binding Time}" />
+        </StackPanel>
+        <Button Grid.Column="2"
+                Margin="5,0"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                Content="{x:Static h:Geometrys.Close}"
+                Theme="{DynamicResource {x:Static h:ButtonKeys.Geometry}}">
+            <!--<b:Interaction.Behaviors>
+        <h:ButtonRemoveItemBehavior />
+      </b:Interaction.Behaviors>-->
+        </Button>
+
+    </Grid>
+</DataTemplate>

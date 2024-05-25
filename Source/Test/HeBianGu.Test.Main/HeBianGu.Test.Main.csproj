@@ -37,6 +37,7 @@
     <ProjectReference Include="..\..\Controls\HeBianGu.Controls.MultiComboBox\HeBianGu.Controls.MultiComboBox.csproj" />
     <ProjectReference Include="..\..\Controls\HeBianGu.Controls.TemplateControl\HeBianGu.Controls.TemplateControl.csproj" />
     <ProjectReference Include="..\..\Cores\Avalonia.Ioc\Avalonia.Ioc.csproj" />
+    <ProjectReference Include="..\..\Datas\Avalonia.Datas.Test\Avalonia.Datas.Test.csproj" />
     <ProjectReference Include="..\..\Extensions\Avalonia.Extensions.BackgroundImage\Avalonia.Extensions.BackgroundImage.csproj" />
     <ProjectReference Include="..\..\Extensions\Avalonia.Extensions.Application\Avalonia.Extensions.Application.csproj" />
     <ProjectReference Include="..\..\Extensions\Avalonia.Extensions.Common\Avalonia.Extensions.Common.csproj" />

@@ -1,18 +1,19 @@
-﻿// Copyright © 2024 By HeBianGu(QQ:908293466) https://github.com/HeBianGu/WPF-Control
-
-using Avalonia.Modules.Messages.Snack;
+﻿using Avalonia.Extensions.Geometry;
 using Avalonia.Mvvm;
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Avalonia.Modules.Messages.Snack
+namespace Avalonia.Modules.Messages.Notice
 {
-    public class DialogMessagePresenter : SnackMessagePresenterBase
+    public class DialogMessagePresenter : MessagePresenterBase
     {
         public DialogMessagePresenter()
         {
-            //this.Geometry = GeometryFactory.Create(Geometrys.Dalog);
+            this.Geometry = GeometryFactory.Create(Geometrys.Dalog);
         }
         public Predicate<DialogMessagePresenter> IsMatch { get; set; }
         public RelayCommand SumitCommand => new RelayCommand((s, e) =>

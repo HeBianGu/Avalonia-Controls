@@ -22,5 +22,16 @@ namespace Avalonia.Modules.Messages.Snack
             }
         }
         public int Level { get; set; }
+
+        private Brush _iconBrush;
+        public Brush IconBrush
+        {
+            get { return _iconBrush; }
+            set
+            {
+                _iconBrush = value;
+                RaisePropertyChanged();
+            }
+        }
     }
 }

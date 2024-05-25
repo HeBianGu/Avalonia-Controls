@@ -1,15 +1,16 @@
-﻿// Copyright © 2024 By HeBianGu(QQ:908293466) https://github.com/HeBianGu/WPF-Control
-
-using Avalonia.Extensions.Geometry;
-using Avalonia.Modules.Messages.Notice;
+﻿using Avalonia.Extensions.Geometry;
+using Avalonia.Modules.Messages.Snack;
 using Avalonia.Mvvm;
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Avalonia.Modules.Messages.Notice
+namespace Avalonia.Modules.Messages.Snack
 {
-    public class DialogMessagePresenter : MessagePresenterBase
+    public class DialogMessagePresenter : SnackMessagePresenterBase
     {
         public DialogMessagePresenter()
         {

@@ -14,4 +14,12 @@
     <ProjectReference Include="..\..\Themes\Avalonia.Theme\Avalonia.Theme.csproj" />
     <ProjectReference Include="..\Avalonia.Modules.Messages.Dialog\Avalonia.Modules.Messages.Dialog.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <Compile Update="DataTemplates\DialogMessagePresenter.axaml.cs">
+      <DependentUpon>%(Filename)</DependentUpon>
+    </Compile>
+    <Compile Update="DataTemplates\ProgressMessagePresenter.axaml.cs">
+      <DependentUpon>%(Filename)</DependentUpon>
+    </Compile>
+  </ItemGroup>
 </Project>

@@ -25,7 +25,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HeBianGu.Test.Style.Android
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HeBianGu.Test.Style.Desktop", "..\Source\Test\HeBianGu.Test.Style.Desktop\HeBianGu.Test.Style.Desktop.csproj", "{C04C3008-F055-4D17-90D1-C4D00A88ED4F}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Test", "1 - Test", "{C4BE41AE-DD8E-4D34-9951-5BADAF85BE53}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Tests", "1 - Tests", "{C4BE41AE-DD8E-4D34-9951-5BADAF85BE53}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Controls", "3 - Controls", "{3B623333-0D74-4C71-BD6E-57FB1AB51512}"
 EndProject
@@ -79,37 +79,37 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avalonia.Test.Sqlite.Androi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avalonia.Test.Sqlite.Desktop", "..\Source\Test\Avalonia.Test.Sqlite.Desktop\Avalonia.Test.Sqlite.Desktop.csproj", "{44A24814-9030-4018-AE68-8A8DD645E8BA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avalonia.Styles.Extension", "..\Source\Styles\Avalonia.Styles.Extension\Avalonia.Styles.Extension.csproj", "{E90B1BEA-7832-4355-AB62-5DA27377103D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avalonia.Styles.Extension", "..\Source\Styles\Avalonia.Styles.Extension\Avalonia.Styles.Extension.csproj", "{E90B1BEA-7832-4355-AB62-5DA27377103D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avalonia.Extensions.ResourceKey", "..\Source\Extensions\Avalonia.Extensions.ResourceKey\Avalonia.Extensions.ResourceKey.csproj", "{17474220-0972-456E-BFE4-30D426649343}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avalonia.Extensions.ResourceKey", "..\Source\Extensions\Avalonia.Extensions.ResourceKey\Avalonia.Extensions.ResourceKey.csproj", "{17474220-0972-456E-BFE4-30D426649343}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avalonia.Theme", "..\Source\Themes\Avalonia.Theme\Avalonia.Theme.csproj", "{3CDE8127-33E3-4CFC-B54D-E4F2E998D2EA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avalonia.Theme", "..\Source\Themes\Avalonia.Theme\Avalonia.Theme.csproj", "{3CDE8127-33E3-4CFC-B54D-E4F2E998D2EA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avalonia.Extensions.Application", "..\Source\Extensions\Avalonia.Extensions.Application\Avalonia.Extensions.Application.csproj", "{CADCF607-B51D-42B7-8C98-91EA546952CB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avalonia.Extensions.Application", "..\Source\Extensions\Avalonia.Extensions.Application\Avalonia.Extensions.Application.csproj", "{CADCF607-B51D-42B7-8C98-91EA546952CB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avalonia.Ioc", "..\Source\Cores\Avalonia.Ioc\Avalonia.Ioc.csproj", "{FF53DC83-C4A2-450D-B4F6-D09AA79BDAF9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avalonia.Ioc", "..\Source\Cores\Avalonia.Ioc\Avalonia.Ioc.csproj", "{FF53DC83-C4A2-450D-B4F6-D09AA79BDAF9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avalonia.Mvvm", "..\Source\Cores\Avalonia.Mvvm\Avalonia.Mvvm.csproj", "{E6F8C511-E211-4478-9604-9A21AE8FD8F5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avalonia.Mvvm", "..\Source\Cores\Avalonia.Mvvm\Avalonia.Mvvm.csproj", "{E6F8C511-E211-4478-9604-9A21AE8FD8F5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avalonia.Extensions.Setting", "..\Source\Extensions\Avalonia.Extensions.Setting\Avalonia.Extensions.Setting.csproj", "{5096F350-B5A7-4F3E-AB7F-D307F739D7E6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avalonia.Extensions.Setting", "..\Source\Extensions\Avalonia.Extensions.Setting\Avalonia.Extensions.Setting.csproj", "{5096F350-B5A7-4F3E-AB7F-D307F739D7E6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avalonia.Extensions.MarkupExtesion", "..\Source\Extensions\Avalonia.Extensions.MarkupExtesion\Avalonia.Extensions.MarkupExtesion.csproj", "{45284E53-2865-414F-86EE-24F051531F46}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avalonia.Extensions.MarkupExtesion", "..\Source\Extensions\Avalonia.Extensions.MarkupExtesion\Avalonia.Extensions.MarkupExtesion.csproj", "{45284E53-2865-414F-86EE-24F051531F46}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avalonia.Extensions.ValueConverter", "..\Source\Extensions\Avalonia.Extensions.ValueConverter\Avalonia.Extensions.ValueConverter.csproj", "{F87D5991-0918-4821-8A02-E37E60DF47D9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avalonia.Extensions.ValueConverter", "..\Source\Extensions\Avalonia.Extensions.ValueConverter\Avalonia.Extensions.ValueConverter.csproj", "{F87D5991-0918-4821-8A02-E37E60DF47D9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avalonia.Extensions.Behavior", "..\Source\Extensions\Avalonia.Extensions.Behavior\Avalonia.Extensions.Behavior.csproj", "{0080CB52-6DB3-4042-90C4-552C49BB902E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avalonia.Extensions.Behavior", "..\Source\Extensions\Avalonia.Extensions.Behavior\Avalonia.Extensions.Behavior.csproj", "{0080CB52-6DB3-4042-90C4-552C49BB902E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avalonia.Extensions.Command", "..\Source\Extensions\Avalonia.Extensions.Command\Avalonia.Extensions.Command.csproj", "{027B4EBE-DA58-4BB9-A7BD-C0468827B13D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avalonia.Extensions.Command", "..\Source\Extensions\Avalonia.Extensions.Command\Avalonia.Extensions.Command.csproj", "{027B4EBE-DA58-4BB9-A7BD-C0468827B13D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avalonia.Extensions.Common", "..\Source\Extensions\Avalonia.Extensions.Common\Avalonia.Extensions.Common.csproj", "{F304BE5C-12E2-4E42-8DC7-89788B122C87}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avalonia.Extensions.Common", "..\Source\Extensions\Avalonia.Extensions.Common\Avalonia.Extensions.Common.csproj", "{F304BE5C-12E2-4E42-8DC7-89788B122C87}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avalonia.Windows.Dialog", "..\Source\Windows\Avalonia.Windows.Dialog\Avalonia.Windows.Dialog.csproj", "{71EB4184-DBD7-47E6-89B5-3D58BF664C0F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avalonia.Windows.Dialog", "..\Source\Windows\Avalonia.Windows.Dialog\Avalonia.Windows.Dialog.csproj", "{71EB4184-DBD7-47E6-89B5-3D58BF664C0F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avalonia.Modules.Login", "..\Source\Modules\Avalonia.Modules.Login\Avalonia.Modules.Login.csproj", "{E47021DC-99D7-4761-9479-A1658E48BE5C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avalonia.Modules.Login", "..\Source\Modules\Avalonia.Modules.Login\Avalonia.Modules.Login.csproj", "{E47021DC-99D7-4761-9479-A1658E48BE5C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avalonia.Modules.Setting", "..\Source\Modules\Avalonia.Modules.Setting\Avalonia.Modules.Setting.csproj", "{7ECF98F2-98F1-4741-A1DC-9BDFE08BA596}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avalonia.Modules.Setting", "..\Source\Modules\Avalonia.Modules.Setting\Avalonia.Modules.Setting.csproj", "{7ECF98F2-98F1-4741-A1DC-9BDFE08BA596}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avalonia.Controls.Form", "..\Source\Controls\Avalonia.Controls.Form\Avalonia.Controls.Form.csproj", "{56315C33-B3B8-46DB-82A0-3AF80292D588}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avalonia.Controls.Form", "..\Source\Controls\Avalonia.Controls.Form\Avalonia.Controls.Form.csproj", "{56315C33-B3B8-46DB-82A0-3AF80292D588}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".sln", ".sln", "{AD4F47D9-124C-434E-BEE6-39A988ED2857}"
 	ProjectSection(SolutionItems) = preProject
@@ -119,7 +119,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".sln", ".sln", "{AD4F47D9-1
 		..\README.md = ..\README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avalonia.Controls.Step", "..\Source\Controls\Avalonia.Controls.Step\Avalonia.Controls.Step.csproj", "{693B4637-F249-429E-AE99-C44C8A395840}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avalonia.Controls.Step", "..\Source\Controls\Avalonia.Controls.Step\Avalonia.Controls.Step.csproj", "{693B4637-F249-429E-AE99-C44C8A395840}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Datas", "2 - Datas", "{8AC51F66-3C46-46F3-BB2E-6331BB477290}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avalonia.Datas.Test", "..\Source\Datas\Avalonia.Datas.Test\Avalonia.Datas.Test.csproj", "{3054EF9D-4B8F-402B-B833-93D4085FA9A1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -309,6 +313,10 @@ Global
 		{693B4637-F249-429E-AE99-C44C8A395840}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{693B4637-F249-429E-AE99-C44C8A395840}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{693B4637-F249-429E-AE99-C44C8A395840}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3054EF9D-4B8F-402B-B833-93D4085FA9A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3054EF9D-4B8F-402B-B833-93D4085FA9A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3054EF9D-4B8F-402B-B833-93D4085FA9A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3054EF9D-4B8F-402B-B833-93D4085FA9A1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -360,6 +368,7 @@ Global
 		{7ECF98F2-98F1-4741-A1DC-9BDFE08BA596} = {B0715156-EC67-4A7A-8F6A-C2965322DA49}
 		{56315C33-B3B8-46DB-82A0-3AF80292D588} = {3B623333-0D74-4C71-BD6E-57FB1AB51512}
 		{693B4637-F249-429E-AE99-C44C8A395840} = {3B623333-0D74-4C71-BD6E-57FB1AB51512}
+		{3054EF9D-4B8F-402B-B833-93D4085FA9A1} = {8AC51F66-3C46-46F3-BB2E-6331BB477290}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EC68E9A1-91AC-4B6A-B817-573F85D4F550}
