@@ -19,6 +19,7 @@ namespace Avalonia.Modules.ThemeSetting
                 x.HorizontalContentAlignment= HorizontalAlignment.Right;
                 x.VerticalAlignment= VerticalAlignment.Stretch;
                 x.VerticalContentAlignment= VerticalAlignment.Stretch;
+                x.MinWidth = 200;
                 x.Margin= new Thickness(2);
                 if (x is Window window)
                 {

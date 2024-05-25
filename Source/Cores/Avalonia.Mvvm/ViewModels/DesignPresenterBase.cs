@@ -71,8 +71,8 @@ namespace Avalonia.Mvvm
             }
         }
 
-        private double _minHeight = double.NaN;
-        [DefaultValue(double.NaN)]
+        private double _minHeight = 100;
+        [DefaultValue(100)]
         [Display(Name = "最小高度", GroupName = "布局")]
         //[TypeConverter(typeof(LengthConverter))]
         public double MinHeight
@@ -85,8 +85,8 @@ namespace Avalonia.Mvvm
             }
         }
 
-        private double _minWidth = double.NaN;
-        [DefaultValue(double.NaN)]
+        private double _minWidth = 200;
+        [DefaultValue(200)]
         [Display(Name = "最小宽度", GroupName = "布局")]
         //[TypeConverter(typeof(LengthConverter))]
         public double MinWidth
