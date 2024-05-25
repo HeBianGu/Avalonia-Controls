@@ -218,7 +218,7 @@ as set out in XAML.</TextBlock>
         </TabItem>
         <TabItem Header="ComboBox">
             <StackPanel Margin="20">
-                <ComboBox MaxDropDownHeight="100" SelectedIndex="0">
+                <ComboBox SelectedIndex="0">
                     <ComboBoxItem>Text Item 1</ComboBoxItem>
                     <ComboBoxItem>Text Item 2</ComboBoxItem>
                     <ComboBoxItem>Text Item 3</ComboBoxItem>
@@ -454,13 +454,19 @@ as set out in XAML.</TextBlock>
             <TreeDataGrid Source="{Binding PersonSource}" />
         </TabItem>
         <TabItem Header="TreeView">
-            <TreeView ItemsSource="{Binding Nodes}">
+            <!--<TreeView ItemsSource="{Binding Nodes}">
                 <TreeView.ItemTemplate>
                     <TreeDataTemplate ItemsSource="{Binding SubNodes}">
                         <TextBlock Text="{Binding Title}" />
                     </TreeDataTemplate>
                 </TreeView.ItemTemplate>
-            </TreeView>
+            </TreeView>-->
+          <TreeView>
+            <TreeViewItem Header="Root" IsExpanded="True">
+              <TreeViewItem Header="Child1"/>
+              <TreeViewItem Header="Child2"/>
+            </TreeViewItem>
+          </TreeView>
         </TabItem>
         <TabItem Header="UniformGrid">
             <UniformGrid Width="300"

@@ -12,6 +12,8 @@ public partial class MainView : UserControl
         animals.ItemsSource = new string[]
           {"cat", "camel", "cow", "chameleon", "mouse", "lion", "zebra" }
       .OrderBy(x => x);
+
+        //ComboBox ss;
     }
 
     public void Next(object source, RoutedEventArgs args)
