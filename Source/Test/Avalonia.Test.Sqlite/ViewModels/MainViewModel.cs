@@ -4,8 +4,7 @@ using System;
 using System.Collections.ObjectModel;
 using System.Reactive.Linq;
 using System.Threading.Tasks;
-using Avalonia.Mvvm.ViewModels;
-using Avalonia.Mvvm.Commands;
+using Avalonia.Mvvm;
 
 namespace Avalonia.Test.Sqlite.ViewModels;
 
@@ -16,7 +15,7 @@ public class MainViewModel : BindableBase
     private readonly IStringRepository<mbc_dv_image> _imageRepository;
     public MainViewModel()
     {
-        _imageRepository = Ioc.GetService<IStringRepository<mbc_dv_image>>();
+        _imageRepository =System.Ioc.GetService<IStringRepository<mbc_dv_image>>();
         this.RefreshData();
     }
 

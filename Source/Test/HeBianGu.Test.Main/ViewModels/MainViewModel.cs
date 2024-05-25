@@ -5,14 +5,14 @@ using Avalonia.Modules.Messages.Dialog;
 using Avalonia.Styles;
 using Avalonia.Ioc;
 using HeBianGu.Test.Main.Views;
-using ReactiveUI;
 using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel.Design;
 using System.Linq;
 using System.Net.Http.Headers;
 using System.Windows.Input;
-using Avalonia.Mvvm.Commands;
+using Avalonia.Mvvm;
+using ReactiveUI;
 
 namespace HeBianGu.Test.Main.ViewModels;
 
