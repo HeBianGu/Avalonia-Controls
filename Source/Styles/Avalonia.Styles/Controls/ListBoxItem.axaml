@@ -61,9 +61,9 @@
 
             <!--  Selected Unfocused State  -->
             <Style Selector="^:not(:focus) /template/ ContentPresenter#PART_ContentPresenter">
-                <!--<Setter Property="Background" Value="{DynamicResource {x:Static h:BrushKeys.Selected}}" />
-        <Setter Property="Foreground" Value="{DynamicResource {x:Static h:BrushKeys.ForegroundTitle}}" />-->
-                <Setter Property="Opacity" Value="{DynamicResource {x:Static h:LayoutKeys.Disabled}}" />
+                <!--<Setter Property="Background" Value="{DynamicResource {x:Static h:BrushKeys.Selected}}" />-->
+                <!--<Setter Property="Foreground" Value="{DynamicResource {x:Static h:BrushKeys.ForegroundTitle}}" />-->
+                <!--<Setter Property="Opacity" Value="{DynamicResource {x:Static h:LayoutKeys.Disabled}}" />-->
             </Style>
 
             <!--  Selected PointerOver State  -->

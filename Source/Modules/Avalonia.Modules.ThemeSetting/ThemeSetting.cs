@@ -28,8 +28,14 @@ namespace Avalonia.Modules.ThemeSetting
             this.ColorResources.Add(new DarkGrayColorResource());
             this.ColorResources.Add(new DarkPurpleColorResource());
             this.ColorResources.Add(new DarkBlueColorResource());
+            this.ColorResources.Add(new DarkTransparentColorResource());
 
             this.ColorResources.Add(new LightColorResource());
+            this.ColorResources.Add(new LightGrayColorResource());
+            this.ColorResources.Add(new LightPurpleColorResource());
+            this.ColorResources.Add(new LightBlueColorResource());
+            this.ColorResources.Add(new LightTransparentColorResource());
+
             this.ColorResources.Add(new AccentColorResource());
             this.ColorResources.Add(new AccentLightColorResource());
             this.ColorResource = this.ColorResources.FirstOrDefault();

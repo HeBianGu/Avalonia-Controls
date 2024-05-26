@@ -17,7 +17,7 @@
 
     <!--  Foreground  -->
     <SolidColorBrush x:Key="{StringResourceKey ResourceId=S.Brush.CaptionForeground, TypeInTargetAssembly={x:Type local:BrushKeys}}" Color="#c2c0de" />
-    <SolidColorBrush x:Key="{StringResourceKey ResourceId=S.Brush.TextForeground.Title, TypeInTargetAssembly={x:Type local:BrushKeys}}" Color="#c3cbd9" />
+    <SolidColorBrush x:Key="{StringResourceKey ResourceId=S.Brush.TextForeground.Title, TypeInTargetAssembly={x:Type local:BrushKeys}}" Color="#ffffff" />
     <SolidColorBrush x:Key="{StringResourceKey ResourceId=S.Brush.TextForeground, TypeInTargetAssembly={x:Type local:BrushKeys}}" Color="#c2c0de" />
     <SolidColorBrush x:Key="{StringResourceKey ResourceId=S.Brush.TextForeground.Disabled, TypeInTargetAssembly={x:Type local:BrushKeys}}" Color="#7470a2" />
 
@@ -61,4 +61,9 @@
     <SolidColorBrush x:Key="{StringResourceKey ResourceId=S.Brush.Dark.0.2, TypeInTargetAssembly={x:Type local:BrushKeys}}" Color="#3e3b5f" />
     <SolidColorBrush x:Key="{StringResourceKey ResourceId=S.Brush.Dark.0.1, TypeInTargetAssembly={x:Type local:BrushKeys}}" Color="#3a3758" />
     <SolidColorBrush x:Key="{StringResourceKey ResourceId=S.Brush.Dark.0, TypeInTargetAssembly={x:Type local:BrushKeys}}" Color="#353352" />
+
+  <SolidColorBrush x:Key="{StringResourceKey ResourceId=S.Brush.Dialog.Cover,
+                                                     TypeInTargetAssembly={x:Type local:BrushKeys}}"
+               Opacity="0.8"
+               Color="#3a4250" />
 </ResourceDictionary>

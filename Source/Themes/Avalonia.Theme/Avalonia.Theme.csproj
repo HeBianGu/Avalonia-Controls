@@ -14,4 +14,9 @@
     <ProjectReference Include="..\..\Extensions\Avalonia.Extensions.Application\Avalonia.Extensions.Application.csproj" />
     <ProjectReference Include="..\..\Extensions\Avalonia.Extensions.Setting\Avalonia.Extensions.Setting.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <AvaloniaXaml Update="Brushes\Light.Transparent.axaml">
+      <SubType>Designer</SubType>
+    </AvaloniaXaml>
+  </ItemGroup>
 </Project>

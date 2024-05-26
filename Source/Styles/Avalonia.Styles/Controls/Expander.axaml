@@ -103,13 +103,13 @@
         <!--  PointerOver  -->
         <Style Selector="^:pointerover /template/ Border#ToggleButtonBackground">
             <Setter Property="Background" Value="{DynamicResource {x:Static h:BrushKeys.Selected}}" />
-            <Setter Property="BorderBrush" Value="{DynamicResource {x:Static h:BrushKeys.BorderBrushTitle}}" />
+            <!--<Setter Property="BorderBrush" Value="{DynamicResource {x:Static h:BrushKeys.BorderBrushTitle}}" />-->
         </Style>
         <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
             <Setter Property="Foreground" Value="{DynamicResource {x:Static h:BrushKeys.ForegroundTitle}}" />
         </Style>
         <Style Selector="^:pointerover /template/ Border#ExpandCollapseChevronBorder">
-            <Setter Property="Background" Value="{DynamicResource {x:Static h:BrushKeys.BorderBrush}}" />
+            <!--<Setter Property="Background" Value="{DynamicResource {x:Static h:BrushKeys.BorderBrush}}" />-->
             <!--<Setter Property="BorderBrush" Value="{DynamicResource ExpanderChevronBorderBrushPointerOver}" />-->
         </Style>
         <Style Selector="^:pointerover /template/ Path#ExpandCollapseChevron">

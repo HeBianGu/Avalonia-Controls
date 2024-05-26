@@ -13,17 +13,17 @@ namespace HeBianGu.Controls.TemplateControl
 
             Button btnSearch = e.NameScope.Find<Button>("btnSearch");
 
-            btnSearch.Click += (s, e) =>
+            //btnSearch.Click += (s, e) =>
 
-            {
+            //{
 
-                //在内部按钮的事件中，执行外部注册的 OnSearch 事件
+            //    //在内部按钮的事件中，执行外部注册的 OnSearch 事件
 
-                //RoutedEventArgs args = new RoutedEventArgs(OnSearchEvent);
+            //    //RoutedEventArgs args = new RoutedEventArgs(OnSearchEvent);
 
-                //RaiseEvent(args);
+            //    //RaiseEvent(args);
 
-            };
+            //};
         }
     }
 }
