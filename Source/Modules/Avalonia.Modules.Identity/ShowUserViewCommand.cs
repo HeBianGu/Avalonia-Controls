@@ -6,13 +6,13 @@ using Avalonia.Layout;
 using Avalonia.Mvvm;
 using System;
 
-namespace Avalonia.Modules.Operation
+namespace Avalonia.Modules.Identity
 {
-    public class ShowOperationCommand : MarkupCommandBase
+    public class ShowUserViewCommand : MarkupCommandBase
     {
         public override async void Execute(object parameter)
         {
-            OperationViewPresenter setting = new OperationViewPresenter();
+            UserViewPresenter setting = new UserViewPresenter();
             bool? r = await IocMessage.Dialog.Show(setting, x =>
             {
                 x.MinHeight = 500;
@@ -26,6 +26,8 @@ namespace Avalonia.Modules.Operation
                     window.VerticalContentAlignment = VerticalAlignment.Stretch;
                 }
             });
+            await setting.ViewModel.Save();
+
         }
     }
 }

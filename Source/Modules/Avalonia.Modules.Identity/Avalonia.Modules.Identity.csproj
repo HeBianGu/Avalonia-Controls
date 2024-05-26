@@ -1,0 +1,45 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Avalonia" Version="11.0.2" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Avalonia" Version="11.0.2" />
+    <PackageReference Include="Avalonia.Controls.DataGrid" Version="11.0.2" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="7.0.19" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.19">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="7.0.19" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.19" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.19">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Controls\Avalonia.Controls.Form\Avalonia.Controls.Form.csproj" />
+    <ProjectReference Include="..\..\Cores\Avalonia.Ioc\Avalonia.Ioc.csproj" />
+    <ProjectReference Include="..\..\Extensions\Avalonia.Extensions.Repository\Avalonia.Extensions.Repository.csproj" />
+    <ProjectReference Include="..\..\Extensions\Avalonia.Extensions.Setting\Avalonia.Extensions.Setting.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="DataTemplates\RoleEditPresenter.axaml.cs">
+      <DependentUpon>RoleEditPresenter.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="DataTemplates\RoleViewPresenter.axaml.cs">
+      <DependentUpon>RoleViewPresenter.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="DataTemplates\UserViewPresenter.axaml.cs">
+      <DependentUpon>UserViewPresenter.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="DataTemplates\AuthorityViewPresenter.axaml.cs">
+      <DependentUpon>AuthorityViewPresenter.axaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+</Project>

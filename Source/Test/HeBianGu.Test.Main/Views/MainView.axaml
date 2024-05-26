@@ -331,10 +331,11 @@
                     <DataGrid AutoGenerateColumns="True"
                               CanUserReorderColumns="True"
                               CanUserResizeColumns="True"
-                              CanUserSortColumns="True"  IsReadOnly="True"
+                              CanUserSortColumns="True"
                               ColumnWidth="*"
                               GridLinesVisibility="All"
                               HeadersVisibility="All"
+                              IsReadOnly="True"
                               ItemsSource="{h:GetStudents}"
                               MaxColumnWidth="200"
                               RowDetailsVisibilityMode="VisibleWhenSelected">
@@ -343,6 +344,19 @@
                                 <TextBlock Margin="10,6" Text="DataGrid.RowDetailsTemplate" />
                             </DataTemplate>
                         </DataGrid.RowDetailsTemplate>
+
+                        <DataGrid.Columns>
+                            <DataGridTemplateColumn Width="*" Header="操作账号">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Name}" />
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTextColumn Width="*"
+                                                Binding="{Binding Model.sMethod}"
+                                                Header="操作" />
+                        </DataGrid.Columns>
                     </DataGrid>
                 </TabItem>
             </TabControl>

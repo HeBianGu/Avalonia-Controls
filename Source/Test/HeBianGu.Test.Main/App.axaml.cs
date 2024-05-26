@@ -21,6 +21,7 @@ using Avalonia.Markup.Xaml.Templates;
 using Avalonia.Theme;
 using Avalonia.Modules.Operation;
 using Avalonia.DataBases.Share;
+using Avalonia.Modules.Identity;
 
 namespace HeBianGu.Test.Main;
 
@@ -50,6 +51,17 @@ public partial class App : ApplicationBase
         services.AddDbContextBySetting<OperationDataContext>();
         services.AddSingleton<IStringRepository<hi_dd_operation>, DbContextRepository<OperationDataContext, hi_dd_operation>>();
         services.AddOperationViewPresenter();
+
+        //  Do ：身份认证
+        services.AddDbContextBySetting<IdentifyDataContext>();
+        services.AddSingleton<IStringRepository<hi_dd_user>, DbContextRepository<IdentifyDataContext, hi_dd_user>>();
+        services.AddUserViewPresenter();
+
+        services.AddSingleton<IStringRepository<hi_dd_role>, DbContextRepository<IdentifyDataContext, hi_dd_role>>();
+        services.AddRoleViewPresenter();
+
+        services.AddSingleton<IStringRepository<hi_dd_author>, DbContextRepository<IdentifyDataContext, hi_dd_author>>();
+        services.AddAuthorityViewPresenter();
     }
 
     protected override void Configure(IApplicationBuilder app)

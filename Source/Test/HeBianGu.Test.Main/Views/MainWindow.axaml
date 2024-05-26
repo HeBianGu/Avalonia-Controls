@@ -72,8 +72,20 @@
                         Content="关于"
                         DockPanel.Dock="Right" />
 
-                <Button Command="{h:ShowOperationCommand}"
+                <Button Command="{h:ShowOperationViewCommand}"
                         Content="操作日志"
+                        DockPanel.Dock="Right" />
+
+                <Button Command="{h:ShowUserViewCommand}"
+                        Content="用户管理"
+                        DockPanel.Dock="Right" />
+
+                <Button Command="{h:ShowRoleViewCommand}"
+                        Content="角色管理"
+                        DockPanel.Dock="Right" />
+
+                <Button Command="{h:ShowAuthorityViewCommand}"
+                        Content="权限管理"
                         DockPanel.Dock="Right" />
             </DockPanel>
         </ControlTemplate>

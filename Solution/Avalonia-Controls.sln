@@ -129,6 +129,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avalonia.Modules.Operation"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avalonia.Extensions.Repository", "..\Source\Extensions\Avalonia.Extensions.Repository\Avalonia.Extensions.Repository.csproj", "{5A25ECA3-FA51-4724-931B-4703FFB0C531}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avalonia.Modules.Identity", "..\Source\Modules\Avalonia.Modules.Identity\Avalonia.Modules.Identity.csproj", "{5D570C6C-FBFE-4826-863F-8B3D7E8A9DA3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -329,6 +331,10 @@ Global
 		{5A25ECA3-FA51-4724-931B-4703FFB0C531}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5A25ECA3-FA51-4724-931B-4703FFB0C531}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5A25ECA3-FA51-4724-931B-4703FFB0C531}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D570C6C-FBFE-4826-863F-8B3D7E8A9DA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D570C6C-FBFE-4826-863F-8B3D7E8A9DA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D570C6C-FBFE-4826-863F-8B3D7E8A9DA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D570C6C-FBFE-4826-863F-8B3D7E8A9DA3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -383,6 +389,7 @@ Global
 		{3054EF9D-4B8F-402B-B833-93D4085FA9A1} = {8AC51F66-3C46-46F3-BB2E-6331BB477290}
 		{BDF697D8-4DDF-495C-82FF-32E1A5766AED} = {B0715156-EC67-4A7A-8F6A-C2965322DA49}
 		{5A25ECA3-FA51-4724-931B-4703FFB0C531} = {197618A0-BDD0-40C0-BBC3-678E58EAFF70}
+		{5D570C6C-FBFE-4826-863F-8B3D7E8A9DA3} = {B0715156-EC67-4A7A-8F6A-C2965322DA49}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EC68E9A1-91AC-4B6A-B817-573F85D4F550}

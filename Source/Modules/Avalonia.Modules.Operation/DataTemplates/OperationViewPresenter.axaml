@@ -4,13 +4,34 @@
               xmlns:local="clr-namespace:Avalonia.Modules.Operation"
               DataType="local:OperationViewPresenter">
     <DockPanel MinWidth="900" Margin="5">
-        <DataGrid AutoGenerateColumns="True"
-                  CanUserReorderColumns="True"
-                  CanUserResizeColumns="True"
-                  CanUserSortColumns="True"
+        <DataGrid AutoGenerateColumns="False"
                   GridLinesVisibility="All"
                   IsReadOnly="True"
-                  ItemsSource="{Binding Collection}" />
+                  ItemsSource="{Binding ViewModel.Collection.Source}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="*"
+                                    Binding="{Binding Model.UserName}"
+                                    Header="操作账号" />
+                <DataGridTextColumn Width="*"
+                                    Binding="{Binding Model.Method}"
+                                    Header="操作" />
+                <DataGridTextColumn Width="*"
+                                    Binding="{Binding Model.Title}"
+                                    Header="信息" />
+                <DataGridTextColumn Width="*"
+                                    Binding="{Binding Model.Message}"
+                                    Header="详情" />
+                <DataGridTextColumn Width="*"
+                                    Binding="{Binding Model.OperationType}"
+                                    Header="操作类型" />
+                <DataGridTextColumn Width="*"
+                                    Binding="{Binding Model.Result}"
+                                    Header="结果" />
+                <DataGridTextColumn Width="*"
+                                    Binding="{Binding Model.Time}"
+                                    Header="操作时间" />
+            </DataGrid.Columns>
+        </DataGrid>
         <!--<RepositoryGrid AutoGenerateColumns="False"
                     Type="{x:Type local:hi_dd_operation}"
                     UseAdd="False"
@@ -122,14 +143,4 @@
       </h:Cattach.CaptionRightTemplate>
     </RepositoryGrid>-->
     </DockPanel>
-    <!--<DataTemplate.Triggers>
-    <DataTrigger Binding="{Binding IsVisible}"
-                 Value="False">
-      <Setter Property="Visibility" Value="Collapsed" />
-    </DataTrigger>
-    <DataTrigger Binding="{Binding IsAuthority}"
-                 Value="False">
-      <Setter Property="Visibility" Value="Collapsed" />
-    </DataTrigger>
-  </DataTemplate.Triggers>-->
 </DataTemplate>

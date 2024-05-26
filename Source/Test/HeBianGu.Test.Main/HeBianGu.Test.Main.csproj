@@ -44,6 +44,7 @@
     <ProjectReference Include="..\..\Extensions\Avalonia.Extensions.Common\Avalonia.Extensions.Common.csproj" />
     <ProjectReference Include="..\..\Extensions\Avalonia.Extensions.Setting\Avalonia.Extensions.Setting.csproj" />
     <ProjectReference Include="..\..\Modules\Avalonia.Modules.About\Avalonia.Modules.About.csproj" />
+    <ProjectReference Include="..\..\Modules\Avalonia.Modules.Identity\Avalonia.Modules.Identity.csproj" />
     <ProjectReference Include="..\..\Modules\Avalonia.Modules.Messages.Dialog\Avalonia.Modules.Messages.Dialog.csproj" />
     <ProjectReference Include="..\..\Modules\Avalonia.Modules.Messages.Form\Avalonia.Modules.Messages.Form.csproj" />
     <ProjectReference Include="..\..\Modules\Avalonia.Modules.Messages.Notice\Avalonia.Modules.Messages.Notice.csproj" />

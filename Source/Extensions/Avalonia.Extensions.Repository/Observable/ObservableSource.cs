@@ -419,7 +419,6 @@ namespace Avalonia.Extensions.Repository
             //this.Source = collection.ToObservable();
             this.DelayInvoke(this.Source, func, DispatcherPriority.Input, () =>
             {
-
                 if (after == null)
                     this.SelectedItem = func.Invoke().FirstOrDefault();
                 else

@@ -34,7 +34,7 @@ namespace Avalonia.Modules.Operation
         [Display(Name = "结果")]
         public bool Result { get; set; }
 
-        [Display(Name = "操作日期")]
+        [Display(Name = "操作时间")]
         public DateTime Time { get; set; } = DateTime.Now;
     }
 }

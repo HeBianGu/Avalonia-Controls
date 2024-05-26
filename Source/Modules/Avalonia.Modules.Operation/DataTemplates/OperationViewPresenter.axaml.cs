@@ -12,41 +12,29 @@ using System.Linq;
 
 namespace Avalonia.Modules.Operation
 {
-    public class OperationViewPresenter : Avalonia.Mvvm.BindableBase, IOperationViewPresenter
+    public class OperationViewPresenter : RepositoryViewPresenterBase<hi_dd_operation>, IOperationViewPresenter
     {
-        private IStringRepository<hi_dd_operation> _r;
         public OperationViewPresenter()
         {
-            _r = System.Ioc.GetService<IStringRepository<hi_dd_operation>>();
-            this.Collection = _r.GetList().ToObservable();
-
-            _r.Insert(new hi_dd_operation());
+            this.ViewModel.RefreshData();
         }
-
-        ///// <summary> 说明  </summary>
-        //public IRepositoryBindable<hi_dd_operation> ViewModel
+        //private IStringRepository<hi_dd_operation> _r;
+        //public OperationViewPresenter()
         //{
-        //    get { return _viewModel; }
-        //    set
-        //    {
-        //        _viewModel = value;
-        //        RaisePropertyChanged();
-        //    }
+        //    _r = System.Ioc.GetService<IStringRepository<hi_dd_operation>>();
+        //    this.Collection = _r.GetList().ToObservable();
         //}
 
-
-        private ObservableCollection<hi_dd_operation> _collection = new ObservableCollection<hi_dd_operation>();
-        /// <summary> 说明  </summary>
-        public ObservableCollection<hi_dd_operation> Collection
-        {
-            get { return _collection; }
-            set
-            {
-                _collection = value;
-                RaisePropertyChanged("Collection");
-            }
-        }
-
-
+        //private ObservableCollection<hi_dd_operation> _collection = new ObservableCollection<hi_dd_operation>();
+        ///// <summary> 说明  </summary>
+        //public ObservableCollection<hi_dd_operation> Collection
+        //{
+        //    get { return _collection; }
+        //    set
+        //    {
+        //        _collection = value;
+        //        RaisePropertyChanged("Collection");
+        //    }
+        //}
     }
 }
