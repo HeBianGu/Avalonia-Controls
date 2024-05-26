@@ -8,7 +8,7 @@ using System.Linq;
 
 namespace Avalonia.Extensions.MarkupExtension
 {
-    public class GetRangeExtension : MarkupExtension
+    public class GetRangeExtension : Avalonia.Markup.Xaml.MarkupExtension
     {
         public int Start { get; set; }
 

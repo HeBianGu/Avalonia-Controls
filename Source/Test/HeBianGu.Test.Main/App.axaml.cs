@@ -19,6 +19,8 @@ using Avalonia.Modules.SplashScreen;
 using System.Xml;
 using Avalonia.Markup.Xaml.Templates;
 using Avalonia.Theme;
+using Avalonia.Modules.Operation;
+using Avalonia.DataBases.Share;
 
 namespace HeBianGu.Test.Main;
 
@@ -43,6 +45,11 @@ public partial class App : ApplicationBase
         services.AddSnackMessage();
         //services.AddSplashScreen();
         services.AddTestLoginService();
+
+        //  Do ：操作日志
+        services.AddDbContextBySetting<OperationDataContext>();
+        services.AddSingleton<IStringRepository<hi_dd_operation>, DbContextRepository<OperationDataContext, hi_dd_operation>>();
+        services.AddOperationViewPresenter();
     }
 
     protected override void Configure(IApplicationBuilder app)

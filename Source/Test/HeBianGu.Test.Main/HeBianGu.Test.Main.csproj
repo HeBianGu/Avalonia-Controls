@@ -37,6 +37,7 @@
     <ProjectReference Include="..\..\Controls\HeBianGu.Controls.MultiComboBox\HeBianGu.Controls.MultiComboBox.csproj" />
     <ProjectReference Include="..\..\Controls\HeBianGu.Controls.TemplateControl\HeBianGu.Controls.TemplateControl.csproj" />
     <ProjectReference Include="..\..\Cores\Avalonia.Ioc\Avalonia.Ioc.csproj" />
+    <ProjectReference Include="..\..\DataBases\Avalonia.DataBases.Sqlite\Avalonia.DataBases.Sqlite.csproj" />
     <ProjectReference Include="..\..\Datas\Avalonia.Datas.Test\Avalonia.Datas.Test.csproj" />
     <ProjectReference Include="..\..\Extensions\Avalonia.Extensions.BackgroundImage\Avalonia.Extensions.BackgroundImage.csproj" />
     <ProjectReference Include="..\..\Extensions\Avalonia.Extensions.Application\Avalonia.Extensions.Application.csproj" />
@@ -47,6 +48,7 @@
     <ProjectReference Include="..\..\Modules\Avalonia.Modules.Messages.Form\Avalonia.Modules.Messages.Form.csproj" />
     <ProjectReference Include="..\..\Modules\Avalonia.Modules.Messages.Notice\Avalonia.Modules.Messages.Notice.csproj" />
     <ProjectReference Include="..\..\Modules\Avalonia.Modules.Messages.Snack\Avalonia.Modules.Messages.Snack.csproj" />
+    <ProjectReference Include="..\..\Modules\Avalonia.Modules.Operation\Avalonia.Modules.Operation.csproj" />
     <ProjectReference Include="..\..\Modules\Avalonia.Modules.SplashScreen\Avalonia.Modules.SplashScreen.csproj" />
     <ProjectReference Include="..\..\Modules\Avalonia.Modules.ThemeSetting\Avalonia.Modules.ThemeSetting.csproj" />
     <ProjectReference Include="..\..\Modules\Avalonia.Modules.Login\Avalonia.Modules.Login.csproj" />

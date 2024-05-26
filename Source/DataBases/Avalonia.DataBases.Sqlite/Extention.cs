@@ -32,7 +32,7 @@ namespace System
             action?.Invoke(SqliteSettable.Instance);
             SqliteSettable.Instance.Load(out string messge);
             string connect = SqliteSettable.Instance.GetConnect();
-            services.AddDbContext<TDbContext>(x => x.UseLazyLoadingProxies().UseSqlite(connect));
+            services.AddDbContext<TDbContext>(x =>x.UseLazyLoadingProxies().UseSqlite(connect));
             SettingDataManager.Instance.Add(SqliteSettable.Instance);
             services.AddSingleton<IDbConnectService, SqliteDbConnectService<TDbContext>>();
             services.AddSingleton<IDbDisconnectService, DbDisconnectService<TDbContext>>();

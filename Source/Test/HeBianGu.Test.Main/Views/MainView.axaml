@@ -331,7 +331,7 @@
                     <DataGrid AutoGenerateColumns="True"
                               CanUserReorderColumns="True"
                               CanUserResizeColumns="True"
-                              CanUserSortColumns="True"
+                              CanUserSortColumns="True"  IsReadOnly="True"
                               ColumnWidth="*"
                               GridLinesVisibility="All"
                               HeadersVisibility="All"

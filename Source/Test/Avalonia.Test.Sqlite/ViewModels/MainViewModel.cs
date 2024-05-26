@@ -16,6 +16,7 @@ public class MainViewModel : BindableBase
     public MainViewModel()
     {
         _imageRepository =System.Ioc.GetService<IStringRepository<mbc_dv_image>>();
+
         this.RefreshData();
     }
 

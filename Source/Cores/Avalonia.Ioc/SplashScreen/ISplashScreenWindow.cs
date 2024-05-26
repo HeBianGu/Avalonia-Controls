@@ -9,6 +9,6 @@ namespace Avalonia.Ioc
     public interface ISplashScreenWindow
     {
         event EventHandler<RoutedEventArgs> Successed;
-        Window GetWindow();
+        Window GetWindow(Func<IDialog, ISplashScreenViewPresenter, bool?> func);
     }
 }

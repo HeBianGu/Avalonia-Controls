@@ -10,7 +10,7 @@ public class mbc_dv_image : DbModelBase
     public string Name { get; set; }
 
     [Display(Name = "资源类型")]
-    public string MediaType { get; set; } = "MediaType";
+    public string? MediaType { get; set; }
 
     [Display(Name = "所属案例")]
     public string CaseType { get; set; } = "MediaType";

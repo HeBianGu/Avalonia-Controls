@@ -46,7 +46,7 @@ namespace Avalonia.DataBases.Share
         public virtual bool Load(out string message)
         {
             message = null;
-            TDbContext context = Ioc.GetService<TDbContext>();
+            TDbContext context = System.Ioc.GetService<TDbContext>();
             bool r = this.CanConnect(context, out message);
             if (!r)
             {
@@ -78,7 +78,7 @@ namespace Avalonia.DataBases.Share
             message = null;
             try
             {
-                TDbContext context = Ioc.GetService<TDbContext>();
+                TDbContext context = System.Ioc.GetService<TDbContext>();
                 string connect = this.GetSetting().GetConnect();
                 context.Database.SetConnectionString(connect);
                 context.Database.Migrate();

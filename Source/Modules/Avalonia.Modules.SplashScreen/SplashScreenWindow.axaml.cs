@@ -25,58 +25,9 @@ namespace Avalonia.Modules.SplashScreen
 
         private async void SplashScreenWindow_Loaded(object? sender, RoutedEventArgs e)
         {
-            int sleep = 1000;
-            Func<IDialog, ISplashScreenViewPresenter, bool?> func = (c, s) =>
-            {
-                if (c?.IsCancel != true)
-                {
-                    if (s != null)
-                        s.Message = "正在加载设置数据...";
-                    //  Do ：加载设置参数
-                    bool r = SettingDataManager.Instance.Load(x =>
-                    {
-                        if (s != null)
-                            s.Message = $"正在加载设置<{x.Name}>数据...";
-                    }, out string message);
-                    if (r == false)
-                        s.Message = message;
-                    Thread.Sleep(sleep);
-                }
-
-                {
-                    int index = 0;
-                    var loads = System.Ioc.GetAssignableFromServices<ISplashLoad>().Distinct();
-                    foreach (ISplashLoad load in loads)
-                    {
-                        if (c?.IsCancel == true)
-                            return null;
-
-                        if (load == null)
-                            continue;
-                        index++;
-                        if (s != null)
-                            s.Message = $"[{index}/{loads.Count()}]正在加载{load.Name}...";
-                        bool r = load.Load(out string message);
-                        if (s != null && !string.IsNullOrEmpty(message))
-                            s.Message = message;
-                        if (r == false)
-                        {
-                            Thread.Sleep(sleep);
-                            return false;
-                        }
-                        Thread.Sleep(sleep);
-                    }
-                }
-
-                if (s != null)
-                    s.Message = "加载完成";
-                Thread.Sleep(sleep);
-                return true;
-            };
-
             bool? fr = await Task.Run(() =>
             {
-                return func.Invoke(this, _presenter);
+                return this._action?.Invoke(this, _presenter);
             });
             if (fr == true)
             {
@@ -94,6 +45,8 @@ namespace Avalonia.Modules.SplashScreen
             }
         }
 
+        private Func<IDialog, ISplashScreenViewPresenter, bool?> _action { get; set; }
+
         private void Btn_success_Click(object? sender, RoutedEventArgs e)
         {
             this.OnSuccessed();
@@ -108,6 +61,12 @@ namespace Avalonia.Modules.SplashScreen
         {
             RoutedEventArgs args = new RoutedEventArgs(SuccessedEvent, this);
             this.RaiseEvent(args);
+        }
+
+        public Window GetWindow(Func<IDialog, ISplashScreenViewPresenter, bool?> func)
+        {
+            _action = func;
+            return this;
         }
 
         public event EventHandler<RoutedEventArgs> Successed

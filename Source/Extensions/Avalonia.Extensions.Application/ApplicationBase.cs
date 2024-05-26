@@ -31,20 +31,20 @@ namespace Avalonia.Extensions.Application
             this.Configure(bulder);
         }
 
-//        public override void Initialize()
-//        {
-//            var assemblies = this.GetAxamlLoaderAssemblies();
+        //        public override void Initialize()
+        //        {
+        //            var assemblies = this.GetAxamlLoaderAssemblies();
 
-//#if DEBUG
-//            foreach (var item in assemblies)
-//            {
-//                System.Diagnostics.Debug.WriteLine($"GetReferanceAssemblies:{item}");
-//            }
-//#endif
-//            this.LoadDataTemplates(assemblies);
-//            this.LoadResources(assemblies);
-//            this.LoadStyles(assemblies);
-//        }
+        //#if DEBUG
+        //            foreach (var item in assemblies)
+        //            {
+        //                System.Diagnostics.Debug.WriteLine($"GetReferanceAssemblies:{item}");
+        //            }
+        //#endif
+        //            this.LoadDataTemplates(assemblies);
+        //            this.LoadResources(assemblies);
+        //            this.LoadStyles(assemblies);
+        //        }
 
         protected virtual void LoadStyles(List<Assembly> assemblies)
         {
@@ -188,6 +188,54 @@ namespace Avalonia.Extensions.Application
                 Window mainWindow = this.GetMainWindow();
                 mainWindow.Content = this.GetMainView();
 
+                Func<IDialog, ISplashScreenViewPresenter, bool?> func = (c, s) =>
+                {
+                    int sleep = c == null ? 1 : 1000;
+                    if (c?.IsCancel != true)
+                    {
+                        if (s != null)
+                            s.Message = "正在加载设置数据...";
+                        //  Do ：加载设置参数
+                        bool r = SettingDataManager.Instance.Load(x =>
+                        {
+                            if (s != null)
+                                s.Message = $"正在加载设置<{x.Name}>数据...";
+                        }, out string message);
+                        if (r == false)
+                            s.Message = message;
+                        Thread.Sleep(sleep);
+                    }
+
+                    {
+                        int index = 0;
+                        var loads = System.Ioc.GetAssignableFromServices<ISplashLoad>().Distinct();
+                        foreach (ISplashLoad load in loads)
+                        {
+                            if (c?.IsCancel == true)
+                                return null;
+
+                            if (load == null)
+                                continue;
+                            index++;
+                            if (s != null)
+                                s.Message = $"[{index}/{loads.Count()}]正在加载{load.Name}...";
+                            bool r = load.Load(out string message);
+                            if (s != null && !string.IsNullOrEmpty(message))
+                                s.Message = message;
+                            if (r == false)
+                            {
+                                Thread.Sleep(sleep);
+                                return false;
+                            }
+                            Thread.Sleep(sleep);
+                        }
+                    }
+
+                    if (s != null)
+                        s.Message = "加载完成";
+                    Thread.Sleep(sleep);
+                    return true;
+                };
                 var splash = System.Ioc.Services.GetService<ISplashScreenWindow>();
                 void ShowLogin()
                 {
@@ -213,7 +261,7 @@ namespace Avalonia.Extensions.Application
 
                 if (splash != null)
                 {
-                    Window w = splash.GetWindow();
+                    Window w = splash.GetWindow(func);
                     desktop.MainWindow = w;
                     splash.Successed += (l, k) =>
                     {
@@ -223,8 +271,11 @@ namespace Avalonia.Extensions.Application
                 }
                 else
                 {
+                    if (func?.Invoke(null, null) == false)
+                        throw new ArgumentException("初始化数据异常，请看日志");
                     ShowLogin();
                 }
+                System.Ioc.GetService<IOperationService>(false)?.Log<ApplicationBase>(ApplicationProvider.Product, "系统启动");
             }
             else if (ApplicationLifetime is ISingleViewApplicationLifetime singleViewPlatform)
             {

@@ -71,6 +71,10 @@
                 <Button Command="{h:ShowAboutCommand}"
                         Content="关于"
                         DockPanel.Dock="Right" />
+
+                <Button Command="{h:ShowOperationCommand}"
+                        Content="操作日志"
+                        DockPanel.Dock="Right" />
             </DockPanel>
         </ControlTemplate>
     </h:Attach.HeaderCenterTemplate>

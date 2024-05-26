@@ -20,7 +20,7 @@ namespace Avalonia.DataBases.Share
         public bool Save(out string message)
         {
             message = null;
-            DbContext db = Ioc.GetService<DbContext>();
+            DbContext db = System.Ioc.GetService<DbContext>();
             db?.SaveChanges();
             //db.Dispose();
             return true;
@@ -33,7 +33,7 @@ namespace Avalonia.DataBases.Share
         public bool Save(out string message)
         {
             message = null;
-            TDbContext db = Ioc.GetService<TDbContext>();
+            TDbContext db = System.Ioc.GetService<TDbContext>();
             db?.SaveChanges();
             //db.Dispose();
             return true;

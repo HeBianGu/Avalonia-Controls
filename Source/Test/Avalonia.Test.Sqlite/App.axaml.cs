@@ -53,7 +53,7 @@ public partial class App : ApplicationBase
     {
         base.OnFrameworkInitializationCompleted();
 
-        var loads = Ioc.Services.GetServices<IDbConnectService>();
+        var loads = System.Ioc.Services.GetServices<IDbConnectService>();
         foreach (var load in loads)
         {
             load.Load(out string error);

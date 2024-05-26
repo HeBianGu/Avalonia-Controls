@@ -1,4 +1,4 @@
-<DataTemplate xmlns="https://github.com/avaloniaui"
+<!--<DataTemplate xmlns="https://github.com/avaloniaui"
               xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
               xmlns:h="https://github.com/HeBianGu"
               xmlns:local="clr-namespace:Avalonia.Controls.Step"
@@ -8,7 +8,7 @@
                 HorizontalAlignment="Left"
                 Orientation="Horizontal" IsVisible="False"
                 >
-      <Grid x:Name="line1"
+      --><!--<Grid x:Name="line1"
             Margin="0,20,0,0">
         <Line Width="Auto"
               HorizontalAlignment="Stretch"
@@ -26,7 +26,7 @@
               <GradientStop x:Name="stop3" Offset="0.4" Color="Black" />
             </LinearGradientBrush>
           </Line.OpacityMask>
-          <!--<Line.Triggers>
+          --><!--<Line.Triggers>
             <EventTrigger RoutedEvent="Loaded">
               <BeginStoryboard>
                 <Storyboard>
@@ -65,9 +65,9 @@
                 </Storyboard>
               </BeginStoryboard>
             </EventTrigger>
-          </Line.Triggers>-->
+          </Line.Triggers>--><!--
         </Line>
-      </Grid>
+      </Grid>--><!--
 
       <StackPanel>
         <Grid>
@@ -88,11 +88,11 @@
                 <TranslateTransform />
               </TransformGroup>
             </Ellipse.RenderTransform>
-            <!--<Ellipse.Triggers>
+            --><!--<Ellipse.Triggers>
               <EventTrigger RoutedEvent="Loaded">
                 <BeginStoryboard Storyboard="{DynamicResource {x:Static h:StoryBoardKeys.RotateForever3}}" />
               </EventTrigger>
-            </Ellipse.Triggers>-->
+            </Ellipse.Triggers>--><!--
           </Ellipse>
           <Ellipse Width="30"
                    Height="30"
@@ -115,14 +115,14 @@
 
       </StackPanel>
 
-      <!--<StackPanel.Triggers>
+      --><!--<StackPanel.Triggers>
         <EventTrigger RoutedEvent="Loaded">
           <BeginStoryboard Storyboard="{DynamicResource {x:Static h:StoryBoardKeys.OpacityForever}}" />
         </EventTrigger>
-      </StackPanel.Triggers>-->
+      </StackPanel.Triggers>--><!--
     </StackPanel>
 
-    <StackPanel x:Name="unkown"
+    --><!--<StackPanel x:Name="unkown"
                 HorizontalAlignment="Left"
                 Orientation="Horizontal"
                 Visibility="Collapsed">
@@ -159,7 +159,7 @@
                    Foreground="{DynamicResource {x:Static h:BrushKeys.ForegroundAssist}}"
                    Text="{Binding Message}" />
       </StackPanel>
-    </StackPanel>
+    </StackPanel>--><!--
 
     <StackPanel x:Name="error"
                 HorizontalAlignment="Left"
@@ -265,4 +265,4 @@
       </StackPanel>
     </StackPanel>
   </Grid>
-</DataTemplate>
+</DataTemplate>-->
