@@ -2,7 +2,7 @@
               xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
               xmlns:local="clr-namespace:Avalonia.Controls.Form"
               DataType="{x:Type local:StaticFormPresenter}">
-    <local:Form Margin="10,6"
+    <local:Form Margin="{DynamicResource {x:Static LayoutKeys.Padding}}"
                 SelectObject="{Binding Value}"
                 UseAsync="False"
                 UsePropertyView="{Binding UsePropertyView}" />

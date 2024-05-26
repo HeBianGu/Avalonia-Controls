@@ -14,7 +14,7 @@ namespace Avalonia.Modules.About
             bool? r = await IocMessage.Dialog.Show(setting, x =>
             {
                 x.Title = "关于";
-                x.Width = 800;
+                x.Width = 600;
                 x.DialogButton = DialogButton.None;
                 if (x is Window window)
                 {

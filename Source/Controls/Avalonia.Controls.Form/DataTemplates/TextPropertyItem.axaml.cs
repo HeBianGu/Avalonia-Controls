@@ -1,17 +1,16 @@
-﻿// Copyright © 2024 By HeBianGu(QQ:908293466) https://github.com/HeBianGu/WPF-Control
-
-
-using Avalonia.Media;
+﻿using Avalonia.Media;
 using Avalonia.Mvvm;
-using Microsoft.Win32;
 using System;
-using System.ComponentModel;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Diagnostics;
-using System.IO;
+using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
-using System.Windows;
+using System.Text;
+using System.Threading.Tasks;
+using System.Xml.Linq;
+using System.Diagnostics;
+using System.IO;
 
 namespace Avalonia.Controls.Form
 {
@@ -205,5 +204,4 @@ namespace Avalonia.Controls.Form
         }
 
     }
-
 }

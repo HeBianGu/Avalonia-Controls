@@ -326,6 +326,45 @@ namespace System
             bool r = obj.TryChangeType<T>(out T result);
             return result;
         }
+
+        public static bool TryChangeType(this object obj, Type targetType, out object result)
+        {
+            result = null;
+            Type rType = targetType;
+            if (obj == null)
+                return false;
+            Type type = obj.GetType();
+
+            if (targetType.IsAssignableFrom(obj.GetType()))
+            {
+                result = obj;
+                return true;
+            }
+            if (typeof(IConvertible).IsAssignableFrom(rType) && typeof(IConvertible).IsAssignableFrom(type))
+            {
+                if (string.IsNullOrEmpty(obj.ToString()))
+                    return false;
+                result = Convert.ChangeType(obj, rType);
+                return true;
+            }
+
+            TypeConverterAttribute tConvert = rType.GetCustomAttribute<TypeConverterAttribute>();
+            if (type == typeof(string) && tConvert != null)
+            {
+                Type t = Type.GetType(tConvert.ConverterTypeName);
+                TypeConverter typeConverter = Activator.CreateInstance(t) as TypeConverter;
+                //if (typeof(Freezable).IsAssignableFrom(typeof(T)))
+                //    result = Dispatcher.UIThread.Invoke(() =>
+                //    {
+                //        return (T)typeConverter.ConvertFromString(obj.ToString());
+                //    });
+                //else
+                result = typeConverter.ConvertFromString(obj.ToString());
+                return true;
+            }
+            return result != null;
+        }
+
         public static bool TryChangeType<T>(this object obj, out T result)
         {
             result = default(T);
@@ -365,7 +404,7 @@ namespace System
 
         public static string GetDisplayName(this Type type)
         {
-            return type.GetCustomAttribute<DisplayAttribute>()?.Name ?? type.Name;
+            return type.GetCustomAttribute<DisplayNameAttribute>()?.DisplayName ?? type.Name;
         }
 
         public static object CloneBy(this object t, Predicate<PropertyInfo> predicate = null)

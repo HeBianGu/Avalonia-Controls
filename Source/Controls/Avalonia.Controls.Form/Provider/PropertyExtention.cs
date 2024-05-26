@@ -176,7 +176,7 @@ namespace Avalonia.Controls.Form
                     return Activator.CreateInstance(editor.Type, info, obj) as IPropertyViewItem;
                 }
             }
-
+           
             if (TextPropertyItem.IsTypeConverter(info))
                 return new TextPropertyViewItem(info, obj);
 
@@ -187,6 +187,7 @@ namespace Avalonia.Controls.Form
             {
                 return new ObjectPropertyItem<object>(info, obj);
             }
+
             return new TextPropertyViewItem(info, obj);
 
             //if (typeof(ICommand).IsAssignableFrom(info.PropertyType))

@@ -25,7 +25,7 @@ namespace Avalonia.Modules.Messages.Form
             return await IocMessage.Dialog.Show(presenter, x =>
             {
                 x.DialogButton = DialogButton.Sumit;
-                x.Title = title;
+                x.Title = title ?? value.GetType().GetDisplayName();
                 action?.Invoke(x);
             }, canSumit);
         }
@@ -40,7 +40,7 @@ namespace Avalonia.Modules.Messages.Form
             return await IocMessage.Dialog.Show(presenter, x =>
             {
                 x.DialogButton = DialogButton.Sumit;
-                x.Title = title;
+                x.Title = title ?? value.GetType().GetDisplayName(); ;
                 action?.Invoke(x);
             }, canSumit);
         }

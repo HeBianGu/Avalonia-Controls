@@ -15,6 +15,8 @@ using Avalonia.Modules.Messages.Dialog;
 using Avalonia.Modules.Setting;
 using Avalonia.Media;
 using Avalonia.Media.Imaging;
+using Avalonia.Controls.Form;
+using Avalonia.Datas.Test;
 
 namespace HeBianGu.Test.Main.Views;
 

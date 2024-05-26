@@ -1,13 +1,18 @@
-﻿
+﻿using Avalonia.Datas.Test;
+using Avalonia.Ioc;
 using Avalonia.Mvvm;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace Avalonia.Datas.Test
 {
+    [DisplayName("学生信息")]
     public class Student : BindableBase, ICloneable
     {
         [Display(Name = "姓名", GroupName = "基础信息")]

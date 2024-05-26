@@ -1,7 +1,9 @@
+using Avalonia.Extensions.Application;
 using Avalonia.Metadata;
 using System.Windows;
 using System.Windows.Markup;
 
+[assembly: ApplicationDataTemplateLoader]
 [assembly: XmlnsDefinition("QQ:908293466", "Avalonia.Datas.Test")]
 [assembly: XmlnsPrefix("QQ:908293466", "h")]
 

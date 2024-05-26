@@ -5,6 +5,7 @@ using System.Globalization;
 
 namespace Avalonia.Extensions.ValueConverter
 {
+
     public abstract class MarkupValueConverterBase : MarkupExtension, IValueConverter
     {
         public abstract object? Convert(object? value, Type targetType, object? parameter, CultureInfo culture);
