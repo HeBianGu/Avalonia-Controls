@@ -40,9 +40,13 @@
                             <TitleBar Background="Red" />
                         </VisualLayerManager.ChromeOverlayLayer>
                         <DockPanel>
-                            <DockPanel DockPanel.Dock="Top" LastChildFill="False">
+                            <DockPanel x:Name="PART_HeaderDockPanel"
+                                       Background="{DynamicResource {x:Static h:BrushKeys.CaptionBackground}}"
+                                       DockPanel.Dock="Top"
+                                       LastChildFill="False"
+                                       TextElement.Foreground="{DynamicResource {x:Static h:BrushKeys.CaptionForeground}}">
                                 <TemplatedControl DockPanel.Dock="Left" Template="{TemplateBinding h:Attach.HeaderLeftTemplate}" />
-                                <TextBlock Margin="10,6" Text="{TemplateBinding Title}" />
+                                <TextBlock VerticalAlignment="Center" Text="{TemplateBinding Title}" />
                                 <TemplatedControl DockPanel.Dock="Right" Template="{TemplateBinding h:Attach.HeaderRightTemplate}" />
                                 <Button Background="Red"
                                         Command="{h:CloseWindowCommand}"
@@ -80,9 +84,7 @@
                                 <Image Width="30"
                                        Height="30"
                                        Source="{TemplateBinding Icon}" />
-
                                 <TemplatedControl Template="{TemplateBinding h:Attach.HeaderCenterTemplate}" />
-
                             </DockPanel>
                             <TemplatedControl DockPanel.Dock="Top" Template="{TemplateBinding h:Attach.TopTemplate}" />
                             <TemplatedControl DockPanel.Dock="Bottom" Template="{TemplateBinding h:Attach.BottomTemplate}" />

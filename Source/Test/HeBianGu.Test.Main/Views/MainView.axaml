@@ -351,5 +351,30 @@
                 </Image>
             </UniformGrid>
         </TabItem>
+        <TabItem Header="DataGrid">
+            <TabControl>
+                <TabItem Header="Default">
+                    <DataGrid AutoGenerateColumns="True" ItemsSource="{h:GetStudents}" />
+                </TabItem>
+                <TabItem Header="All">
+                    <DataGrid AutoGenerateColumns="True"
+                              CanUserReorderColumns="True"
+                              CanUserResizeColumns="True"
+                              CanUserSortColumns="True"
+                              ColumnWidth="*"
+                              GridLinesVisibility="All"
+                              HeadersVisibility="All"
+                              ItemsSource="{h:GetStudents}"
+                              MaxColumnWidth="200"
+                              RowDetailsVisibilityMode="VisibleWhenSelected">
+                        <DataGrid.RowDetailsTemplate>
+                            <DataTemplate>
+                                <TextBlock Margin="10,6" Text="DataGrid.RowDetailsTemplate" />
+                            </DataTemplate>
+                        </DataGrid.RowDetailsTemplate>
+                    </DataGrid>
+                </TabItem>
+            </TabControl>
+        </TabItem>
     </TabControl>
 </UserControl>

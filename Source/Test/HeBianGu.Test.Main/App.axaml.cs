@@ -35,13 +35,13 @@ public partial class App : ApplicationBase
     {
         base.ConfigureServices(services);
         services.AddSingleton<IMyIoc, MyIoc>();
-        services.AddSingleton<ILoginWindow, LoginWindow>();
-        services.AddLoginViewPresenter();
+        //services.AddSingleton<ILoginWindow, LoginWindow>();
+        //services.AddLoginViewPresenter();
         services.AddSingleton<IDialogMessageService, AdornerDialogMessageService>();
         services.AddFormMessageService();
         services.AddNoticeMessage();
         services.AddSnackMessage();
-        services.AddSplashScreen();
+        //services.AddSplashScreen();
         services.AddTestLoginService();
     }
 

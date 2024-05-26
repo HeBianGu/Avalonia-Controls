@@ -4,6 +4,7 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Avalonia" Version="11.0.2" />
+    <PackageReference Include="Avalonia.Controls.DataGrid" Version="11.0.2" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Cores\Avalonia.Ioc\Avalonia.Ioc.csproj" />
@@ -16,5 +17,8 @@
   </ItemGroup>
   <ItemGroup>
     <UpToDateCheckInput Remove="Resources\ControlTheme.axaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Controls\DataGrid.axaml" />
   </ItemGroup>
 </Project>

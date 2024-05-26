@@ -19,5 +19,6 @@
     <ResourceInclude Source="avares://Avalonia.Styles/Controls/TreeView.axaml" />
     <ResourceInclude Source="avares://Avalonia.Styles/Controls/TreeViewItem.axaml" />
     <ResourceInclude Source="avares://Avalonia.Styles/Controls/Slider.axaml" />
+    <ResourceInclude Source="avares://Avalonia.Styles/Controls/DataGrid.axaml" />
   </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

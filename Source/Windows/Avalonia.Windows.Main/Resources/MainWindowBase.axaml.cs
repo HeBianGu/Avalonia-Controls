@@ -11,6 +11,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Reflection;
 using System.Threading.Tasks;
 using System.Windows;
+using Avalonia.Controls.Primitives;
 
 namespace Avalonia.Windows.Main
 {
@@ -20,29 +21,29 @@ namespace Avalonia.Windows.Main
 
         public MainWindowBase()
         {
-            PointerPressed += OnPointerPressed;
 
+        }
+        protected override void OnApplyTemplate(TemplateAppliedEventArgs e)
+        {
+            base.OnApplyTemplate(e);
+            DockPanel dockPanel = e.NameScope.Find<DockPanel>("PART_HeaderDockPanel");
+            if (dockPanel == null)
+                return;
+            dockPanel.PointerPressed += OnPointerPressed;
+            dockPanel.DoubleTapped += this.DockPanel_DoubleTapped;
+
+            //dockPanel.AddHandler(DockPanel.DoubleTappedEvent, DockPanel_DoubleTapped, Interactivity.RoutingStrategies.Bubble, true);
+        }
+
+        private void DockPanel_DoubleTapped(object? sender, TappedEventArgs e)
+        {
+            this.WindowState = this.WindowState == WindowState.Normal ? WindowState.Maximized : WindowState.Normal;
         }
 
         private void OnPointerPressed(object? sender, PointerPressedEventArgs e)
         {
             if (e.Pointer.Type == PointerType.Mouse)
-            {
-
                 BeginMoveDrag(e);
-            }
         }
-
-        //public ControlTemplate BottomTemplate
-        //{
-        //    get { return (ControlTemplate)GetValue(BottomTemplateProperty); }
-        //    set { SetValue(BottomTemplateProperty, value); }
-        //}
-
-        //public DialogButton DialogButton { get; set; } = DialogButton.Sumit;
-
-
-        //public static readonly StyledProperty<ControlTemplate> BottomTemplateProperty =
-        //    AvaloniaProperty.Register<MainWindow, ControlTemplate>("BottomTemplate");
     }
 }
