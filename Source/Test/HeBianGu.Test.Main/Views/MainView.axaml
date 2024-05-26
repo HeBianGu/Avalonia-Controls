@@ -38,7 +38,7 @@
             <h:MyTemplatedControl />
         </TabItem>
         <TabItem Header="MyButton">
-            <h:MyButton Content="MyButton" />
+            <h:MyButton Content="MyButton"/>
         </TabItem>
         <TabItem Header="ControlTheme">
             <TabItem.Resources>

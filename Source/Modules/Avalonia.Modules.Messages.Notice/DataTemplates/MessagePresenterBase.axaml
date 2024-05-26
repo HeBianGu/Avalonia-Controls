@@ -39,6 +39,8 @@
                 Margin="5,0"
                 HorizontalAlignment="Right"
                 VerticalAlignment="Center"
+                Command="{h:DeleteItemCommand}"
+                CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
                 Content="{x:Static h:Geometrys.Close}"
                 Theme="{DynamicResource {x:Static h:ButtonKeys.Geometry}}"
                 ToolTip.Tip="×">
