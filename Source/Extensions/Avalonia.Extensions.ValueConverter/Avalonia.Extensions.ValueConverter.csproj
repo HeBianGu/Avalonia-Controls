@@ -7,6 +7,7 @@
     <PackageReference Include="Avalonia" Version="11.0.2" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Themes\Avalonia.Theme\Avalonia.Theme.csproj" />
     <ProjectReference Include="..\Avalonia.Extensions.Common\Avalonia.Extensions.Common.csproj" />
   </ItemGroup>
 </Project>
