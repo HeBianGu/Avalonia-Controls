@@ -8,10 +8,6 @@ Avalonia皮肤，主题，自定义控件，数据库，系统模块资源库
 
 Avalonia 11.0.2
 
-[![NuGet](https://buildstats.info/nuget/Avalonia.Theme)](https://www.nuget.org/packages/Avalonia.Theme)
-
-[![Stargazers over time](https://starchart.cc/HeBianGu/Avalonia-Controls.svg)](https://starchart.cc/HeBianGu/Avalonia-Controls)
-
 ## Theme 主题
 ### 深色
 ![qrcode](https://raw.githubusercontent.com/HeBianGu/Avalonia-Controls/main/Document/Dark.png)
