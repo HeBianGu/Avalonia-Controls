@@ -15,8 +15,10 @@ namespace Avalonia.Modules.Identity
             bool? r = await IocMessage.Dialog.Show(setting, x =>
             {
                 x.MinHeight = 500;
-                x.DialogButton = DialogButton.None;
-                x.Title = "操作日志";
+                x.DialogButton = DialogButton.None; 
+                x.Margin = new Thickness(20);
+
+                x.Title = "角色管理";
                 if (x is Window window)
                 {
                     window.SizeToContent = SizeToContent.Manual;

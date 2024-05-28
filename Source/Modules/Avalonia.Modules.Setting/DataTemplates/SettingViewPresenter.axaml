@@ -29,7 +29,6 @@
                             <DataTemplate DataType="{x:Type h:ISettable}">
                                 <Expander HorizontalAlignment="Stretch"
                                           VerticalAlignment="Top"
-                                          BorderBrush="Transparent"
                                           Header="{Binding}"
                                           IsExpanded="True">
                                     <Expander.HeaderTemplate>

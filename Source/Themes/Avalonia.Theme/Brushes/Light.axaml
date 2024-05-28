@@ -59,8 +59,8 @@
 
     <SolidColorBrush x:Key="{StringResourceKey ResourceId=S.Brush.Dialog.Cover,
                                                      TypeInTargetAssembly={x:Type local:BrushKeys}}"
-                     Opacity="0.8"
-                     Color="#f0f0f0" />
+                     Opacity="0.3"
+                     Color="Black" />
 
     <!--  SolidColorBrush  -->
     <SolidColorBrush x:Key="{StringResourceKey ResourceId=S.Brush.LightGray, TypeInTargetAssembly={x:Type local:BrushKeys}}" Color="#eeeeee" />

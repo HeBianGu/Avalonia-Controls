@@ -1,2 +1,115 @@
 # Avalonia-Controls
- Avalonia控件库
+Avalonia皮肤，主题，自定义控件，数据库资源库
+<p align="left"> 
+    <img alt="dotnet-version" src="https://img.shields.io/badge/.net-v7.0-windows.svg"></img>
+    <img alt="csharp-version" src="https://img.shields.io/badge/C%23-9.0-blue.svg"></img>
+    <img alt="IDE-version" src="https://img.shields.io/badge/IDE-vs2022-blue.svg"></img>
+</p>
+
+[![NuGet](https://buildstats.info/nuget/Avalonia.Theme)](https://www.nuget.org/packages/Avalonia.Theme)
+
+[![Stargazers over time](https://starchart.cc/HeBianGu/Avalonia-Controls.svg)](https://starchart.cc/HeBianGu/Avalonia-Controls)
+
+## Theme 主题
+### 深黑
+![qrcode](https://raw.githubusercontent.com/HeBianGu/Avalonia-Controls/main/Document/Dark.png)
+
+### 主色调
+![qrcode](https://raw.githubusercontent.com/HeBianGu/Avalonia-Controls/main/Document/Light.Accent.png)
+
+### 深绿
+![qrcode](https://raw.githubusercontent.com/HeBianGu/Avalonia-Controls/main/Document/Blue.png)
+
+### 窗口背景图片
+![qrcode](https://raw.githubusercontent.com/HeBianGu/Avalonia-Controls/main/Document/BackgroundImage.png)
+
+### 布局
+![qrcode](https://raw.githubusercontent.com/HeBianGu/Avalonia-Controls/main/Document/Layout.Small.png)
+
+### 字体字号
+![qrcode](https://raw.githubusercontent.com/HeBianGu/Avalonia-Controls/main/Document/Size.Large.png)
+
+
+## Module 模块
+### 加载窗口
+![qrcode](https://raw.githubusercontent.com/HeBianGu/Avalonia-Controls/main/Document/Splash.png)
+
+### 登录和注册控件
+![qrcode](https://raw.githubusercontent.com/HeBianGu/Avalonia-Controls/main/Document/Login.png)
+
+### 系统设置
+![qrcode](https://raw.githubusercontent.com/HeBianGu/Avalonia-Controls/main/Document/Setting.png)
+
+### 关于
+![qrcode](https://raw.githubusercontent.com/HeBianGu/Avalonia-Controls/main/Document/About.png)
+
+
+## Message 系统消息
+
+### 编辑
+![qrcode](https://raw.githubusercontent.com/HeBianGu/Avalonia-Controls/main/Document/Form.Edit.png)
+
+### 详情
+![qrcode](https://raw.githubusercontent.com/HeBianGu/Avalonia-Controls/main/Document/Form.View.png)
+
+### 对话框
+![qrcode](https://raw.githubusercontent.com/HeBianGu/Avalonia-Controls/main/Document/Message.Dialog.png)
+
+### Notice 通知消息
+![qrcode](https://raw.githubusercontent.com/HeBianGu/Avalonia-Controls/main/Document/Message.Notice.png)
+
+### 进度条消息
+![qrcode](https://raw.githubusercontent.com/HeBianGu/Avalonia-Controls/main/Document/Message.Percent.png)
+
+### Snack 提示消息
+![qrcode](https://raw.githubusercontent.com/HeBianGu/Avalonia-Controls/main/Document/Message.Snack.png)
+
+### 字符串进度消息
+![qrcode](https://raw.githubusercontent.com/HeBianGu/Avalonia-Controls/main/Document/Message.String.png)
+
+### 等待消息
+![qrcode](https://raw.githubusercontent.com/HeBianGu/Avalonia-Controls/main/Document/Message.Waitting.png)
+
+## 身份认证
+
+### 操作日志
+![qrcode](https://raw.githubusercontent.com/HeBianGu/Avalonia-Controls/main/Document/Operation.png)
+
+### 角色管理
+![qrcode](https://raw.githubusercontent.com/HeBianGu/Avalonia-Controls/main/Document/Role.png)
+
+##数据库
+### Sqlite
+
+### SqlServer
+
+## 自定义控件
+### 图表控件
+
+### 表单控件
+![qrcode](https://raw.githubusercontent.com/HeBianGu/Avalonia-Controls/main/Document/Form.Edit.png)
+
+### 向导控件
+
+### 许可和会员管理控件
+
+## 作者
+<a href="https://github.com/HeBianGu" target="_blank"><img style="height:auto;" alt="" width="40" height="40" class="avatar avatar-user width-full border color-bg-default" src="https://avatars.githubusercontent.com/u/20257332?v=4"></a>
+
+## 赞助支持 
+
+### 支付宝
+<img align="center" src="https://gitee.com/hebiangu/wpf-document/raw/master/WPF-Controls/Images/z.jpg" width="200"/>
+
+[图片打不开？](https://gitee.com/hebiangu/wpf-document/blob/master/WPF-Controls/Images/z.jpg)
+###  微信
+<img align="center" src="https://gitee.com/hebiangu/wpf-document/raw/master/WPF-Controls/Images/w.jpg" width="210"/>
+
+[图片打不开？](https://gitee.com/hebiangu/wpf-document/blob/master/WPF-Controls/Images/w.jpg)
+
+## 博客
+[https://space.bilibili.com/370266611](https://space.bilibili.com/370266611)
+
+## 参考项目
+https://github.com/HeBianGu/WPF-ControlBase
+QQ:908293466

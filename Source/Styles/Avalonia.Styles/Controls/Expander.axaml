@@ -298,16 +298,16 @@
         </Style>
 
         <Style Selector="^:left /template/ Border#ExpanderContent">
-            <Setter Property="BorderThickness" Value="{DynamicResource ExpanderContentLeftBorderThickness}" />
+            <Setter Property="BorderThickness" Value="{DynamicResource {x:Static h:LayoutKeys.BorderThickness}}" />
         </Style>
         <Style Selector="^:up /template/ Border#ExpanderContent">
-            <Setter Property="BorderThickness" Value="{DynamicResource ExpanderContentUpBorderThickness}" />
+            <Setter Property="BorderThickness" Value="{DynamicResource {x:Static h:LayoutKeys.BorderThickness}}" />
         </Style>
         <Style Selector="^:right /template/ Border#ExpanderContent">
-            <Setter Property="BorderThickness" Value="{DynamicResource ExpanderContentRightBorderThickness}" />
+            <Setter Property="BorderThickness" Value="{DynamicResource {x:Static h:LayoutKeys.BorderThickness}}" />
         </Style>
         <Style Selector="^:down /template/ Border#ExpanderContent">
-            <Setter Property="BorderThickness" Value="{DynamicResource ExpanderContentDownBorderThickness}" />
+            <Setter Property="BorderThickness" Value="{DynamicResource {x:Static h:LayoutKeys.BorderThickness}}" />
         </Style>
     </ControlTheme>
 </ResourceDictionary>

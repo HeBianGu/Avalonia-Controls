@@ -23,7 +23,9 @@
       <Grid.Background>
         <DrawingBrush>
           <DrawingBrush.Drawing>
-            <GeometryDrawing Brush="{Binding Level,Converter={h:GetLevelBrushValueConverter}}" Geometry="{Binding Geometry}" />
+            <GeometryDrawing Brush="{Binding ElementName=g, Path=(TextElement.Foreground)}" Geometry="{Binding Geometry}" />
+
+            <!--<GeometryDrawing Brush="{DynamicResource {x:Static h:BrushKeys.Foregournd}}" Geometry="{Binding Geometry}" />-->
           </DrawingBrush.Drawing>
         </DrawingBrush>
       </Grid.Background>

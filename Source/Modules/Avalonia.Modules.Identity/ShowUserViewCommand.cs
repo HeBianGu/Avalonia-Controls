@@ -17,7 +17,8 @@ namespace Avalonia.Modules.Identity
             {
                 x.MinHeight = 500;
                 x.DialogButton = DialogButton.None;
-                x.Title = "操作日志";
+                x.Margin = new Thickness(20);
+                x.Title = "用户管理";
                 if (x is Window window)
                 {
                     window.SizeToContent = SizeToContent.Manual;

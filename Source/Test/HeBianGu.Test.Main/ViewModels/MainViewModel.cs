@@ -44,7 +44,7 @@ public class MainViewModel : ViewModelBase
 
     public RelayCommand ShowMessageCommand => new RelayCommand((s, e) =>
     {
-        IocMessage.Dialog.Show("111111");
+        IocMessage.Dialog.Show("数据保存完成");
     });
     public RelayCommand ShowFormMessageCommand => new RelayCommand((s, e) =>
     {
