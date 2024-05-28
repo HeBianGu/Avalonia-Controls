@@ -9,7 +9,7 @@
     <!--  Add Resources Here  -->
     <SolidColorBrush x:Key="{StringResourceKey ResourceId=S.Brush.Accent, TypeInTargetAssembly={x:Type local:BrushKeys}}" Color="#FF0093FF" />
     <!--  Background  -->
-    <SolidColorBrush x:Key="{StringResourceKey ResourceId=S.Brush.CaptionBackground, TypeInTargetAssembly={x:Type local:BrushKeys}}" Color="#f7f7f7" />
+    <SolidColorBrush x:Key="{StringResourceKey ResourceId=S.Brush.CaptionBackground, TypeInTargetAssembly={x:Type local:BrushKeys}}" Color="#e1e4e9" />
     <SolidColorBrush x:Key="{StringResourceKey ResourceId=S.Brush.TextBackground, TypeInTargetAssembly={x:Type local:BrushKeys}}" Color="#f7f7f7" />
     <SolidColorBrush x:Key="{StringResourceKey ResourceId=S.Brush.TextBackground.Disabled, TypeInTargetAssembly={x:Type local:BrushKeys}}" Color="#e1e4e9" />
 

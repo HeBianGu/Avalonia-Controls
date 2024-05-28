@@ -11,14 +11,35 @@ Avalonia皮肤，主题，自定义控件，数据库，系统模块资源库
 [![Stargazers over time](https://starchart.cc/HeBianGu/Avalonia-Controls.svg)](https://starchart.cc/HeBianGu/Avalonia-Controls)
 
 ## Theme 主题
-### 深黑
+### 深色
 ![qrcode](https://raw.githubusercontent.com/HeBianGu/Avalonia-Controls/main/Document/Dark.png)
 
-### 主色调
+### 浅主色调
 ![qrcode](https://raw.githubusercontent.com/HeBianGu/Avalonia-Controls/main/Document/Light.Accent.png)
 
-### 深绿
+### 主色调
+![qrcode](https://raw.githubusercontent.com/HeBianGu/Avalonia-Controls/main/Document/Accent.png)
+
+### 深灰色
+![qrcode](https://raw.githubusercontent.com/HeBianGu/Avalonia-Controls/main/Document/Dark.Gray.png)
+
+### 深绿色
 ![qrcode](https://raw.githubusercontent.com/HeBianGu/Avalonia-Controls/main/Document/Blue.png)
+
+### 深紫色
+![qrcode](https://raw.githubusercontent.com/HeBianGu/Avalonia-Controls/main/Document/Dark.Purple.png)
+
+### 浅色
+![qrcode](https://raw.githubusercontent.com/HeBianGu/Avalonia-Controls/main/Document/Light.png)
+
+### 浅灰色
+![qrcode](https://raw.githubusercontent.com/HeBianGu/Avalonia-Controls/main/Document/Light.Gray.png)
+
+### 浅绿色
+![qrcode](https://raw.githubusercontent.com/HeBianGu/Avalonia-Controls/main/Document/Light.Blue.png)
+
+### 浅紫色
+![qrcode](https://raw.githubusercontent.com/HeBianGu/Avalonia-Controls/main/Document/Light.Purple.png)
 
 ### 窗口背景图片
 ![qrcode](https://raw.githubusercontent.com/HeBianGu/Avalonia-Controls/main/Document/BackgroundImage.png)

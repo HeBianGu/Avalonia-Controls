@@ -325,7 +325,7 @@
         <TabItem Header="DataGrid">
             <TabControl>
                 <TabItem Header="Default">
-                    <DataGrid AutoGenerateColumns="True" ItemsSource="{h:GetStudents}" />
+                    <DataGrid ColumnWidth="*" AutoGenerateColumns="True" ItemsSource="{h:GetStudents}" />
                 </TabItem>
                 <TabItem Header="All">
                     <DataGrid AutoGenerateColumns="True"

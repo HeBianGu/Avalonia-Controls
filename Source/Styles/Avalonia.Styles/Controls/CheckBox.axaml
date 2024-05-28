@@ -29,9 +29,9 @@
                         <Border x:Name="NormalRectangle"
                                 Width="20"
                                 Height="20"
-                                Background="{DynamicResource CheckBoxCheckBackgroundFillUnchecked}"
-                                BorderBrush="{DynamicResource CheckBoxCheckBackgroundStrokeUnchecked}"
-                                BorderThickness="{DynamicResource CheckBoxBorderThemeThickness}"
+                                Background="Transparent"
+                                BorderBrush="{DynamicResource {x:Static h:BrushKeys.Foreground}}"
+                                BorderThickness="{DynamicResource {x:Static h:LayoutKeys.BorderThickness}}"
                                 CornerRadius="{TemplateBinding CornerRadius}"
                                 UseLayoutRounding="False" />
 
@@ -40,7 +40,7 @@
                                 <Panel Width="16" Height="16" />
                                 <Path x:Name="CheckGlyph"
                                       VerticalAlignment="Center"
-                                      Fill="{DynamicResource CheckBoxCheckGlyphForegroundUnchecked}"
+                                      Fill="{DynamicResource {x:Static h:BrushKeys.Foreground}}"
                                       FlowDirection="LeftToRight"
                                       Opacity="0"
                                       Stretch="Uniform" />
