@@ -6,6 +6,8 @@ Avalonia皮肤，主题，自定义控件，数据库，系统模块资源库
     <img alt="IDE-version" src="https://img.shields.io/badge/IDE-vs2022-blue.svg"></img>
 </p>
 
+Avalonia 11.0.2
+
 [![NuGet](https://buildstats.info/nuget/Avalonia.Theme)](https://www.nuget.org/packages/Avalonia.Theme)
 
 [![Stargazers over time](https://starchart.cc/HeBianGu/Avalonia-Controls.svg)](https://starchart.cc/HeBianGu/Avalonia-Controls)
