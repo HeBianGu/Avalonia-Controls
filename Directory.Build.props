@@ -3,7 +3,7 @@
     <AvaloniaVersion>11.0.2</AvaloniaVersion>
     <PackageIcon>logo.png</PackageIcon>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
     <LangVersion>10.0</LangVersion>
     <Version>1.0.0</Version>
     <FileVersion>1.0.0</FileVersion>
