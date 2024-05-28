@@ -6,6 +6,7 @@
              xmlns:i="clr-namespace:Avalonia.Xaml.Interactivity;assembly=Avalonia.Xaml.Interactivity"
              xmlns:ia="clr-namespace:Avalonia.Xaml.Interactions.Core;assembly=Avalonia.Xaml.Interactions"
              xmlns:ic="using:Avalonia.Xaml.Interactions.Custom"
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:v="clr-namespace:HeBianGu.Test.Main.Views"
              xmlns:vm="clr-namespace:HeBianGu.Test.Main.ViewModels"
@@ -13,353 +14,466 @@
              d:DesignWidth="800"
              x:DataType="vm:MainViewModel"
              mc:Ignorable="d">
-    <Design.DataContext>
-        <!--
+  <Design.DataContext>
+    <!--
             This only sets the DataContext for the previewer in an IDE,
             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs)
         -->
-        <vm:MainViewModel />
-    </Design.DataContext>
-    <TabControl>
-        <TabItem Header="MultiComboBox">
-            <h:MultiComboBox Name="mcb"
-                             MinHeight="35"
-                             VerticalAlignment="Top"
-                             Background="Transparent"
-                             BorderBrush="Black"
-                             BorderThickness="1"
-                             CornerRadius="5"
-                             ItemsSource="{Binding Collection}"
-                             MaxDropDownHeight="800"
-                             SelectionMode="" />
-        </TabItem>
+    <vm:MainViewModel />
+  </Design.DataContext>
+  <TabControl>
 
-        <TabItem Header="MyTemplatedControl">
-            <h:MyTemplatedControl />
-        </TabItem>
-        <TabItem Header="MyButton">
-            <h:MyButton Content="MyButton" />
-        </TabItem>
-        <TabItem Header="ControlTheme">
-            <TabItem.Resources>
-                <ControlTheme x:Key="EllipseButton" TargetType="Button">
-                    <Setter Property="Background" Value="Blue" />
-                    <Setter Property="Foreground" Value="Yellow" />
-                    <Setter Property="Padding" Value="8" />
-                    <Setter Property="Template">
-                        <ControlTemplate>
-                            <Panel>
-                                <Ellipse HorizontalAlignment="Stretch"
-                                         VerticalAlignment="Stretch"
-                                         Fill="{TemplateBinding Background}" />
-                                <ContentPresenter x:Name="PART_ContentPresenter"
-                                                  Margin="{TemplateBinding Padding}"
-                                                  Content="{TemplateBinding Content}" />
-                            </Panel>
-                        </ControlTemplate>
-                    </Setter>
-                </ControlTheme>
-            </TabItem.Resources>
-            <Button Content="ControlTheme" Theme="{StaticResource EllipseButton}" />
-        </TabItem>
-        <TabItem Header="ControlTheme-应用全部">
-            <TabItem.Resources>
-                <ControlTheme x:Key="{x:Type Button}" TargetType="Button">
-                    <Setter Property="Background" Value="Blue" />
-                    <Setter Property="Foreground" Value="Yellow" />
-                    <Setter Property="Padding" Value="8" />
-                    <Setter Property="Template">
-                        <ControlTemplate>
-                            <Panel>
-                                <Ellipse HorizontalAlignment="Stretch"
-                                         VerticalAlignment="Stretch"
-                                         Fill="{TemplateBinding Background}" />
-                                <ContentPresenter x:Name="PART_ContentPresenter"
-                                                  Margin="{TemplateBinding Padding}"
-                                                  Content="{TemplateBinding Content}" />
-                            </Panel>
-                        </ControlTemplate>
-                    </Setter>
-                </ControlTheme>
-            </TabItem.Resources>
-            <Button Content="ControlTheme" />
-        </TabItem>
-        <TabItem Header="Ioc">
-            <Button Click="Ioc_Click" Content="Ioc" />
-        </TabItem>
-        <TabItem Header="Adornr">
-            <Button Click="Adornr_Click" Content="Adornr" />
-        </TabItem>
-        <TabItem Header="AdornerDialog">
-            <Button Click="AdornerDialog_Click" Content="AdornerDialog" />
-        </TabItem>
-        <TabItem Header="WindowDialog">
-            <Button Click="WindowDialog_Click" Content="WindowDialog" />
-        </TabItem>
-        <TabItem Header="Behavior">
-            <Button Content="Behavior">
-                <i:Interaction.Behaviors>
-                    <ic:ButtonClickEventTriggerBehavior>
-                        <ia:InvokeCommandAction Command="{Binding BehaviorCommand}" />
-                    </ic:ButtonClickEventTriggerBehavior>
-                </i:Interaction.Behaviors>
-            </Button>
-        </TabItem>
-        <TabItem Header="From">
-            <h:Form>
-                <h:Form.SelectObject>
-                    <h:TypeCTestModel />
-                </h:Form.SelectObject>
-            </h:Form>
-        </TabItem>
 
-        <TabItem Header="Setting">
-            <Button Click="Setting_Click" Content="Setting" />
-        </TabItem>
+    <TabItem Header="Message">
+      <UniformGrid>
+        <Button Command="{ShowCommand Presnter={h:GetStudent}}" Content="ShowCommand" />
+        <Button Command="{ShowEditCommand Value={h:GetStudent}}" Content="ShowEditCommand" />
+        <Button Command="{ShowViewCommand Value={h:GetStudent}}" Content="ShowViewCommand" />
+        <Button Command="{ShowStringCommand}" Content="ShowStringCommand" />
+        <Button Command="{ShowPercentCommand}" Content="ShowPercentCommand" />
+        <Button Command="{ShowWaitCommand}" Content="ShowWaitCommand" />
+        <Button Command="{Binding ShowMessageCommand}" Content="ShowMessageCommand" />
+      </UniformGrid>
+    </TabItem>
 
-        <TabItem Header="Message">
-            <UniformGrid>
-                <Button Command="{ShowCommand Presnter={h:GetStudent}}" Content="ShowCommand" />
-                <Button Command="{h:ShowAdornerDialogCommand}"
-                        CommandParameter="{h:GetStudent}"
-                        Content="内嵌弹窗" />
-                <Button Command="{ShowEditCommand Value={h:GetStudent}}" Content="ShowEditCommand" />
-                <Button Command="{ShowViewCommand Value={h:GetStudent}}" Content="ShowViewCommand" />
-                <Button Command="{ShowStringCommand}" Content="ShowStringCommand" />
-                <Button Command="{ShowPercentCommand}" Content="ShowPercentCommand" />
-                <Button Command="{ShowWaitCommand}" Content="ShowWaitCommand" />
-                <Button Command="{Binding ShowMessageCommand}" Content="ShowMessageCommand" />
-                <Button Command="{Binding ShowFormMessageCommand}" Content="ShowFormMessageCommand" />
-                <Button Command="{Binding ShowNoticeMessageCommand}" Content="ShowNoticeMessageCommand" />
-                <Button Command="{Binding ShowSnackMessageCommand}" Content="ShowSnackMessageCommand" />
-                <Image IsHitTestVisible="False"
-                       Opacity="0.1"
-                       Stretch="UniformToFill" />
-            </UniformGrid>
-        </TabItem>
+    <TabItem Header="FormMessage">
+      <UniformGrid>
+        <Button Command="{ShowEditCommand Value={h:GetStudent}}" Content="ShowEditCommand" />
+        <Button Command="{ShowViewCommand Value={h:GetStudent}}" Content="ShowViewCommand" />
+      </UniformGrid>
+    </TabItem>
 
-        <TabItem Header="Notice">
-            <UniformGrid>
-                <Button Command="{h:ShowInfoNoticeMessageCommand Message=我是Info消息}" Content="ShowInfo" />
-                <Button Command="{h:ShowErrorNoticeMessageCommand Message=我是Error消息}" Content="ShowError" />
-                <Button Command="{h:ShowSuccessNoticeMessageCommand Message=我是Success消息}" Content="ShowSuccess" />
-                <Button Command="{h:ShowWarnNoticeMessageCommand Message=我是Warn消息}" Content="ShowWarn" />
-                <Button Command="{h:ShowFatalNoticeMessageCommand Message=我是Fatal消息}" Content="ShowFatal" />
-                <Button Command="{h:ShowProgressNoticeMessageCommand Message=我是Progress消息}" Content="ShowProgress" />
-                <Button Command="{h:ShowStringNoticeMessageCommand Message=我是String消息}" Content="ShowString" />
-                <Button Command="{h:ShowDialogNoticeMessageCommand Message=我是Dialog消息}" Content="ShowDialog" />
-            </UniformGrid>
-        </TabItem>
+    <TabItem Header="Notice">
+      <UniformGrid>
+        <Button Command="{h:ShowInfoNoticeMessageCommand Message=我是Info消息}" Content="ShowInfo" />
+        <Button Command="{h:ShowErrorNoticeMessageCommand Message=我是Error消息}" Content="ShowError" />
+        <Button Command="{h:ShowSuccessNoticeMessageCommand Message=我是Success消息}" Content="ShowSuccess" />
+        <Button Command="{h:ShowWarnNoticeMessageCommand Message=我是Warn消息}" Content="ShowWarn" />
+        <Button Command="{h:ShowFatalNoticeMessageCommand Message=我是Fatal消息}" Content="ShowFatal" />
+        <Button Command="{h:ShowProgressNoticeMessageCommand Message=我是Progress消息}" Content="ShowProgress" />
+        <Button Command="{h:ShowStringNoticeMessageCommand Message=我是String消息}" Content="ShowString" />
+        <Button Command="{h:ShowDialogNoticeMessageCommand Message=我是Dialog消息}" Content="ShowDialog" />
+      </UniformGrid>
+    </TabItem>
 
-        <TabItem Header="Snack">
-            <UniformGrid>
-                <Button Command="{h:ShowInfoSnackMessageCommand Message=我是Info消息}" Content="ShowInfo" />
-                <Button Command="{h:ShowErrorSnackMessageCommand Message=我是Error消息}" Content="ShowError" />
-                <Button Command="{h:ShowSuccessSnackMessageCommand Message=我是Success消息}" Content="ShowSuccess" />
-                <Button Command="{h:ShowWarnSnackMessageCommand Message=我是Warn消息}" Content="ShowWarn" />
-                <Button Command="{h:ShowFatalSnackMessageCommand Message=我是Fatal消息}" Content="ShowFatal" />
-                <Button Command="{h:ShowProgressSnackMessageCommand Message=我是Progress消息}" Content="ShowProgress" />
-                <Button Command="{h:ShowStringSnackMessageCommand Message=我是String消息}" Content="ShowString" />
-                <Button Command="{h:ShowDialogSnackMessageCommand Message=我是Dialog消息}" Content="ShowDialog" />
-            </UniformGrid>
-        </TabItem>
-        <TabItem Header="DataTemplate自动加载">
-            <UniformGrid>
-                <ContentControl>
-                    <h:My />
-                </ContentControl>
-            </UniformGrid>
-        </TabItem>
-        <TabItem Header="Styles自动加载">
-            <UniformGrid>
-                <ContentControl>
-                    <h:MyTestButton Content="ssss" />
-                </ContentControl>
-            </UniformGrid>
-        </TabItem>
-        <TabItem Header="S.Button.Geomerty">
-            <UniformGrid>
-                <Button Content="{x:Static h:Geometrys.Close}">
-                    <Button.Theme>
-                        <ControlTheme BasedOn="{StaticResource {x:Type Button}}" TargetType="Button">
-                            <Setter Property="Width" Value="30" />
-                            <Setter Property="Height" Value="30" />
-                            <Setter Property="Padding" Value="2" />
-                            <Setter Property="ContentTemplate">
-                                <Setter.Value>
-                                    <DataTemplate>
-                                        <Path VerticalAlignment="Center"
-                                              Data="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Content}"
-                                              Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}"
-                                              Stretch="Uniform" />
-                                    </DataTemplate>
-                                </Setter.Value>
-                            </Setter>
-                        </ControlTheme>
-                    </Button.Theme>
-                </Button>
+    <TabItem Header="Snack">
+      <UniformGrid>
+        <Button Command="{h:ShowInfoSnackMessageCommand Message=我是Info消息}" Content="ShowInfo" />
+        <Button Command="{h:ShowErrorSnackMessageCommand Message=我是Error消息}" Content="ShowError" />
+        <Button Command="{h:ShowSuccessSnackMessageCommand Message=我是Success消息}" Content="ShowSuccess" />
+        <Button Command="{h:ShowWarnSnackMessageCommand Message=我是Warn消息}" Content="ShowWarn" />
+        <Button Command="{h:ShowFatalSnackMessageCommand Message=我是Fatal消息}" Content="ShowFatal" />
+        <Button Command="{h:ShowProgressSnackMessageCommand Message=我是Progress消息}" Content="ShowProgress" />
+        <Button Command="{h:ShowStringSnackMessageCommand Message=我是String消息}" Content="ShowString" />
+        <Button Command="{h:ShowDialogSnackMessageCommand Message=我是Dialog消息}" Content="ShowDialog" />
+      </UniformGrid>
+    </TabItem>
 
-                <Button Content="{x:Static h:Geometrys.Warn}" Theme="{DynamicResource S.Button.Geometry}" />
+    <TabItem Header="DataGrid">
+      <TabControl>
+        <TabItem Header="Default">
+          <DataGrid ColumnWidth="*" AutoGenerateColumns="True" ItemsSource="{h:GetStudents}" />
+        </TabItem>
+        <TabItem Header="All">
+          <DataGrid AutoGenerateColumns="True"
+                    CanUserReorderColumns="True"
+                    CanUserResizeColumns="True"
+                    CanUserSortColumns="True"
+                    ColumnWidth="*"
+                    GridLinesVisibility="All"
+                    HeadersVisibility="All"
+                    IsReadOnly="True"
+                    ItemsSource="{h:GetStudents}"
+                    MaxColumnWidth="200"
+                    RowDetailsVisibilityMode="VisibleWhenSelected">
+            <DataGrid.RowDetailsTemplate>
+              <DataTemplate>
+                <TextBlock Margin="10,6" Text="DataGrid.RowDetailsTemplate" />
+              </DataTemplate>
+            </DataGrid.RowDetailsTemplate>
 
-                <Button Content="{x:Static h:Geometrys.Warn}" Theme="{DynamicResource {x:Static h:ButtonKeys.Geometry}}" />
+            <DataGrid.Columns>
+              <DataGridTemplateColumn Width="*" Header="操作账号">
+                <DataGridTemplateColumn.CellTemplate>
+                  <DataTemplate>
+                    <TextBlock Text="{Binding Name}" />
+                  </DataTemplate>
+                </DataGridTemplateColumn.CellTemplate>
+              </DataGridTemplateColumn>
+              <DataGridTextColumn Width="*"
+                                  Binding="{Binding Model.sMethod}"
+                                  Header="操作" />
+            </DataGrid.Columns>
+          </DataGrid>
+        </TabItem>
+      </TabControl>
+    </TabItem>
+    
+    <TabItem Header="TabControl">
+      <TabControl>
+        <TabItem Header="Arch">
+          <Border Height="100" Background="AntiqueWhite">
+            <TextBlock FontSize="20"
+                       Foreground="Black"
+                       Text="Content" />
+          </Border>
+        </TabItem>
+        <TabItem Header="Leaf">
+          <Border Height="100" Background="Green" />
+        </TabItem>
+        <TabItem Header="Disabled" IsEnabled="False" />
+      </TabControl>
+    </TabItem>
 
-            </UniformGrid>
-        </TabItem>
-        <TabItem Header="h:WindowSetting.Instance">
-            <UniformGrid>
-                <Image Source="{Binding Source={x:Static h:WindowSetting.Instance}, Path=BackImagePath}" />
-                <Image Source="{Binding Source={x:Static h:LoginOptions.Instance}}" />
-                <TextBlock Text="{Binding Source={x:Static h:WindowSetting.Instance}, Path=BackImagePath}" />
-                <Image Source="avares://Avalonia.Extensions.BackgroundImage/Assets/Star.png" />
-            </UniformGrid>
-        </TabItem>
-        <TabItem Header="ListBox">
-            <ListBox ItemsSource="{Binding Collection}" />
-        </TabItem>
-        <TabItem Header="设置字体大小">
-            <Button Command="{Binding SetFontSizeCommand}"
-                    Content="设置字体大小"
-                    FontSize="{DynamicResource {x:Static h:FontSizeKeys.Default}}" />
-        </TabItem>
-        <!--<TabItem Header="Step">
-        <TabControl>
-          <TabItem Header="Horizontal">
-            <h:Step Height="Auto"
-                    VerticalAlignment="Center"
-                    Cattach.ItemHeight="Auto">
-              <h:StepItemPresenter DisplayName="1"
-                                   Message="成功"
-                                   State="Success" />
-              <h:StepItemPresenter DisplayName="2"
-                                   Message="成功"
-                                   State="Success" />
-              <h:StepItemPresenter DisplayName="3"
-                                   Message="成功"
-                                   State="Success" />
-              <h:StepItemPresenter DisplayName="4"
-                                   Message="失败"
-                                   State="Error" />
-              <h:StepItemPresenter DisplayName="5"
-                                   Message="正在运行"
-                                   State="Running" />
-              <h:StepItemPresenter DisplayName="6"
-                                   Message=""
-                                   State="Ready" />
-              <h:StepItemPresenter DisplayName="7"
-                                   Message=""
-                                   State="Ready" />
-            </h:Step>
-          </TabItem>
-          <TabItem Header="Vertical">
-            <h:Step Height="Auto">
-              <ItemsControl.ItemsPanel>
-                <ItemsPanelTemplate>
-                  <StackPanel />
-                </ItemsPanelTemplate>
-              </ItemsControl.ItemsPanel>
-              <h:StepItemVerticalPresenter DisplayName="1"
-                                           Message="成功"
-                                           State="Success" />
-              <h:StepItemVerticalPresenter DisplayName="2"
-                                           Message="成功"
-                                           State="Success" />
-              <h:StepItemVerticalPresenter DisplayName="3"
-                                           Message="成功"
-                                           State="Success" />
-              <h:StepItemVerticalPresenter DisplayName="4"
-                                           Message="失败"
-                                           State="Error" />
-              <h:StepItemVerticalPresenter DisplayName="5"
-                                           Message="正在运行"
-                                           State="Running" />
-              <h:StepItemVerticalPresenter DisplayName="6"
-                                           Message=""
-                                           State="Ready" />
-              <h:StepItemVerticalPresenter DisplayName="7"
-                                           Message=""
-                                           State="Ready" />
-            </h:Step>
-          </TabItem>
-        </TabControl>
-      </TabItem>-->
+    <TabItem Header="Button">
+      <Border Padding="20">
+        <StackPanel Spacing="20">
+          <Button Content="Click Me!" />
+          <Button Classes="accent" Content="Click Me!" />
+        </StackPanel>
+      </Border>
+    </TabItem>
 
-        <TabItem Header="Image">
-            <TabItem.Resources>
-                <ImageDrawing x:Key="ImageDrawing" ImageSource="avares://Avalonia.Extensions.BackgroundImage/Assets/Star.png" />
-                <ImageDrawing x:Key="ImageDrawing1" ImageSource="avares://Avalonia.Extensions.BackgroundImage/Assets/Star.png" />
-            </TabItem.Resources>
-            <UniformGrid>
-                <!--<Image Source="avares://Avalonia.Extensions.BackgroundImage/Assets/Star.png" />-->
-                <Image Source="{DynamicResource {x:Static BackgroundImageKeys.BackgroundImage}}" />
-                <TextBlock Text="{DynamicResource {x:Static BackgroundImageKeys.BackgroundImage}}" />
-                <Grid>
-                    <Grid.Background>
-                        <ImageBrush Source="avares://Avalonia.Extensions.BackgroundImage/Assets/Star.png" />
-                    </Grid.Background>
-                </Grid>
-                <Image>
-                    <Image.Source>
-                        <DrawingImage>
-                            <DrawingImage.Drawing>
-                                <ImageDrawing ImageSource="avares://Avalonia.Extensions.BackgroundImage/Assets/Star.png" />
-                            </DrawingImage.Drawing>
-                        </DrawingImage>
-                    </Image.Source>
-                </Image>
-                <Image>
-                    <Image.Source>
-                        <Bitmap>
-                            avares://Avalonia.Extensions.BackgroundImage/Assets/Star.png
-                        </Bitmap>
-                    </Image.Source>
-                </Image>
-                <Image>
-                    <Image.Source>
-                        <AssetBitmap>
-                            avares://Avalonia.Extensions.BackgroundImage/Assets/Star.png
-                        </AssetBitmap>
-                    </Image.Source>
-                </Image>
-            </UniformGrid>
-        </TabItem>
-        <TabItem Header="DataGrid">
-            <TabControl>
-                <TabItem Header="Default">
-                    <DataGrid ColumnWidth="*" AutoGenerateColumns="True" ItemsSource="{h:GetStudents}" />
-                </TabItem>
-                <TabItem Header="All">
-                    <DataGrid AutoGenerateColumns="True"
-                              CanUserReorderColumns="True"
-                              CanUserResizeColumns="True"
-                              CanUserSortColumns="True"
-                              ColumnWidth="*"
-                              GridLinesVisibility="All"
-                              HeadersVisibility="All"
-                              IsReadOnly="True"
-                              ItemsSource="{h:GetStudents}"
-                              MaxColumnWidth="200"
-                              RowDetailsVisibilityMode="VisibleWhenSelected">
-                        <DataGrid.RowDetailsTemplate>
-                            <DataTemplate>
-                                <TextBlock Margin="10,6" Text="DataGrid.RowDetailsTemplate" />
-                            </DataTemplate>
-                        </DataGrid.RowDetailsTemplate>
+    <TabItem Header="TextBlock">
+      <StackPanel Margin="20">
+        <TextBlock Margin="0,5"
+                   FontSize="18"
+                   FontWeight="Bold">
+          Heading
+        </TextBlock>
+        <TextBlock Margin="0,5"
+                   xml:space="preserve"
+                   FontStyle="Italic">This is  a single line.</TextBlock>
+        <TextBlock Margin="0,5" xml:space="preserve">This is a multi-line display
+that has returns in it.
+The text block respects the line breaks
+as set out in XAML.</TextBlock>
+      </StackPanel>
+    </TabItem>
 
-                        <DataGrid.Columns>
-                            <DataGridTemplateColumn Width="*" Header="操作账号">
-                                <DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <TextBlock Text="{Binding Name}" />
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                            </DataGridTemplateColumn>
-                            <DataGridTextColumn Width="*"
-                                                Binding="{Binding Model.sMethod}"
-                                                Header="操作" />
-                        </DataGrid.Columns>
-                    </DataGrid>
-                </TabItem>
-            </TabControl>
-        </TabItem>
-    </TabControl>
+    <TabItem Header="RadioButton">
+      <Border Padding="20">
+        <StackPanel Spacing="10">
+          <RadioButton Content="Option 1" />
+          <RadioButton Content="Option 2" />
+          <RadioButton Content="Option 3" IsEnabled="False" />
+          <RadioButton Content="Option 2" />
+        </StackPanel>
+      </Border>
+    </TabItem>
+
+    <TabItem Header="ToggleButton">
+      <Border Padding="20">
+        <StackPanel Spacing="20">
+          <ToggleButton Content="Click Me!" />
+          <ToggleButton Content="Disabled" IsEnabled="False" />
+          <ToggleButton Content="Three state" IsThreeState="True" />
+          <ToggleButton IsChecked="True">
+            <Panel>
+              <PathIcon>
+                <PathIcon.Data>
+                  <StreamGeometry>M28 29.7678L41.8661 43.6339C42.3543 44.122 43.1457 44.122 43.6339 43.6339C44.122 43.1457 44.122 42.3543 43.6339 41.8661L6.13388 4.36612C5.64573 3.87796 4.85427 3.87796 4.36611 4.36612C3.87796 4.85427 3.87796 5.64573 4.36611 6.13388L13.2322 15H9C6.10051 15 3.75 17.3505 3.75 20.25V27.75C3.75 30.6495 6.10051 33 9 33H13.702C14.8734 33 16.0034 33.4328 16.875 34.2153L25.081 41.5815C26.2077 42.5929 28 41.7933 28 40.2793V29.7678ZM25.5 27.2678V38.5981L18.5451 32.3549C17.2146 31.1606 15.4898 30.5 13.702 30.5H9C7.48122 30.5 6.25 29.2688 6.25 27.75V20.25C6.25 18.7312 7.48122 17.5 9 17.5H13.702C14.3147 17.5 14.92 17.4224 15.5046 17.2723L25.5 27.2678Z M19.8115 14.5082L18.0412 12.7379L25.081 6.41847C26.2076 5.40709 28 6.20669 28 7.72074V22.6967L25.5 20.1967V9.40185L19.8115 14.5082Z M36.1857 30.8824L34.335 29.0317C34.966 27.7376 35.5 26.0404 35.5 24C35.5 21.5224 34.7127 19.5507 33.9203 18.1923C33.5242 17.5133 33.1298 16.9931 32.8397 16.6477C32.695 16.4754 32.577 16.3476 32.499 16.2664C32.46 16.2259 32.4311 16.197 32.414 16.1802L32.3972 16.164L32.398 16.1646C31.8935 15.6947 31.8647 14.9048 32.334 14.3994C32.8038 13.8935 33.5947 13.8642 34.1006 14.334L33.25 15.25C34.1006 14.334 34.1014 14.3347 34.1014 14.3347L34.1022 14.3356L34.1042 14.3374L34.1092 14.3421L34.1228 14.355C34.1336 14.3653 34.1476 14.3788 34.1646 14.3955C34.1987 14.4289 34.245 14.4753 34.3018 14.5343C34.4152 14.6524 34.5707 14.8215 34.754 15.0398C35.1202 15.4757 35.6008 16.1117 36.0797 16.9327C37.0373 18.5743 38 20.9776 38 24C38 26.9108 37.1071 29.2474 36.1857 30.8824Z M41.0185 35.7152L39.1733 33.87C40.3712 31.5479 41.5 28.2383 41.5 24C41.5 19.4474 40.1976 15.9662 38.906 13.6297C38.2594 12.46 37.6157 11.5776 37.1403 10.9943C36.9028 10.7028 36.708 10.4867 36.5767 10.3474C36.511 10.2777 36.4614 10.2274 36.4303 10.1965C36.4148 10.181 36.4039 10.1704 36.398 10.1648L36.3949 10.1617L36.393 10.16C35.8916 9.68785 35.8665 8.89867 36.3376 8.39562C36.8094 7.89169 37.6004 7.8657 38.1044 8.33755L37.2501 9.24987C38.1044 8.33755 38.1053 8.33839 38.1053 8.33839L38.1063 8.33935L38.1087 8.34162L38.115 8.34761L38.1336 8.36536C38.1485 8.37975 38.1685 8.39926 38.1932 8.42388C38.2427 8.4731 38.3112 8.54276 38.396 8.6327C38.5655 8.81253 38.8003 9.07375 39.0784 9.41509C39.6343 10.0974 40.3656 11.1025 41.094 12.4203C42.5524 15.0587 44 18.9526 44 24C44 29.0474 42.5524 32.9412 41.094 35.5797L41.0739 35.6159L41.0185 35.7152Z</StreamGeometry>
+                </PathIcon.Data>
+              </PathIcon>
+            </Panel>
+          </ToggleButton>
+
+          <ToggleButton IsChecked="False">
+            <Panel>
+              <PathIcon>
+                <PathIcon.Data>
+                  <StreamGeometry>M28 29.7678L41.8661 43.6339C42.3543 44.122 43.1457 44.122 43.6339 43.6339C44.122 43.1457 44.122 42.3543 43.6339 41.8661L6.13388 4.36612C5.64573 3.87796 4.85427 3.87796 4.36611 4.36612C3.87796 4.85427 3.87796 5.64573 4.36611 6.13388L13.2322 15H9C6.10051 15 3.75 17.3505 3.75 20.25V27.75C3.75 30.6495 6.10051 33 9 33H13.702C14.8734 33 16.0034 33.4328 16.875 34.2153L25.081 41.5815C26.2077 42.5929 28 41.7933 28 40.2793V29.7678ZM25.5 27.2678V38.5981L18.5451 32.3549C17.2146 31.1606 15.4898 30.5 13.702 30.5H9C7.48122 30.5 6.25 29.2688 6.25 27.75V20.25C6.25 18.7312 7.48122 17.5 9 17.5H13.702C14.3147 17.5 14.92 17.4224 15.5046 17.2723L25.5 27.2678Z M19.8115 14.5082L18.0412 12.7379L25.081 6.41847C26.2076 5.40709 28 6.20669 28 7.72074V22.6967L25.5 20.1967V9.40185L19.8115 14.5082Z M36.1857 30.8824L34.335 29.0317C34.966 27.7376 35.5 26.0404 35.5 24C35.5 21.5224 34.7127 19.5507 33.9203 18.1923C33.5242 17.5133 33.1298 16.9931 32.8397 16.6477C32.695 16.4754 32.577 16.3476 32.499 16.2664C32.46 16.2259 32.4311 16.197 32.414 16.1802L32.3972 16.164L32.398 16.1646C31.8935 15.6947 31.8647 14.9048 32.334 14.3994C32.8038 13.8935 33.5947 13.8642 34.1006 14.334L33.25 15.25C34.1006 14.334 34.1014 14.3347 34.1014 14.3347L34.1022 14.3356L34.1042 14.3374L34.1092 14.3421L34.1228 14.355C34.1336 14.3653 34.1476 14.3788 34.1646 14.3955C34.1987 14.4289 34.245 14.4753 34.3018 14.5343C34.4152 14.6524 34.5707 14.8215 34.754 15.0398C35.1202 15.4757 35.6008 16.1117 36.0797 16.9327C37.0373 18.5743 38 20.9776 38 24C38 26.9108 37.1071 29.2474 36.1857 30.8824Z M41.0185 35.7152L39.1733 33.87C40.3712 31.5479 41.5 28.2383 41.5 24C41.5 19.4474 40.1976 15.9662 38.906 13.6297C38.2594 12.46 37.6157 11.5776 37.1403 10.9943C36.9028 10.7028 36.708 10.4867 36.5767 10.3474C36.511 10.2777 36.4614 10.2274 36.4303 10.1965C36.4148 10.181 36.4039 10.1704 36.398 10.1648L36.3949 10.1617L36.393 10.16C35.8916 9.68785 35.8665 8.89867 36.3376 8.39562C36.8094 7.89169 37.6004 7.8657 38.1044 8.33755L37.2501 9.24987C38.1044 8.33755 38.1053 8.33839 38.1053 8.33839L38.1063 8.33935L38.1087 8.34162L38.115 8.34761L38.1336 8.36536C38.1485 8.37975 38.1685 8.39926 38.1932 8.42388C38.2427 8.4731 38.3112 8.54276 38.396 8.6327C38.5655 8.81253 38.8003 9.07375 39.0784 9.41509C39.6343 10.0974 40.3656 11.1025 41.094 12.4203C42.5524 15.0587 44 18.9526 44 24C44 29.0474 42.5524 32.9412 41.094 35.5797L41.0739 35.6159L41.0185 35.7152Z</StreamGeometry>
+                </PathIcon.Data>
+              </PathIcon>
+            </Panel>
+          </ToggleButton>
+        </StackPanel>
+      </Border>
+    </TabItem>
+
+    <TabItem Header="CheckBox">
+      <Border Padding="20">
+        <StackPanel Spacing="20">
+          <CheckBox>Unchecked</CheckBox>
+          <CheckBox IsChecked="True">Checked</CheckBox>
+          <CheckBox IsChecked="{x:Null}" IsThreeState="True">Indeterminate</CheckBox>
+          <CheckBox Width="120">Checkbox should wrap its text</CheckBox>
+        </StackPanel>
+      </Border>
+    </TabItem>
+    <TabItem Header="ComboBox">
+      <Border Padding="20">
+        <StackPanel Spacing="10">
+          <ComboBox PlaceholderText="Select an item">
+            <ComboBoxItem>Item 1</ComboBoxItem>
+            <ComboBoxItem>Item 2</ComboBoxItem>
+          </ComboBox>
+          <ComboBox Width="200"
+                    HorizontalContentAlignment="Center"
+                    IsEnabled="False"
+                    SelectedIndex="1">
+            <ComboBoxItem>Item 1</ComboBoxItem>
+            <ComboBoxItem>Item 2</ComboBoxItem>
+          </ComboBox>
+          <ComboBox PlaceholderText="Error">
+            <DataValidationErrors.Error>
+              <system:Exception>
+                <x:Arguments>
+                  <x:String>Error</x:String>
+                </x:Arguments>
+              </system:Exception>
+            </DataValidationErrors.Error>
+          </ComboBox>
+        </StackPanel>
+      </Border>
+    </TabItem>
+
+    <TabItem Header="Label">
+      <Label Content="Label" />
+    </TabItem>
+
+    <TabItem Header="PathIcon">
+      <PathIcon>
+        <PathIcon.Data>
+          <StreamGeometry>M17.9999 2C18.1738 2 18.3411 2.06037 18.4742 2.16902L18.5497 2.23991L21.822 5.76824L21.8527 5.80714C21.9544 5.94281 22.0003 6.09665 22.0003 6.24775L21.9988 8.16674C21.9988 9.16092 21.6202 10.0667 20.9994 10.7478L20.9986 21.25C20.9986 21.6297 20.7165 21.9435 20.3504 21.9932L20.2486 22H3.75113C3.37144 22 3.05764 21.7178 3.00798 21.3518L3.00113 21.25L3.00035 10.7478C2.42729 10.1191 2.06067 9.29893 2.00765 8.39453L2.001 8.16674L2.0008 6.29097C1.99273 6.15366 2.02238 6.01238 2.09673 5.88313L2.16199 5.78767L2.20117 5.74193L5.45006 2.23991C5.56833 2.11243 5.7264 2.03081 5.89656 2.00715L5.99989 2H17.9999ZM15.0818 10.4421L15.0699 10.4598C14.371 11.3944 13.2555 11.9993 11.9987 11.9993C10.7349 11.9993 9.61393 11.3876 8.9158 10.4441C8.21835 11.3876 7.0974 11.9993 5.83357 11.9993C5.36446 11.9993 4.91504 11.915 4.49962 11.7608L4.50089 20.499H5.99951L5.99989 13.751C5.99989 13.3713 6.28204 13.0575 6.64812 13.0079L6.74989 13.001H11.2458C11.6255 13.001 11.9393 13.2832 11.989 13.6492L11.9958 13.751L11.9955 20.499H19.4979L19.4981 11.7615C19.0833 11.9153 18.6346 11.9993 18.1662 11.9993C16.9015 11.9993 15.7799 11.3867 15.0818 10.4421ZM10.4949 14.501H7.49989V20.499H10.4949V14.501ZM17.2546 13.001C17.6343 13.001 17.9481 13.2832 17.9978 13.6492L18.0046 13.751V17.253C18.0046 17.6327 17.7225 17.9465 17.3564 17.9962L17.2546 18.003H13.7532C13.3735 18.003 13.0597 17.7209 13.01 17.3548L13.0032 17.253V13.751C13.0032 13.3713 13.2853 13.0575 13.6514 13.0079L13.7532 13.001H17.2546ZM16.5039 14.501H14.5029V16.503H16.5039V14.501ZM8.16589 7.002H3.50089L3.501 8.16674L3.50717 8.33777L3.53555 8.569L3.5683 8.72528L3.61768 8.89726L3.67203 9.0451L3.71271 9.1391C3.74388 9.20697 3.77821 9.27309 3.81551 9.33727L3.91846 9.49873L3.97274 9.57344L4.10151 9.72909L4.24329 9.87318L4.33953 9.95811L4.38162 9.99243C4.69615 10.2429 5.07686 10.4138 5.49329 10.4747L5.67387 10.4939L5.83357 10.4993C7.06813 10.4993 8.07869 9.54019 8.16076 8.32644L8.16614 8.16674L8.16589 7.002ZM14.3309 7.002H9.66589L9.66614 8.16674C9.66614 9.34763 10.5437 10.3236 11.6822 10.478L11.839 10.4939L11.9987 10.4993C13.2333 10.4993 14.2438 9.54019 14.3259 8.32644L14.3313 8.16674L14.3309 7.002ZM20.4979 7.002H15.8329L15.8336 8.16674C15.8336 9.34763 16.7112 10.3236 17.8497 10.478L18.0065 10.4939L18.1662 10.4993C18.7305 10.4993 19.248 10.2989 19.6514 9.96542L19.7412 9.88731L19.857 9.7736L20.0032 9.60441C20.0572 9.53545 20.1075 9.46337 20.1536 9.38849L20.2571 9.20179L20.32 9.06383L20.3783 8.90873L20.4081 8.81314L20.4463 8.66108L20.4747 8.50352L20.4927 8.33678L20.4988 8.16674L20.4979 7.002ZM9.06151 3.499H6.32689L4.46889 5.502H8.44551L9.06151 3.499ZM13.3685 3.499H10.6305L10.0145 5.502H13.9845L13.3685 3.499ZM17.6719 3.499H14.9375L15.5535 5.502H19.5299L17.6719 3.499Z</StreamGeometry>
+        </PathIcon.Data>
+      </PathIcon>
+    </TabItem>
+
+    <TabItem Header="TextBox">
+      <Border Padding="20">
+        <StackPanel Spacing="20">
+          <TextBox>Left</TextBox>
+          <TextBox TextAlignment="Center">Center</TextBox>
+          <TextBox Classes="clearButton">Clear</TextBox>
+          <TextBox Classes="revealPasswordButton" PasswordChar="*">Reveal Password</TextBox>
+          <TextBox Classes="revealPasswordButton"
+                   PasswordChar="*"
+                   RevealPassword="True">
+            Password Revealed
+          </TextBox>
+          <TextBox Watermark="Watermark" />
+          <TextBox UseFloatingWatermark="True" Watermark="Floating Watermark" />
+          <TextBox UseFloatingWatermark="True" Watermark="Floating Watermark">Content</TextBox>
+        </StackPanel>
+      </Border>
+    </TabItem>
+
+    <TabItem Header="TreeView">
+      <TreeView>
+        <TreeViewItem Header="Root" IsExpanded="True">
+          <TreeViewItem Header="Child1" />
+          <TreeViewItem Header="Child2" />
+        </TreeViewItem>
+      </TreeView>
+    </TabItem>
+    <TabItem Header="UniformGrid">
+      <UniformGrid Width="300"
+                   Height="200"
+                   Columns="3"
+                   Rows="1">
+        <Rectangle Grid.Row="0"
+                   Grid.Column="0"
+                   Fill="navy" />
+        <Rectangle Grid.Row="0"
+                   Grid.Column="1"
+                   Fill="white" />
+        <Rectangle Grid.Row="0"
+                   Grid.Column="2"
+                   Fill="red" />
+      </UniformGrid>
+    </TabItem>
+
+    <TabItem Header="Expander">
+      <Border Padding="20">
+        <StackPanel Width="350"
+                    Height="600"
+                    Orientation="Vertical"
+                    Spacing="20">
+          <Expander ExpandDirection="Up" Header="Expand Up">
+            <StackPanel>
+              <TextBlock>Expanded content</TextBlock>
+            </StackPanel>
+          </Expander>
+          <Expander ExpandDirection="Down" Header="Expand Down">
+            <StackPanel>
+              <TextBlock>Expanded content</TextBlock>
+            </StackPanel>
+          </Expander>
+          <Expander ExpandDirection="Left" Header="Expand Left">
+            <StackPanel>
+              <TextBlock>Expanded content</TextBlock>
+            </StackPanel>
+          </Expander>
+          <Expander ExpandDirection="Right" Header="Expand Right">
+            <StackPanel>
+              <TextBlock>Expanded content</TextBlock>
+            </StackPanel>
+          </Expander>
+          <Expander ExpandDirection="Up">
+            <Expander.Header>
+              <Grid ColumnDefinitions="*, Auto">
+                <TextBlock Grid.Column="0" Text="Control" />
+                <TextBlock Grid.Column="1" Text="Header" />
+              </Grid>
+            </Expander.Header>
+            <StackPanel>
+              <TextBlock>Expanded content</TextBlock>
+            </StackPanel>
+          </Expander>
+          <Expander CornerRadius="25"
+                    ExpandDirection="Up"
+                    Header="Rounded">
+            <StackPanel>
+              <TextBlock>Expanded content</TextBlock>
+            </StackPanel>
+          </Expander>
+        </StackPanel>
+      </Border>
+    </TabItem>
+
+    <TabItem Header="ProgressBar">
+      <Border Padding="20">
+        <StackPanel Orientation="Horizontal" Spacing="10">
+          <StackPanel Spacing="10">
+            <ProgressBar Maximum="10" Value="5" />
+            <ProgressBar Value="50" />
+            <ProgressBar Maximum="75"
+                         Minimum="25"
+                         Value="50" />
+            <ProgressBar IsIndeterminate="True" />
+            <ProgressBar ShowProgressText="True" Value="50" />
+            <ProgressBar Maximum="100"
+                         Minimum="50"
+                         ProgressTextFormat="\{1\} percent"
+                         ShowProgressText="True"
+                         Value="70" />
+          </StackPanel>
+          <ProgressBar IsIndeterminate="True" Orientation="Vertical" />
+          <ProgressBar Orientation="Vertical"
+                       ShowProgressText="True"
+                       Value="50" />
+        </StackPanel>
+      </Border>
+    </TabItem>
+
+    <TabItem Header="Slider">
+      <Border Width="400"
+              Height="600"
+              Margin="20">
+        <DockPanel LastChildFill="True">
+          <StackPanel DockPanel.Dock="Top" Spacing="10">
+            <Slider Value="50" />
+            <Slider IsDirectionReversed="True" Value="50" />
+            <Slider TickFrequency="10"
+                    TickPlacement="TopLeft"
+                    Value="50" />
+            <Slider TickFrequency="10"
+                    TickPlacement="BottomRight"
+                    Value="50" />
+            <Slider TickFrequency="10"
+                    TickPlacement="Outside"
+                    Value="50" />
+            <Slider IsEnabled="False" Value="50" />
+            <Slider Value="50">
+              <DataValidationErrors.Error>
+                <system:Exception>
+                  <x:Arguments>
+                    <x:String>Error</x:String>
+                  </x:Arguments>
+                </system:Exception>
+              </DataValidationErrors.Error>
+            </Slider>
+          </StackPanel>
+          <StackPanel Orientation="Horizontal" Spacing="10">
+            <Slider Orientation="Vertical" Value="50" />
+            <Slider IsDirectionReversed="True"
+                    Orientation="Vertical"
+                    Value="50" />
+            <Slider IsEnabled="False"
+                    Orientation="Vertical"
+                    Value="50" />
+            <Slider Orientation="Vertical"
+                    TickFrequency="10"
+                    TickPlacement="TopLeft"
+                    Value="50" />
+            <Slider Orientation="Vertical"
+                    TickFrequency="10"
+                    TickPlacement="BottomRight"
+                    Value="50" />
+            <Slider Orientation="Vertical"
+                    TickFrequency="10"
+                    TickPlacement="Outside"
+                    Value="50" />
+          </StackPanel>
+        </DockPanel>
+      </Border>
+      <!--<StackPanel Margin="20">
+                <TextBlock HorizontalAlignment="Center" Text="{Binding #slider.Value}" />
+                <Slider x:Name="slider" />
+            </StackPanel>-->
+    </TabItem>
+    
+    <TabItem Header="Behavior">
+      <Button Content="Behavior">
+        <i:Interaction.Behaviors>
+          <ic:ButtonClickEventTriggerBehavior>
+            <ia:InvokeCommandAction Command="{Binding BehaviorCommand}" />
+          </ic:ButtonClickEventTriggerBehavior>
+        </i:Interaction.Behaviors>
+      </Button>
+    </TabItem>
+    <TabItem Header="From">
+      <h:Form>
+        <h:Form.SelectObject>
+          <h:TypeCTestModel />
+        </h:Form.SelectObject>
+      </h:Form>
+    </TabItem>
+    
+    <TabItem Header="ListBox">
+      <ListBox ItemsSource="{Binding Collection}" />
+    </TabItem>
+
+    <TabItem Header="Image">
+      <TabItem.Resources>
+        <ImageDrawing x:Key="ImageDrawing" ImageSource="avares://Avalonia.Extensions.BackgroundImage/Assets/Star.png" />
+        <ImageDrawing x:Key="ImageDrawing1" ImageSource="avares://Avalonia.Extensions.BackgroundImage/Assets/Star.png" />
+      </TabItem.Resources>
+      <UniformGrid>
+        <!--<Image Source="avares://Avalonia.Extensions.BackgroundImage/Assets/Star.png" />-->
+        <Image Source="{DynamicResource {x:Static BackgroundImageKeys.BackgroundImage}}" />
+        <TextBlock Text="{DynamicResource {x:Static BackgroundImageKeys.BackgroundImage}}" />
+        <Grid>
+          <Grid.Background>
+            <ImageBrush Source="avares://Avalonia.Extensions.BackgroundImage/Assets/Star.png" />
+          </Grid.Background>
+        </Grid>
+        <Image>
+          <Image.Source>
+            <DrawingImage>
+              <DrawingImage.Drawing>
+                <ImageDrawing ImageSource="avares://Avalonia.Extensions.BackgroundImage/Assets/Star.png" />
+              </DrawingImage.Drawing>
+            </DrawingImage>
+          </Image.Source>
+        </Image>
+        <Image>
+          <Image.Source>
+            <Bitmap>
+              avares://Avalonia.Extensions.BackgroundImage/Assets/Star.png
+            </Bitmap>
+          </Image.Source>
+        </Image>
+        <Image>
+          <Image.Source>
+            <AssetBitmap>
+              avares://Avalonia.Extensions.BackgroundImage/Assets/Star.png
+            </AssetBitmap>
+          </Image.Source>
+        </Image>
+      </UniformGrid>
+    </TabItem>
+
+  </TabControl>
 </UserControl>

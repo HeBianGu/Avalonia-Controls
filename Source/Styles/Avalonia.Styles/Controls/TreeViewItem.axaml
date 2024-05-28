@@ -29,7 +29,7 @@
                           HorizontalAlignment="Center"
                           VerticalAlignment="Center"
                           Data="{StaticResource TreeViewItemCollapsedChevronPathData}"
-                          Fill="{DynamicResource TreeViewItemForeground}"
+                          Fill="{TemplateBinding Foreground}"
                           Stretch="Uniform" />
                 </Border>
             </ControlTemplate>
@@ -74,7 +74,7 @@
                               ColumnDefinitions="Auto, *">
                             <Panel Name="PART_ExpandCollapseChevronContainer" Margin="{StaticResource TreeViewItemExpandCollapseChevronMargin}">
                                 <ToggleButton Name="PART_ExpandCollapseChevron"
-                                              Focusable="False"
+                                              Focusable="False" Foreground="{TemplateBinding Foreground}"
                                               IsChecked="{TemplateBinding IsExpanded,
                                                                           Mode=TwoWay}"
                                               Theme="{StaticResource FluentTreeViewExpandCollapseChevron}" />

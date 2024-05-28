@@ -4,38 +4,17 @@
              xmlns:h="https://github.com/HeBianGu"
              xmlns:v="clr-namespace:HeBianGu.Test.Main.Views"
              RequestedThemeVariant="Default">
-    <!--  "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options.  -->
-    <!--<Application.Resources>
-        <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceInclude Source="avares://Avalonia.Styles/Resources/Button.axaml" />
-            </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
-    </Application.Resources>-->
-    <Application.Styles>
-        <FluentTheme />
-        <!--<StyleInclude Source="avares://HeBianGu.Controls.MultiComboBox/Styles/MultiComboBox.axaml" />
-        -->
-        <!--<StyleInclude Source="avares://HeBianGu.Controls.MultiComboBox/Styles/MyTestButton.axaml" />-->
-        <!--
-        -->
-        <!--<StyleInclude Source="avares://HeBianGu.Controls.TemplateControl/Styles/MyTemplatedControl.axaml" />-->
-        <!--
-        -->
-        <!--<StyleInclude Source="avares://HeBianGu.Avalonia.Windows.Dialog/DialogWindow.axaml" />-->
-        <!--
-    <StyleInclude Source="avares://HeBianGu.Avalonia.Windows.Dialog/Styles.axaml" />
-    <StyleInclude Source="avares://Avalonia.Windows.Main/Styles.axaml" />-->
-        <!--<StyleInclude Source="avares://Avalonia.Controls.DataGrid/Themes/Fluent.xaml" />-->
-
-    </Application.Styles>
-    <!--<Application.DataTemplates>
-    -->
-    <!--<DataTemplate DataType="v:Student">
-      <Grid>
-        <TextBlock Text="{Binding Name}" />
-      </Grid>
-    </DataTemplate>-->
-    <!--
-  </Application.DataTemplates>-->
+  <Application.Resources>
+    <ResourceDictionary>
+      <ResourceDictionary.MergedDictionaries>
+        <ResourceInclude Source="avares://Avalonia.Styles/Resources/ControlTheme.axaml"/>
+      </ResourceDictionary.MergedDictionaries>
+    </ResourceDictionary>
+  </Application.Resources>
+  <Application.Styles>
+    <FluentTheme />
+    <!--<StyleInclude Source="avares://HeBianGu.Controls.MultiComboBox/Styles/MultiComboBox.axaml" />-->
+  </Application.Styles>
+  <Application.DataTemplates>
+  </Application.DataTemplates>
 </Application>

@@ -1,9 +1,0 @@
-<ResourceDictionary xmlns="https://github.com/avaloniaui"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:v="clr-namespace:HeBianGu.Test.Main.Views">
-    <!--<DataTemplate DataType="v:Student">
-        <Grid>
-            <TextBlock Text="{Binding Class}" />
-        </Grid>
-    </DataTemplate>-->
-</ResourceDictionary>

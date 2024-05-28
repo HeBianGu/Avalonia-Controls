@@ -30,7 +30,6 @@ public partial class App : ApplicationBase
     public override void Initialize()
     {
         AvaloniaXamlLoader.Load(this);
-        base.Initialize();
     }
 
 

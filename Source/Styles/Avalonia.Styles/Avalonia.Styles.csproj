@@ -21,4 +21,7 @@
   <ItemGroup>
     <UpToDateCheckInput Remove="Controls\DataGrid.axaml" />
   </ItemGroup>
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Controls\PathIcon.axaml" />
+  </ItemGroup>
 </Project>
