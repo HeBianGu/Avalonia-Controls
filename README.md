@@ -23,8 +23,8 @@ Avalonia皮肤，主题，自定义控件，数据库，系统模块资源库
 ### 深灰色
 ![qrcode](https://raw.githubusercontent.com/HeBianGu/Avalonia-Controls/main/Document/Dark.Gray.png)
 
-### 深绿色
-![qrcode](https://raw.githubusercontent.com/HeBianGu/Avalonia-Controls/main/Document/Blue.png)
+### 深蓝色
+![qrcode](https://raw.githubusercontent.com/HeBianGu/Avalonia-Controls/main/Document/Dark.Blue.png)
 
 ### 深紫色
 ![qrcode](https://raw.githubusercontent.com/HeBianGu/Avalonia-Controls/main/Document/Dark.Purple.png)
@@ -35,7 +35,7 @@ Avalonia皮肤，主题，自定义控件，数据库，系统模块资源库
 ### 浅灰色
 ![qrcode](https://raw.githubusercontent.com/HeBianGu/Avalonia-Controls/main/Document/Light.Gray.png)
 
-### 浅绿色
+### 浅蓝色
 ![qrcode](https://raw.githubusercontent.com/HeBianGu/Avalonia-Controls/main/Document/Light.Blue.png)
 
 ### 浅紫色
