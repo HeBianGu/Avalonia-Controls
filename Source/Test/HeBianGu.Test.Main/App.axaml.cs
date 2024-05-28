@@ -38,13 +38,13 @@ public partial class App : ApplicationBase
     {
         base.ConfigureServices(services);
         services.AddSingleton<IMyIoc, MyIoc>();
-        //services.AddSingleton<ILoginWindow, LoginWindow>();
-        //services.AddLoginViewPresenter(x => x.Product = "登陆页面");
+        services.AddSingleton<ILoginWindow, LoginWindow>();
+        services.AddLoginViewPresenter(x => x.Product = "登陆页面");
         services.AddSingleton<IDialogMessageService, AdornerDialogMessageService>();
         services.AddFormMessageService();
         services.AddNoticeMessage();
         services.AddSnackMessage();
-        //services.AddSplashScreen(x => x.Product = "启动页面");
+        services.AddSplashScreen(x => x.Product = "启动页面");
         services.AddTestLoginService();
 
         //  Do ：操作日志
