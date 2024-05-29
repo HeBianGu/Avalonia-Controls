@@ -39,6 +39,15 @@ public class MainViewModel : ViewModelBase
         set { this.RaiseAndSetIfChanged(ref _collection, value); }
     }
 
+
+    private ObservableCollection<string> _selectedcollection = new ObservableCollection<string>();
+    /// <summary> 说明  </summary>
+    public ObservableCollection<string> SelectedCollection
+    {
+        get { return _selectedcollection; }
+        set { this.RaiseAndSetIfChanged(ref _selectedcollection, value); }
+    }
+
     public ICommand BehaviorCommand { get; }
 
 

@@ -12,7 +12,7 @@ namespace Avalonia.Extensions.MarkupExtension
     {
         public int Start { get; set; }
 
-        public int Count { get; set; }
+        public int Count { get; set; } = 100;
 
         public override object ProvideValue(IServiceProvider serviceProvider)
         {
