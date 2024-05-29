@@ -12,19 +12,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Extensions\Avalonia.Extensions.Application\Avalonia.Extensions.Application.csproj" />
+    <ProjectReference Include="..\..\Extensions\Avalonia.Extensions.Geometry\Avalonia.Extensions.Geometry.csproj" />
+    <ProjectReference Include="..\..\Styles\Avalonia.Styles.Extension\Avalonia.Styles.Extension.csproj" />
+    <ProjectReference Include="..\..\Themes\Avalonia.Theme\Avalonia.Theme.csproj" />
   </ItemGroup>
-
-  <ItemGroup>
-    <AvaloniaXaml Update="Resources\MultiComboBox.axaml">
-      <SubType>Designer</SubType>
-    </AvaloniaXaml>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Update="Resources\MultiComboBox.axaml.cs">
-      <SubType>Code</SubType>
-      <DependentUpon>%(Filename)</DependentUpon>
-    </Compile>
-  </ItemGroup>
-
 </Project>

@@ -39,6 +39,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Controls\Avalonia.Controls.Form\Avalonia.Controls.Form.csproj" />
+    <ProjectReference Include="..\..\Controls\HeBianGu.Controls.MultiComboBox\HeBianGu.Controls.MultiComboBox.csproj" />
     <ProjectReference Include="..\..\Controls\HeBianGu.Controls.TemplateControl\HeBianGu.Controls.TemplateControl.csproj" />
     <ProjectReference Include="..\..\Cores\Avalonia.Ioc\Avalonia.Ioc.csproj" />
     <ProjectReference Include="..\..\DataBases\Avalonia.DataBases.Sqlite\Avalonia.DataBases.Sqlite.csproj" />

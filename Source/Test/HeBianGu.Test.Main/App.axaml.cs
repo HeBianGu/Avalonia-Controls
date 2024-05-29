@@ -42,6 +42,7 @@ public partial class App : ApplicationBase
         loader.UseTheme();
         loader.UseForm(); 
         loader.UseDataTest();
+        loader.UseMultiComboBox();
     }
 
 
