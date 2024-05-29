@@ -22,78 +22,45 @@
         <vm:MainViewModel />
     </Design.DataContext>
     <TabControl TabStripPlacement="Left">
+        <TabControl.Resources>
+            <ControlTheme x:Key="{x:Type GroupBox}"
+                          BasedOn="{StaticResource {x:Type GroupBox}}"
+                          TargetType="GroupBox">
+                <Setter Property="HorizontalAlignment" Value="Center" />
+                <Setter Property="VerticalAlignment" Value="Center" />
+                <Setter Property="MinHeight" Value="400" />
+                <Setter Property="MinWidth" Value="400" />
+            </ControlTheme>
+        </TabControl.Resources>
+        <TabControl.ContentTemplate>
+            <DataTemplate>
+                <GroupBox Content="{Binding}" Header="{Binding RelativeSource={RelativeSource AncestorType={x:Type TabControl}}, Path=SelectedItem.Header}" />
+            </DataTemplate>
+        </TabControl.ContentTemplate>
         <!--<TabControl.ItemsPanel>
       <ItemsPanelTemplate>
         <WrapPanel Background="Orange"/>
       </ItemsPanelTemplate>
     </TabControl.ItemsPanel>-->
-        <TabItem Header="HeaderedContentControl">
+        <TabItem Header="GroupBox">
+
             <UniformGrid>
-                <HeaderedContentControl BorderBrush="{DynamicResource {x:Static BrushKeys.BorderBrush}}"
-                                        BorderThickness="1"
-                                        CornerRadius="{DynamicResource {x:Static h:LayoutKeys.CornerRadius}}"
-                                        Header="Header"
-                                        Theme="{DynamicResource {x:Static h:GroupBoxKeys.Default}}">
-                    <!--<HeaderedContentControl.Theme>
-                        <ControlTheme TargetType="HeaderedContentControl">
-                            <Setter Property="Template">
-                                <Setter.Value>
-                                    <ControlTemplate TargetType="HeaderedContentControl">
-                                        <Border Background="{TemplateBinding Background}"
-                                                BorderBrush="{TemplateBinding BorderBrush}"
-                                                BorderThickness="{TemplateBinding BorderThickness}"
-                                                CornerRadius="{TemplateBinding CornerRadius}">
-                                            <DockPanel MinWidth="{TemplateBinding MinWidth}" MaxWidth="{TemplateBinding MaxWidth}">
-                                                <Border x:Name="ExpanderHeader"
-                                                        Height="{DynamicResource {x:Static h:LayoutKeys.ItemHeight}}"
-                                                        BorderBrush="{TemplateBinding BorderBrush}"
-                                                        BorderThickness="0,0,0,1"
-                                                        DockPanel.Dock="Top">
-                                                    <ContentPresenter Margin="{DynamicResource {x:Static h:LayoutKeys.Padding}}"
-                                                                      VerticalContentAlignment="Center"
-                                                                      Content="{TemplateBinding Header}"
-                                                                      ContentTemplate="{TemplateBinding HeaderTemplate}" />
-
-                                                </Border>
-                                                <Border x:Name="ExpanderContent"
-                                                        MinHeight="{TemplateBinding MinHeight}"
-                                                        Padding="{TemplateBinding Padding}"
-                                                        HorizontalAlignment="Stretch"
-                                                        VerticalAlignment="Stretch">
-                                                    <ContentPresenter x:Name="PART_ContentPresenter"
-                                                                      HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                                                      VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                                                                      Content="{TemplateBinding Content}"
-                                                                      ContentTemplate="{TemplateBinding ContentTemplate}"
-                                                                      Foreground="{TemplateBinding Foreground}" />
-                                                </Border>
-                                            </DockPanel>
-
-                                        </Border>
-                                    </ControlTemplate>
-                                </Setter.Value>
-                            </Setter>
-                            <Style Selector="^:left /template/ Border#ExpanderHeader">
-                                <Setter Property="DockPanel.Dock" Value="Right" />
-                            </Style>
-                            <Style Selector="^:up /template/ Border#ExpanderHeader">
-                                <Setter Property="DockPanel.Dock" Value="Bottom" />
-                            </Style>
-                            <Style Selector="^:right /template/ Border#ExpanderHeader">
-                                <Setter Property="DockPanel.Dock" Value="Left" />
-                            </Style>
-                            <Style Selector="^:down /template/ Border#ExpanderHeader">
-                                <Setter Property="DockPanel.Dock" Value="Top" />
-                            </Style>
-                        </ControlTheme>
-                    </HeaderedContentControl.Theme>-->
-                    <HeaderedContentControl.HeaderTemplate>
+                <GroupBox Header="Header">
+                    <GroupBox.HeaderTemplate>
                         <DataTemplate>
-                            <TextBlock Text="TextBlock" />
+                            <DockPanel LastChildFill="False">
+                                <ContentPresenter Content="{Binding Header}">
+                                    <ContentPresenter.ContentTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="Header" />
+                                        </DataTemplate>
+                                    </ContentPresenter.ContentTemplate>
+                                </ContentPresenter>
+                                <Button Content="Button" DockPanel.Dock="Right" />
+                            </DockPanel>
                         </DataTemplate>
-                    </HeaderedContentControl.HeaderTemplate>
-                    <HeaderedContentControl.Template />
-                </HeaderedContentControl>
+                    </GroupBox.HeaderTemplate>
+                </GroupBox>
             </UniformGrid>
         </TabItem>
         <TabItem Header="Message">

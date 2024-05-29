@@ -3,16 +3,17 @@
                     xmlns:h="https://github.com/HeBianGu"
                     xmlns:local="clr-namespace:Avalonia.Styles.Extension">
     <!--  Add Resources Here  -->
-    <ControlTheme x:Key="{StringResourceKey ResourceId=Default, TypeInTargetAssembly={x:Type local:GroupBoxKeys}}" TargetType="HeaderedContentControl">
-      <Setter Property="Background" Value="{DynamicResource {x:Static h:BrushKeys.Background}}" />
-      <!--<Setter Property="Foreground" Value="{DynamicResource {x:Static h:BrushKeys.Foreground}}" />-->
-      <Setter Property="BorderBrush" Value="{DynamicResource {x:Static h:BrushKeys.BorderBrush}}" />
-      <Setter Property="BorderThickness" Value="{DynamicResource {x:Static h:LayoutKeys.BorderThickness}}" />
-      <Setter Property="CornerRadius" Value="{DynamicResource {x:Static h:LayoutKeys.CornerRadius}}" />
-      <Setter Property="Padding" Value="{DynamicResource {x:Static h:LayoutKeys.Padding}}" />
-      <Setter Property="Template">
+    <ControlTheme x:Key="{x:Type local:GroupBox}" TargetType="{x:Type local:GroupBox}">
+        <Setter Property="Background" Value="{DynamicResource {x:Static h:BrushKeys.Background}}" />
+        <!--<Setter Property="Foreground" Value="{DynamicResource {x:Static h:BrushKeys.Foreground}}" />-->
+        <Setter Property="Header" Value="Header" />
+        <Setter Property="BorderBrush" Value="{DynamicResource {x:Static h:BrushKeys.BorderBrush}}" />
+        <Setter Property="BorderThickness" Value="{DynamicResource {x:Static h:LayoutKeys.BorderThickness}}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource {x:Static h:LayoutKeys.CornerRadius}}" />
+        <Setter Property="Padding" Value="{DynamicResource {x:Static h:LayoutKeys.Padding}}" />
+        <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="HeaderedContentControl">
+                <ControlTemplate TargetType="{x:Type local:GroupBox}">
                     <Border Background="{TemplateBinding Background}"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
