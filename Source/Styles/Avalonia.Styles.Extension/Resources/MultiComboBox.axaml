@@ -1,0 +1,121 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:h="https://github.com/HeBianGu"
+                    xmlns:local="clr-namespace:Avalonia.Styles.Extension">
+    <!--  Add Resources Here  -->
+    <ControlTheme x:Key="{x:Type local:MultiComboBox}" TargetType="{x:Type local:MultiComboBox}">
+        <Setter Property="FocusAdorner" Value="{x:Null}" />
+        <Setter Property="MaxDropDownHeight" Value="800" />
+        <Setter Property="Background" Value="{DynamicResource {x:Static h:BrushKeys.CaptionBackground}}" />
+        <Setter Property="Foreground" Value="{DynamicResource {x:Static h:BrushKeys.CaptionForeground}}" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="BorderThickness" Value="{DynamicResource {x:Static h:LayoutKeys.BorderThickness}}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource {x:Static h:LayoutKeys.CornerRadius}}" />
+        <Setter Property="Padding" Value="{DynamicResource {x:Static h:LayoutKeys.Padding}}" />
+        <Setter Property="Height" Value="{DynamicResource {x:Static h:LayoutKeys.ItemHeight}}" />
+
+        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
+        <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
+        <Setter Property="MinHeight" Value="{DynamicResource {x:Static h:LayoutKeys.ItemHeight}}" />
+        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+        <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="PlaceholderForeground" Value="{DynamicResource {x:Static h:BrushKeys.ForegroundAssist}}" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border Name="border"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding CornerRadius}">
+                    <Grid ColumnDefinitions="*,Auto">
+                        <ListBox Name="PART_SelectListBox"
+                                 HorizontalAlignment="Left"
+                                 Background="Transparent"
+                                 ItemsSource="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=SelectedItems}">
+                            <ListBox.Styles>
+                                <!--  Give the ListBoxItems a fixed with of 100 and right-align them  -->
+                                <Style Selector="ListBoxItem">
+                                    <Setter Property="HorizontalAlignment" Value="Left" />
+                                    <Setter Property="Margin" Value="0" />
+                                    <Setter Property="Padding" Value="0" />
+                                    <Setter Property="VerticalAlignment" Value="Center" />
+                                </Style>
+                            </ListBox.Styles>
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <Border Margin="1"
+                                            Background="#FF0078d7"
+                                            CornerRadius="5">
+                                        <DockPanel Margin="10,6,0,6" VerticalAlignment="Center">
+                                            <Button Background="Transparent"
+                                                    Command="{x:Static local:MultiComboBoxCommands.RemoveCommand}"
+                                                    CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=ListBoxItem}}"
+                                                    Content="×"
+                                                    DockPanel.Dock="Right"
+                                                    FontSize="25"
+                                                    Foreground="White" />
+                                            <ContentPresenter Margin="0,0,0,0"
+                                                              VerticalAlignment="Center"
+                                                              VerticalContentAlignment="Center"
+                                                              Content="{Binding}"
+                                                              Foreground="White" />
+                                        </DockPanel>
+                                    </Border>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                            <ListBox.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <WrapPanel />
+                                </ItemsPanelTemplate>
+                            </ListBox.ItemsPanel>
+                        </ListBox>
+
+                        <ToggleButton Name="toggle"
+                                      Grid.Column="1"
+                                      VerticalAlignment="Stretch"
+                                      Background="Transparent"
+                                      IsChecked="{TemplateBinding IsDropDownOpen,
+                                                                  Mode=TwoWay}">
+                            <Path Width="8"
+                                  Height="4"
+                                  HorizontalAlignment="Center"
+                                  VerticalAlignment="Center"
+                                  Data="F1 M 301.14,-189.041L 311.57,-189.041L 306.355,-182.942L 301.14,-189.041 Z"
+                                  Fill="Black"
+                                  Stretch="Uniform" />
+                        </ToggleButton>
+                        <Popup Name="PART_Popup"
+                               MinWidth="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"
+                               MaxHeight="{TemplateBinding MaxDropDownHeight}"
+                               IsLightDismissEnabled="True"
+                               IsOpen="{TemplateBinding IsDropDownOpen,
+                                                        Mode=TwoWay}"
+                               PlacementTarget="{TemplateBinding}">
+                            <Border Background="{DynamicResource ThemeBackgroundBrush}"
+                                    BorderBrush="{DynamicResource ThemeBorderMidBrush}"
+                                    BorderThickness="1">
+                                <ScrollViewer HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}" VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}">
+                                    <ListBox Name="PART_ListBox"
+                                             ItemsSource="{TemplateBinding ItemsSource}"
+                                             
+                                             SelectedItems="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=SelectedItems}"
+                                             SelectionMode="Multiple,Toggle">
+                                        <ListBox.ItemTemplate>
+                                            <DataTemplate>
+                                                <DockPanel>
+                                                    <CheckBox Content="{Binding}" IsChecked="{Binding RelativeSource={RelativeSource AncestorType=ListBoxItem}, Path=IsSelected}" />
+                                                </DockPanel>
+                                            </DataTemplate>
+                                        </ListBox.ItemTemplate>
+                                    </ListBox>
+                                </ScrollViewer>
+                            </Border>
+                        </Popup>
+                    </Grid>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+</ResourceDictionary>
