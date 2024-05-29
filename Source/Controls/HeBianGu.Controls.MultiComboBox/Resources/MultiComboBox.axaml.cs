@@ -23,7 +23,6 @@ namespace HeBianGu.Controls.MultiComboBox
             set { SetValue(BindingSelectedItemsProperty, value); }
         }
 
-
         public static readonly StyledProperty<IList> BindingSelectedItemsProperty =
             AvaloniaProperty.Register<MultiComboBox, IList>("BindingSelectedItems", null, false, BindingMode.Default, x =>
             {
