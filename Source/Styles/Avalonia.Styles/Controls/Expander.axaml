@@ -29,8 +29,8 @@
         <!--<Setter Property="BorderThickness" Value="{DynamicResource ExpanderHeaderBorderThickness}" />-->
         <!--<Setter Property="Foreground" Value="{DynamicResource ExpanderHeaderForeground}" />-->
         <!--<Setter Property="Padding" Value="{DynamicResource ExpanderHeaderPadding}" />-->
-        <Setter Property="Background" Value="{DynamicResource {x:Static h:BrushKeys.CaptionBackground}}" />
-        <Setter Property="Foreground" Value="{DynamicResource {x:Static h:BrushKeys.CaptionForeground}}" />
+        <Setter Property="Background" Value="{DynamicResource {x:Static h:BrushKeys.Background}}" />
+        <Setter Property="Foreground" Value="{DynamicResource {x:Static h:BrushKeys.Foreground}}" />
         <Setter Property="BorderBrush" Value="{DynamicResource {x:Static h:BrushKeys.BorderBrush}}" />
         <Setter Property="BorderThickness" Value="{DynamicResource {x:Static h:LayoutKeys.BorderThickness}}" />
         <Setter Property="CornerRadius" Value="{DynamicResource {x:Static h:LayoutKeys.CornerRadius}}" />

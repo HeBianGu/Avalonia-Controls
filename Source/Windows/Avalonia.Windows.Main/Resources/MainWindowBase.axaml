@@ -2,109 +2,110 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:h="https://github.com/HeBianGu"
                     xmlns:local="clr-namespace:Avalonia.Windows.Main">
-    <ControlTheme x:Key="{x:Type local:MainWindowBase}" TargetType="local:MainWindowBase">
-        <Setter Property="TransparencyBackgroundFallback" Value="{DynamicResource SystemControlBackgroundAltHighBrush}" />
-        <Setter Property="TopLevel.SystemBarColor" Value="{DynamicResource SystemControlBackgroundAltHighBrush}" />
-        <!--<Setter Property="FontFamily" Value="{DynamicResource ContentControlThemeFontFamily}" />-->
-        <Setter Property="FontFamily" Value="{Binding Source={x:Static h:SystemSetting.Instance}, Path=FontFamily}" />
-        <Setter Property="FontSize" Value="{DynamicResource {x:Static h:FontSizeKeys.Default}}" />
-        <Setter Property="Background" Value="{DynamicResource {x:Static h:BrushKeys.Background}}" />
-        <Setter Property="Foreground" Value="{DynamicResource {x:Static h:BrushKeys.Foreground}}" />
-        <Setter Property="BorderThickness" Value="{DynamicResource {x:Static h:LayoutKeys.BorderThickness}}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource {x:Static h:BrushKeys.BorderBrush}}" />
-        <Setter Property="CornerRadius" Value="{DynamicResource {x:Static h:LayoutKeys.CornerRadius}}" />
+  <ControlTheme x:Key="{x:Type local:MainWindowBase}" TargetType="local:MainWindowBase">
+    <Setter Property="TransparencyBackgroundFallback" Value="{DynamicResource SystemControlBackgroundAltHighBrush}" />
+    <Setter Property="TopLevel.SystemBarColor" Value="{DynamicResource SystemControlBackgroundAltHighBrush}" />
+    <!--<Setter Property="FontFamily" Value="{DynamicResource ContentControlThemeFontFamily}" />-->
+    <Setter Property="FontFamily" Value="{Binding Source={x:Static h:SystemSetting.Instance}, Path=FontFamily}" />
+    <Setter Property="FontSize" Value="{DynamicResource {x:Static h:FontSizeKeys.Default}}" />
+    <Setter Property="Background" Value="{DynamicResource {x:Static h:BrushKeys.Background}}" />
+    <Setter Property="Foreground" Value="{DynamicResource {x:Static h:BrushKeys.Foreground}}" />
+    <Setter Property="BorderThickness" Value="{DynamicResource {x:Static h:LayoutKeys.BorderThickness}}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource {x:Static h:BrushKeys.BorderBrush}}" />
+    <Setter Property="CornerRadius" Value="{DynamicResource {x:Static h:LayoutKeys.CornerRadius}}" />
 
-        <Setter Property="ExtendClientAreaToDecorationsHint" Value="True" />
-        <Setter Property="ExtendClientAreaChromeHints" Value="NoChrome" />
-        <Setter Property="ExtendClientAreaTitleBarHeightHint" Value="-1" />
-        <Setter Property="SystemDecorations" Value="None" />
-        <Setter Property="CanResize" Value="False" />
-        <Setter Property="Height" Value="700" />
-        <Setter Property="Width" Value="1100" />
-        <Setter Property="WindowStartupLocation" Value="CenterScreen" />
-        <!--<Setter Property="Background">
+    <Setter Property="ExtendClientAreaToDecorationsHint" Value="True" />
+    <Setter Property="ExtendClientAreaChromeHints" Value="NoChrome" />
+    <Setter Property="ExtendClientAreaTitleBarHeightHint" Value="-1" />
+    <Setter Property="SystemDecorations" Value="None" />
+    <Setter Property="CanResize" Value="False" />
+    <Setter Property="Height" Value="700" />
+    <Setter Property="Width" Value="1100" />
+    <Setter Property="WindowStartupLocation" Value="CenterScreen" />
+    <!--<Setter Property="Background">
             <Setter.Value>
                 <SolidColorBrush Opacity="0" Color="White" />
             </Setter.Value>
         </Setter>-->
-        <Setter Property="Template">
-            <ControlTemplate>
-                <Panel>
-                    <Border x:Name="PART_TransparencyFallback"
-                            Background="Pink"
-                            IsHitTestVisible="False" />
-                    <Border Background="{TemplateBinding Background}" IsHitTestVisible="False" />
-                    <Panel Margin="{TemplateBinding WindowDecorationMargin}" Background="Transparent" />
-                    <VisualLayerManager>
-                        <VisualLayerManager.ChromeOverlayLayer>
-                            <TitleBar Background="Red" />
-                        </VisualLayerManager.ChromeOverlayLayer>
-                        <DockPanel>
-                            <DockPanel x:Name="PART_HeaderDockPanel"
-                                       Background="{DynamicResource {x:Static h:BrushKeys.CaptionBackground}}"
-                                       DockPanel.Dock="Top"
-                                       TextElement.Foreground="{DynamicResource {x:Static h:BrushKeys.CaptionForeground}}">
-                                <TemplatedControl DockPanel.Dock="Left" Template="{TemplateBinding h:Attach.HeaderLeftTemplate}" />
-                                <TextBlock Margin="10 0" VerticalAlignment="Center" Text="{TemplateBinding Title}" />
-                                <TemplatedControl DockPanel.Dock="Right" Template="{TemplateBinding h:Attach.HeaderRightTemplate}" />
-                                <Button Background="Red"
-                                        Command="{h:CloseWindowCommand}"
-                                        CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"
-                                        Content="{x:Static h:Geometrys.Close}"
-                                        DockPanel.Dock="Right"
-                                        Foreground="White"
-                                        Theme="{DynamicResource {x:Static h:ButtonKeys.Geometry}}"
-                                        ToolTip.Tip="×" />
-                                <Button x:Name="PART_ButtonMax"
-                                        Command="{h:MaximizeWindowCommand}"
-                                        CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"
-                                        Content="{x:Static h:Geometrys.Maximize}"
-                                        DockPanel.Dock="Right"
-                                        Theme="{DynamicResource {x:Static h:ButtonKeys.Geometry}}"
-                                        ToolTip.Tip="Maximize" />
-                                <Button x:Name="PART_ButtonRestore"
-                                        Command="{h:RestoreWindowCommand}"
-                                        CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"
-                                        Content="{x:Static h:Geometrys.Restore}"
-                                        DockPanel.Dock="Right"
-                                        Theme="{DynamicResource {x:Static h:ButtonKeys.Geometry}}"
-                                        ToolTip.Tip="Restore" />
-                                <!--<Button Command="{h:FullScreenWindowCommand}"
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Border Background="{TemplateBinding Background}" CornerRadius="{TemplateBinding CornerRadius}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" IsHitTestVisible="True" >
+          <Panel>
+            <Border x:Name="PART_TransparencyFallback"
+                    Background="Pink"
+                    IsHitTestVisible="False" />
+            <Panel Margin="{TemplateBinding WindowDecorationMargin}" Background="Transparent" />
+            <VisualLayerManager>
+              <VisualLayerManager.ChromeOverlayLayer>
+                <TitleBar Background="Red" />
+              </VisualLayerManager.ChromeOverlayLayer>
+              <DockPanel>
+                <DockPanel x:Name="PART_HeaderDockPanel"
+                           Background="{DynamicResource {x:Static h:BrushKeys.CaptionBackground}}"
+                           DockPanel.Dock="Top" Height="{DynamicResource {x:Static h:LayoutKeys.RowHeight}}"
+                           TextElement.Foreground="{DynamicResource {x:Static h:BrushKeys.CaptionForeground}}">
+                  <TemplatedControl DockPanel.Dock="Left" Template="{TemplateBinding h:Attach.HeaderLeftTemplate}" />
+                  <TextBlock Margin="10 0" VerticalAlignment="Center" Text="{TemplateBinding Title}" />
+                  <TemplatedControl DockPanel.Dock="Right" Template="{TemplateBinding h:Attach.HeaderRightTemplate}" />
+                  <Button Background="Red"
+                          Command="{h:CloseWindowCommand}"
+                          CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"
+                          Content="{x:Static h:Geometrys.Close}"
+                          DockPanel.Dock="Right"
+                          Foreground="White"
+                          Theme="{DynamicResource {x:Static h:ButtonKeys.Geometry}}"
+                          ToolTip.Tip="×" />
+                  <Button x:Name="PART_ButtonMax"
+                          Command="{h:MaximizeWindowCommand}"
+                          CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"
+                          Content="{x:Static h:Geometrys.Maximize}"
+                          DockPanel.Dock="Right"
+                          Theme="{DynamicResource {x:Static h:ButtonKeys.Geometry}}"
+                          ToolTip.Tip="Maximize" />
+                  <Button x:Name="PART_ButtonRestore"
+                          Command="{h:RestoreWindowCommand}"
+                          CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"
+                          Content="{x:Static h:Geometrys.Restore}"
+                          DockPanel.Dock="Right"
+                          Theme="{DynamicResource {x:Static h:ButtonKeys.Geometry}}"
+                          ToolTip.Tip="Restore" />
+                  <!--<Button Command="{h:FullScreenWindowCommand}"
                      CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"
                      Content="FullScreen"
                      DockPanel.Dock="Right" />-->
 
-                                <Button Command="{h:MinimizeWindowCommand}"
-                                        CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"
-                                        Content="{x:Static h:Geometrys.Minimize}"
-                                        DockPanel.Dock="Right"
-                                        Theme="{DynamicResource {x:Static h:ButtonKeys.Geometry}}"
-                                        ToolTip.Tip="Minimize" />
-                                <Image Width="30"
-                                       Height="30"
-                                       Source="{TemplateBinding Icon}" />
-                                <TemplatedControl HorizontalAlignment="Stretch" Template="{TemplateBinding h:Attach.HeaderCenterTemplate}" />
-                            </DockPanel>
-                            <TemplatedControl DockPanel.Dock="Top" Template="{TemplateBinding h:Attach.TopTemplate}" />
-                            <TemplatedControl DockPanel.Dock="Bottom" Template="{TemplateBinding h:Attach.BottomTemplate}" />
-                            <TemplatedControl DockPanel.Dock="Left" Template="{TemplateBinding h:Attach.LeftTemplate}" />
-                            <TemplatedControl DockPanel.Dock="Right" Template="{TemplateBinding h:Attach.RightTemplate}" />
-                            <ContentPresenter Name="PART_ContentPresenter"
-                                              Margin="{TemplateBinding Padding}"
-                                              HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                              VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                                              Content="{TemplateBinding Content}"
-                                              ContentTemplate="{TemplateBinding ContentTemplate}" />
-                        </DockPanel>
-                    </VisualLayerManager>
-                    <Image IsHitTestVisible="False"
-                           Opacity="{DynamicResource {x:Static BackgroundImageKeys.Opacity}}"
-                           Source="{DynamicResource {x:Static BackgroundImageKeys.BackgroundImage}}"
-                           Stretch="{DynamicResource {x:Static BackgroundImageKeys.Stretch}}" />
-                </Panel>
-            </ControlTemplate>
-        </Setter>
-        <!--<Setter Property="BottomTemplate">
+                  <Button Command="{h:MinimizeWindowCommand}"
+                          CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"
+                          Content="{x:Static h:Geometrys.Minimize}"
+                          DockPanel.Dock="Right"
+                          Theme="{DynamicResource {x:Static h:ButtonKeys.Geometry}}"
+                          ToolTip.Tip="Minimize" />
+                  <Image Width="30"
+                         Height="30"
+                         Source="{TemplateBinding Icon}" />
+                  <TemplatedControl HorizontalAlignment="Stretch" Template="{TemplateBinding h:Attach.HeaderCenterTemplate}" />
+                </DockPanel>
+                <TemplatedControl DockPanel.Dock="Top" Template="{TemplateBinding h:Attach.TopTemplate}" />
+                <TemplatedControl DockPanel.Dock="Bottom" Template="{TemplateBinding h:Attach.BottomTemplate}" />
+                <TemplatedControl DockPanel.Dock="Left" Template="{TemplateBinding h:Attach.LeftTemplate}" />
+                <TemplatedControl DockPanel.Dock="Right" Template="{TemplateBinding h:Attach.RightTemplate}" />
+                <ContentPresenter Name="PART_ContentPresenter"
+                                  Margin="{TemplateBinding Padding}"
+                                  HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                  VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                  Content="{TemplateBinding Content}"
+                                  ContentTemplate="{TemplateBinding ContentTemplate}" />
+              </DockPanel>
+            </VisualLayerManager>
+            <Image IsHitTestVisible="False"
+                   Opacity="{DynamicResource {x:Static BackgroundImageKeys.Opacity}}"
+                   Source="{DynamicResource {x:Static BackgroundImageKeys.BackgroundImage}}"
+                   Stretch="{DynamicResource {x:Static BackgroundImageKeys.Stretch}}" />
+          </Panel>
+        </Border>
+      </ControlTemplate>
+    </Setter>
+    <!--<Setter Property="BottomTemplate">
       <Setter.Value>
         <ControlTemplate>
           <Button Margin="10,6"
@@ -116,12 +117,12 @@
       </Setter.Value>
     </Setter>-->
 
-        <Style Selector="^[WindowState=Maximized] /template/ Button#PART_ButtonMax">
-            <Setter Property="IsVisible" Value="False" />
-        </Style>
-        <Style Selector="^[WindowState=Normal] /template/ Button#PART_ButtonRestore">
-            <Setter Property="IsVisible" Value="False" />
-        </Style>
-    </ControlTheme>
+    <Style Selector="^[WindowState=Maximized] /template/ Button#PART_ButtonMax">
+      <Setter Property="IsVisible" Value="False" />
+    </Style>
+    <Style Selector="^[WindowState=Normal] /template/ Button#PART_ButtonRestore">
+      <Setter Property="IsVisible" Value="False" />
+    </Style>
+  </ControlTheme>
 
 </ResourceDictionary>

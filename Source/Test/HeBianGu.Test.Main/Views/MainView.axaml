@@ -21,9 +21,12 @@
         -->
     <vm:MainViewModel />
   </Design.DataContext>
-  <TabControl>
-
-
+  <TabControl TabStripPlacement="Left">
+    <!--<TabControl.ItemsPanel>
+      <ItemsPanelTemplate>
+        <WrapPanel Background="Orange"/>
+      </ItemsPanelTemplate>
+    </TabControl.ItemsPanel>-->
     <TabItem Header="Message">
       <UniformGrid>
         <Button Command="{ShowCommand Presnter={h:GetStudent}}" Content="ShowCommand" />
@@ -108,7 +111,7 @@
         </TabItem>
       </TabControl>
     </TabItem>
-    
+
     <TabItem Header="TabControl">
       <TabControl>
         <TabItem Header="Arch">
@@ -413,7 +416,7 @@ as set out in XAML.</TextBlock>
                 <Slider x:Name="slider" />
             </StackPanel>-->
     </TabItem>
-    
+
     <TabItem Header="Behavior">
       <Button Content="Behavior">
         <i:Interaction.Behaviors>
@@ -430,7 +433,7 @@ as set out in XAML.</TextBlock>
         </h:Form.SelectObject>
       </h:Form>
     </TabItem>
-    
+
     <TabItem Header="ListBox">
       <ListBox ItemsSource="{Binding Collection}" />
     </TabItem>

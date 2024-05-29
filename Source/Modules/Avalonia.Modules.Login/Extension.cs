@@ -1,4 +1,5 @@
 ﻿
+using Avalonia.Controls;
 using Avalonia.Ioc;
 using Avalonia.Modules.Login;
 using Microsoft.Extensions.DependencyInjection;
@@ -9,10 +10,23 @@ namespace System
 {
     public static class Extension
     {
+
+        public static IServiceCollection AddLoginWindow(this IServiceCollection services)
+        {
+            services.TryAdd(ServiceDescriptor.Singleton<ILoginWindow, LoginWindow>());
+            return services;
+        }
+
         public static IServiceCollection AddLoginViewPresenter(this IServiceCollection services, Action<LoginOptions> setupAction = null)
         {
+            return services.AddLoginViewPresenter<LoginViewPresenter>();
+        }
+
+        public static IServiceCollection AddLoginViewPresenter<T>(this IServiceCollection services, Action<LoginOptions> setupAction = null) where T : class, ILoginViewPresenter
+
+        {
             services.AddOptions();
-            services.TryAdd(ServiceDescriptor.Singleton<ILoginViewPresenter, LoginViewPresenter>());
+            services.TryAdd(ServiceDescriptor.Singleton<ILoginViewPresenter, T>());
             services.TryAdd(ServiceDescriptor.Singleton<ILoginedSplashViewPresenter, LoginedSplashViewPresenter>());
             if (setupAction != null)
                 services.Configure(setupAction);

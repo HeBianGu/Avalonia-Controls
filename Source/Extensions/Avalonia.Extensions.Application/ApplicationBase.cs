@@ -243,6 +243,8 @@ namespace Avalonia.Extensions.Application
                     if (login == null)
                     {
                         desktop.MainWindow = mainWindow;
+                        if (splash != null)
+                            mainWindow.Show();
                     }
                     else
                     {

@@ -4,47 +4,49 @@
               xmlns:h="https://github.com/HeBianGu"
               xmlns:local="clr-namespace:Avalonia.Modules.Messages.Dialog"
               DataType="{x:Type local:AdornerDialogPresenter}">
-    <Grid Background="{DynamicResource {x:Static h:BrushKeys.DialogCover}}">
-        <!--<Grid.Background>
+  <Grid Background="{DynamicResource {x:Static h:BrushKeys.DialogCover}}">
+    <!--<Grid.Background>
             <SolidColorBrush Opacity="0.5" Color="Gray" />
         </Grid.Background>-->
-        <Border Width="{Binding Width}"
-                Height="{Binding Height}"
-                MinWidth="{Binding MinWidth}"
-                MinHeight="{Binding MinHeight}"
-                Margin="{Binding Margin}"
-                HorizontalAlignment="{Binding HorizontalAlignment}"
-                VerticalAlignment="{Binding VerticalAlignment}"
-                Background="{DynamicResource {x:Static h:BrushKeys.Background}}"
-                BorderBrush="{DynamicResource {x:Static h:BrushKeys.BorderBrush}}"
-                BorderThickness="0"
-                CornerRadius="{DynamicResource {x:Static h:LayoutKeys.CornerRadius}}">
-            <Grid HorizontalAlignment="Stretch"
-                  VerticalAlignment="Stretch"
-                  RowDefinitions="Auto,*,Auto">
-                <Button HorizontalAlignment="Right"
-                        VerticalAlignment="Top"
-                        Command="{local:CloseAdornerDialogCommand}"
-                        CommandParameter="{Binding}"
-                        Content="{x:Static h:Geometrys.Close}"
-                        Theme="{DynamicResource {x:Static h:ButtonKeys.Geometry}}"
-                        ToolTip.Tip="×" />
+    <Border Width="{Binding Width}"
+            Height="{Binding Height}"
+            MinWidth="{Binding MinWidth}"
+            MinHeight="{Binding MinHeight}"
+            Margin="{Binding Margin}"
+            HorizontalAlignment="{Binding HorizontalAlignment}"
+            VerticalAlignment="{Binding VerticalAlignment}"
+            Background="{DynamicResource {x:Static h:BrushKeys.Background}}"
+            BorderBrush="{DynamicResource {x:Static h:BrushKeys.BorderBrush}}"
+            BorderThickness="0"
+            CornerRadius="{DynamicResource {x:Static h:LayoutKeys.CornerRadius}}">
+      <Grid HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            RowDefinitions="Auto,*,Auto">
+        <Grid Height="{DynamicResource {x:Static h:LayoutKeys.RowHeight}}">
+          <Button HorizontalAlignment="Right"
+            VerticalAlignment="Center"
+            Command="{local:CloseAdornerDialogCommand}"
+            CommandParameter="{Binding}"
+            Content="{x:Static h:Geometrys.Close}"
+            Theme="{DynamicResource {x:Static h:ButtonKeys.Geometry}}"
+            ToolTip.Tip="×" />
+          <TextBlock VerticalAlignment="Center" Margin="{DynamicResource {x:Static h:LayoutKeys.Padding}}" Text="{Binding Title}" />
+        </Grid>
 
-                <TextBlock Margin="10,6" Text="{Binding Title}" />
-                <ContentControl Grid.Row="1"
-                                Padding="{Binding Padding}"
-                                HorizontalAlignment="{Binding HorizontalContentAlignment}"
-                                VerticalAlignment="{Binding VerticalContentAlignment}"
-                                Content="{Binding Presenter}" />
-                <Button Grid.Row="2"
-                        Margin="10,6"
-                        HorizontalAlignment="Center"
-                        Command="{local:SumitAdornerDialogCommand}"
-                        CommandParameter="{Binding}"
-                        Content="确定" />
-            </Grid>
-        </Border>
-    </Grid>
+        <ContentControl Grid.Row="1"
+                        Padding="{Binding Padding}"
+                        HorizontalAlignment="{Binding HorizontalContentAlignment}"
+                        VerticalAlignment="{Binding VerticalContentAlignment}"
+                        Content="{Binding Presenter}" />
+        <Button Grid.Row="2"
+                Margin="10,6"
+                HorizontalAlignment="Center"
+                Command="{local:SumitAdornerDialogCommand}"
+                CommandParameter="{Binding}"
+                Content="确定" />
+      </Grid>
+    </Border>
+  </Grid>
 </DataTemplate>
 
 <!--<DataTemplate DataType="{x:Type local:AdornerDialogPresenter}">

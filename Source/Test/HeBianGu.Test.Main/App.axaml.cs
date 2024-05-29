@@ -37,9 +37,9 @@ public partial class App : ApplicationBase
     {
         base.ConfigureServices(services);
         services.AddSingleton<IMyIoc, MyIoc>();
-        services.AddSingleton<ILoginWindow, LoginWindow>();
+        services.AddLoginWindow();
         services.AddLoginViewPresenter(x => x.Product = "登陆页面");
-        services.AddSingleton<IDialogMessageService, AdornerDialogMessageService>();
+        services.AddAdornerDialogMessage();
         services.AddFormMessageService();
         services.AddNoticeMessage();
         services.AddSnackMessage();
