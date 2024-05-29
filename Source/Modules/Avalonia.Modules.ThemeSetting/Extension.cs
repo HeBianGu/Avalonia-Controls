@@ -3,11 +3,17 @@ using Avalonia.Ioc;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
+using Avalonia.Extensions.Application;
 
 namespace System
 {
     public static class Extension
     {
+        public static IApplicationAxamlLoader UseTheme(this IApplicationAxamlLoader builder)
+        {
+            return builder;
+        }
+
         public static IApplicationBuilder UseTheme(this IApplicationBuilder builder, Action<ThemeSetting> option = null)
         {
             SettingDataManager.Instance.Add(ThemeSetting.Instance);

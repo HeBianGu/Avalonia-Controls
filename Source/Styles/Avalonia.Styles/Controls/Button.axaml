@@ -38,10 +38,16 @@
             </ControlTemplate>
         </Setter>
 
+      <Style Selector="^:pointerover">
+        <Setter Property="Background" Value="{DynamicResource {x:Static h:BrushKeys.Selected}}" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="Foreground" Value="{DynamicResource {x:Static h:BrushKeys.ForegroundTitle}}" />
+      </Style>
         <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
-            <Setter Property="Background" Value="{DynamicResource {x:Static h:BrushKeys.MouseOver}}" />
+            <Setter Property="Background" Value="{DynamicResource {x:Static h:BrushKeys.Selected}}" />
             <Setter Property="BorderBrush" Value="Transparent" />
             <Setter Property="Foreground" Value="{DynamicResource {x:Static h:BrushKeys.ForegroundTitle}}" />
+            <!--<Setter Property="Opacity" Value="{DynamicResource {x:Static h:LayoutKeys.MouseOver}}" />-->
         </Style>
 
         <Style Selector="^:pressed">
@@ -49,11 +55,11 @@
         </Style>
 
         <Style Selector="^:pressed  /template/ ContentPresenter#PART_ContentPresenter">
-          <Setter Property="Opacity" Value="{DynamicResource {x:Static h:LayoutKeys.Pressed}}" />
+            <Setter Property="Opacity" Value="{DynamicResource {x:Static h:LayoutKeys.Pressed}}" />
         </Style>
 
         <Style Selector="^:disabled /template/ ContentPresenter#PART_ContentPresenter">
-          <Setter Property="Opacity" Value="{DynamicResource {x:Static h:LayoutKeys.Disabled}}" />
+            <Setter Property="Opacity" Value="{DynamicResource {x:Static h:LayoutKeys.Disabled}}" />
         </Style>
 
         <Style Selector="^.accent">
@@ -64,15 +70,15 @@
             </Style>
 
             <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
-              <Setter Property="Opacity" Value="{DynamicResource {x:Static h:LayoutKeys.MouseOver}}" />
+                <Setter Property="Opacity" Value="{DynamicResource {x:Static h:LayoutKeys.MouseOver}}" />
             </Style>
 
             <Style Selector="^:pressed  /template/ ContentPresenter#PART_ContentPresenter">
-              <Setter Property="Opacity" Value="{DynamicResource {x:Static h:LayoutKeys.Pressed}}" />
+                <Setter Property="Opacity" Value="{DynamicResource {x:Static h:LayoutKeys.Pressed}}" />
             </Style>
 
             <Style Selector="^:disabled /template/ ContentPresenter#PART_ContentPresenter">
-              <Setter Property="Opacity" Value="{DynamicResource {x:Static h:LayoutKeys.Disabled}}" />
+                <Setter Property="Opacity" Value="{DynamicResource {x:Static h:LayoutKeys.Disabled}}" />
             </Style>
         </Style>
     </ControlTheme>

@@ -27,6 +27,23 @@
         <WrapPanel Background="Orange"/>
       </ItemsPanelTemplate>
     </TabControl.ItemsPanel>-->
+    <TabItem Header="HeaderedContentControl">
+      <UniformGrid>
+        <HeaderedContentControl Header="Header">
+          <Grid Background="Red"/>
+          <HeaderedContentControl.HeaderTemplate>
+            <DataTemplate>
+              <TextBlock Text="TextBlock"/>
+            </DataTemplate>
+          </HeaderedContentControl.HeaderTemplate>
+          <HeaderedContentControl.Template>
+            <!--<ControlTemplate>
+              <Grid Background="Orange"/>
+            </ControlTemplate>-->
+          </HeaderedContentControl.Template>
+        </HeaderedContentControl>
+      </UniformGrid>
+    </TabItem>
     <TabItem Header="Message">
       <UniformGrid>
         <Button Command="{ShowCommand Presnter={h:GetStudent}}" Content="ShowCommand" />

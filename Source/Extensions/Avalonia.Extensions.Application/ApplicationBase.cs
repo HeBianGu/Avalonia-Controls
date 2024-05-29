@@ -56,6 +56,7 @@ namespace Avalonia.Extensions.Application
                 System.Diagnostics.Debug.WriteLine($"LoadStyles:{x}");
             });
         }
+
         protected virtual void LoadResources(List<Assembly> assemblies)
         {
             this.LoadAxamls<ApplicationResourceLoaderAttribute>(assemblies, x =>
@@ -77,9 +78,6 @@ namespace Avalonia.Extensions.Application
                 System.Diagnostics.Debug.WriteLine($"LoadDataTemplates:{x}");
             });
         }
-
-
-
 
         protected virtual List<Assembly> GetAxamlLoaderAssemblies()
         {
@@ -111,7 +109,7 @@ namespace Avalonia.Extensions.Application
                 {
                     if (!list.Contains(item))
                         list.Add(item);
-                    GetReferanceAssemblies(item, list);
+                    //GetReferanceAssemblies(item, list);
                 }
                 return list;
             }
@@ -158,6 +156,12 @@ namespace Avalonia.Extensions.Application
         {
 
         }
+
+        protected virtual void LoadAxamls(IApplicationAxamlLoader loader)
+        {
+            this.LoadAssemblies();
+        }
+
         public override void RegisterServices()
         {
             base.RegisterServices();
@@ -179,10 +183,11 @@ namespace Avalonia.Extensions.Application
             this.LoadStyles(assemblies);
         }
 
-
         public override void OnFrameworkInitializationCompleted()
         {
-            this.LoadAssemblies();
+            ApplicationAxamlLoader loader = new ApplicationAxamlLoader();
+            this.LoadAxamls(loader);
+
             if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
             {
                 Window mainWindow = this.GetMainWindow();

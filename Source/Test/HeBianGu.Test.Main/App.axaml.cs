@@ -22,6 +22,7 @@ using Avalonia.Theme;
 using Avalonia.Modules.Operation;
 using Avalonia.DataBases.Share;
 using Avalonia.Modules.Identity;
+using Avalonia.Styles.Extension;
 
 namespace HeBianGu.Test.Main;
 
@@ -30,6 +31,17 @@ public partial class App : ApplicationBase
     public override void Initialize()
     {
         AvaloniaXamlLoader.Load(this);
+    }
+
+    protected override void LoadAxamls(IApplicationAxamlLoader loader)
+    {
+        base.LoadAxamls(loader);
+        loader.UseStylesExtension();
+        loader.UseMainWindowBase();
+        loader.UseAbout();
+        loader.UseTheme();
+        loader.UseForm(); 
+        loader.UseDataTest();
     }
 
 
@@ -60,7 +72,7 @@ public partial class App : ApplicationBase
         services.AddRoleViewPresenter();
 
         services.AddSingleton<IStringRepository<hi_dd_author>, DbContextRepository<IdentifyDataContext, hi_dd_author>>();
-        services.AddAuthorityViewPresenter();
+        services.AddAuthorityViewPresenter(); 
     }
 
     protected override void Configure(IApplicationBuilder app)
@@ -68,7 +80,6 @@ public partial class App : ApplicationBase
         base.Configure(app);
         app.UseSettingDefault();
         app.UseSetting(x => x.Add(SystemSetting.Instance));
-        //app.UseStylesExtension();
     }
 
 
