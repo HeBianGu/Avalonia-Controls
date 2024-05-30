@@ -2,6 +2,9 @@
               xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
               xmlns:h="https://github.com/HeBianGu"
               xmlns:local="clr-namespace:Avalonia.Modules.Messages.Notice"
+                   xmlns:i="clr-namespace:Avalonia.Xaml.Interactivity;assembly=Avalonia.Xaml.Interactivity"
+             xmlns:ia="clr-namespace:Avalonia.Xaml.Interactions.Core;assembly=Avalonia.Xaml.Interactions"
+             xmlns:ic="using:Avalonia.Xaml.Interactions.Custom"
               DataType="{x:Type local:MessagePresenterBase}">
   <Grid Width="350"
         Height="60"
@@ -50,6 +53,23 @@
               <h:ButtonRemoveItemBehavior />
             </b:Interaction.Behaviors>-->
     </Button>
+    <i:Interaction.Behaviors>
+      <ia:DataTriggerBehavior Binding="{Binding Level}" Value="5">
+        <ia:ChangePropertyAction PropertyName="(TextElement.Foreground)" Value="{DynamicResource {x:Static h:BrushKeys.Purple}}" TargetObject="{Binding ElementName=g}"/>
+      </ia:DataTriggerBehavior>
+      <ia:DataTriggerBehavior Binding="{Binding Level}" Value="4">
+        <ia:ChangePropertyAction PropertyName="(TextElement.Foreground)" Value="{DynamicResource {x:Static h:BrushKeys.Red}}" TargetObject="{Binding ElementName=g}"/>
+      </ia:DataTriggerBehavior>
+      <ia:DataTriggerBehavior Binding="{Binding Level}" Value="3">
+        <ia:ChangePropertyAction PropertyName="(TextElement.Foreground)" Value="{DynamicResource {x:Static h:BrushKeys.Orange}}" TargetObject="{Binding ElementName=g}"/>
+      </ia:DataTriggerBehavior>
+      <ia:DataTriggerBehavior Binding="{Binding Level}" Value="2">
+        <ia:ChangePropertyAction PropertyName="(TextElement.Foreground)" Value="{DynamicResource {x:Static h:BrushKeys.Foreground}}" TargetObject="{Binding ElementName=g}"/>
+      </ia:DataTriggerBehavior>
+      <ia:DataTriggerBehavior Binding="{Binding Level}" Value="1">
+        <ia:ChangePropertyAction PropertyName="(TextElement.Foreground)" Value="{DynamicResource {x:Static h:BrushKeys.Green}}" TargetObject="{Binding ElementName=g}"/>
+      </ia:DataTriggerBehavior>
+    </i:Interaction.Behaviors>
   </Grid>
   <!--<DataTemplate.Triggers>
 
