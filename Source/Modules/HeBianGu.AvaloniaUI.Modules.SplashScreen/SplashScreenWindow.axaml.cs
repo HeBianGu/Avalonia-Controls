@@ -1,8 +1,8 @@
 using Avalonia.Controls;
 using Avalonia.Interactivity;
-using Avalonia.Ioc;
 using Avalonia.Platform;
-using Avalonia.Windows.Dialog;
+using HeBianGu.AvaloniaUI.DialogWindow;
+using HeBianGu.AvaloniaUI.Ioc;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Linq;
@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace HeBianGu.AvaloniaUI.Modules.SplashScreen
 {
-    public partial class SplashScreenWindow : DialogWindow, ISplashScreenWindow
+    public partial class SplashScreenWindow : HeBianGu.AvaloniaUI.DialogWindow.DialogWindow, ISplashScreenWindow
     {
         private readonly ISplashScreenViewPresenter _presenter;
         public SplashScreenWindow()

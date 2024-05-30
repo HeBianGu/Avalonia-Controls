@@ -1,4 +1,5 @@
-﻿using Avalonia.Mvvm;
+﻿
+using HeBianGu.AvaloniaUI.Mvvm;
 using System.ComponentModel;
 using System.Text.RegularExpressions;
 

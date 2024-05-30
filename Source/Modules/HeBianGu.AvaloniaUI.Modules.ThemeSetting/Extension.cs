@@ -1,5 +1,7 @@
-﻿using Avalonia.Extensions.Application;
-using Avalonia.Ioc;
+﻿
+using HeBianGu.AvaloniaUI.Application;
+using HeBianGu.AvaloniaUI.Ioc;
+using HeBianGu.AvaloniaUI.Modules;
 using HeBianGu.AvaloniaUI.Modules.ThemeSetting;
 using Microsoft.Extensions.DependencyInjection;
 using System;

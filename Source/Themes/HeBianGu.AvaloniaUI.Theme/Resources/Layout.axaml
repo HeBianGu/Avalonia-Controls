@@ -2,6 +2,6 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <!-- Add Resources Here -->
   <ResourceDictionary.MergedDictionaries>
-    <ResourceInclude Source="avares://Avalonia.Theme/Layouts/Default.axaml" />
+    <ResourceInclude Source="avares://HeBianGu.AvaloniaUI.Theme/Layouts/Default.axaml" />
   </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

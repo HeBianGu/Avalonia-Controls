@@ -1,1 +1,8 @@
-﻿<Project Sdk="Microsoft.NET.Sdk" />
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <ProjectReference Include="..\..\Cores\HeBianGu.AvaloniaUI.Ioc\HeBianGu.AvaloniaUI.Ioc.csproj" />
+    <ProjectReference Include="..\..\Extensions\HeBianGu.AvaloniaUI.Application\HeBianGu.AvaloniaUI.Application.csproj" />
+    <ProjectReference Include="..\..\Extensions\HeBianGu.AvaloniaUI.Setting\HeBianGu.AvaloniaUI.Setting.csproj" />
+    <ProjectReference Include="..\..\Windows\HeBianGu.AvaloniaUI.DialogWindow\HeBianGu.AvaloniaUI.DialogWindow.csproj" />
+  </ItemGroup>
+</Project>

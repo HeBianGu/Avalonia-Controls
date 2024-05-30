@@ -2,8 +2,8 @@
 
 
 using Avalonia;
-using Avalonia.Extensions.Setting;
-using Avalonia.Ioc;
+using HeBianGu.AvaloniaUI.Ioc;
+using HeBianGu.AvaloniaUI.Setting;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Windows;

@@ -1,6 +1,5 @@
 ﻿
-
-using Avalonia.Ioc;
+using HeBianGu.AvaloniaUI.Ioc;
 using System;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;

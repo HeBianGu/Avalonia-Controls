@@ -1,8 +1,8 @@
 ﻿// Copyright © 2024 By HeBianGu(QQ:908293466) https://github.com/HeBianGu/WPF-Control
 
-using Avalonia.Extensions.Setting;
 using Avalonia.Input;
-using Avalonia.Ioc;
+using HeBianGu.AvaloniaUI.Ioc;
+using HeBianGu.AvaloniaUI.Setting;
 using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
 using System.Windows.Input;

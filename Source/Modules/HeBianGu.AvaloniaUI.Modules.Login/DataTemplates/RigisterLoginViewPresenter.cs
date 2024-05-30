@@ -1,5 +1,6 @@
-﻿using Avalonia.Ioc;
-using Avalonia.Mvvm;
+﻿
+using HeBianGu.AvaloniaUI.Ioc;
+using HeBianGu.AvaloniaUI.Mvvm;
 using Microsoft.Extensions.Options;
 using System;
 using System.Threading;

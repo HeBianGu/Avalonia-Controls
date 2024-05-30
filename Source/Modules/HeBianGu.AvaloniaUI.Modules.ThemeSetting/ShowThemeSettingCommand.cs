@@ -1,7 +1,8 @@
-﻿using Avalonia.Controls;
-using Avalonia.Ioc;
+﻿using Avalonia;
+using Avalonia.Controls;
 using Avalonia.Layout;
-using Avalonia.Mvvm;
+using HeBianGu.AvaloniaUI.Ioc;
+using HeBianGu.AvaloniaUI.Mvvm;
 
 namespace HeBianGu.AvaloniaUI.Modules.ThemeSetting
 {

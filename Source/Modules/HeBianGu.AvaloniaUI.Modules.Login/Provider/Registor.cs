@@ -1,4 +1,6 @@
-﻿using Avalonia.Mvvm;
+﻿
+
+using HeBianGu.AvaloniaUI.Mvvm;
 
 namespace HeBianGu.AvaloniaUI.Modules.Login
 {

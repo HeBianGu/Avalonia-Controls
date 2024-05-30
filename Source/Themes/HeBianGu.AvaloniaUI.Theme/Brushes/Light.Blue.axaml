@@ -3,7 +3,7 @@
                     xmlns:local="clr-namespace:HeBianGu.AvaloniaUI.Theme">
     <!--  Add Resources Here  -->
     <ResourceDictionary.MergedDictionaries>
-        <ResourceInclude Source="avares://Avalonia.Theme/Brushes/Light.axaml" />
+        <ResourceInclude Source="avares://HeBianGu.AvaloniaUI.Theme/Brushes/Light.axaml" />
     </ResourceDictionary.MergedDictionaries>
 
     <!--  Add Resources Here  -->

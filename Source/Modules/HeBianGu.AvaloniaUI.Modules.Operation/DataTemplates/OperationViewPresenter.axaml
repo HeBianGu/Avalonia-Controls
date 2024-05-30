@@ -1,7 +1,7 @@
 <DataTemplate xmlns="https://github.com/avaloniaui"
               xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
               xmlns:h="https://github.com/HeBianGu"
-              xmlns:local="clr-namespace:Avalonia.Modules.Operation"
+              xmlns:local="clr-namespace:HeBianGu.AvaloniaUI.Modules.Operation"
               DataType="local:OperationViewPresenter">
     <DockPanel MinWidth="900" Margin="5">
         <DataGrid AutoGenerateColumns="False"

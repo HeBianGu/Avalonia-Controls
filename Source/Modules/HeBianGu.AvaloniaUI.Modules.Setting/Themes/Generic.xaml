@@ -4,7 +4,7 @@
                     xmlns:local="clr-namespace:HeBianGu.AvaloniaUI.Modules.Setting"
                     xmlns:system="clr-namespace:System;assembly=netstandard">
 
-    <ResourceDictionary.MergedDictionaries>
+    <!--<ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="pack://application:,,,/HeBianGu.AvaloniaUI.Modules.Setting;component/SettingViewPresenter.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
@@ -33,7 +33,7 @@
                     <TextBlock Text=" 分钟后：" />
                 </DockPanel>
 
-                <!--<ListBox ItemsSource="{Binding Source={h:EnumSource EnumType={x:Type local:StateDoNotingMode}}}" SelectedItem="{Binding Value}" />-->
+                --><!--<ListBox ItemsSource="{Binding Source={h:EnumSource EnumType={x:Type local:StateDoNotingMode}}}" SelectedItem="{Binding Value}" />--><!--
             </DockPanel>
         </DockPanel>
 
@@ -63,6 +63,6 @@
             </DockPanel>
         </DockPanel>
 
-    </DataTemplate>
+    </DataTemplate>-->
 
 </ResourceDictionary>

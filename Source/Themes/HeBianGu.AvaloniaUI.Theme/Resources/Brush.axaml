@@ -2,6 +2,6 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <!-- Add Resources Here -->
   <ResourceDictionary.MergedDictionaries>
-    <ResourceInclude Source="avares://Avalonia.Theme/Brushes/Dark.axaml" />
+    <ResourceInclude Source="avares://HeBianGu.AvaloniaUI.Theme/Brushes/Dark.axaml" />
   </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

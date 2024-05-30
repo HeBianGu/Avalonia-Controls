@@ -1,11 +1,10 @@
 ﻿using Avalonia.Controls;
-using Avalonia.Controls.Form;
 using Avalonia.Data.Converters;
-using Avalonia.Extensions.Setting;
-using Avalonia.Ioc;
 using Avalonia.Markup.Xaml;
 using Avalonia.Markup.Xaml.Styling;
-using Avalonia.Theme;
+using HeBianGu.AvaloniaUI.Ioc;
+using HeBianGu.AvaloniaUI.Setting;
+using HeBianGu.AvaloniaUI.Theme;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -195,11 +194,11 @@ namespace HeBianGu.AvaloniaUI.Modules.ThemeSetting
         internal void RefreshColorTheme()
         {
             {
-                var find = Application.Current.Resources.MergedDictionaries.OfType<ResourceInclude>().FirstOrDefault(x => x.Source.AbsoluteUri.StartsWith("avares://Avalonia.Theme/Brushes/") || x.Source.AbsoluteUri == "avares://Avalonia.Theme/Resources/Brush.axaml");
+                var find = Avalonia. Application.Current.Resources.MergedDictionaries.OfType<ResourceInclude>().FirstOrDefault(x => x.Source.AbsoluteUri.StartsWith("avares://HeBianGu.AvaloniaUI.Theme/Brushes/") || x.Source.AbsoluteUri == "avares://HeBianGu.AvaloniaUI.Theme/Resources/Brush.axaml");
                 if (find != this.ColorResource.Resource)
                 {
-                    int index = Application.Current.Resources.MergedDictionaries.IndexOf(find);
-                    Application.Current.Resources.MergedDictionaries[index] = this.ColorResource.Resource;
+                    int index = Avalonia.Application.Current.Resources.MergedDictionaries.IndexOf(find);
+                    Avalonia.Application.Current.Resources.MergedDictionaries[index] = this.ColorResource.Resource;
                 }
             }
         }
@@ -207,11 +206,12 @@ namespace HeBianGu.AvaloniaUI.Modules.ThemeSetting
         internal void RefreshFontSizeTheme()
         {
             {
-                var find = Application.Current.Resources.MergedDictionaries.OfType<ResourceInclude>().FirstOrDefault(x => x.Source.AbsoluteUri.StartsWith("avares://Avalonia.Theme/FontSizes/") || x.Source.AbsoluteUri == "avares://Avalonia.Theme/Resources/FontSize.axaml");
+                var find = 
+                Avalonia.Application.Current.Resources.MergedDictionaries.OfType<ResourceInclude>().FirstOrDefault(x => x.Source.AbsoluteUri.StartsWith("avares://HeBianGu.AvaloniaUI.Theme/FontSizes/") || x.Source.AbsoluteUri == "avares://HeBianGu.AvaloniaUI.Theme/Resources/FontSize.axaml");
                 if (find != this.FontSizeResource.Resource)
                 {
-                    int index = Application.Current.Resources.MergedDictionaries.IndexOf(find);
-                    Application.Current.Resources.MergedDictionaries[index] = this.FontSizeResource.Resource;
+                    int index = Avalonia.Application.Current.Resources.MergedDictionaries.IndexOf(find);
+                    Avalonia.Application.Current.Resources.MergedDictionaries[index] = this.FontSizeResource.Resource;
                 }
             }
         }
@@ -219,11 +219,11 @@ namespace HeBianGu.AvaloniaUI.Modules.ThemeSetting
         internal void RefreshLayoutTheme()
         {
             {
-                var find = Application.Current.Resources.MergedDictionaries.OfType<ResourceInclude>().FirstOrDefault(x => x.Source.AbsoluteUri.StartsWith("avares://Avalonia.Theme/Layouts/") || x.Source.AbsoluteUri == "avares://Avalonia.Theme/Resources/Layout.axaml");
+                var find = Avalonia.Application.Current.Resources.MergedDictionaries.OfType<ResourceInclude>().FirstOrDefault(x => x.Source.AbsoluteUri.StartsWith("avares://HeBianGu.AvaloniaUI.Theme/Layouts/") || x.Source.AbsoluteUri == "avares://HeBianGu.AvaloniaUI.Theme/Resources/Layout.axaml");
                 if (find != this.LayoutResource.Resource)
                 {
-                    int index = Application.Current.Resources.MergedDictionaries.IndexOf(find);
-                    Application.Current.Resources.MergedDictionaries[index] = this.LayoutResource.Resource;
+                    int index =Avalonia.Application.Current.Resources.MergedDictionaries.IndexOf(find);
+                    Avalonia.Application.Current.Resources.MergedDictionaries[index] = this.LayoutResource.Resource;
                 }
             }
         }
@@ -231,11 +231,11 @@ namespace HeBianGu.AvaloniaUI.Modules.ThemeSetting
         internal void RefreshBackgroundImageTheme()
         {
             {
-                var find = Application.Current.Resources.MergedDictionaries.OfType<ResourceInclude>().FirstOrDefault(x => x.Source.AbsoluteUri.StartsWith("avares://Avalonia.Theme/BackgroundImages/") || x.Source.AbsoluteUri == "avares://Avalonia.Theme/Resources/BackgroundImage.axaml");
+                var find = Avalonia.Application.Current.Resources.MergedDictionaries.OfType<ResourceInclude>().FirstOrDefault(x => x.Source.AbsoluteUri.StartsWith("avares://HeBianGu.AvaloniaUI.Theme/BackgroundImages/") || x.Source.AbsoluteUri == "avares://HeBianGu.AvaloniaUI.Theme/Resources/BackgroundImage.axaml");
                 if (find != this.BackgroundImageResource.Resource)
                 {
-                    int index = Application.Current.Resources.MergedDictionaries.IndexOf(find);
-                    Application.Current.Resources.MergedDictionaries[index] = this.BackgroundImageResource.Resource;
+                    int index = Avalonia.Application.Current.Resources.MergedDictionaries.IndexOf(find);
+                    Avalonia.Application.Current.Resources.MergedDictionaries[index] = this.BackgroundImageResource.Resource;
                 }
             }
         }

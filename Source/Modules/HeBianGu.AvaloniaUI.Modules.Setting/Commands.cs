@@ -2,10 +2,10 @@
 
 
 using Avalonia.Controls;
-using Avalonia.Ioc;
 using Avalonia.Layout;
-using Avalonia.Mvvm;
+using HeBianGu.AvaloniaUI.Ioc;
 using HeBianGu.AvaloniaUI.Modules.Setting;
+using HeBianGu.AvaloniaUI.Mvvm;
 using System.Windows;
 
 namespace HeBianGu.AvaloniaUI.Modules.Setting

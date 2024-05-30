@@ -3,13 +3,13 @@ using Avalonia.Controls;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Input;
 using Avalonia.Interactivity;
-using Avalonia.Ioc;
-using Avalonia.Windows.Dialog;
+using HeBianGu.AvaloniaUI.DialogWindow;
+using HeBianGu.AvaloniaUI.Ioc;
 using System;
 
 namespace HeBianGu.AvaloniaUI.Modules.Login
 {
-    public partial class LoginWindow : DialogWindow, ILoginWindow
+    public partial class LoginWindow : HeBianGu.AvaloniaUI.DialogWindow.DialogWindow, ILoginWindow
     {
         private readonly ILoginViewPresenter _presenter;
 
@@ -46,7 +46,7 @@ namespace HeBianGu.AvaloniaUI.Modules.Login
 
         private void Btn_close_Click(object? sender, RoutedEventArgs e)
         {
-            var window = ((IClassicDesktopStyleApplicationLifetime)Application.Current.ApplicationLifetime)
+            var window = ((IClassicDesktopStyleApplicationLifetime)Avalonia.Application.Current.ApplicationLifetime)
                                .MainWindow;
             window.Close();
         }

@@ -3,7 +3,7 @@
                     xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
                     xmlns:h="https://github.com/HeBianGu"
                     xmlns:local="clr-namespace:HeBianGu.AvaloniaUI.Modules.Login">
-    <DataTemplate DataType="{x:Type local:LoginedSplashViewPresenter}">
+    <!--<DataTemplate DataType="{x:Type local:LoginedSplashViewPresenter}">
         <TextBlock Margin="10,6,10,20"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center"
@@ -11,5 +11,5 @@
                    Text="{Binding Message}"
                    TextTrimming="CharacterEllipsis"
                    ToolTip="{Binding Message}" />
-    </DataTemplate>
+    </DataTemplate>-->
 </ResourceDictionary>

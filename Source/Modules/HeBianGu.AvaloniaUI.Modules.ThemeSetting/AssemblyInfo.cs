@@ -1,5 +1,5 @@
-using Avalonia.Extensions.Application;
 using Avalonia.Metadata;
+using HeBianGu.AvaloniaUI.Application;
 
 [assembly: ApplicationDataTemplateLoader]
 

@@ -1,7 +1,6 @@
 ﻿// Copyright © 2024 By HeBianGu(QQ:908293466) https://github.com/HeBianGu/WPF-Control
 
-using Avalonia.Ioc;
-using HeBianGu.AvaloniaUI.Modules.Setting;
+using HeBianGu.AvaloniaUI.Ioc;
 using HeBianGu.AvaloniaUI.Modules.Setting;
 using Microsoft.Extensions.DependencyInjection;
 

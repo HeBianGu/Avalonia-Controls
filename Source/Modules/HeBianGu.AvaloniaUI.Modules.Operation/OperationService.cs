@@ -1,6 +1,6 @@
 ﻿
-using Avalonia.Extensions.Repository;
-using Avalonia.Ioc;
+using HeBianGu.AvaloniaUI.Ioc;
+using HeBianGu.AvaloniaUI.Repository;
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.Reflection;

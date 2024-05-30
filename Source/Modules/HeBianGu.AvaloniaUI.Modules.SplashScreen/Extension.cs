@@ -1,5 +1,5 @@
 ﻿
-using Avalonia.Ioc;
+using HeBianGu.AvaloniaUI.Ioc;
 using HeBianGu.AvaloniaUI.Modules.SplashScreen;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;

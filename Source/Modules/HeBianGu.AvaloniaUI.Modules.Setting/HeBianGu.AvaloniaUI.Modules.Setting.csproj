@@ -1,1 +1,8 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop" />
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+  <ItemGroup>
+    <ProjectReference Include="..\..\Controls\HeBianGu.AvaloniaUI.Form\HeBianGu.AvaloniaUI.Form.csproj" />
+    <ProjectReference Include="..\..\Cores\HeBianGu.AvaloniaUI.Ioc\HeBianGu.AvaloniaUI.Ioc.csproj" />
+    <ProjectReference Include="..\..\Extensions\HeBianGu.AvaloniaUI.Application\HeBianGu.AvaloniaUI.Application.csproj" />
+    <ProjectReference Include="..\..\Extensions\HeBianGu.AvaloniaUI.Setting\HeBianGu.AvaloniaUI.Setting.csproj" />
+  </ItemGroup>
+</Project>

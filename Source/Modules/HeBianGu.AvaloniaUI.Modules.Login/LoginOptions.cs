@@ -1,7 +1,7 @@
 ﻿
-using Avalonia.Extensions.Application;
-using Avalonia.Extensions.Setting;
-using Avalonia.Ioc;
+using HeBianGu.AvaloniaUI.Application;
+using HeBianGu.AvaloniaUI.Ioc;
+using HeBianGu.AvaloniaUI.Setting;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
