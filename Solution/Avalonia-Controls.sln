@@ -115,6 +115,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".sln", ".sln", "{AD4F47D9-1
 	ProjectSection(SolutionItems) = preProject
 		..\.editorconfig = ..\.editorconfig
 		..\Directory.Build.props = ..\Directory.Build.props
+		..\Source\Test\Directory.Build.props = ..\Source\Test\Directory.Build.props
 		..\LICENSE = ..\LICENSE
 		..\README.md = ..\README.md
 	EndProjectSection
@@ -141,7 +142,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avalonia.Test.VLC", "..\Sou
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avalonia.Test.VLC.Desktop", "..\Source\Test\Avalonia.Test.VLC.Desktop\Avalonia.Test.VLC.Desktop.csproj", "{4F7281A5-EBA9-4325-AC17-0E4C8EA08D15}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeBianGu.Avalonia.Controls.VLC", "..\Source\Controls\HeBianGu.Avalonia.Controls.VLC\HeBianGu.Avalonia.Controls.VLC.csproj", "{D09AEF80-41A2-42FB-9242-C8ECF5A92192}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HeBianGu.Avalonia.Controls.VLC", "..\Source\Controls\HeBianGu.Avalonia.Controls.VLC\HeBianGu.Avalonia.Controls.VLC.csproj", "{D09AEF80-41A2-42FB-9242-C8ECF5A92192}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,10 +1,4 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
-  </PropertyGroup>
-  <ItemGroup>
-    <PackageReference Include="Avalonia" Version="11.0.10" />
-  </ItemGroup>
   <ItemGroup>
     <PackageReference Include="LibVLCSharp.Avalonia" Version="3.8.5" />
     <PackageReference Condition="$([MSBuild]::IsOsPlatform('Windows'))" Include="VideoLAN.LibVLC.Windows" Version="3.0.16" />
@@ -12,10 +6,5 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Extensions\Avalonia.Extensions.Application\Avalonia.Extensions.Application.csproj" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Update="Resources\VlcPlayer.axaml.cs">
-      <DependentUpon>VlcPlayer.axaml</DependentUpon>
-    </Compile>
   </ItemGroup>
 </Project>

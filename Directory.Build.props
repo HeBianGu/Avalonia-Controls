@@ -1,6 +1,10 @@
 <Project>
   <PropertyGroup>
-    <AvaloniaVersion>11.0.2</AvaloniaVersion>
+    <TargetFramework>net7.0</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <AvaloniaVersion>11.0.10</AvaloniaVersion>
     <PackageIcon>logo.png</PackageIcon>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
@@ -10,15 +14,20 @@
     <AssemblyVersion>1.0.0</AssemblyVersion>
     <Copyright>Copyright © HeBianGu 2024-2024</Copyright>
     <Authors>HeBianGu </Authors>
-    <RepositoryUrl>https://github.com/HeBianGu/WPF-Control</RepositoryUrl>
-    <PackageProjectUrl>https://github.com/HeBianGu/WPF-Control</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/HeBianGu/Avalonia-Controls</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/HeBianGu/Avalonia-Controls</PackageProjectUrl>
   </PropertyGroup>
   <ItemGroup>
-    <Resource Include="**\*.png" />
+    <PackageReference Include="Avalonia" Version="11.0.10" />
+  </ItemGroup>
+  <ItemGroup>
+    <!--<Resource Include="**\*.png" />
     <Resource Include="**\*.jpg" />
     <Resource Include="**\*.cur" />
-    <Resource Include="**\*.ico" />
+    <Resource Include="**\*.ico" />-->
+    <AvaloniaResource Include="Assets\**" />
   </ItemGroup>
+
   <ItemGroup>
     <None Include="..\..\..\Document\logo.png">
       <Pack>True</Pack>

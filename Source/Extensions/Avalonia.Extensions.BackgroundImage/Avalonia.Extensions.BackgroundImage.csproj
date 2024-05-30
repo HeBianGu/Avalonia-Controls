@@ -1,28 +1,4 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
-  </PropertyGroup>
-  <ItemGroup>
-    <None Remove="Assets\Arrow.png" />
-    <None Remove="Assets\b13.png" />
-    <None Remove="Assets\b6.png" />
-    <None Remove="Assets\Cover.png" />
-    <None Remove="Assets\Grid.png" />
-    <None Remove="Assets\halo10.png" />
-    <None Remove="Assets\Mountain.png" />
-    <None Remove="Assets\Star.png" />
-    <None Remove="Assets\Wave.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AvaloniaResource Include="Assets\Arrow.png" />
-    <AvaloniaResource Include="Assets\Grid.png" />
-    <AvaloniaResource Include="Assets\Mountain.png" />
-    <AvaloniaResource Include="Assets\Star.png" />
-    <AvaloniaResource Include="Assets\Wave.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="Avalonia" Version="11.0.2" />
-  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Cores\Avalonia.Ioc\Avalonia.Ioc.csproj" />
     <ProjectReference Include="..\..\Cores\Avalonia.Mvvm\Avalonia.Mvvm.csproj" />
@@ -30,10 +6,5 @@
     <ProjectReference Include="..\..\Extensions\Avalonia.Extensions.Command\Avalonia.Extensions.Command.csproj" />
     <ProjectReference Include="..\..\Extensions\Avalonia.Extensions.Common\Avalonia.Extensions.Common.csproj" />
     <ProjectReference Include="..\..\Extensions\Avalonia.Extensions.Setting\Avalonia.Extensions.Setting.csproj" />
-  </ItemGroup>
-  <ItemGroup>
-    <AvaloniaResource Include="Assets\Cover.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </AvaloniaResource>
   </ItemGroup>
 </Project>

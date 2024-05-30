@@ -1,5 +1,6 @@
 ﻿using Avalonia.Extensions.ResourceKey;
 using Avalonia.Theme.Provider;
+using System;
 
 namespace Avalonia.Theme
 {
