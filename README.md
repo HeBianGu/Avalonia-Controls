@@ -6,7 +6,7 @@ Avalonia皮肤，主题，自定义控件，数据库，系统模块资源库
     <img alt="IDE-version" src="https://img.shields.io/badge/IDE-vs2022-blue.svg"></img>
 </p>
 
-Avalonia 11.0.2
+Avalonia 11.0.10
 
 帮助
 

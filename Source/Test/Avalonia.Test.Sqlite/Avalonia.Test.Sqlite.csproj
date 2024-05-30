@@ -12,7 +12,7 @@
     <PackageReference Include="Avalonia.Themes.Fluent" Version="$(AvaloniaVersion)" />
     <PackageReference Include="Avalonia.Fonts.Inter" Version="$(AvaloniaVersion)" />
     <PackageReference Include="Avalonia.ReactiveUI" Version="$(AvaloniaVersion)" />
-    <PackageReference Include="Avalonia.Controls.DataGrid" Version="11.0.2" />
+    <PackageReference Include="Avalonia.Controls.DataGrid" Version="$(AvaloniaVersion)" />
     <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
     <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="$(AvaloniaVersion)" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.19">
@@ -22,7 +22,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\DataBases\Avalonia.DataBases.Sqlite\Avalonia.DataBases.Sqlite.csproj" />
-    <ProjectReference Include="..\..\Extensions\Avalonia.Extensions.Application\Avalonia.Extensions.Application.csproj" />
+    <ProjectReference Include="..\..\Cores\HeBianGu.AvaloniaUI.Mvvm\HeBianGu.AvaloniaUI.Mvvm.csproj" />
+    <ProjectReference Include="..\..\DataBases\HeBianGu.AvaloniaUI.Sqlite\HeBianGu.AvaloniaUI.Sqlite.csproj" />
+    <ProjectReference Include="..\..\Extensions\HeBianGu.AvaloniaUI.Application\HeBianGu.AvaloniaUI.Application.csproj" />
   </ItemGroup>
 </Project>

@@ -1,0 +1,50 @@
+<Window x:Class="HeBianGu.AvaloniaUI.Modules.SplashScreen.SplashScreenWindow"
+        xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:h="https://github.com/HeBianGu"
+        xmlns:local="clr-namespace:HeBianGu.AvaloniaUI.Modules.SplashScreen"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        Title="{Binding Source={x:Static local:SplashScreenOption.Instance}, Path=Title}"
+        d:DesignHeight="450"
+        d:DesignWidth="800"
+        BottomTemplate="{x:Null}"
+        mc:Ignorable="d">
+    <!--<Grid>
+    <ContentControl Content/>
+    -->
+    <!--<ContentControl>
+      <ContentControl.ContentTemplate>
+        <DataTemplate>
+          <Grid Margin="20">
+            <Grid.RowDefinitions>
+              <RowDefinition />
+              <RowDefinition Height="Auto" />
+              <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       FontSize="{Binding Source={x:Static local:SplashScreenOption.Instance}, Path=ProductFontSize}"
+                       Text="{Binding Source={x:Static local:SplashScreenOption.Instance}, Path=Product}" />
+
+            <TextBlock Grid.Row="1"
+                       Margin="0,10"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       FontSize="18"
+                       Text="{Binding Message}" />
+
+            <TextBlock Grid.Row="2"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       FontSize="16"
+                       Text="{x:Static h:ApplicationProvider.Copyright}" />
+          </Grid>
+        </DataTemplate>
+      </ContentControl.ContentTemplate>
+    </ContentControl>
+    <Button x:Name="btn_success" Content="加载完成"/>-->
+    <!--
+  </Grid>-->
+</Window>

@@ -1,0 +1,9 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <ProjectReference Include="..\..\Extensions\HeBianGu.AvaloniaUI.Application\HeBianGu.AvaloniaUI.Application.csproj" />
+    <ProjectReference Include="..\..\Extensions\HeBianGu.AvaloniaUI.Command\HeBianGu.AvaloniaUI.Command.csproj" />
+    <ProjectReference Include="..\..\Extensions\HeBianGu.AvaloniaUI.Geometry\HeBianGu.AvaloniaUI.Geometry.csproj" />
+    <ProjectReference Include="..\..\Styles\HeBianGu.AvaloniaUI.Styles.Extension\HeBianGu.AvaloniaUI.Styles.Extension.csproj" />
+    <ProjectReference Include="..\..\Themes\HeBianGu.AvaloniaUI.Theme\HeBianGu.AvaloniaUI.Theme.csproj" />
+  </ItemGroup>
+</Project>

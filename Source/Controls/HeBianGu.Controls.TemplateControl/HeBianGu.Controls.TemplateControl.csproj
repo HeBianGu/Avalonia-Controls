@@ -1,18 +1,9 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
-  <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-  </PropertyGroup>
   <ItemGroup>
-  <AvaloniaResource Include="Assets\**" />
-</ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="Avalonia" Version="11.0.2" />
+    <PackageReference Include="Avalonia" Version="$(AvaloniaVersion)" />
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.0" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Extensions\Avalonia.Extensions.Application\Avalonia.Extensions.Application.csproj" />
+    <ProjectReference Include="..\..\Extensions\HeBianGu.AvaloniaUI.Application\HeBianGu.AvaloniaUI.Application.csproj" />
   </ItemGroup>
 </Project>

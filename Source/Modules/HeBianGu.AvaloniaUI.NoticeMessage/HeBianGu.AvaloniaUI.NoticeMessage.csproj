@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <PackageReference Include="Avalonia.Xaml.Behaviors" Version="$(AvaloniaVersion)" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Extensions\HeBianGu.AvaloniaUI.Application\HeBianGu.AvaloniaUI.Application.csproj" />
+    <ProjectReference Include="..\..\Extensions\HeBianGu.AvaloniaUI.Geometry\HeBianGu.AvaloniaUI.Geometry.csproj" />
+    <ProjectReference Include="..\HeBianGu.AvaloniaUI.DialogMessage\HeBianGu.AvaloniaUI.DialogMessage.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="DataTemplates\DialogMessagePresenter.axaml.cs">
+      <DependentUpon>DialogMessagePresenter.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="DataTemplates\ProgressMessagePresenter.axaml.cs">
+      <DependentUpon>ProgressMessagePresenter.axaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+</Project>

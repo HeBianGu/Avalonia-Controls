@@ -1,0 +1,7 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <ProjectReference Include="..\..\Cores\HeBianGu.AvaloniaUI.Ioc\HeBianGu.AvaloniaUI.Ioc.csproj" />
+    <ProjectReference Include="..\..\Cores\HeBianGu.AvaloniaUI.Mvvm\HeBianGu.AvaloniaUI.Mvvm.csproj" />
+    <ProjectReference Include="..\HeBianGu.AvaloniaUI.Extension\HeBianGu.AvaloniaUI.Extension.csproj" />
+  </ItemGroup>
+</Project>

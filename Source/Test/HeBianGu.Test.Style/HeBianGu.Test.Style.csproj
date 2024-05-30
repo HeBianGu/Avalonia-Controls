@@ -4,32 +4,21 @@
     <Nullable>enable</Nullable>
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
-
   
   <ItemGroup>
     <AvaloniaResource Include="Assets\**" />
   </ItemGroup>
-
-  
-  <ItemGroup>
-    <None Remove="Assets\1.jpg" />
-    <None Remove="Assets\2.jpg" />
-    <None Remove="Assets\3.jpg" />
-    <None Remove="Assets\logo.ico" />
-  </ItemGroup>
-
   <ItemGroup>
     <PackageReference Include="Avalonia" Version="$(AvaloniaVersion)" />
     <PackageReference Include="Avalonia.Themes.Fluent" Version="$(AvaloniaVersion)" />
     <PackageReference Include="Avalonia.Fonts.Inter" Version="$(AvaloniaVersion)" />
     <PackageReference Include="Avalonia.ReactiveUI" Version="$(AvaloniaVersion)" />
-    <PackageReference Include="Avalonia.Controls.DataGrid" Version="11.0.2" />
-    <PackageReference Include="Avalonia.Controls.TreeDataGrid" Version="11.0.2" />
+    <PackageReference Include="Avalonia.Controls.DataGrid" Version="$(AvaloniaVersion)" />
+    <PackageReference Include="Avalonia.Controls.TreeDataGrid" Version="$(AvaloniaVersion)" />
     <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
     <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="$(AvaloniaVersion)" />
   </ItemGroup>
-
   <ItemGroup>
-    <ProjectReference Include="..\..\Styles\Avalonia.Styles\Avalonia.Styles.csproj" />
+    <ProjectReference Include="..\..\Extensions\HeBianGu.AvaloniaUI.Application\HeBianGu.AvaloniaUI.Application.csproj" />
   </ItemGroup>
 </Project>

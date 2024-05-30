@@ -1,7 +1,7 @@
 ﻿using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
-using Avalonia.Windows.Main;
+using HeBianGu.AvaloniaUI.MainWindow;
 using ReactiveUI;
 
 

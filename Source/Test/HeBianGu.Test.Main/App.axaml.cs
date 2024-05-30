@@ -9,19 +9,14 @@ using System.Collections.Generic;
 using System;
 using Microsoft.Extensions.DependencyInjection;
 using CommunityToolkit.Mvvm.DependencyInjection;
-using Avalonia.Modules.Login;
-using Avalonia.Ioc;
-using Avalonia.Extensions.Application;
-using Avalonia.Windows.Dialog;
-using Avalonia.Modules.Messages.Dialog;
-//using MainWindow = Avalonia.Windows.Main.MainWindow;
-using Avalonia.Modules.SplashScreen;
 using System.Xml;
 using Avalonia.Markup.Xaml.Templates;
-using Avalonia.Theme;
-using Avalonia.Modules.Operation;
-using Avalonia.DataBases.Share;
-using Avalonia.Modules.Identity;
+using HeBianGu.AvaloniaUI.Application;
+using HeBianGu.AvaloniaUI.Ioc;
+using HeBianGu.AvaloniaUI.Modules.Identity;
+using HeBianGu.AvaloniaUI.DataBase.Share;
+using HeBianGu.AvaloniaUI.Modules.Operation;
+using HeBianGu.AvaloniaUI.Theme;
 
 namespace HeBianGu.Test.Main;
 
@@ -32,14 +27,26 @@ public partial class App : ApplicationBase
         AvaloniaXamlLoader.Load(this);
     }
 
+    protected override void LoadAxamls(IApplicationAxamlLoader loader)
+    {
+        base.LoadAxamls(loader);
+        loader.UseStylesExtension();
+        loader.UseMainWindowBase();
+        loader.UseAbout();
+        loader.UseTheme();
+        loader.UseForm(); 
+        loader.UseDataTest();
+        loader.UseMultiComboBox();
+    }
+
 
     protected override void ConfigureServices(IServiceCollection services)
     {
         base.ConfigureServices(services);
         services.AddSingleton<IMyIoc, MyIoc>();
-        services.AddSingleton<ILoginWindow, LoginWindow>();
+        services.AddLoginWindow();
         services.AddLoginViewPresenter(x => x.Product = "登陆页面");
-        services.AddSingleton<IDialogMessageService, AdornerDialogMessageService>();
+        services.AddAdornerDialogMessage();
         services.AddFormMessageService();
         services.AddNoticeMessage();
         services.AddSnackMessage();
@@ -60,15 +67,14 @@ public partial class App : ApplicationBase
         services.AddRoleViewPresenter();
 
         services.AddSingleton<IStringRepository<hi_dd_author>, DbContextRepository<IdentifyDataContext, hi_dd_author>>();
-        services.AddAuthorityViewPresenter();
+        services.AddAuthorityViewPresenter(); 
     }
 
     protected override void Configure(IApplicationBuilder app)
     {
         base.Configure(app);
         app.UseSettingDefault();
-        app.UseSetting(x => x.Add(SystemSetting.Instance));
-        //app.UseStylesExtension();
+        app.UseSetting(x => x.Add(SystemThemeSetting.Instance));
     }
 
 

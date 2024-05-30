@@ -1,0 +1,8 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <PackageReference Include="Avalonia.Controls.DataGrid" Version="$(AvaloniaVersion)" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Themes\HeBianGu.AvaloniaUI.Theme\HeBianGu.AvaloniaUI.Theme.csproj" />
+  </ItemGroup>
+</Project>

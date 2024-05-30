@@ -1,0 +1,10 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:HeBianGu.AvaloniaUI.SnackMessage">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/HeBianGu.AvaloniaUI.SnackMessage;component/Presenters/MessagePresenter.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/HeBianGu.AvaloniaUI.SnackMessage;component/Presenters/ProgressMessagePresenter.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/HeBianGu.AvaloniaUI.SnackMessage;component/Presenters/DialogMessagePresenter.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/HeBianGu.AvaloniaUI.SnackMessage;component/SnackBoxPresenter.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+</ResourceDictionary>

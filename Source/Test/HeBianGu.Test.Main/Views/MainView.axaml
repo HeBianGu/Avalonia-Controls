@@ -6,8 +6,8 @@
              xmlns:i="clr-namespace:Avalonia.Xaml.Interactivity;assembly=Avalonia.Xaml.Interactivity"
              xmlns:ia="clr-namespace:Avalonia.Xaml.Interactions.Core;assembly=Avalonia.Xaml.Interactions"
              xmlns:ic="using:Avalonia.Xaml.Interactions.Custom"
-             xmlns:system="clr-namespace:System;assembly=mscorlib"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
              xmlns:v="clr-namespace:HeBianGu.Test.Main.Views"
              xmlns:vm="clr-namespace:HeBianGu.Test.Main.ViewModels"
              d:DesignHeight="450"
@@ -21,9 +21,156 @@
         -->
     <vm:MainViewModel />
   </Design.DataContext>
-  <TabControl>
+  <TabControl TabStripPlacement="Left">
+    <TabControl.Resources>
+      <ControlTheme x:Key="{x:Type GroupBox}"
+                    BasedOn="{StaticResource {x:Type GroupBox}}"
+                    TargetType="GroupBox">
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="MinHeight" Value="400" />
+        <Setter Property="MinWidth" Value="400" />
+      </ControlTheme>
+      <SolidColorBrush x:Key="S.Brush.D" Color="Pink"/>
 
+    </TabControl.Resources>
+    <TabControl.ContentTemplate>
+      <DataTemplate>
+        <GroupBox Content="{Binding}" Header="{Binding RelativeSource={RelativeSource AncestorType={x:Type TabControl}}, Path=SelectedItem.Header}" />
+      </DataTemplate>
+    </TabControl.ContentTemplate>
 
+    <!--<TabItem Header="ChangePropertyAction">
+      <Grid RowDefinitions="*,Auto" ColumnDefinitions="50*,5,50*">
+        <Rectangle Name="ChangePropertyRectangle"
+                   Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"
+                   Margin="5"
+                   Fill="{DynamicResource PinkBrush}"
+                   Stroke="{DynamicResource GrayBrush}"
+                   StrokeThickness="5" />
+        <Button Name="PinkButton" Content="Pink" Grid.Row="1" Grid.Column="0" Margin="5,0,0,5">
+          <i:Interaction.Behaviors>
+            <ia:EventTriggerBehavior EventName="Click" SourceObject="PinkButton">
+              <ia:ChangePropertyAction TargetObject="ChangePropertyRectangle"
+                                       PropertyName="Fill"
+                                       Value="{DynamicResource S.Brush.D}" />
+            </ia:EventTriggerBehavior>
+          </i:Interaction.Behaviors>
+        </Button>
+        <Button Name="YellowButton" Content="Yellow" Grid.Row="1" Grid.Column="2" Margin="0,0,5,5">
+          <i:Interaction.Behaviors>
+            <ia:EventTriggerBehavior EventName="Click" SourceObject="YellowButton">
+              <ia:ChangePropertyAction TargetObject="ChangePropertyRectangle"
+                                       PropertyName="Fill"
+                                       Value="{DynamicResource S.Brush.D}" />
+            </ia:EventTriggerBehavior>
+          </i:Interaction.Behaviors>
+        </Button>
+      </Grid>
+    </TabItem>
+
+    <TabItem Header="DataTemplate.Trigger">
+      <DockPanel>
+        <ListBox ItemsSource="{GetStudents Count=100}">
+          --><!--<ListBox.Resources>
+            <SolidColorBrush x:Key="S.Brush.D" Color="Pink"/>
+          </ListBox.Resources>--><!--
+          <ListBox.ItemTemplate>
+            <DataTemplate DataType="{x:Type h:Student}">
+              <Grid>
+                <Grid.Resources>
+                  <SolidColorBrush x:Key="S.Brush.D" Color="Pink"/>
+                </Grid.Resources>
+                <Grid Name="g"
+                      Width="25"
+                      Height="25">
+                  <Grid.Background>
+                    <DrawingBrush>
+                      <DrawingBrush.Drawing>
+                        <GeometryDrawing Brush="{Binding ElementName=g, Path=(TextElement.Foreground)}" Geometry="{x:Static Geometrys.Close}" />
+
+                        --><!--<GeometryDrawing Brush="{DynamicResource {x:Static h:BrushKeys.Foregournd}}" Geometry="{Binding Geometry}" />--><!--
+                      </DrawingBrush.Drawing>
+                    </DrawingBrush>
+                  </Grid.Background>
+                  <TextBlock Name="TT" Text="{Binding Name}"/>
+
+                  <i:Interaction.Behaviors>
+                    <ia:DataTriggerBehavior Binding="{Binding Name}" Value="Jim">
+                      <ia:ChangePropertyAction PropertyName="(TextElement.Foreground)" Value="Red" TargetObject="{Binding ElementName=g}"/>
+                    </ia:DataTriggerBehavior>
+                    <ia:DataTriggerBehavior Binding="{Binding Name}" Value="Linda">
+                      <ia:ChangePropertyAction PropertyName="(TextElement.Foreground)" Value="{DynamicResource {x:Static h:BrushKeys.Red}}" TargetObject="{Binding ElementName=g}"/>
+                    </ia:DataTriggerBehavior>
+                    <ia:DataTriggerBehavior Binding="{Binding Name}" Value="Tom">
+                      <ia:ChangePropertyAction PropertyName="(TextElement.Foreground)" Value="{DynamicResource {x:Static h:BrushKeys.Orange}}" TargetObject="{Binding ElementName=g}"/>
+                    </ia:DataTriggerBehavior>
+                    <ia:DataTriggerBehavior Binding="{Binding Name}" Value="Angle">
+                      <ia:ChangePropertyAction PropertyName="(TextElement.Foreground)" Value="{DynamicResource S.Brush.D}" TargetObject="{Binding ElementName=g}"/>
+                    </ia:DataTriggerBehavior>
+                    <ia:DataTriggerBehavior Binding="{Binding Name}" Value="Angle">
+                      <ia:ChangePropertyAction PropertyName="Foreground" Value="Orange" TargetObject="TT"/>
+                    </ia:DataTriggerBehavior>
+                    <ia:DataTriggerBehavior Binding="{Binding Name}" Value="Summi">
+                      <ia:ChangePropertyAction PropertyName="(TextElement.Foreground)" Value="{DynamicResource {x:Static h:BrushKeys.Green}}" TargetObject="{Binding ElementName=g}"/>
+                    </ia:DataTriggerBehavior>
+                  </i:Interaction.Behaviors>
+                </Grid>
+              </Grid>
+            </DataTemplate>
+          </ListBox.ItemTemplate>
+        </ListBox>
+      </DockPanel>
+    </TabItem>-->
+    <TabItem Header="DataTemplate.Trigger">
+      <DockPanel>
+        <ListBox ItemsSource="{GetStudents}">
+          <ListBox.ItemTemplate>
+            <DataTemplate DataType="{x:Type h:Student}">
+              <Grid>
+                <TextBlock x:Name="t" Text="{Binding Name}"/>
+                <i:Interaction.Behaviors>
+                  <ia:DataTriggerBehavior Binding="{Binding Path=Name}" Value="Jim">
+                    <ia:ChangePropertyAction PropertyName="Foreground" Value="Red" TargetObject="{Binding ElementName=t}"/>
+                  </ia:DataTriggerBehavior>
+                </i:Interaction.Behaviors>
+              </Grid>
+            </DataTemplate>
+          </ListBox.ItemTemplate>
+        </ListBox>
+      </DockPanel>
+    </TabItem>
+    <TabItem Header="MultiComboBox">
+      <DockPanel>
+        <DockPanel.DataContext>
+          <vm:MainViewModel />
+        </DockPanel.DataContext>
+        <MultiComboBox BindingSelectedItems="{Binding SelectedCollection}"
+                       DockPanel.Dock="Top"
+                       ItemsSource="{Binding Collection}" />
+        <ListBox ItemsSource="{Binding SelectedCollection}" />
+      </DockPanel>
+    </TabItem>
+    <TabItem Header="GroupBox">
+      <UniformGrid>
+        <GroupBox Header="Header">
+          <GroupBox.HeaderTemplate>
+            <DataTemplate>
+              <DockPanel LastChildFill="False">
+                <ContentPresenter Content="{Binding Header}">
+                  <ContentPresenter.ContentTemplate>
+                    <DataTemplate>
+                      <TextBlock Text="Header" />
+                    </DataTemplate>
+                  </ContentPresenter.ContentTemplate>
+                </ContentPresenter>
+                <Button Content="Button" DockPanel.Dock="Right" />
+              </DockPanel>
+            </DataTemplate>
+          </GroupBox.HeaderTemplate>
+        </GroupBox>
+      </UniformGrid>
+    </TabItem>
     <TabItem Header="Message">
       <UniformGrid>
         <Button Command="{ShowCommand Presnter={h:GetStudent}}" Content="ShowCommand" />
@@ -72,7 +219,9 @@
     <TabItem Header="DataGrid">
       <TabControl>
         <TabItem Header="Default">
-          <DataGrid ColumnWidth="*" AutoGenerateColumns="True" ItemsSource="{h:GetStudents}" />
+          <DataGrid AutoGenerateColumns="True"
+                    ColumnWidth="*"
+                    ItemsSource="{h:GetStudents}" />
         </TabItem>
         <TabItem Header="All">
           <DataGrid AutoGenerateColumns="True"
@@ -108,7 +257,7 @@
         </TabItem>
       </TabControl>
     </TabItem>
-    
+
     <TabItem Header="TabControl">
       <TabControl>
         <TabItem Header="Arch">
@@ -413,7 +562,7 @@ as set out in XAML.</TextBlock>
                 <Slider x:Name="slider" />
             </StackPanel>-->
     </TabItem>
-    
+
     <TabItem Header="Behavior">
       <Button Content="Behavior">
         <i:Interaction.Behaviors>
@@ -430,30 +579,33 @@ as set out in XAML.</TextBlock>
         </h:Form.SelectObject>
       </h:Form>
     </TabItem>
-    
+
     <TabItem Header="ListBox">
-      <ListBox ItemsSource="{Binding Collection}" />
+      <UniformGrid>
+        <ListBox ItemsSource="{Binding Collection}" />
+        <ListBox ItemsSource="{Binding Collection}" SelectionMode="Multiple,Toggle" />
+      </UniformGrid>
     </TabItem>
 
     <TabItem Header="Image">
       <TabItem.Resources>
-        <ImageDrawing x:Key="ImageDrawing" ImageSource="avares://Avalonia.Extensions.BackgroundImage/Assets/Star.png" />
-        <ImageDrawing x:Key="ImageDrawing1" ImageSource="avares://Avalonia.Extensions.BackgroundImage/Assets/Star.png" />
+        <ImageDrawing x:Key="ImageDrawing" ImageSource="avares://HeBianGu.AvaloniaUI.BackgroundImage/Assets/Star.png" />
+        <ImageDrawing x:Key="ImageDrawing1" ImageSource="avares://HeBianGu.AvaloniaUI.BackgroundImage/Assets/Star.png" />
       </TabItem.Resources>
       <UniformGrid>
-        <!--<Image Source="avares://Avalonia.Extensions.BackgroundImage/Assets/Star.png" />-->
+        <!--<Image Source="avares://HeBianGu.AvaloniaUI.BackgroundImage/Assets/Star.png" />-->
         <Image Source="{DynamicResource {x:Static BackgroundImageKeys.BackgroundImage}}" />
         <TextBlock Text="{DynamicResource {x:Static BackgroundImageKeys.BackgroundImage}}" />
         <Grid>
           <Grid.Background>
-            <ImageBrush Source="avares://Avalonia.Extensions.BackgroundImage/Assets/Star.png" />
+            <ImageBrush Source="avares://HeBianGu.AvaloniaUI.BackgroundImage/Assets/Star.png" />
           </Grid.Background>
         </Grid>
         <Image>
           <Image.Source>
             <DrawingImage>
               <DrawingImage.Drawing>
-                <ImageDrawing ImageSource="avares://Avalonia.Extensions.BackgroundImage/Assets/Star.png" />
+                <ImageDrawing ImageSource="avares://HeBianGu.AvaloniaUI.BackgroundImage/Assets/Star.png" />
               </DrawingImage.Drawing>
             </DrawingImage>
           </Image.Source>
@@ -461,14 +613,14 @@ as set out in XAML.</TextBlock>
         <Image>
           <Image.Source>
             <Bitmap>
-              avares://Avalonia.Extensions.BackgroundImage/Assets/Star.png
+              avares://HeBianGu.AvaloniaUI.BackgroundImage/Assets/Star.png
             </Bitmap>
           </Image.Source>
         </Image>
         <Image>
           <Image.Source>
             <AssetBitmap>
-              avares://Avalonia.Extensions.BackgroundImage/Assets/Star.png
+              avares://HeBianGu.AvaloniaUI.BackgroundImage/Assets/Star.png
             </AssetBitmap>
           </Image.Source>
         </Image>

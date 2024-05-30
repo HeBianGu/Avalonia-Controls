@@ -14,6 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Styles\HeBianGu.AvaloniaUI.Styles\HeBianGu.AvaloniaUI.Styles.csproj" />
     <ProjectReference Include="..\HeBianGu.Test.Style\HeBianGu.Test.Style.csproj" />
   </ItemGroup>
 </Project>

@@ -6,7 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:views="clr-namespace:HeBianGu.Test.Main.Views"
         xmlns:vm="using:HeBianGu.Test.Main.ViewModels"
-        Title="Avalonia UI - HeBianGu"
+        Title="Avalonia UI - HeBianGu" CornerRadius=""
         d:DesignHeight="450"
         d:DesignWidth="800"
         Icon="/Assets/logo.ico"

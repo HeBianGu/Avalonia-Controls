@@ -1,0 +1,11 @@
+<DataTemplate xmlns="https://github.com/avaloniaui"
+              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+              xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
+              xmlns:h="https://github.com/HeBianGu"
+              xmlns:local="clr-namespace:HeBianGu.AvaloniaUI.DialogMessage"
+              DataType="{x:Type local:PercentPresenter}">
+    <ProgressBar Height="{DynamicResource {x:Static h:LayoutKeys.ItemHeight}}"
+                 Margin="{DynamicResource {x:Static h:LayoutKeys.Padding}}"
+                 ShowProgressText="True"
+                 Value="{Binding Value}" />
+</DataTemplate>

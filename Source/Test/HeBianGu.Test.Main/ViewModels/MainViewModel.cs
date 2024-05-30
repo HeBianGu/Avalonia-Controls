@@ -1,9 +1,6 @@
 ﻿using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml.Styling;
-using Avalonia.Modules.Messages.Dialog;
-using Avalonia.Styles;
-using Avalonia.Ioc;
 using HeBianGu.Test.Main.Views;
 using System;
 using System.Collections.ObjectModel;
@@ -11,9 +8,11 @@ using System.ComponentModel.Design;
 using System.Linq;
 using System.Net.Http.Headers;
 using System.Windows.Input;
-using Avalonia.Mvvm;
 using ReactiveUI;
-using Avalonia.Datas.Test;
+using HeBianGu.AvaloniaUI.Mvvm;
+using HeBianGu.AvaloniaUI.Ioc;
+using HeBianGu.AvaloniaUI.DialogMessage;
+using HeBianGu.AvaloniaUI.DemoData;
 
 namespace HeBianGu.Test.Main.ViewModels;
 
@@ -37,6 +36,15 @@ public class MainViewModel : ViewModelBase
     {
         get { return _collection; }
         set { this.RaiseAndSetIfChanged(ref _collection, value); }
+    }
+
+
+    private ObservableCollection<string> _selectedcollection = new ObservableCollection<string>();
+    /// <summary> 说明  </summary>
+    public ObservableCollection<string> SelectedCollection
+    {
+        get { return _selectedcollection; }
+        set { this.RaiseAndSetIfChanged(ref _selectedcollection, value); }
     }
 
     public ICommand BehaviorCommand { get; }
@@ -64,7 +72,7 @@ public class MainViewModel : ViewModelBase
     {
         var find = Application.Current.Resources.MergedDictionaries.OfType<ResourceInclude>().FirstOrDefault(x => x.Source.AbsoluteUri.Contains("FontSize"));
         int index = Application.Current.Resources.MergedDictionaries.IndexOf(find);
-        Uri uri = new Uri("avares://Avalonia.Theme/FontSizes/Large.axaml");
+        Uri uri = new Uri("avares://HeBianGu.AvaloniaUI.Theme/FontSizes/Large.axaml");
         ResourceInclude include = new ResourceInclude(uri) { Source = uri };
         Application.Current.Resources.MergedDictionaries[index] = include;
     });

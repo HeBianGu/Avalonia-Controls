@@ -9,14 +9,13 @@ using Avalonia.Controls.Presenters;
 using Avalonia.Layout;
 using System.Reactive.Disposables;
 using Avalonia.Threading;
-using Avalonia.Windows.Dialog;
 using Avalonia;
-using Avalonia.Modules.Messages.Dialog;
-using Avalonia.Modules.Setting;
 using Avalonia.Media;
 using Avalonia.Media.Imaging;
-using Avalonia.Controls.Form;
-using Avalonia.Datas.Test;
+using HeBianGu.AvaloniaUI.DialogWindow;
+using HeBianGu.AvaloniaUI.DemoData;
+using HeBianGu.AvaloniaUI.DialogMessage;
+using HeBianGu.AvaloniaUI.Modules.Setting;
 
 namespace HeBianGu.Test.Main.Views;
 
