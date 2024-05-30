@@ -7,8 +7,8 @@ using System.Data.Entity;
 
 #if NETCOREAPP
 #endif
-using Avalonia.DataBases.Share;
-using Avalonia.Ioc;
+using HeBianGu.AvaloniaUI.DataBase.Share;
+using HeBianGu.AvaloniaUI.Ioc;
 using System.ComponentModel.DataAnnotations;
 
 namespace HeBianGu.AvaloniaUI.Sqlite

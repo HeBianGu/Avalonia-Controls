@@ -72,77 +72,77 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avalonia.Test.VLC", "..\Sou
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avalonia.Test.VLC.Desktop", "..\Source\Test\Avalonia.Test.VLC.Desktop\Avalonia.Test.VLC.Desktop.csproj", "{4F7281A5-EBA9-4325-AC17-0E4C8EA08D15}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeBianGu.AvaloniaUI.Ioc", "..\Source\Cores\HeBianGu.AvaloniaUI.Ioc\HeBianGu.AvaloniaUI.Ioc.csproj", "{21DC63BF-260A-4745-A2DE-8BA657D9512A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HeBianGu.AvaloniaUI.Ioc", "..\Source\Cores\HeBianGu.AvaloniaUI.Ioc\HeBianGu.AvaloniaUI.Ioc.csproj", "{21DC63BF-260A-4745-A2DE-8BA657D9512A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeBianGu.AvaloniaUI.Mvvm", "..\Source\Cores\HeBianGu.AvaloniaUI.Mvvm\HeBianGu.AvaloniaUI.Mvvm.csproj", "{B6C3F1E6-8723-4D62-AE41-F1EC5F66DCD8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HeBianGu.AvaloniaUI.Mvvm", "..\Source\Cores\HeBianGu.AvaloniaUI.Mvvm\HeBianGu.AvaloniaUI.Mvvm.csproj", "{B6C3F1E6-8723-4D62-AE41-F1EC5F66DCD8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeBianGu.AvaloniaUI.ValueConverter", "..\Source\Extensions\HeBianGu.AvaloniaUI.ValueConverter\HeBianGu.AvaloniaUI.ValueConverter.csproj", "{021AF28D-67C2-43A4-A0A7-3010DFFF0790}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HeBianGu.AvaloniaUI.ValueConverter", "..\Source\Extensions\HeBianGu.AvaloniaUI.ValueConverter\HeBianGu.AvaloniaUI.ValueConverter.csproj", "{021AF28D-67C2-43A4-A0A7-3010DFFF0790}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeBianGu.AvaloniaUI.Modules.Setting", "..\Source\Modules\HeBianGu.AvaloniaUI.Modules.Setting\HeBianGu.AvaloniaUI.Modules.Setting.csproj", "{52DDABEF-CD3D-4217-9DAF-9FF896355133}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HeBianGu.AvaloniaUI.Modules.Setting", "..\Source\Modules\HeBianGu.AvaloniaUI.Modules.Setting\HeBianGu.AvaloniaUI.Modules.Setting.csproj", "{52DDABEF-CD3D-4217-9DAF-9FF896355133}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeBianGu.AvaloniaUI.Setting", "..\Source\Extensions\HeBianGu.AvaloniaUI.Setting\HeBianGu.AvaloniaUI.Setting.csproj", "{B07FE6CB-51DC-44D9-8D3E-C4FBA4EDE336}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HeBianGu.AvaloniaUI.Setting", "..\Source\Extensions\HeBianGu.AvaloniaUI.Setting\HeBianGu.AvaloniaUI.Setting.csproj", "{B07FE6CB-51DC-44D9-8D3E-C4FBA4EDE336}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeBianGu.AvaloniaUI.MarkupExtesion", "..\Source\Extensions\HeBianGu.AvaloniaUI.MarkupExtesion\HeBianGu.AvaloniaUI.MarkupExtesion.csproj", "{8BC8E3B2-92B8-4C94-AF22-93D361240255}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HeBianGu.AvaloniaUI.MarkupExtesion", "..\Source\Extensions\HeBianGu.AvaloniaUI.MarkupExtesion\HeBianGu.AvaloniaUI.MarkupExtesion.csproj", "{8BC8E3B2-92B8-4C94-AF22-93D361240255}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeBianGu.AvaloniaUI.Behavior", "..\Source\Extensions\HeBianGu.AvaloniaUI.Behavior\HeBianGu.AvaloniaUI.Behavior.csproj", "{2208388B-F360-44F9-BD31-71FC64B1E623}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HeBianGu.AvaloniaUI.Behavior", "..\Source\Extensions\HeBianGu.AvaloniaUI.Behavior\HeBianGu.AvaloniaUI.Behavior.csproj", "{2208388B-F360-44F9-BD31-71FC64B1E623}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeBianGu.AvaloniaUI.Command", "..\Source\Extensions\HeBianGu.AvaloniaUI.Command\HeBianGu.AvaloniaUI.Command.csproj", "{222175AD-3EBD-4B8B-9FEB-F1022790B728}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HeBianGu.AvaloniaUI.Command", "..\Source\Extensions\HeBianGu.AvaloniaUI.Command\HeBianGu.AvaloniaUI.Command.csproj", "{222175AD-3EBD-4B8B-9FEB-F1022790B728}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeBianGu.AvaloniaUI.Extension", "..\Source\Extensions\HeBianGu.AvaloniaUI.Extension\HeBianGu.AvaloniaUI.Extension.csproj", "{6157BCF9-150D-4BC4-BF2C-E89D2BDA7B49}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HeBianGu.AvaloniaUI.Extension", "..\Source\Extensions\HeBianGu.AvaloniaUI.Extension\HeBianGu.AvaloniaUI.Extension.csproj", "{6157BCF9-150D-4BC4-BF2C-E89D2BDA7B49}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeBianGu.AvaloniaUI.Repository", "..\Source\Extensions\HeBianGu.AvaloniaUI.Repository\HeBianGu.AvaloniaUI.Repository.csproj", "{071561B5-EF16-41DE-A877-364529041185}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HeBianGu.AvaloniaUI.Repository", "..\Source\Extensions\HeBianGu.AvaloniaUI.Repository\HeBianGu.AvaloniaUI.Repository.csproj", "{071561B5-EF16-41DE-A877-364529041185}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeBianGu.AvaloniaUI.Geometry", "..\Source\Extensions\HeBianGu.AvaloniaUI.Geometry\HeBianGu.AvaloniaUI.Geometry.csproj", "{44CFA990-0909-4E28-BEA8-44A1EFF2E3F5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HeBianGu.AvaloniaUI.Geometry", "..\Source\Extensions\HeBianGu.AvaloniaUI.Geometry\HeBianGu.AvaloniaUI.Geometry.csproj", "{44CFA990-0909-4E28-BEA8-44A1EFF2E3F5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeBianGu.AvaloniaUI.Application", "..\Source\Extensions\HeBianGu.AvaloniaUI.Application\HeBianGu.AvaloniaUI.Application.csproj", "{9FB66277-C06F-47F7-8A2F-79D7A4E6B513}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HeBianGu.AvaloniaUI.Application", "..\Source\Extensions\HeBianGu.AvaloniaUI.Application\HeBianGu.AvaloniaUI.Application.csproj", "{9FB66277-C06F-47F7-8A2F-79D7A4E6B513}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeBianGu.AvaloniaUI.BackgroundImage", "..\Source\Extensions\HeBianGu.AvaloniaUI.BackgroundImage\HeBianGu.AvaloniaUI.BackgroundImage.csproj", "{9E9492EA-DC98-4C1B-A40A-9A8F9A284F23}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HeBianGu.AvaloniaUI.BackgroundImage", "..\Source\Extensions\HeBianGu.AvaloniaUI.BackgroundImage\HeBianGu.AvaloniaUI.BackgroundImage.csproj", "{9E9492EA-DC98-4C1B-A40A-9A8F9A284F23}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeBianGu.AvaloniaUI.Attach", "..\Source\Extensions\HeBianGu.AvaloniaUI.Attach\HeBianGu.AvaloniaUI.Attach.csproj", "{1CF9C779-9CCE-426F-B608-0115163CFF48}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HeBianGu.AvaloniaUI.Attach", "..\Source\Extensions\HeBianGu.AvaloniaUI.Attach\HeBianGu.AvaloniaUI.Attach.csproj", "{1CF9C779-9CCE-426F-B608-0115163CFF48}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeBianGu.AvaloniaUI.ResourceKey", "..\Source\Extensions\HeBianGu.AvaloniaUI.ResourceKey\HeBianGu.AvaloniaUI.ResourceKey.csproj", "{0FA50B7D-28DF-4805-A168-6B05A5328C00}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HeBianGu.AvaloniaUI.ResourceKey", "..\Source\Extensions\HeBianGu.AvaloniaUI.ResourceKey\HeBianGu.AvaloniaUI.ResourceKey.csproj", "{0FA50B7D-28DF-4805-A168-6B05A5328C00}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeBianGu.AvaloniaUI.Theme", "..\Source\Themes\HeBianGu.AvaloniaUI.Theme\HeBianGu.AvaloniaUI.Theme.csproj", "{5E45740E-DE5C-497A-AE72-76504F3669E8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HeBianGu.AvaloniaUI.Theme", "..\Source\Themes\HeBianGu.AvaloniaUI.Theme\HeBianGu.AvaloniaUI.Theme.csproj", "{5E45740E-DE5C-497A-AE72-76504F3669E8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeBianGu.AvaloniaUI.Styles", "..\Source\Styles\HeBianGu.AvaloniaUI.Styles\HeBianGu.AvaloniaUI.Styles.csproj", "{9B69A863-2323-4801-ADCE-E06C3B00E9AB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HeBianGu.AvaloniaUI.Styles", "..\Source\Styles\HeBianGu.AvaloniaUI.Styles\HeBianGu.AvaloniaUI.Styles.csproj", "{9B69A863-2323-4801-ADCE-E06C3B00E9AB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeBianGu.AvaloniaUI.Styles.Extension", "..\Source\Styles\HeBianGu.AvaloniaUI.Styles.Extension\HeBianGu.AvaloniaUI.Styles.Extension.csproj", "{C8E137EB-8C28-4E57-84FA-0C805C2E0540}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HeBianGu.AvaloniaUI.Styles.Extension", "..\Source\Styles\HeBianGu.AvaloniaUI.Styles.Extension\HeBianGu.AvaloniaUI.Styles.Extension.csproj", "{C8E137EB-8C28-4E57-84FA-0C805C2E0540}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeBianGu.AvaloniaUI.MultiComboBox", "..\Source\Controls\HeBianGu.AvaloniaUI.MultiComboBox\HeBianGu.AvaloniaUI.MultiComboBox.csproj", "{F3950ADC-2322-4FB5-8E14-A7A54E13A2E5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HeBianGu.AvaloniaUI.MultiComboBox", "..\Source\Controls\HeBianGu.AvaloniaUI.MultiComboBox\HeBianGu.AvaloniaUI.MultiComboBox.csproj", "{F3950ADC-2322-4FB5-8E14-A7A54E13A2E5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeBianGu.AvaloniaUI.Form", "..\Source\Controls\HeBianGu.AvaloniaUI.Form\HeBianGu.AvaloniaUI.Form.csproj", "{503CB46A-05A7-4348-A7BF-B96006FB2050}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HeBianGu.AvaloniaUI.Form", "..\Source\Controls\HeBianGu.AvaloniaUI.Form\HeBianGu.AvaloniaUI.Form.csproj", "{503CB46A-05A7-4348-A7BF-B96006FB2050}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeBianGu.AvaloniaUI.VlcPlayer", "..\Source\Controls\HeBianGu.AvaloniaUI.VlcPlayer\HeBianGu.AvaloniaUI.VlcPlayer.csproj", "{7E91F446-1A61-4000-A56D-F36C5704B9B1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HeBianGu.AvaloniaUI.VlcPlayer", "..\Source\Controls\HeBianGu.AvaloniaUI.VlcPlayer\HeBianGu.AvaloniaUI.VlcPlayer.csproj", "{7E91F446-1A61-4000-A56D-F36C5704B9B1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeBianGu.AvaloniaUI.MainWindow", "..\Source\Windows\HeBianGu.AvaloniaUI.MainWindow\HeBianGu.AvaloniaUI.MainWindow.csproj", "{4654075B-46F1-404A-93F3-1F1B41B8C5B8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HeBianGu.AvaloniaUI.MainWindow", "..\Source\Windows\HeBianGu.AvaloniaUI.MainWindow\HeBianGu.AvaloniaUI.MainWindow.csproj", "{4654075B-46F1-404A-93F3-1F1B41B8C5B8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeBianGu.AvaloniaUI.DialogWindow", "..\Source\Windows\HeBianGu.AvaloniaUI.DialogWindow\HeBianGu.AvaloniaUI.DialogWindow.csproj", "{D0B23BE9-AE8B-4CE5-8DC3-5C66EEE20FB9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HeBianGu.AvaloniaUI.DialogWindow", "..\Source\Windows\HeBianGu.AvaloniaUI.DialogWindow\HeBianGu.AvaloniaUI.DialogWindow.csproj", "{D0B23BE9-AE8B-4CE5-8DC3-5C66EEE20FB9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeBianGu.AvaloniaUI.DialogMessage", "..\Source\Modules\HeBianGu.AvaloniaUI.DialogMessage\HeBianGu.AvaloniaUI.DialogMessage.csproj", "{390AFCFD-C11D-41A2-91B5-AC2D2DDBA336}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HeBianGu.AvaloniaUI.DialogMessage", "..\Source\Modules\HeBianGu.AvaloniaUI.DialogMessage\HeBianGu.AvaloniaUI.DialogMessage.csproj", "{390AFCFD-C11D-41A2-91B5-AC2D2DDBA336}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeBianGu.AvaloniaUI.FormMessage", "..\Source\Modules\HeBianGu.AvaloniaUI.FormMessage\HeBianGu.AvaloniaUI.FormMessage.csproj", "{CD436A60-128B-49DD-8491-463FE84068B6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HeBianGu.AvaloniaUI.FormMessage", "..\Source\Modules\HeBianGu.AvaloniaUI.FormMessage\HeBianGu.AvaloniaUI.FormMessage.csproj", "{CD436A60-128B-49DD-8491-463FE84068B6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeBianGu.AvaloniaUI.NoticeMessage", "..\Source\Modules\HeBianGu.AvaloniaUI.NoticeMessage\HeBianGu.AvaloniaUI.NoticeMessage.csproj", "{41BC0626-17C1-4E9E-875C-710AF50F2644}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HeBianGu.AvaloniaUI.NoticeMessage", "..\Source\Modules\HeBianGu.AvaloniaUI.NoticeMessage\HeBianGu.AvaloniaUI.NoticeMessage.csproj", "{41BC0626-17C1-4E9E-875C-710AF50F2644}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeBianGu.AvaloniaUI.SnackMessage", "..\Source\Modules\HeBianGu.AvaloniaUI.SnackMessage\HeBianGu.AvaloniaUI.SnackMessage.csproj", "{F9B39063-28C6-4FAA-A258-33120B56E0A8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HeBianGu.AvaloniaUI.SnackMessage", "..\Source\Modules\HeBianGu.AvaloniaUI.SnackMessage\HeBianGu.AvaloniaUI.SnackMessage.csproj", "{F9B39063-28C6-4FAA-A258-33120B56E0A8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeBianGu.AvaloniaUI.Modules.About", "..\Source\Modules\HeBianGu.AvaloniaUI.Modules.About\HeBianGu.AvaloniaUI.Modules.About.csproj", "{7BA2C177-0E9F-478C-917F-439E0297A0AE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HeBianGu.AvaloniaUI.Modules.About", "..\Source\Modules\HeBianGu.AvaloniaUI.Modules.About\HeBianGu.AvaloniaUI.Modules.About.csproj", "{7BA2C177-0E9F-478C-917F-439E0297A0AE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeBianGu.AvaloniaUI.Modules.ThemeSetting", "..\Source\Modules\HeBianGu.AvaloniaUI.Modules.ThemeSetting\HeBianGu.AvaloniaUI.Modules.ThemeSetting.csproj", "{04FD1C4D-BE30-4206-BA68-5FBA118B4987}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HeBianGu.AvaloniaUI.Modules.ThemeSetting", "..\Source\Modules\HeBianGu.AvaloniaUI.Modules.ThemeSetting\HeBianGu.AvaloniaUI.Modules.ThemeSetting.csproj", "{04FD1C4D-BE30-4206-BA68-5FBA118B4987}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeBianGu.AvaloniaUI.Modules.Login", "..\Source\Modules\HeBianGu.AvaloniaUI.Modules.Login\HeBianGu.AvaloniaUI.Modules.Login.csproj", "{9B5A3019-FAE4-4B54-8FBE-FE58132AD4A6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HeBianGu.AvaloniaUI.Modules.Login", "..\Source\Modules\HeBianGu.AvaloniaUI.Modules.Login\HeBianGu.AvaloniaUI.Modules.Login.csproj", "{9B5A3019-FAE4-4B54-8FBE-FE58132AD4A6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeBianGu.AvaloniaUI.Modules.SplashScreen", "..\Source\Modules\HeBianGu.AvaloniaUI.Modules.SplashScreen\HeBianGu.AvaloniaUI.Modules.SplashScreen.csproj", "{A07A6255-EFF5-4A86-AC9A-0435B505E03D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HeBianGu.AvaloniaUI.Modules.SplashScreen", "..\Source\Modules\HeBianGu.AvaloniaUI.Modules.SplashScreen\HeBianGu.AvaloniaUI.Modules.SplashScreen.csproj", "{A07A6255-EFF5-4A86-AC9A-0435B505E03D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeBianGu.AvaloniaUI.Modules.Operation", "..\Source\Modules\HeBianGu.AvaloniaUI.Modules.Operation\HeBianGu.AvaloniaUI.Modules.Operation.csproj", "{FF774C1D-A53A-45DB-8A86-3543996D84FC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HeBianGu.AvaloniaUI.Modules.Operation", "..\Source\Modules\HeBianGu.AvaloniaUI.Modules.Operation\HeBianGu.AvaloniaUI.Modules.Operation.csproj", "{FF774C1D-A53A-45DB-8A86-3543996D84FC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeBianGu.AvaloniaUI.Modules.Identity", "..\Source\Modules\HeBianGu.AvaloniaUI.Modules.Identity\HeBianGu.AvaloniaUI.Modules.Identity.csproj", "{39E7A99B-A2C4-4E92-AA2A-37A6F826E1A2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HeBianGu.AvaloniaUI.Modules.Identity", "..\Source\Modules\HeBianGu.AvaloniaUI.Modules.Identity\HeBianGu.AvaloniaUI.Modules.Identity.csproj", "{39E7A99B-A2C4-4E92-AA2A-37A6F826E1A2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeBianGu.AvaloniaUI.DemoData", "..\Source\Datas\HeBianGu.AvaloniaUI.DemoData\HeBianGu.AvaloniaUI.DemoData.csproj", "{3521FB5D-9B8D-4206-BFDE-20DF66589BDF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HeBianGu.AvaloniaUI.DemoData", "..\Source\Datas\HeBianGu.AvaloniaUI.DemoData\HeBianGu.AvaloniaUI.DemoData.csproj", "{3521FB5D-9B8D-4206-BFDE-20DF66589BDF}"
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "HeBianGu.AvaloniaUI.DataBase.Share", "..\Source\DataBases\HeBianGu.AvaloniaUI.DataBase.Share\HeBianGu.AvaloniaUI.DataBase.Share.shproj", "{15169303-DDF4-4F07-830B-95BE191240DE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeBianGu.AvaloniaUI.Sqlite", "..\Source\DataBases\HeBianGu.AvaloniaUI.Sqlite\HeBianGu.AvaloniaUI.Sqlite.csproj", "{A12AAAD7-402E-4082-B852-6A9B7164DCC2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HeBianGu.AvaloniaUI.Sqlite", "..\Source\DataBases\HeBianGu.AvaloniaUI.Sqlite\HeBianGu.AvaloniaUI.Sqlite.csproj", "{A12AAAD7-402E-4082-B852-6A9B7164DCC2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -441,5 +441,6 @@ Global
 	EndGlobalSection
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		..\Source\DataBases\HeBianGu.AvaloniaUI.DataBase.Share\HeBianGu.AvaloniaUI.DataBase.Share.projitems*{15169303-ddf4-4f07-830b-95be191240de}*SharedItemsImports = 13
+		..\Source\DataBases\HeBianGu.AvaloniaUI.DataBase.Share\HeBianGu.AvaloniaUI.DataBase.Share.projitems*{a12aaad7-402e-4082-b852-6a9b7164dcc2}*SharedItemsImports = 5
 	EndGlobalSection
 EndGlobal

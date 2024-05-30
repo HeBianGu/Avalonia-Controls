@@ -1,7 +1,7 @@
 <DataTemplate xmlns="https://github.com/avaloniaui"
               xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
               xmlns:h="https://github.com/HeBianGu"
-              xmlns:local="clr-namespace:Avalonia.Modules.Identity"
+              xmlns:local="clr-namespace:HeBianGu.AvaloniaUI.Modules.Identity"
               DataType="local:RoleViewPresenter">
     <DockPanel MinWidth="900" Margin="5">
         <DockPanel Margin="0,5" DockPanel.Dock="Top">

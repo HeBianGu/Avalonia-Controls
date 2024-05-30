@@ -11,7 +11,7 @@
         <Setter Property="FontSize" Value="{DynamicResource ControlContentThemeFontSize}" />
         <Setter Property="FontFamily" Value="{DynamicResource ContentControlThemeFontFamily}" />-->
         
-        <Setter Property="FontFamily" Value="{Binding Source={x:Static h:SystemSetting.Instance}, Path=FontFamily}" />
+        <Setter Property="FontFamily" Value="{Binding Source={x:Static h:SystemThemeSetting.Instance}, Path=FontFamily}" />
         <Setter Property="FontSize" Value="{DynamicResource {x:Static h:FontSizeKeys.Default}}" />
         <Setter Property="Background" Value="{DynamicResource {x:Static h:BrushKeys.Background}}" />
         <Setter Property="Foreground" Value="{DynamicResource {x:Static h:BrushKeys.Foreground}}" />

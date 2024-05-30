@@ -4,7 +4,7 @@
                     xmlns:local="clr-namespace:HeBianGu.AvaloniaUI.Theme"
                     xmlns:system="clr-namespace:System;assembly=mscorlib">
     <h:AssetBitmap x:Key="{StringResourceKey ResourceId=S.BackgroundImage.BackgroundImage, TypeInTargetAssembly={x:Type local:BackgroundImageKeys}}">
-      avares://Avalonia.Extensions.BackgroundImage/Assets/Mountain.png
+      avares://HeBianGu.AvaloniaUI.BackgroundImage/Assets/Mountain.png
     </h:AssetBitmap>
   <system:Double x:Key="{StringResourceKey ResourceId=S.BackgroundImage.Opacity, TypeInTargetAssembly={x:Type local:BackgroundImageKeys}}">0.05</system:Double>
   <Stretch x:Key="{StringResourceKey ResourceId=S.BackgroundImage.Stretch, TypeInTargetAssembly={x:Type local:BackgroundImageKeys}}">UniformToFill</Stretch>

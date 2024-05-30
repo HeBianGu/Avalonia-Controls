@@ -1,9 +1,8 @@
 ﻿using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.ApplicationLifetimes;
-using Avalonia.Extensions.Application;
 using Avalonia.Markup.Xaml;
-
+using HeBianGu.AvaloniaUI.Application;
 using HeBianGu.Test.Style.ViewModels;
 using HeBianGu.Test.Style.Views;
 

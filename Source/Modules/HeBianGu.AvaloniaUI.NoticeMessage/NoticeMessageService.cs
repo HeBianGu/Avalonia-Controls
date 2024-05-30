@@ -2,15 +2,15 @@
 using Avalonia.Controls;
 using Avalonia.Controls.Presenters;
 using Avalonia.Controls.Primitives;
-using Avalonia.Extensions.Application;
-using Avalonia.Ioc;
+using HeBianGu.AvaloniaUI.Application;
 using Avalonia.Layout;
-using Avalonia.Modules.Messages.Dialog;
 using System;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
+using HeBianGu.AvaloniaUI.Ioc;
+using HeBianGu.AvaloniaUI.DialogMessage;
 
 namespace HeBianGu.AvaloniaUI.NoticeMessage
 {

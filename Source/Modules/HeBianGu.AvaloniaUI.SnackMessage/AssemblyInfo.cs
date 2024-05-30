@@ -1,4 +1,4 @@
-using Avalonia.Extensions.Application;
+using HeBianGu.AvaloniaUI.Application;
 using Avalonia.Metadata;
 using System.Windows;
 using System.Windows.Markup;

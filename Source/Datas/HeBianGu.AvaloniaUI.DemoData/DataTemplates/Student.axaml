@@ -1,7 +1,7 @@
 <DataTemplate xmlns="https://github.com/avaloniaui"
               xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
               xmlns:h="https://github.com/HeBianGu"
-              xmlns:local="clr-namespace:Avalonia.Datas.Test"
+              xmlns:local="clr-namespace:HeBianGu.AvaloniaUI.DemoData"
               DataType="local:Student">
     <h:Form Margin="{DynamicResource {x:Static h:LayoutKeys.Padding}}" SelectObject="{Binding}" />
 </DataTemplate>

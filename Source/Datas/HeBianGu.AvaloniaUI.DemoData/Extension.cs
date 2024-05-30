@@ -1,5 +1,5 @@
-﻿using Avalonia.Extensions.Application;
-using Avalonia.Ioc;
+﻿
+using HeBianGu.AvaloniaUI.Application;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using System.Collections.Generic;

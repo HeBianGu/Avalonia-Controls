@@ -1,7 +1,7 @@
 ﻿
 using Avalonia.Controls;
-using Avalonia.Controls.Form;
-using Avalonia.Ioc;
+using HeBianGu.AvaloniaUI.Form;
+using HeBianGu.AvaloniaUI.Ioc;
 using System;
 using System.Threading.Tasks;
 using System.Windows;

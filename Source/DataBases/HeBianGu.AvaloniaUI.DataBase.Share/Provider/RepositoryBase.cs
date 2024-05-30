@@ -5,7 +5,7 @@ using System.Data.Entity;
 
 #if NETCOREAPP
 
-using Avalonia.Ioc;
+using HeBianGu.AvaloniaUI.Ioc;
 using Microsoft.EntityFrameworkCore;
 #endif
 using System;

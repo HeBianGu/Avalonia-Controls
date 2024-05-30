@@ -1,10 +1,10 @@
-﻿using Avalonia.Extensions.Geometry;
-using Avalonia.Ioc;
+﻿using HeBianGu.AvaloniaUI.Geometry;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using HeBianGu.AvaloniaUI.Ioc;
 
 namespace HeBianGu.AvaloniaUI.NoticeMessage
 {

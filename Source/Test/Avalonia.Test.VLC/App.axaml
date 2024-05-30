@@ -6,7 +6,7 @@
   <Application.Resources>
     <ResourceDictionary>
       <ResourceDictionary.MergedDictionaries>
-        <ResourceInclude Source="avares://HeBianGu.Avalonia.Controls.VLC/Resources/VlcPlayer.axaml"/>
+        <ResourceInclude Source="avares://HeBianGu.AvaloniaUI.VlcPlayer/Resources/VlcPlayer.axaml"/>
       </ResourceDictionary.MergedDictionaries>
     </ResourceDictionary>
   </Application.Resources>

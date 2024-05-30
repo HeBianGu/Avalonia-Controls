@@ -3,6 +3,13 @@
     <PackageReference Include="Avalonia.Xaml.Behaviors" Version="$(AvaloniaVersion)" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Cores\HeBianGu.AvaloniaUI.Ioc\HeBianGu.AvaloniaUI.Ioc.csproj" />
+    <ProjectReference Include="..\..\Cores\HeBianGu.AvaloniaUI.Mvvm\HeBianGu.AvaloniaUI.Mvvm.csproj" />
+    <ProjectReference Include="..\..\Extensions\HeBianGu.AvaloniaUI.Extension\HeBianGu.AvaloniaUI.Extension.csproj" />
+    <ProjectReference Include="..\..\Extensions\HeBianGu.AvaloniaUI.Geometry\HeBianGu.AvaloniaUI.Geometry.csproj" />
+    <ProjectReference Include="..\HeBianGu.AvaloniaUI.DialogMessage\HeBianGu.AvaloniaUI.DialogMessage.csproj" />
+  </ItemGroup>
+  <ItemGroup>
     <Compile Update="DataTemplates\DialogMessagePresenter.axaml.cs">
       <DependentUpon>%(Filename)</DependentUpon>
     </Compile>

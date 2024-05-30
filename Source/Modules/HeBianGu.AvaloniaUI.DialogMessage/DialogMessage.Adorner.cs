@@ -1,7 +1,7 @@
 ﻿
-using Avalonia.Ioc;
 using Avalonia.Layout;
 using HeBianGu.AvaloniaUI.DialogMessage;
+using HeBianGu.AvaloniaUI.Ioc;
 using System;
 using System.Collections.Generic;
 using System.Linq;

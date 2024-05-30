@@ -2,7 +2,7 @@
 
 //using H.Extensions.Geometry;
 
-using Avalonia.Extensions.Geometry;
+using HeBianGu.AvaloniaUI.Geometry;
 using HeBianGu.AvaloniaUI.NoticeMessage;
 
 namespace HeBianGu.AvaloniaUI.NoticeMessage

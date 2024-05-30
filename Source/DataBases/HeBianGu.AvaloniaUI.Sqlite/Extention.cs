@@ -1,4 +1,6 @@
-﻿using HeBianGu.AvaloniaUI.Sqlite;
+﻿using HeBianGu.AvaloniaUI.DataBase.Share;
+using HeBianGu.AvaloniaUI.Ioc;
+using HeBianGu.AvaloniaUI.Sqlite;
 
 
 
@@ -10,8 +12,6 @@ using System.Data.Entity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using System.IO;
-using Avalonia.Ioc;
-using Avalonia.DataBases.Share;
 #endif
 
 namespace System

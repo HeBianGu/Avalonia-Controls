@@ -34,6 +34,24 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Controls\HeBianGu.AvaloniaUI.MultiComboBox\HeBianGu.AvaloniaUI.MultiComboBox.csproj" />
     <ProjectReference Include="..\..\Controls\HeBianGu.Controls.TemplateControl\HeBianGu.Controls.TemplateControl.csproj" />
+    <ProjectReference Include="..\..\Cores\HeBianGu.AvaloniaUI.Mvvm\HeBianGu.AvaloniaUI.Mvvm.csproj" />
+    <ProjectReference Include="..\..\DataBases\HeBianGu.AvaloniaUI.Sqlite\HeBianGu.AvaloniaUI.Sqlite.csproj" />
+    <ProjectReference Include="..\..\Datas\HeBianGu.AvaloniaUI.DemoData\HeBianGu.AvaloniaUI.DemoData.csproj" />
+    <ProjectReference Include="..\..\Modules\HeBianGu.AvaloniaUI.DialogMessage\HeBianGu.AvaloniaUI.DialogMessage.csproj" />
+    <ProjectReference Include="..\..\Modules\HeBianGu.AvaloniaUI.FormMessage\HeBianGu.AvaloniaUI.FormMessage.csproj" />
+    <ProjectReference Include="..\..\Modules\HeBianGu.AvaloniaUI.Modules.About\HeBianGu.AvaloniaUI.Modules.About.csproj" />
+    <ProjectReference Include="..\..\Modules\HeBianGu.AvaloniaUI.Modules.Identity\HeBianGu.AvaloniaUI.Modules.Identity.csproj" />
+    <ProjectReference Include="..\..\Modules\HeBianGu.AvaloniaUI.Modules.Login\HeBianGu.AvaloniaUI.Modules.Login.csproj" />
+    <ProjectReference Include="..\..\Modules\HeBianGu.AvaloniaUI.Modules.Operation\HeBianGu.AvaloniaUI.Modules.Operation.csproj" />
+    <ProjectReference Include="..\..\Modules\HeBianGu.AvaloniaUI.Modules.Setting\HeBianGu.AvaloniaUI.Modules.Setting.csproj" />
+    <ProjectReference Include="..\..\Modules\HeBianGu.AvaloniaUI.Modules.SplashScreen\HeBianGu.AvaloniaUI.Modules.SplashScreen.csproj" />
+    <ProjectReference Include="..\..\Modules\HeBianGu.AvaloniaUI.Modules.ThemeSetting\HeBianGu.AvaloniaUI.Modules.ThemeSetting.csproj" />
+    <ProjectReference Include="..\..\Modules\HeBianGu.AvaloniaUI.NoticeMessage\HeBianGu.AvaloniaUI.NoticeMessage.csproj" />
+    <ProjectReference Include="..\..\Modules\HeBianGu.AvaloniaUI.SnackMessage\HeBianGu.AvaloniaUI.SnackMessage.csproj" />
+    <ProjectReference Include="..\..\Styles\HeBianGu.AvaloniaUI.Styles.Extension\HeBianGu.AvaloniaUI.Styles.Extension.csproj" />
+    <ProjectReference Include="..\..\Styles\HeBianGu.AvaloniaUI.Styles\HeBianGu.AvaloniaUI.Styles.csproj" />
+    <ProjectReference Include="..\..\Windows\HeBianGu.AvaloniaUI.MainWindow\HeBianGu.AvaloniaUI.MainWindow.csproj" />
   </ItemGroup>
 </Project>

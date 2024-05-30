@@ -9,20 +9,14 @@ using System.Collections.Generic;
 using System;
 using Microsoft.Extensions.DependencyInjection;
 using CommunityToolkit.Mvvm.DependencyInjection;
-using Avalonia.Modules.Login;
-using Avalonia.Ioc;
-using Avalonia.Extensions.Application;
-using Avalonia.Windows.Dialog;
-using Avalonia.Modules.Messages.Dialog;
-//using MainWindow = Avalonia.Windows.Main.MainWindow;
-using Avalonia.Modules.SplashScreen;
 using System.Xml;
 using Avalonia.Markup.Xaml.Templates;
-using Avalonia.Theme;
-using Avalonia.Modules.Operation;
-using Avalonia.DataBases.Share;
-using Avalonia.Modules.Identity;
-using Avalonia.Styles.Extension;
+using HeBianGu.AvaloniaUI.Application;
+using HeBianGu.AvaloniaUI.Ioc;
+using HeBianGu.AvaloniaUI.Modules.Identity;
+using HeBianGu.AvaloniaUI.DataBase.Share;
+using HeBianGu.AvaloniaUI.Modules.Operation;
+using HeBianGu.AvaloniaUI.Theme;
 
 namespace HeBianGu.Test.Main;
 
@@ -50,13 +44,13 @@ public partial class App : ApplicationBase
     {
         base.ConfigureServices(services);
         services.AddSingleton<IMyIoc, MyIoc>();
-        //services.AddLoginWindow();
-        //services.AddLoginViewPresenter(x => x.Product = "登陆页面");
+        services.AddLoginWindow();
+        services.AddLoginViewPresenter(x => x.Product = "登陆页面");
         services.AddAdornerDialogMessage();
         services.AddFormMessageService();
         services.AddNoticeMessage();
         services.AddSnackMessage();
-        //services.AddSplashScreen(x => x.Product = "启动页面");
+        services.AddSplashScreen(x => x.Product = "启动页面");
         services.AddTestLoginService();
 
         //  Do ：操作日志
@@ -80,7 +74,7 @@ public partial class App : ApplicationBase
     {
         base.Configure(app);
         app.UseSettingDefault();
-        app.UseSetting(x => x.Add(SystemSetting.Instance));
+        app.UseSetting(x => x.Add(SystemThemeSetting.Instance));
     }
 
 

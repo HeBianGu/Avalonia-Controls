@@ -1,5 +1,6 @@
-﻿using Avalonia.Ioc;
+﻿
 using HeBianGu.AvaloniaUI.DialogMessage;
+using HeBianGu.AvaloniaUI.Ioc;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace System

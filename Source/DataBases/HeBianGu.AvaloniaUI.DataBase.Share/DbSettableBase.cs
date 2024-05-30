@@ -1,15 +1,12 @@
 ﻿
-using Avalonia.Ioc;
-using Avalonia.Mvvm;
-using Avalonia.Extensions.Setting;
-
-
-
 #if NETFRAMEWORK
 using System.Data.Entity;
 #endif
 
 #if NETCOREAPP
+using HeBianGu.AvaloniaUI.Ioc;
+using HeBianGu.AvaloniaUI.Mvvm;
+using HeBianGu.AvaloniaUI.Setting;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 #endif

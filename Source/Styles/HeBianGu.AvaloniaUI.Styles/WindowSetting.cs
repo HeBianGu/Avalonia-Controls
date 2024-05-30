@@ -20,7 +20,7 @@ namespace HeBianGu.AvaloniaUI.Styles
     {
         public WindowSetting()
         {
-            this.BackImage = new Bitmap(AssetLoader.Open(new Uri("avares://Avalonia.Extensions.BackgroundImage/Assets/Star.png")));
+            this.BackImage = new Bitmap(AssetLoader.Open(new Uri("avares://HeBianGu.AvaloniaUI.BackgroundImage/Assets/Star.png")));
             //BitmapTypeConverter
             //ImageDrawing imageDrawing=new ImageDrawing();
             //imageDrawing.ImageSource
@@ -42,10 +42,10 @@ namespace HeBianGu.AvaloniaUI.Styles
         public override void LoadDefault()
         {
             base.LoadDefault();
-            this.BackImagePath = new Uri("avares://Avalonia.Extensions.BackgroundImage/Assets/Star.png", UriKind.RelativeOrAbsolute);
+            this.BackImagePath = new Uri("avares://HeBianGu.AvaloniaUI.BackgroundImage/Assets/Star.png", UriKind.RelativeOrAbsolute);
         }
         private Uri _backImagePath;
-        //[DefaultValue("avares://Avalonia.Extensions.BackgroundImage/Assets/Star.png")]
+        //[DefaultValue("avares://HeBianGu.AvaloniaUI.BackgroundImage/Assets/Star.png")]
         [Display(Name = "窗口背景图片")]
         public Uri BackImagePath
         {

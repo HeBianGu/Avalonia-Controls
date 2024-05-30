@@ -2,10 +2,10 @@
 
 using Avalonia.Controls.Presenters;
 using Avalonia.Controls.Primitives;
-using Avalonia.Extensions.Application;
-using Avalonia.Ioc;
 using Avalonia.Layout;
-using Avalonia.Modules.Messages.Dialog;
+using Avalonia.Threading;
+using HeBianGu.AvaloniaUI.DialogMessage;
+using HeBianGu.AvaloniaUI.Ioc;
 using System;
 using System.Linq;
 using System.Threading;
@@ -30,16 +30,16 @@ namespace HeBianGu.AvaloniaUI.SnackMessage
             if (this.CheckValid() == false)
                 return;
             InfoMessagePresenter presenter = new InfoMessagePresenter() { Message = message };
-            Application.Current.Invoke(() =>
-            {
-                this._snackBox.Collection.Add(presenter);
-            });
+            Dispatcher.UIThread.Invoke(() =>
+             {
+                 this._snackBox.Collection.Add(presenter);
+             });
 
             await Task.Run(() =>
             {
                 Thread.Sleep(3000);
             });
-            Application.Current.Invoke(() =>
+            Dispatcher.UIThread.Invoke(() =>
             {
                 this._snackBox.Collection.Remove(presenter);
             });

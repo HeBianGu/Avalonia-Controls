@@ -1,9 +1,8 @@
 ﻿// Copyright © 2024 By HeBianGu(QQ:908293466) https://github.com/HeBianGu/WPF-Control
 
-
-using Avalonia.Controls.Form;
-using Avalonia.Ioc;
-using Avalonia.Mvvm;
+using HeBianGu.AvaloniaUI.Form;
+using HeBianGu.AvaloniaUI.Ioc;
+using HeBianGu.AvaloniaUI.Mvvm;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Xml.Serialization;

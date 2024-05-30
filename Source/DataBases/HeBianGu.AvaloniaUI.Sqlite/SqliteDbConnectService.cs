@@ -1,6 +1,5 @@
 ﻿
-using Avalonia.DataBases.Share;
-using Avalonia.Ioc;
+using HeBianGu.AvaloniaUI.DataBase.Share;
 using Microsoft.EntityFrameworkCore;
 
 namespace HeBianGu.AvaloniaUI.Sqlite

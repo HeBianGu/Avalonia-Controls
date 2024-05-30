@@ -1,8 +1,8 @@
 ﻿
-using Avalonia.Ioc;
 using Avalonia.Layout;
-using Avalonia.Windows.Dialog;
 using HeBianGu.AvaloniaUI.DialogMessage;
+using HeBianGu.AvaloniaUI.DialogWindow;
+using HeBianGu.AvaloniaUI.Ioc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,20 +17,20 @@ namespace HeBianGu.AvaloniaUI.DialogMessage
         public async Task<bool?> Show(object presenter, Action<IDialog> builder = null, Func<bool> canSumit = null)
         {
             var data = presenter is string str ? new StringPresenter() { Value = str } : presenter;
-            bool? r = await DialogWindow.ShowPresenter(data, builder, canSumit);
+            bool? r = await HeBianGu.AvaloniaUI.DialogWindow.DialogWindow.ShowPresenter(data, builder, canSumit);
             return await Task.FromResult(r);
         }
 
         public async Task<T> ShowAction<P, T>(P presenter, Action<IDialog> builder = null, Func<IDialog, P, T> action = null)
         {
-            T r = DialogWindow.ShowAction(presenter, action, builder);
+            T r = HeBianGu.AvaloniaUI.DialogWindow.DialogWindow.ShowAction(presenter, action, builder);
             return await Task.FromResult(r);
         }
 
         public async Task<T> ShowPercent<T>(Func<IDialog, IPercentPresenter, T> action, Action<IDialog> build = null)
         {
             PercentPresenter p = new PercentPresenter();
-            var r = DialogWindow.ShowAction(p, action, x =>
+            var r = HeBianGu.AvaloniaUI.DialogWindow.DialogWindow.ShowAction(p, action, x =>
             {
                 x.DialogButton = DialogButton.Cancel;
                 build?.Invoke(x);
@@ -41,7 +41,7 @@ namespace HeBianGu.AvaloniaUI.DialogMessage
         public async Task<T> ShowString<T>(Func<IDialog, IStringPresenter, T> action, Action<IDialog> build = null)
         {
             StringPresenter p = new StringPresenter();
-            T r = DialogWindow.ShowAction(p, action, x =>
+            T r = HeBianGu.AvaloniaUI.DialogWindow.DialogWindow.ShowAction(p, action, x =>
             {
                 x.HorizontalContentAlignment = HorizontalAlignment.Center;
                 x.DialogButton = DialogButton.Cancel;
@@ -53,7 +53,7 @@ namespace HeBianGu.AvaloniaUI.DialogMessage
         public async Task<T> ShowWait<T>(Func<IDialog, T> action, Action<IDialog> build = null)
         {
             WaitPresenter p = new WaitPresenter();
-            T r = DialogWindow.ShowAction(p, (d, p) => action.Invoke(d), x =>
+            T r = HeBianGu.AvaloniaUI.DialogWindow.DialogWindow.ShowAction(p, (d, p) => action.Invoke(d), x =>
             {
                 x.DialogButton = DialogButton.Cancel;
                 build?.Invoke(x);

@@ -1,5 +1,6 @@
-﻿using Avalonia.Extensions.Geometry;
-using Avalonia.Ioc;
+﻿
+using HeBianGu.AvaloniaUI.Geometry;
+using HeBianGu.AvaloniaUI.Ioc;
 using System;
 using System.Collections.Generic;
 using System.Linq;

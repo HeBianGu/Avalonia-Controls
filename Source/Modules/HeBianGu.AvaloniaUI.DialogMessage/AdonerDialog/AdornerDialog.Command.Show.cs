@@ -1,6 +1,6 @@
 ﻿
 using Avalonia.Controls;
-using Avalonia.Mvvm;
+using HeBianGu.AvaloniaUI.Mvvm;
 using System.Windows;
 
 namespace HeBianGu.AvaloniaUI.DialogMessage

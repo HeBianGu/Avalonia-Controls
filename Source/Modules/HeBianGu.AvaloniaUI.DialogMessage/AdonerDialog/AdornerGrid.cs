@@ -1,10 +1,10 @@
 ﻿using Avalonia.Controls;
 using Avalonia.Controls.Presenters;
 using Avalonia.Controls.Primitives;
-using Avalonia.Extensions.Application;
 using Avalonia.Layout;
 using Avalonia.Media;
 using Avalonia.Threading;
+using HeBianGu.AvaloniaUI.Application;
 using System.Linq;
 
 namespace HeBianGu.AvaloniaUI.DialogMessage
@@ -17,7 +17,7 @@ namespace HeBianGu.AvaloniaUI.DialogMessage
         //}
         public static void AddPresenter(object presenter)
         {
-            var visual = Application.Current.GetMainAdornerControl();
+            var visual = Avalonia.Application.Current.GetMainAdornerControl();
             if (visual == null)
                 return;
             var control = AdornerLayer.GetAdorner(visual);
@@ -48,7 +48,7 @@ namespace HeBianGu.AvaloniaUI.DialogMessage
         {
             Dispatcher.UIThread.Invoke(() =>
             {
-                var visual = Application.Current.GetMainAdornerControl();
+                var visual =Avalonia. Application.Current.GetMainAdornerControl();
                 if (visual == null)
                     return;
                 var control = AdornerLayer.GetAdorner(visual);
@@ -64,7 +64,7 @@ namespace HeBianGu.AvaloniaUI.DialogMessage
 
         public static bool HasPresenter(object presenter)
         {
-            var visual = Application.Current.GetMainAdornerControl();
+            var visual = Avalonia.Application.Current.GetMainAdornerControl();
             if (visual == null)
                 return false;
             var control = AdornerLayer.GetAdorner(visual);

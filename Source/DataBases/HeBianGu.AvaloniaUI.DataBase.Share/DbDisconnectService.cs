@@ -1,9 +1,6 @@
 ﻿
-
-
-
-using Avalonia.Ioc;
 using System;
+using HeBianGu.AvaloniaUI.Ioc;
 
 #if NETFRAMEWORK
 using System.Data.Entity;

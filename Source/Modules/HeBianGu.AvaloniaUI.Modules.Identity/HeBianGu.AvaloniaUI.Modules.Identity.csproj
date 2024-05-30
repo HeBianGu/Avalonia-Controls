@@ -16,6 +16,10 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Controls\HeBianGu.AvaloniaUI.Form\HeBianGu.AvaloniaUI.Form.csproj" />
+    <ProjectReference Include="..\..\Extensions\HeBianGu.AvaloniaUI.Repository\HeBianGu.AvaloniaUI.Repository.csproj" />
+  </ItemGroup>
+  <ItemGroup>
     <Compile Update="DataTemplates\RoleEditPresenter.axaml.cs">
       <DependentUpon>RoleEditPresenter.axaml</DependentUpon>
     </Compile>

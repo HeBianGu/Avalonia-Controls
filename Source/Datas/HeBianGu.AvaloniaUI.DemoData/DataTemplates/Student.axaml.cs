@@ -1,6 +1,6 @@
-﻿using Avalonia.Ioc;
-using Avalonia.Mvvm;
+﻿
 using HeBianGu.AvaloniaUI.DemoData;
+using HeBianGu.AvaloniaUI.Mvvm;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

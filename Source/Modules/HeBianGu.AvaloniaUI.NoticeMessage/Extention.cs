@@ -1,4 +1,5 @@
-﻿using Avalonia.Ioc;
+﻿using HeBianGu.AvaloniaUI;
+using HeBianGu.AvaloniaUI.Ioc;
 using HeBianGu.AvaloniaUI.NoticeMessage;
 using Microsoft.Extensions.DependencyInjection;
 

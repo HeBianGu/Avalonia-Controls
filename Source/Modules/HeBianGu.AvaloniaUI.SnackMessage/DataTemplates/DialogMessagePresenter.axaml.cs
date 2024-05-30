@@ -1,5 +1,5 @@
-﻿using Avalonia.Extensions.Geometry;
-using Avalonia.Mvvm;
+﻿using HeBianGu.AvaloniaUI.Geometry;
+using HeBianGu.AvaloniaUI;
 using HeBianGu.AvaloniaUI.SnackMessage;
 using System;
 using System.Collections.Generic;
@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using HeBianGu.AvaloniaUI.Mvvm;
 
 namespace HeBianGu.AvaloniaUI.SnackMessage
 {

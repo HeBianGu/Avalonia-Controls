@@ -1,8 +1,8 @@
 ﻿using Avalonia.Controls;
-using Avalonia.Ioc;
 using Avalonia.Layout;
-using Avalonia.Mvvm;
+using HeBianGu.AvaloniaUI.Ioc;
 using HeBianGu.AvaloniaUI.Modules.About;
+using HeBianGu.AvaloniaUI.Mvvm;
 
 namespace HeBianGu.AvaloniaUI.Modules.About
 {

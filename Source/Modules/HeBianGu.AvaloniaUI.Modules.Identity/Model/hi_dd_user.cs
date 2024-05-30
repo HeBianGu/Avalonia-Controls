@@ -1,6 +1,6 @@
 ﻿
-using Avalonia.Controls.Form;
-using Avalonia.Ioc;
+using HeBianGu.AvaloniaUI.Form;
+using HeBianGu.AvaloniaUI.Ioc;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

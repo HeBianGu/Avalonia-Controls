@@ -1,6 +1,6 @@
 ﻿
-using Avalonia.Extensions.Application;
-using Avalonia.Ioc;
+using HeBianGu.AvaloniaUI.Application;
+using HeBianGu.AvaloniaUI.Ioc;
 using HeBianGu.AvaloniaUI.Modules.About;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;

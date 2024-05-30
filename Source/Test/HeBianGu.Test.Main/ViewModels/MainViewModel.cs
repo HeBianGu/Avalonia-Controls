@@ -1,9 +1,6 @@
 ﻿using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml.Styling;
-using Avalonia.Modules.Messages.Dialog;
-using Avalonia.Styles;
-using Avalonia.Ioc;
 using HeBianGu.Test.Main.Views;
 using System;
 using System.Collections.ObjectModel;
@@ -11,9 +8,11 @@ using System.ComponentModel.Design;
 using System.Linq;
 using System.Net.Http.Headers;
 using System.Windows.Input;
-using Avalonia.Mvvm;
 using ReactiveUI;
-using Avalonia.Datas.Test;
+using HeBianGu.AvaloniaUI.Mvvm;
+using HeBianGu.AvaloniaUI.Ioc;
+using HeBianGu.AvaloniaUI.DialogMessage;
+using HeBianGu.AvaloniaUI.DemoData;
 
 namespace HeBianGu.Test.Main.ViewModels;
 
