@@ -40,7 +40,7 @@
       </DataTemplate>
     </TabControl.ContentTemplate>
 
-    <TabItem Header="ChangePropertyAction">
+    <!--<TabItem Header="ChangePropertyAction">
       <Grid RowDefinitions="*,Auto" ColumnDefinitions="50*,5,50*">
         <Rectangle Name="ChangePropertyRectangle"
                    Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"
@@ -72,9 +72,9 @@
     <TabItem Header="DataTemplate.Trigger">
       <DockPanel>
         <ListBox ItemsSource="{GetStudents Count=100}">
-          <!--<ListBox.Resources>
+          --><!--<ListBox.Resources>
             <SolidColorBrush x:Key="S.Brush.D" Color="Pink"/>
-          </ListBox.Resources>-->
+          </ListBox.Resources>--><!--
           <ListBox.ItemTemplate>
             <DataTemplate DataType="{x:Type h:Student}">
               <Grid>
@@ -89,7 +89,7 @@
                       <DrawingBrush.Drawing>
                         <GeometryDrawing Brush="{Binding ElementName=g, Path=(TextElement.Foreground)}" Geometry="{x:Static Geometrys.Close}" />
 
-                        <!--<GeometryDrawing Brush="{DynamicResource {x:Static h:BrushKeys.Foregournd}}" Geometry="{Binding Geometry}" />-->
+                        --><!--<GeometryDrawing Brush="{DynamicResource {x:Static h:BrushKeys.Foregournd}}" Geometry="{Binding Geometry}" />--><!--
                       </DrawingBrush.Drawing>
                     </DrawingBrush>
                   </Grid.Background>
@@ -121,7 +121,7 @@
           </ListBox.ItemTemplate>
         </ListBox>
       </DockPanel>
-    </TabItem>
+    </TabItem>-->
     <TabItem Header="DataTemplate.Trigger">
       <DockPanel>
         <ListBox ItemsSource="{GetStudents}">
