@@ -4,14 +4,6 @@
     <PackageReference Include="Avalonia.Xaml.Behaviors" Version="11.0.10" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Cores\Avalonia.Ioc\Avalonia.Ioc.csproj" />
-    <ProjectReference Include="..\..\Cores\Avalonia.Mvvm\Avalonia.Mvvm.csproj" />
-    <ProjectReference Include="..\..\Extensions\Avalonia.Extensions.Application\Avalonia.Extensions.Application.csproj" />
-    <ProjectReference Include="..\..\Extensions\Avalonia.Extensions.Common\Avalonia.Extensions.Common.csproj" />
-    <ProjectReference Include="..\..\Extensions\Avalonia.Extensions.ValueConverter\Avalonia.Extensions.ValueConverter.csproj" />
-    <ProjectReference Include="..\..\Themes\Avalonia.Theme\Avalonia.Theme.csproj" />
-  </ItemGroup>
-  <ItemGroup>
     <AvaloniaXaml Update="DataTemplates\TextPropertyViewItem.axaml">
       <SubType>Designer</SubType>
     </AvaloniaXaml>

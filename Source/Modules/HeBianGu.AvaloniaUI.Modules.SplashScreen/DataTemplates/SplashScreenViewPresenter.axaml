@@ -1,0 +1,31 @@
+<DataTemplate xmlns="https://github.com/avaloniaui"
+              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+              xmlns:h="https://github.com/HeBianGu"
+              xmlns:local="clr-namespace:Avalonia.Modules.SplashScreen"
+              DataType="local:SplashScreenViewPresenter">
+  <Grid Margin="20">
+    <Grid.RowDefinitions>
+      <RowDefinition />
+      <RowDefinition Height="Auto" />
+      <RowDefinition Height="Auto" />
+    </Grid.RowDefinitions>
+    <TextBlock Grid.Row="0"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Center"
+               FontSize="{Binding Source={x:Static local:SplashScreenOption.Instance}, Path=ProductFontSize}"
+               Text="{Binding Source={x:Static local:SplashScreenOption.Instance}, Path=Product}" />
+
+    <TextBlock Grid.Row="1"
+               Margin="0,10"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Center"
+               FontSize="{DynamicResource {x:Static h:FontSizeKeys.Header4}}"
+               Text="{Binding Message}" />
+
+    <TextBlock Grid.Row="2"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Center"
+               FontSize="{DynamicResource {x:Static h:FontSizeKeys.Header6}}"
+               Text="{Binding Source={x:Static local:SplashScreenOption.Instance}, Path=Copyright}" />
+  </Grid>
+</DataTemplate>

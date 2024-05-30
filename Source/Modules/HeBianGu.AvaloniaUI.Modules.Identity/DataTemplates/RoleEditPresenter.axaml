@@ -1,0 +1,24 @@
+<DataTemplate xmlns="https://github.com/avaloniaui"
+              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+              xmlns:h="https://github.com/HeBianGu"
+              xmlns:local="clr-namespace:Avalonia.Modules.Identity"
+              DataType="local:RoleEditPresenter">
+    <DockPanel Margin="10,6">
+        <DockPanel Margin="0,5" DockPanel.Dock="Top">
+            <TextBlock VerticalAlignment="Center" Text="角色名称" />
+            <TextBox Margin="5,0,0,0" Text="{Binding Model.Name}" />
+        </DockPanel>
+        <ListBox ItemsSource="{Binding Authors}"
+                 SelectedItems="{Binding Model.Authors}"
+                 SelectionMode="Multiple,Toggle">
+            <!--<Behaviors:Interaction.Behaviors>
+        <h:ListBoxBindingSelectedItemsBehavior SelectedItems="{Binding Model.Authors}" />
+      </Behaviors:Interaction.Behaviors>-->
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <CheckBox Content="{Binding Name}" IsChecked="{Binding RelativeSource={RelativeSource AncestorType=ListBoxItem}, Path=IsSelected}" />
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ListBox>
+    </DockPanel>
+</DataTemplate>

@@ -2,8 +2,8 @@
 
 
 
-using System;
 using Avalonia.Ioc;
+using System;
 
 #if NETFRAMEWORK
 using System.Data.Entity;

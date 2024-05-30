@@ -1,0 +1,64 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:h="https://github.com/HeBianGu"
+                    xmlns:local="clr-namespace:HeBianGu.AvaloniaUI.Styles.Extension">
+    <!--  Add Resources Here  -->
+    <ControlTheme x:Key="{x:Type local:GroupBox}" TargetType="{x:Type local:GroupBox}">
+        <Setter Property="Background" Value="{DynamicResource {x:Static h:BrushKeys.Background}}" />
+        <!--<Setter Property="Foreground" Value="{DynamicResource {x:Static h:BrushKeys.Foreground}}" />-->
+        <Setter Property="Header" Value="Header" />
+        <Setter Property="BorderBrush" Value="{DynamicResource {x:Static h:BrushKeys.BorderBrush}}" />
+        <Setter Property="BorderThickness" Value="{DynamicResource {x:Static h:LayoutKeys.BorderThickness}}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource {x:Static h:LayoutKeys.CornerRadius}}" />
+        <Setter Property="Padding" Value="{DynamicResource {x:Static h:LayoutKeys.Padding}}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:GroupBox}">
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{TemplateBinding CornerRadius}">
+                        <DockPanel MinWidth="{TemplateBinding MinWidth}" MaxWidth="{TemplateBinding MaxWidth}">
+                            <Border x:Name="ExpanderHeader"
+                                    Height="{DynamicResource {x:Static h:LayoutKeys.ItemHeight}}"
+                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="0,0,0,1"
+                                    DockPanel.Dock="Top">
+                                <ContentPresenter Margin="{DynamicResource {x:Static h:LayoutKeys.Padding}}"
+                                                  VerticalContentAlignment="Center"
+                                                  Content="{TemplateBinding Header}"
+                                                  ContentTemplate="{TemplateBinding HeaderTemplate}" />
+
+                            </Border>
+                            <Border x:Name="ExpanderContent"
+                                    MinHeight="{TemplateBinding MinHeight}"
+                                    Padding="{TemplateBinding Padding}"
+                                    HorizontalAlignment="Stretch"
+                                    VerticalAlignment="Stretch">
+                                <ContentPresenter x:Name="PART_ContentPresenter"
+                                                  HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                  VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                                  Content="{TemplateBinding Content}"
+                                                  ContentTemplate="{TemplateBinding ContentTemplate}"
+                                                  Foreground="{TemplateBinding Foreground}" />
+                            </Border>
+                        </DockPanel>
+
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style Selector="^:left /template/ Border#ExpanderHeader">
+            <Setter Property="DockPanel.Dock" Value="Right" />
+        </Style>
+        <Style Selector="^:up /template/ Border#ExpanderHeader">
+            <Setter Property="DockPanel.Dock" Value="Bottom" />
+        </Style>
+        <Style Selector="^:right /template/ Border#ExpanderHeader">
+            <Setter Property="DockPanel.Dock" Value="Left" />
+        </Style>
+        <Style Selector="^:down /template/ Border#ExpanderHeader">
+            <Setter Property="DockPanel.Dock" Value="Top" />
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>

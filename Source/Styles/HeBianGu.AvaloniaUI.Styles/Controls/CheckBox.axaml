@@ -1,0 +1,189 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:h="https://github.com/HeBianGu"
+                    xmlns:local="clr-namespace:Avalonia.Styles">
+    <StreamGeometry x:Key="CheckMarkPathData">M5.5 10.586 1.707 6.793A1 1 0 0 0 .293 8.207l4.5 4.5a1 1 0 0 0 1.414 0l11-11A1 1 0 0 0 15.793.293L5.5 10.586Z</StreamGeometry>
+
+    <ControlTheme x:Key="{x:Type CheckBox}" TargetType="CheckBox">
+        <Setter Property="Padding" Value="8,0,0,0" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="CornerRadius" Value="2" />
+        <Setter Property="MinHeight" Value="32" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Foreground" Value="{DynamicResource {x:Static h:BrushKeys.Foreground}}" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Grid x:Name="RootGrid" ColumnDefinitions="20,*">
+                    <Border x:Name="PART_Border"
+                            Grid.ColumnSpan="2"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{TemplateBinding CornerRadius}" />
+
+                    <Grid Height="32" VerticalAlignment="Top">
+                        <Border x:Name="NormalRectangle"
+                                Width="20"
+                                Height="20"
+                                Background="Transparent"
+                                BorderBrush="{DynamicResource {x:Static h:BrushKeys.Foreground}}"
+                                BorderThickness="{DynamicResource {x:Static h:LayoutKeys.BorderThickness}}"
+                                CornerRadius="{TemplateBinding CornerRadius}"
+                                UseLayoutRounding="False" />
+
+                        <Viewbox UseLayoutRounding="False">
+                            <Panel>
+                                <Panel Width="16" Height="16" />
+                                <Path x:Name="CheckGlyph"
+                                      VerticalAlignment="Center"
+                                      Fill="{DynamicResource {x:Static h:BrushKeys.Foreground}}"
+                                      FlowDirection="LeftToRight"
+                                      Opacity="0"
+                                      Stretch="Uniform" />
+                            </Panel>
+                        </Viewbox>
+                    </Grid>
+                    <ContentPresenter x:Name="PART_ContentPresenter"
+                                      Grid.Column="1"
+                                      Margin="{TemplateBinding Padding}"
+                                      HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                      VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                      Content="{TemplateBinding Content}"
+                                      ContentTemplate="{TemplateBinding ContentTemplate}"
+                                      RecognizesAccessKey="True"
+                                      TextWrapping="Wrap" />
+                </Grid>
+            </ControlTemplate>
+        </Setter>
+
+        <!--  Unchecked PointerOver State  -->
+        <Style Selector="^:pointerover">
+            <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+                <Setter Property="Foreground" Value="{DynamicResource {x:Static h:BrushKeys.ForegroundTitle}}" />
+            </Style>
+
+            <Style Selector="^ /template/ Border#PART_Border">
+                <Setter Property="Background" Value="Transparent" />
+                <Setter Property="BorderBrush" Value="Transparent" />
+
+            </Style>
+
+            <Style Selector="^ /template/ Border#NormalRectangle">
+                <Setter Property="BorderBrush" Value="{DynamicResource {x:Static h:BrushKeys.ForegroundTitle}}" />
+                <Setter Property="Background" Value="{DynamicResource {x:Static h:BrushKeys.CaptionBackground}}" />
+            </Style>
+
+            <Style Selector="^ /template/ Path#CheckGlyph">
+                <Setter Property="Fill" Value="{DynamicResource {x:Static h:BrushKeys.Foreground}}" />
+            </Style>
+        </Style>
+
+        <!--  Unchecked Pressed State  -->
+        <Style Selector="^:pressed">
+            <Setter Property="Opacity" Value="{DynamicResource {x:Static h:LayoutKeys.Pressed}}" />
+        </Style>
+
+        <!--  Unchecked Disabled state  -->
+        <Style Selector="^:disabled">
+            <Setter Property="Opacity" Value="{DynamicResource {x:Static h:LayoutKeys.Disabled}}" />
+        </Style>
+
+        <Style Selector="^:checked">
+            <!--  Checked Normal State  -->
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static h:BrushKeys.ForegroundTitle}}" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="BorderBrush" Value="Transparent" />
+
+            <Style Selector="^ /template/ Border#NormalRectangle">
+                <Setter Property="BorderBrush" Value="{DynamicResource {x:Static h:BrushKeys.CaptionForeground}}" />
+                <Setter Property="Background" Value="{DynamicResource {x:Static h:BrushKeys.CaptionBackground}}" />
+            </Style>
+
+            <Style Selector="^ /template/ Path#CheckGlyph">
+                <Setter Property="Fill" Value="{DynamicResource {x:Static h:BrushKeys.ForegroundTitle}}" />
+                <Setter Property="Data" Value="{StaticResource CheckMarkPathData}" />
+                <Setter Property="Width" Value="9" />
+                <Setter Property="Opacity" Value="1" />
+            </Style>
+
+            <!--  Checked PointerOver State  -->
+            <Style Selector="^:pointerover">
+                <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+                    <Setter Property="Foreground" Value="{DynamicResource {x:Static h:BrushKeys.ForegroundTitle}}" />
+                </Style>
+
+                <!--<Style Selector="^ /template/ Border#PART_Border">
+                    <Setter Property="Background" Value="{DynamicResource {x:Static h:BrushKeys.Foreground}}" />
+                    <Setter Property="BorderBrush" Value="{DynamicResource {x:Static h:BrushKeys.Foreground}}" />
+                </Style>
+
+                <Style Selector="^ /template/ Border#NormalRectangle">
+                    <Setter Property="BorderBrush" Value="{DynamicResource {x:Static h:BrushKeys.Foreground}}" />
+                    <Setter Property="Background" Value="{DynamicResource {x:Static h:BrushKeys.Foreground}}" />
+                </Style>-->
+
+                <Style Selector="^ /template/ Path#CheckGlyph">
+                    <Setter Property="Fill" Value="{DynamicResource {x:Static h:BrushKeys.ForegroundTitle}}" />
+                </Style>
+            </Style>
+
+            <!--  Checked Pressed State  -->
+            <Style Selector="^:pressed">
+                <Setter Property="Opacity" Value="{DynamicResource {x:Static h:LayoutKeys.Pressed}}" />
+            </Style>
+
+            <!--  Checked Disabled State  -->
+            <Style Selector="^:disabled">
+                <Setter Property="Opacity" Value="{DynamicResource {x:Static h:LayoutKeys.Disabled}}" />
+            </Style>
+        </Style>
+
+        <Style Selector="^:indeterminate">
+            <!--<Setter Property="Foreground" Value="{DynamicResource {x:Static h:BrushKeys.Foreground}}" />
+            <Setter Property="Background" Value="{DynamicResource {x:Static h:BrushKeys.Caption}}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource {x:Static h:BrushKeys.Foreground}}" />-->
+
+            <Style Selector="^ /template/ Border#NormalRectangle">
+                <Setter Property="BorderBrush" Value="{DynamicResource {x:Static h:BrushKeys.Foreground}}" />
+                <Setter Property="Background" Value="Transparent" />
+            </Style>
+
+            <Style Selector="^ /template/ Path#CheckGlyph">
+                <Setter Property="Fill" Value="{DynamicResource {x:Static h:BrushKeys.Foreground}}" />
+                <Setter Property="Data" Value="M1536 1536v-1024h-1024v1024h1024z" />
+                <Setter Property="Width" Value="7" />
+                <Setter Property="Opacity" Value="1" />
+            </Style>
+            <Style Selector="^:pointerover">
+                <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+                    <Setter Property="Foreground" Value="{DynamicResource {x:Static h:BrushKeys.ForegroundTitle}}" />
+                </Style>
+
+                <!--<Style Selector="^ /template/ Border#PART_Border">
+                    <Setter Property="Background" Value="{DynamicResource {x:Static h:BrushKeys.Foreground}}" />
+                    <Setter Property="BorderBrush" Value="{DynamicResource {x:Static h:BrushKeys.Foreground}}" />
+                </Style>-->
+
+                <Style Selector="^ /template/ Border#NormalRectangle">
+                    <Setter Property="BorderBrush" Value="{DynamicResource {x:Static h:BrushKeys.ForegroundTitle}}" />
+                    <Setter Property="Background" Value="{DynamicResource {x:Static h:BrushKeys.BorderBrush}}" />
+                </Style>
+
+                <Style Selector="^ /template/ Path#CheckGlyph">
+                    <Setter Property="Fill" Value="{DynamicResource {x:Static h:BrushKeys.Foreground}}" />
+                </Style>
+            </Style>
+            <Style Selector="^:pressed">
+                <Setter Property="Opacity" Value="{DynamicResource {x:Static h:LayoutKeys.Pressed}}" />
+            </Style>
+
+            <Style Selector="^:disabled">
+                <Setter Property="Opacity" Value="{DynamicResource {x:Static h:LayoutKeys.Disabled}}" />
+            </Style>
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>

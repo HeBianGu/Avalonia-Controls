@@ -1,8 +1,5 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <ItemGroup>
-    <ProjectReference Include="..\..\Cores\Avalonia.Ioc\Avalonia.Ioc.csproj" />
-    <ProjectReference Include="..\..\Cores\Avalonia.Mvvm\Avalonia.Mvvm.csproj" />
-    <ProjectReference Include="..\..\Extensions\Avalonia.Extensions.Application\Avalonia.Extensions.Application.csproj" />
     <ProjectReference Include="..\..\Extensions\Avalonia.Extensions.Command\Avalonia.Extensions.Command.csproj" />
     <ProjectReference Include="..\..\Extensions\Avalonia.Extensions.Common\Avalonia.Extensions.Common.csproj" />
     <ProjectReference Include="..\..\Extensions\Avalonia.Extensions.Setting\Avalonia.Extensions.Setting.csproj" />

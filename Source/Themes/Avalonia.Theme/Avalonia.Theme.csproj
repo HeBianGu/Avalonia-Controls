@@ -1,8 +1,1 @@
-<Project Sdk="Microsoft.NET.Sdk">
-  <ItemGroup>
-    <ProjectReference Include="..\..\Extensions\Avalonia.Extensions.BackgroundImage\Avalonia.Extensions.BackgroundImage.csproj" />
-    <ProjectReference Include="..\..\Extensions\Avalonia.Extensions.ResourceKey\Avalonia.Extensions.ResourceKey.csproj" />
-    <ProjectReference Include="..\..\Extensions\Avalonia.Extensions.Application\Avalonia.Extensions.Application.csproj" />
-    <ProjectReference Include="..\..\Extensions\Avalonia.Extensions.Setting\Avalonia.Extensions.Setting.csproj" />
-  </ItemGroup>
-</Project>
+<Project Sdk="Microsoft.NET.Sdk" />

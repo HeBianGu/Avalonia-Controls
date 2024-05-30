@@ -18,7 +18,7 @@
     <PackageProjectUrl>https://github.com/HeBianGu/Avalonia-Controls</PackageProjectUrl>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Avalonia" Version="11.0.10" />
+    <PackageReference Include="Avalonia" Version="$(AvaloniaVersion)" />
   </ItemGroup>
   <ItemGroup>
     <!--<Resource Include="**\*.png" />

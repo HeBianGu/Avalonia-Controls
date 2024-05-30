@@ -2,9 +2,9 @@
 
 
 
+using Avalonia.Ioc;
 using System;
 using System.Windows.Input;
-using Avalonia.Ioc;
 
 
 #if NETFRAMEWORK

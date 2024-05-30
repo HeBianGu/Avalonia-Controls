@@ -1,0 +1,9 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Options" Version="7.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Cores\HeBianGu.AvaloniaUI.Ioc\HeBianGu.AvaloniaUI.Ioc.csproj" />
+    <ProjectReference Include="..\..\Cores\HeBianGu.AvaloniaUI.Mvvm\HeBianGu.AvaloniaUI.Mvvm.csproj" />
+  </ItemGroup>
+</Project>

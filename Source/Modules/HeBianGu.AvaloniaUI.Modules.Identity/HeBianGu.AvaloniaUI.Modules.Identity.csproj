@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+  <ItemGroup>
+    <PackageReference Include="Avalonia.Controls.DataGrid" Version="$(AvaloniaVersion)" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="7.0.19" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.19">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="7.0.19" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.19" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.19">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="DataTemplates\RoleEditPresenter.axaml.cs">
+      <DependentUpon>RoleEditPresenter.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="DataTemplates\RoleViewPresenter.axaml.cs">
+      <DependentUpon>RoleViewPresenter.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="DataTemplates\UserViewPresenter.axaml.cs">
+      <DependentUpon>UserViewPresenter.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="DataTemplates\AuthorityViewPresenter.axaml.cs">
+      <DependentUpon>AuthorityViewPresenter.axaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+</Project>

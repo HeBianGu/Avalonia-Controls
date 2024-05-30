@@ -1,0 +1,10 @@
+<DataTemplate xmlns="https://github.com/avaloniaui"
+              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+              xmlns:local="clr-namespace:Avalonia.Modules.Messages.Notice"
+              DataType="local:My">
+    <!--  Add Resources Here  -->
+    <DockPanel>
+        <TextBlock Text="名称：" />
+        <TextBlock Text="{Binding }" />
+    </DockPanel>
+</DataTemplate>

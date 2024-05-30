@@ -1,5 +1,5 @@
 using Avalonia.Metadata;
-using Avalonia.Extensions.Application;
+using HeBianGu.AvaloniaUI.Application;
 
 [assembly: ApplicationStylesLoader]
 

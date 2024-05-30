@@ -1,0 +1,9 @@
+<DataTemplate xmlns="https://github.com/avaloniaui"
+              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+              xmlns:h="https://github.com/HeBianGu"
+              xmlns:local="clr-namespace:HeBianGu.AvaloniaUI.Form"
+              DataType="local:BoolNullablePropertyItem">
+    <CheckBox Grid.Column="2"
+              IsChecked="{Binding Value, Mode=TwoWay}"
+              IsEnabled="{Binding ReadOnly, Converter={h:GetTrueToFalseValueConverter}}" />
+</DataTemplate>

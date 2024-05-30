@@ -16,12 +16,6 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Controls\Avalonia.Controls.Form\Avalonia.Controls.Form.csproj" />
-    <ProjectReference Include="..\..\Cores\Avalonia.Ioc\Avalonia.Ioc.csproj" />
-    <ProjectReference Include="..\..\Extensions\Avalonia.Extensions.Repository\Avalonia.Extensions.Repository.csproj" />
-    <ProjectReference Include="..\..\Extensions\Avalonia.Extensions.Setting\Avalonia.Extensions.Setting.csproj" />
-  </ItemGroup>
-  <ItemGroup>
     <Compile Update="DataTemplates\RoleEditPresenter.axaml.cs">
       <DependentUpon>RoleEditPresenter.axaml</DependentUpon>
     </Compile>

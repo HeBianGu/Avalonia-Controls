@@ -4,10 +4,4 @@
     <PackageReference Include="Microsoft.Extensions.Options" Version="7.0.0" />
     <PackageReference Include="Avalonia.Xaml.Behaviors" Version="11.0.10" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\Cores\Avalonia.Ioc\Avalonia.Ioc.csproj" />
-    <ProjectReference Include="..\..\Cores\Avalonia.Mvvm\Avalonia.Mvvm.csproj" />
-    <ProjectReference Include="..\..\Styles\Avalonia.Styles.Extension\Avalonia.Styles.Extension.csproj" />
-    <ProjectReference Include="..\..\Windows\Avalonia.Windows.Dialog\Avalonia.Windows.Dialog.csproj" />
-  </ItemGroup>
 </Project>
