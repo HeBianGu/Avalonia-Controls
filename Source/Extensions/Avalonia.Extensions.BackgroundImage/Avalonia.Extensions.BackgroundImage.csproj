@@ -1,7 +1,0 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
-  <ItemGroup>
-    <ProjectReference Include="..\..\Extensions\Avalonia.Extensions.Command\Avalonia.Extensions.Command.csproj" />
-    <ProjectReference Include="..\..\Extensions\Avalonia.Extensions.Common\Avalonia.Extensions.Common.csproj" />
-    <ProjectReference Include="..\..\Extensions\Avalonia.Extensions.Setting\Avalonia.Extensions.Setting.csproj" />
-  </ItemGroup>
-</Project>

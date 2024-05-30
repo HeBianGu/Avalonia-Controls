@@ -1,9 +1,0 @@
-<DataTemplate xmlns="https://github.com/avaloniaui"
-              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-              xmlns:h="https://github.com/HeBianGu"
-              xmlns:local="clr-namespace:Avalonia.Modules.About"
-              DataType="local:AboutViewPresenter">
-    <h:Form Margin="{DynamicResource {x:Static h:LayoutKeys.Padding}}"
-            SelectObject="{Binding Source={x:Static local:AboutOption.Instance}}"
-            UsePropertyView="True" />
-</DataTemplate>
