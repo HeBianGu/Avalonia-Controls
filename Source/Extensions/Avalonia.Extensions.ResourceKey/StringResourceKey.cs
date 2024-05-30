@@ -25,5 +25,10 @@ namespace Avalonia.Extensions.ResourceKey
         {
             return $"S.{this.TypeInTargetAssembly.Name}.{ResourceId}";
         }
+
+        public override string ToString()
+        {
+            return $"S.{this.TypeInTargetAssembly.Name}.{ResourceId}";
+        }
     }
 }

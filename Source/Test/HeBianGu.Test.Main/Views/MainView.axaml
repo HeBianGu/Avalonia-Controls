@@ -31,6 +31,8 @@
         <Setter Property="MinHeight" Value="400" />
         <Setter Property="MinWidth" Value="400" />
       </ControlTheme>
+      <SolidColorBrush x:Key="S.Brush.D" Color="Pink"/>
+
     </TabControl.Resources>
     <TabControl.ContentTemplate>
       <DataTemplate>
@@ -38,7 +40,88 @@
       </DataTemplate>
     </TabControl.ContentTemplate>
 
+    <TabItem Header="ChangePropertyAction">
+      <Grid RowDefinitions="*,Auto" ColumnDefinitions="50*,5,50*">
+        <Rectangle Name="ChangePropertyRectangle"
+                   Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"
+                   Margin="5"
+                   Fill="{DynamicResource PinkBrush}"
+                   Stroke="{DynamicResource GrayBrush}"
+                   StrokeThickness="5" />
+        <Button Name="PinkButton" Content="Pink" Grid.Row="1" Grid.Column="0" Margin="5,0,0,5">
+          <i:Interaction.Behaviors>
+            <ia:EventTriggerBehavior EventName="Click" SourceObject="PinkButton">
+              <ia:ChangePropertyAction TargetObject="ChangePropertyRectangle"
+                                       PropertyName="Fill"
+                                       Value="{DynamicResource S.Brush.D}" />
+            </ia:EventTriggerBehavior>
+          </i:Interaction.Behaviors>
+        </Button>
+        <Button Name="YellowButton" Content="Yellow" Grid.Row="1" Grid.Column="2" Margin="0,0,5,5">
+          <i:Interaction.Behaviors>
+            <ia:EventTriggerBehavior EventName="Click" SourceObject="YellowButton">
+              <ia:ChangePropertyAction TargetObject="ChangePropertyRectangle"
+                                       PropertyName="Fill"
+                                       Value="{DynamicResource S.Brush.D}" />
+            </ia:EventTriggerBehavior>
+          </i:Interaction.Behaviors>
+        </Button>
+      </Grid>
+    </TabItem>
 
+    <TabItem Header="DataTemplate.Trigger">
+      <DockPanel>
+        <ListBox ItemsSource="{GetStudents Count=100}">
+          <!--<ListBox.Resources>
+            <SolidColorBrush x:Key="S.Brush.D" Color="Pink"/>
+          </ListBox.Resources>-->
+          <ListBox.ItemTemplate>
+            <DataTemplate DataType="{x:Type h:Student}">
+              <Grid>
+                <Grid.Resources>
+                  <SolidColorBrush x:Key="S.Brush.D" Color="Pink"/>
+                </Grid.Resources>
+                <Grid Name="g"
+                      Width="25"
+                      Height="25">
+                  <Grid.Background>
+                    <DrawingBrush>
+                      <DrawingBrush.Drawing>
+                        <GeometryDrawing Brush="{Binding ElementName=g, Path=(TextElement.Foreground)}" Geometry="{x:Static Geometrys.Close}" />
+
+                        <!--<GeometryDrawing Brush="{DynamicResource {x:Static h:BrushKeys.Foregournd}}" Geometry="{Binding Geometry}" />-->
+                      </DrawingBrush.Drawing>
+                    </DrawingBrush>
+                  </Grid.Background>
+                  <TextBlock Name="TT" Text="{Binding Name}"/>
+
+                  <i:Interaction.Behaviors>
+                    <ia:DataTriggerBehavior Binding="{Binding Name}" Value="Jim">
+                      <ia:ChangePropertyAction PropertyName="(TextElement.Foreground)" Value="Red" TargetObject="{Binding ElementName=g}"/>
+                    </ia:DataTriggerBehavior>
+                    <ia:DataTriggerBehavior Binding="{Binding Name}" Value="Linda">
+                      <ia:ChangePropertyAction PropertyName="(TextElement.Foreground)" Value="{DynamicResource {x:Static h:BrushKeys.Red}}" TargetObject="{Binding ElementName=g}"/>
+                    </ia:DataTriggerBehavior>
+                    <ia:DataTriggerBehavior Binding="{Binding Name}" Value="Tom">
+                      <ia:ChangePropertyAction PropertyName="(TextElement.Foreground)" Value="{DynamicResource {x:Static h:BrushKeys.Orange}}" TargetObject="{Binding ElementName=g}"/>
+                    </ia:DataTriggerBehavior>
+                    <ia:DataTriggerBehavior Binding="{Binding Name}" Value="Angle">
+                      <ia:ChangePropertyAction PropertyName="(TextElement.Foreground)" Value="{DynamicResource S.Brush.D}" TargetObject="{Binding ElementName=g}"/>
+                    </ia:DataTriggerBehavior>
+                    <ia:DataTriggerBehavior Binding="{Binding Name}" Value="Angle">
+                      <ia:ChangePropertyAction PropertyName="Foreground" Value="Orange" TargetObject="TT"/>
+                    </ia:DataTriggerBehavior>
+                    <ia:DataTriggerBehavior Binding="{Binding Name}" Value="Summi">
+                      <ia:ChangePropertyAction PropertyName="(TextElement.Foreground)" Value="{DynamicResource {x:Static h:BrushKeys.Green}}" TargetObject="{Binding ElementName=g}"/>
+                    </ia:DataTriggerBehavior>
+                  </i:Interaction.Behaviors>
+                </Grid>
+              </Grid>
+            </DataTemplate>
+          </ListBox.ItemTemplate>
+        </ListBox>
+      </DockPanel>
+    </TabItem>
     <TabItem Header="DataTemplate.Trigger">
       <DockPanel>
         <ListBox ItemsSource="{GetStudents}">

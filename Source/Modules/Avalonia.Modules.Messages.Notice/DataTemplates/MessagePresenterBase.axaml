@@ -49,49 +49,23 @@
             Content="{x:Static h:Geometrys.Close}"
             Theme="{DynamicResource {x:Static h:ButtonKeys.Geometry}}"
             ToolTip.Tip="×">
-      <!--<b:Interaction.Behaviors>
-              <h:ButtonRemoveItemBehavior />
-            </b:Interaction.Behaviors>-->
     </Button>
     <i:Interaction.Behaviors>
       <ia:DataTriggerBehavior Binding="{Binding Level}" Value="5">
-        <ia:ChangePropertyAction PropertyName="(TextElement.Foreground)" Value="{DynamicResource {x:Static h:BrushKeys.Purple}}" TargetObject="{Binding ElementName=g}"/>
+        <ia:ChangePropertyAction PropertyName="(TextElement.Foreground)" Value="Purple" TargetObject="{Binding ElementName=g}"/>
       </ia:DataTriggerBehavior>
       <ia:DataTriggerBehavior Binding="{Binding Level}" Value="4">
-        <ia:ChangePropertyAction PropertyName="(TextElement.Foreground)" Value="{DynamicResource {x:Static h:BrushKeys.Red}}" TargetObject="{Binding ElementName=g}"/>
+        <ia:ChangePropertyAction PropertyName="(TextElement.Foreground)" Value="Red" TargetObject="{Binding ElementName=g}"/>
       </ia:DataTriggerBehavior>
       <ia:DataTriggerBehavior Binding="{Binding Level}" Value="3">
-        <ia:ChangePropertyAction PropertyName="(TextElement.Foreground)" Value="{DynamicResource {x:Static h:BrushKeys.Orange}}" TargetObject="{Binding ElementName=g}"/>
+        <ia:ChangePropertyAction PropertyName="(TextElement.Foreground)" Value="Orange" TargetObject="{Binding ElementName=g}"/>
       </ia:DataTriggerBehavior>
-      <ia:DataTriggerBehavior Binding="{Binding Level}" Value="2">
+      <!--<ia:DataTriggerBehavior Binding="{Binding Level}" Value="2">
         <ia:ChangePropertyAction PropertyName="(TextElement.Foreground)" Value="{DynamicResource {x:Static h:BrushKeys.Foreground}}" TargetObject="{Binding ElementName=g}"/>
-      </ia:DataTriggerBehavior>
+      </ia:DataTriggerBehavior>-->
       <ia:DataTriggerBehavior Binding="{Binding Level}" Value="1">
-        <ia:ChangePropertyAction PropertyName="(TextElement.Foreground)" Value="{DynamicResource {x:Static h:BrushKeys.Green}}" TargetObject="{Binding ElementName=g}"/>
+        <ia:ChangePropertyAction PropertyName="(TextElement.Foreground)" Value="Green" TargetObject="{Binding ElementName=g}"/>
       </ia:DataTriggerBehavior>
     </i:Interaction.Behaviors>
   </Grid>
-  <!--<DataTemplate.Triggers>
-
-          <DataTrigger Binding="{Binding Level}"
-                       Value="5">
-            <Setter TargetName="g" Property="TextElement.Foreground" Value="{DynamicResource {x:Static h:BrushKeys.Purple}}" />
-          </DataTrigger>
-          <DataTrigger Binding="{Binding Level}"
-                       Value="4">
-            <Setter TargetName="g" Property="TextElement.Foreground" Value="{DynamicResource {x:Static h:BrushKeys.Red}}" />
-          </DataTrigger>
-          <DataTrigger Binding="{Binding Level}"
-                       Value="3">
-            <Setter TargetName="g" Property="TextElement.Foreground" Value="{DynamicResource {x:Static h:BrushKeys.Orange}}" />
-          </DataTrigger>
-          <DataTrigger Binding="{Binding Level}"
-                       Value="2">
-            <Setter TargetName="g" Property="TextElement.Foreground" Value="{DynamicResource {x:Static h:BrushKeys.Foreground}}" />
-          </DataTrigger>
-          <DataTrigger Binding="{Binding Level}"
-                       Value="1">
-            <Setter TargetName="g" Property="TextElement.Foreground" Value="{DynamicResource {x:Static h:BrushKeys.Green}}" />
-          </DataTrigger>
-        </DataTemplate.Triggers>-->
 </DataTemplate>
