@@ -19,7 +19,8 @@ namespace HeBianGu.AvaloniaUI.VlcPlayer
         //{
         //    if (parameter is VlcPlayer player)
         //    {
-        //        return player.State == VLCState.Playing || player.State == VLCState.Paused || player.State == VLCState.Ended || player.State == VLCState.Stopped || player.State == VLCState.NothingSpecial;
+        //        return player.MediaPlayer.CanPause || player.MediaPlayer.WillPlay;
+        //        //return player.State == VLCState.Playing || player.State == VLCState.Paused || player.State == VLCState.Ended || player.State == VLCState.Stopped || player.State == VLCState.NothingSpecial;
         //    }
         //    return false;
         //}

@@ -9,8 +9,10 @@ using Avalonia.Media;
 using Avalonia.Platform.Storage;
 using Avalonia.Threading;
 using HeBianGu.AvaloniaUI.Application;
+using HeBianGu.AvaloniaUI.Ioc;
 using LibVLCSharp.Avalonia;
 using LibVLCSharp.Shared;
+using LibVLCSharp.Shared.Structures;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -19,6 +21,7 @@ using System.IO;
 using System.Linq;
 using System.Numerics;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
@@ -31,6 +34,8 @@ namespace HeBianGu.AvaloniaUI.VlcPlayer
         void Play();
         void SetRate(float rate = 1);
         void Stop();
+
+        MediaPlayer MediaPlayer { get; }
 
         Task<bool> TakeSnapshot();
     }
@@ -47,11 +52,22 @@ namespace HeBianGu.AvaloniaUI.VlcPlayer
         private VideoView _videoView;
         private Slider _posiontionSlider;
         private ContentControl _message;
+        public MediaPlayer MediaPlayer => this._mediaPlayer;
         public VlcPlayer()
         {
+            this._mediaPlayer = new MediaPlayer(_libVlc);
+            this.Volume = this._mediaPlayer.Volume;
+            this.Rate = this._mediaPlayer.Rate;
+            this.AudioOutputDevices = this._mediaPlayer.AudioOutputDeviceEnum.Select(x => x.Description).ToArray();
+            this.SelectedAudioOutputDevice = this.AudioOutputDevices.FirstOrDefault();
             this.Loaded += (l, k) =>
             {
                 this.InitVlcPlayer();
+            };
+
+            AppDomain.CurrentDomain.ProcessExit += (s, e) =>
+            {
+                this.Dispose();
             };
         }
 
@@ -67,7 +83,7 @@ namespace HeBianGu.AvaloniaUI.VlcPlayer
                 this.InitVlcPlayer();
             };
             this._message = e.NameScope.Find<ContentControl>("PART_Message");
-            this.PointerPressed += this.VlcPlayer_PointerPressed;
+            this._message.PointerPressed += this.VlcPlayer_PointerPressed;
         }
 
         public string Source
@@ -114,6 +130,24 @@ namespace HeBianGu.AvaloniaUI.VlcPlayer
 
         public static readonly StyledProperty<double> RateProperty =
             AvaloniaProperty.Register<VlcPlayer, double>("Rate", 1.0, false, BindingMode.TwoWay);
+
+        public string[] AudioOutputDevices
+        {
+            get { return (string[])GetValue(AudioOutputDevicesProperty); }
+            set { SetValue(AudioOutputDevicesProperty, value); }
+        }
+
+        public static readonly StyledProperty<string[]> AudioOutputDevicesProperty =
+            AvaloniaProperty.Register<VlcPlayer, string[]>("AudioOutputDevices");
+
+        public string SelectedAudioOutputDevice
+        {
+            get { return (string)GetValue(SelectedAudioOutputDeviceProperty); }
+            set { SetValue(SelectedAudioOutputDeviceProperty, value); }
+        }
+
+        public static readonly StyledProperty<string> SelectedAudioOutputDeviceProperty =
+            AvaloniaProperty.Register<VlcPlayer, string>("SelectedAudioOutputDevice");
 
 
         protected override void OnPropertyChanged(AvaloniaPropertyChangedEventArgs change)
@@ -193,41 +227,49 @@ namespace HeBianGu.AvaloniaUI.VlcPlayer
             RoutedEventArgs args = new RoutedEventArgs(SourceChangedEvent, this);
             this.RaiseEvent(args);
         }
-        private Media _media;
+        //private Media _media;
         private void InitVlcPlayer()
         {
             if (this._posiontionSlider == null)
                 return;
-            if (this._posiontionSlider.IsLoaded == false)
-                return;
-            if (this._mediaPlayer != null)
-            {
-                this._mediaPlayer.VolumeChanged -= this.MediaPlayer_VolumeChanged;
-                this._mediaPlayer.TimeChanged -= this.MediaPlayer_TimeChanged;
-                this._mediaPlayer.Dispose();
-            }
-
-            if (_media != null)
-            {
-                _media.Dispose();
-            }
-                //_media.
-
-            _media = new Media(_libVlc, new Uri(this.Source));
-            this._mediaPlayer = new MediaPlayer(_media);
+            using Media media = new Media(_libVlc, new Uri(this.Source));
+            this._mediaPlayer.Media = media;
             this._videoView.MediaPlayer = this._mediaPlayer;
             this._mediaPlayer.Media.StateChanged += this.Media_StateChanged;
+            this._mediaPlayer.VolumeChanged -= this.MediaPlayer_VolumeChanged;
+            this._mediaPlayer.TimeChanged -= this.MediaPlayer_TimeChanged;
             this._mediaPlayer.VolumeChanged += this.MediaPlayer_VolumeChanged;
             this._mediaPlayer.TimeChanged += this.MediaPlayer_TimeChanged;
+            this._mediaPlayer.Media.DurationChanged -= this.Media_DurationChanged;
+            this._mediaPlayer.Media.DurationChanged += this.Media_DurationChanged;
+            this._mediaPlayer.MediaChanged -= this._mediaPlayer_MediaChanged;
+            this._mediaPlayer.MediaChanged += this._mediaPlayer_MediaChanged;
+            //this._mediaPlayer.SetPause(true);
+            //this._mediaPlayer.SeekTo(TimeSpan.Zero);
+            //this._mediaPlayer.EnableKeyInput=true;
+            //this._mediaPlayer.EnableMouseInput=true;
+            var audios = this._mediaPlayer.AudioOutputDeviceEnum;
             this._mediaPlayer.Play();
             this._mediaPlayer.Pause();
+        }
+
+        private void _mediaPlayer_MediaChanged(object sender, MediaPlayerMediaChangedEventArgs e)
+        {
+            this._posiontionSlider.Tag = this.Source;
+        }
+
+        private void Media_DurationChanged(object sender, MediaDurationChangedEventArgs e)
+        {
             Dispatcher.UIThread.InvokeAsync(() =>
-                {
-                    this._posiontionSlider.Tag = this.Source;
-                    this._posiontionSlider.Maximum = this._mediaPlayer.Length;
-                    this.Volume = this._mediaPlayer.Volume;
-                    this.Rate = 1.0;
-                }, DispatcherPriority.Input);
+            {
+                this._posiontionSlider.Maximum = e.Duration;
+                //this.Volume = this._mediaPlayer.Volume;
+            });
+        }
+
+        private void _mediaPlayer_Opening(object sender, EventArgs e)
+        {
+
         }
 
         private void Media_StateChanged(object sender, MediaStateChangedEventArgs e)
