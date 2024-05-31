@@ -16,6 +16,9 @@ using HeBianGu.AvaloniaUI.DialogWindow;
 using HeBianGu.AvaloniaUI.DemoData;
 using HeBianGu.AvaloniaUI.DialogMessage;
 using HeBianGu.AvaloniaUI.Modules.Setting;
+using Avalonia.Controls.Templates;
+using Avalonia.Markup.Xaml.Templates;
+using HeBianGu.AvaloniaUI.Step;
 
 namespace HeBianGu.Test.Main.Views;
 
@@ -65,7 +68,7 @@ public partial class MainView : UserControl
         //DialogWindow dialogWindow=new DialogWindow();
         //dialogWindow.Show();
 
-        SettingViewPresenter settingViewPresenter= new SettingViewPresenter();
+        SettingViewPresenter settingViewPresenter = new SettingViewPresenter();
 
         //var r = await DialogWindow.ShowPresenter(settingViewPresenter, x =>
         //{
@@ -80,5 +83,49 @@ public partial class MainView : UserControl
         adornerDialogPresenter.ShowDialog();
     }
 
-    
+
+}
+
+
+public class StepItemDataTemplateSelector : IDataTemplate
+{
+    public IDataTemplate Unkown { get; set; }
+    public IDataTemplate Error { get; set; }
+
+    public IDataTemplate Success { get; set; }
+
+    public IDataTemplate Running { get; set; }
+    public Control? Build(object? param)
+    {
+        if (param is IStepItemPresenter item)
+        {
+            if (item.State == StepState.Error)
+            {
+                return Error.Build(param);
+
+            }
+            if (item.State == StepState.Success)
+            {
+                return Success.Build(param);
+
+            }
+            if (item.State == StepState.Running)
+            {
+                return Running.Build(param);
+
+            }
+            if (item.State == StepState.Ready)
+            {
+                return Unkown.Build(param);
+
+            }
+
+        }
+        return new Control();
+    }
+
+    public bool Match(object? data)
+    {
+        return data is IStepItemPresenter;
+    }
 }

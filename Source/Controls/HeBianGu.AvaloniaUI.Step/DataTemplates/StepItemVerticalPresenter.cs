@@ -1,4 +1,4 @@
-﻿namespace Avalonia.Controls.Step
+﻿namespace HeBianGu.AvaloniaUI.Step
 {
     public class StepItemVerticalPresenter : StepItemPresenter
     {

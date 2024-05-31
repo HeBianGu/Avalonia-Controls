@@ -1,10 +1,10 @@
 ﻿
 using Avalonia.Layout;
-using Avalonia.Mvvm;
+using HeBianGu.AvaloniaUI.Mvvm;
 using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
 
-namespace Avalonia.Controls.Step
+namespace HeBianGu.AvaloniaUI.Step
 {
     [Display(Name = "步骤")]
     public class StepPresenter : DisplayBindableBase

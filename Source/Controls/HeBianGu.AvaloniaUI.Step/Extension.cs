@@ -1,5 +1,6 @@
 ﻿
-using Avalonia.Controls.Step;
+using HeBianGu.AvaloniaUI.Application;
+using HeBianGu.AvaloniaUI.Step;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using System.Collections.Generic;
@@ -23,5 +24,10 @@ namespace System
         //    option?.Invoke(AboutOption.Instance);
         //    return builder;
         //}
+
+        public static IApplicationAxamlLoader UseStep(this IApplicationAxamlLoader builder)
+        {
+            return builder;
+        }
     }
 }
