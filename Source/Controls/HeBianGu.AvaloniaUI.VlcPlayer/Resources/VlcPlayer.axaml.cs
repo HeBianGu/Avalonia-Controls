@@ -206,13 +206,14 @@ namespace HeBianGu.AvaloniaUI.VlcPlayer
                 this._mediaPlayer.TimeChanged -= this.MediaPlayer_TimeChanged;
                 this._mediaPlayer.Dispose();
             }
-            if(_media != null)
+
+            if (_media != null)
             {
                 _media.Dispose();
             }
                 //_media.
 
-            _media = new LibVLCSharp.Shared.Media(_libVlc, new Uri(this.Source));
+            _media = new Media(_libVlc, new Uri(this.Source));
             this._mediaPlayer = new MediaPlayer(_media);
             this._videoView.MediaPlayer = this._mediaPlayer;
             this._mediaPlayer.Media.StateChanged += this.Media_StateChanged;
