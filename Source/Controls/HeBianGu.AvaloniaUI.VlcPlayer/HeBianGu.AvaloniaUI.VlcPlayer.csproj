@@ -5,6 +5,9 @@
     <PackageReference Condition="$([MSBuild]::IsOsPlatform('OSX'))" Include="VideoLAN.LibVLC.Mac" Version="3.1.3.1" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Cores\HeBianGu.AvaloniaUI.Mvvm\HeBianGu.AvaloniaUI.Mvvm.csproj" />
     <ProjectReference Include="..\..\Extensions\HeBianGu.AvaloniaUI.Application\HeBianGu.AvaloniaUI.Application.csproj" />
+    <ProjectReference Include="..\..\Extensions\HeBianGu.AvaloniaUI.Attach\HeBianGu.AvaloniaUI.Attach.csproj" />
+    <ProjectReference Include="..\..\Themes\HeBianGu.AvaloniaUI.Theme\HeBianGu.AvaloniaUI.Theme.csproj" />
   </ItemGroup>
 </Project>

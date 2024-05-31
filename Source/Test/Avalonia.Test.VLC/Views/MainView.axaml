@@ -15,5 +15,5 @@
     <vm:MainViewModel />
   </Design.DataContext>
 
-  <h:VlcPlayer Background="Orange" Padding="20"/>
+  <h:VlcPlayer Source="C:\\Users\\LENOVO\\Videos\\2024-05-28-17-18-54.mp4" Volume="12"/>
 </UserControl>

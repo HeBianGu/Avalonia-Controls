@@ -1,10 +1,11 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:h="https://github.com/HeBianGu"
                     xmlns:vlc="clr-namespace:LibVLCSharp.Avalonia;assembly=LibVLCSharp.Avalonia"
                     xmlns:local="clr-namespace:HeBianGu.AvaloniaUI.VlcPlayer">
   <!-- Add Resources Here -->
   <ControlTheme x:Key="{x:Type local:VlcPlayer}" TargetType="{x:Type local:VlcPlayer}">
-    <Setter Property="Background" Value="Black" />
+    <!--<Setter Property="Background" Value="Black" />-->
     <!--<Setter Property="Foreground" Value="{DynamicResource {x:Static h:BrushKeys.Foreground}}" />
     <Setter Property="BorderBrush" Value="Transparent" />
     <Setter Property="BorderThickness" Value="{DynamicResource {x:Static h:LayoutKeys.BorderThickness}}" />
@@ -23,8 +24,13 @@
                 BorderBrush="{TemplateBinding BorderBrush}"
                 BorderThickness="{TemplateBinding BorderThickness}"
                 CornerRadius="{TemplateBinding CornerRadius}">
-          <Grid>
-            <vlc:VideoView Name="PART_VideoView" Margin="{TemplateBinding Padding}" 
+          <DockPanel>
+            <TemplatedControl DockPanel.Dock="Top" Template="{TemplateBinding h:Attach.TopTemplate}" />
+            <TemplatedControl DockPanel.Dock="Bottom" Template="{TemplateBinding h:Attach.BottomTemplate}" />
+            <TemplatedControl DockPanel.Dock="Left" Template="{TemplateBinding h:Attach.LeftTemplate}" />
+            <TemplatedControl DockPanel.Dock="Right" Template="{TemplateBinding h:Attach.RightTemplate}" />
+
+            <vlc:VideoView Name="PART_VideoView" Margin="{TemplateBinding Padding}"
                            HorizontalAlignment="Stretch"
                            VerticalAlignment="Stretch">
               <!--<Panel Name="ControlsPanel">
@@ -33,10 +39,53 @@
                   <Button  Margin="20">Stop</Button>
                 </StackPanel>
               </Panel>-->
+
+              <Grid>
+                <DockPanel VerticalAlignment="Top">
+                  <DockPanel.Background>
+                    <SolidColorBrush Opacity="0.2" Color="Gray"/>
+                  </DockPanel.Background>
+                  <TextBlock Foreground="White"  Text="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:VlcPlayer}},Path=Source}" VerticalAlignment="Center" Margin="10"/>
+                </DockPanel>
+
+                <DockPanel VerticalAlignment="Bottom" TextElement.Foreground="White">
+                  <DockPanel.Background>
+                    <SolidColorBrush Opacity="0.5" Color="Gray"/>
+                  </DockPanel.Background>
+                  <Button Content="减速" Margin="0" Foreground="White" Command="{local:SwitchPlayCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:VlcPlayer}}}"/>
+                  <Button Content="快退" Margin="0" Foreground="White"  Command="{local:SwitchPlayCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:VlcPlayer}}}"/>
+                  <TextBlock Foreground="White" Width="100" Text="{Binding ElementName=PART_Position,Path=Value}" VerticalAlignment="Center" Margin="10"/>
+
+                  <Button Content="加速" Margin="0" Foreground="White"  DockPanel.Dock="Right" Command="{local:SwitchPlayCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:VlcPlayer}}}"/>
+                  <Button Content="快进" Margin="0" Foreground="White"  DockPanel.Dock="Right" Command="{local:SwitchPlayCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:VlcPlayer}}}"/>
+                  <TextBlock Foreground="White"  Width="100"  DockPanel.Dock="Right"  Text="{Binding ElementName=PART_Position,Path=Maximum}" VerticalAlignment="Center" Margin="10"/>
+
+
+                  <Slider Name="PART_Position"  DockPanel.Dock="Bottom" VerticalAlignment="Bottom"
+                    Foreground="White">
+                  </Slider>
+                </DockPanel>
+              </Grid>
+
             </vlc:VideoView>
-          </Grid>
+          </DockPanel>
         </Border>
       </ControlTemplate>
+    </Setter>
+    <Setter Property="h:Attach.BottomTemplate">
+      <Setter.Value>
+        <ControlTemplate>
+          <DockPanel DockPanel.Dock="Bottom">
+            <TextBlock Text="音量" VerticalAlignment="Center" Margin="10"/>
+            <Slider Name="PART_Volume" Value="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:VlcPlayer}},Path=Volume,Mode=TwoWay}"  Width="200" VerticalAlignment="Center" HorizontalAlignment="Left"
+           Foreground="{TemplateBinding Foreground}">
+            </Slider>
+            <Button Content="截图" DockPanel.Dock="Right" HorizontalAlignment="Right" Margin="10" Command="{local:SwitchPlayCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:VlcPlayer}}}"/>
+            <Button Content="停止" DockPanel.Dock="Right" HorizontalAlignment="Right" Margin="10" Command="{local:SwitchPlayCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:VlcPlayer}}}"/>
+            <Button Content="播放/暂停" HorizontalAlignment="Center" Command="{local:SwitchPlayCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:VlcPlayer}}}"/>
+          </DockPanel>
+        </ControlTemplate>
+      </Setter.Value>
     </Setter>
   </ControlTheme>
 </ResourceDictionary>
