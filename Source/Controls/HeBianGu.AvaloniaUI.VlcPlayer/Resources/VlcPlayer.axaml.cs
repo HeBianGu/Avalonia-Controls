@@ -5,6 +5,7 @@ using Avalonia.Controls.Primitives;
 using Avalonia.Data;
 using Avalonia.Input;
 using Avalonia.Interactivity;
+using Avalonia.Media;
 using Avalonia.Threading;
 using HeBianGu.AvaloniaUI.Mvvm;
 using LibVLCSharp.Avalonia;
@@ -22,7 +23,7 @@ namespace HeBianGu.AvaloniaUI.VlcPlayer
 {
     [TemplatePart(Name = "PART_VideoView")]
     [TemplatePart(Name = "PART_Position")]
-    //[TemplatePart(Name = "PART_Volume")]
+    [TemplatePart(Name = "PART_Message")]
     public class VlcPlayer : TemplatedControl
     {
         protected override Type StyleKeyOverride => typeof(VlcPlayer);
@@ -31,44 +32,13 @@ namespace HeBianGu.AvaloniaUI.VlcPlayer
         private MediaPlayer _mediaPlayer;
         private VideoView _videoView;
         private Slider _posiontionSlider;
-        //private Slider _volumeSlider;
+        private ContentControl _message;
         public VlcPlayer()
         {
-            //this._mediaPlayer = new MediaPlayer(this._libVlc);
-            //this._mediaPlayer.VolumeChanged += this._mediaPlayer_VolumeChanged;
-            //this._mediaPlayer.TimeChanged += this._mediaPlayer_TimeChanged;
-
-            this.PlayCommand = new RelayCommand(l =>
-        {
-            if (this._mediaPlayer.IsPlaying)
-                this.Pause();
-            else
-                this.Play();
-
-
-        });
-
             this.Loaded += (l, k) =>
             {
                 this.InitVlcPlayer();
             };
-
-            //this.VolumeProperty.Changed += l =>
-            //{
-            //    string
-            //};
-
-            //var r = this.GetPropertyChangedObservable(VlcPlayer.SourceProperty).Subscribe(;
-            //this.GetObservable(VlcPlayer.SourceProperty, x =>
-            //{
-            //    this.OnSourceChanged(x);
-            //    return true;
-            //});
-
-            this.GetObservable(VlcPlayer.VolumeProperty, x =>
-            {
-                return true;
-            });
         }
 
 
@@ -82,27 +52,18 @@ namespace HeBianGu.AvaloniaUI.VlcPlayer
             }
             if (change.Property == VolumeProperty)
             {
-                this._mediaPlayer.Volume = (int)this.Volume;
+                if (this._mediaPlayer != null)
+                {
+                    if (this.Volume < 0)
+                        return;
+                    this._mediaPlayer.VolumeChanged -= MediaPlayer_VolumeChanged;
+                    this._mediaPlayer.Volume = (int)this.Volume;
+                    this._mediaPlayer.VolumeChanged += MediaPlayer_VolumeChanged;
+                }
             }
         }
 
-
-        //protected override void ObservablePropertyChanged(AvaloniaPropertyChangedEventArgs change)
-        //{
-        //    //base.ObservablePropertyChanged(change);
-
-        //    //// 当 MyProperty 更改时发出通知
-        //    //if (change.Property == MyPropertyProperty)
-        //    //{
-        //    //    var subject = new Subject<IObservedChange<object, object>>();
-        //    //    (this.GetObservable(MyPropertyProperty) as IObservable<IObservedChange<object, object>>)
-        //    //        ?.Subscribe(subject);
-        //    //    subject.OnNext(change);
-        //    //    subject.OnCompleted();
-        //    //}
-        //}
-
-        private void _mediaPlayer_TimeChanged(object sender, MediaPlayerTimeChangedEventArgs e)
+        private void MediaPlayer_TimeChanged(object sender, MediaPlayerTimeChangedEventArgs e)
         {
             Dispatcher.UIThread.InvokeAsync(() =>
             {
@@ -112,38 +73,36 @@ namespace HeBianGu.AvaloniaUI.VlcPlayer
             });
         }
 
-        //private void _mediaPlayer_PositionChanged(object sender, MediaPlayerPositionChangedEventArgs e)
-        //{
-        //    Dispatcher.UIThread.InvokeAsync(() =>
-        //    {
-        //        this._posiontionSlider.ValueChanged -= this.PosiontionSlider_ValueChanged;
-        //        this._posiontionSlider.Value = e.Position;
-        //        this._posiontionSlider.ValueChanged += this.PosiontionSlider_ValueChanged;
-        //    });
-        //}
-
-        private void _mediaPlayer_VolumeChanged(object sender, MediaPlayerVolumeChangedEventArgs e)
+        private void MediaPlayer_VolumeChanged(object sender, MediaPlayerVolumeChangedEventArgs e)
         {
-            //this._volumeSlider.Value = e.Volume;
+            if (this._mediaPlayer.Media.State == VLCState.Stopped)
+                return;
+            if (this._mediaPlayer.Volume < 0)
+                return;
+            Dispatcher.UIThread.InvokeAsync(() =>
+            {
+                this.Volume = this._mediaPlayer.Volume;
+            });
         }
 
         protected override void OnApplyTemplate(TemplateAppliedEventArgs e)
         {
             base.OnApplyTemplate(e);
             this._videoView = e.NameScope.Find<VideoView>("PART_VideoView");
-            //this._videoView.MediaPlayer = this._mediaPlayer;
 
             this._posiontionSlider = e.NameScope.Find<Slider>("PART_Position");
             this._posiontionSlider.ValueChanged += this.PosiontionSlider_ValueChanged;
-            //this._volumeSlider = e.NameScope.Find<Slider>("PART_Volume");
-            //this._volumeSlider.ValueChanged += this.VolumeSlider_ValueChanged;
-
-            //this.InitVlcPlayer();
+            this._posiontionSlider.Loaded += (l, k) =>
+            {
+                this.InitVlcPlayer();
+            };
+            this._message = e.NameScope.Find<ContentControl>("PART_Message");
+            this.PointerPressed += this.VlcPlayer_PointerPressed;
         }
 
-        private void VolumeSlider_ValueChanged(object sender, RangeBaseValueChangedEventArgs e)
+        private void VlcPlayer_PointerPressed(object sender, PointerPressedEventArgs e)
         {
-
+            this.SwitchPlay();
         }
 
         private void PosiontionSlider_ValueChanged(object sender, RangeBaseValueChangedEventArgs e)
@@ -191,42 +150,79 @@ namespace HeBianGu.AvaloniaUI.VlcPlayer
         }
 
         public static readonly StyledProperty<double> VolumeProperty =
-            AvaloniaProperty.Register<VlcPlayer, double>("Volume", 100.0, false, BindingMode.TwoWay, x =>
-            {
-                return true;
-            }, (x, y) =>
-            {
-                //if (x is VlcPlayer player)
+            AvaloniaProperty.Register<VlcPlayer, double>("Volume", 100.0);
 
-                return y;
-            });
+        public VLCState State
+        {
+            get { return (VLCState)GetValue(StateProperty); }
+            set { SetValue(StateProperty, value); }
+        }
 
-        public void InitVlcPlayer()
+        public static readonly StyledProperty<VLCState> StateProperty =
+            AvaloniaProperty.Register<VlcPlayer, VLCState>("State");
+
+        private void InitVlcPlayer()
         {
             if (this._posiontionSlider == null)
                 return;
-            this._mediaPlayer?.Dispose();
+            if (this._posiontionSlider.IsLoaded == false)
+                return;
+            if (this._mediaPlayer != null)
+            {
+                this._mediaPlayer.VolumeChanged -= this.MediaPlayer_VolumeChanged;
+                this._mediaPlayer.TimeChanged -= this.MediaPlayer_TimeChanged;
+                this._mediaPlayer.Dispose();
+            }
             using var media = new LibVLCSharp.Shared.Media(_libVlc, new Uri(this.Source));
             this._mediaPlayer = new MediaPlayer(media);
             this._videoView.MediaPlayer = this._mediaPlayer;
+            this._mediaPlayer.Media.StateChanged += this.Media_StateChanged;
+            this._mediaPlayer.VolumeChanged += this.MediaPlayer_VolumeChanged;
+            this._mediaPlayer.TimeChanged += this.MediaPlayer_TimeChanged;
             this._mediaPlayer.Play();
             this._mediaPlayer.Pause();
-            //this._mediaPlayer = new MediaPlayer(this._libVlc);
-            this._mediaPlayer.VolumeChanged += this._mediaPlayer_VolumeChanged;
-            this._mediaPlayer.TimeChanged += this._mediaPlayer_TimeChanged;
-
-            this._posiontionSlider.Maximum = this._mediaPlayer.Length;
-            //this._volumeSlider.Value = this._mediaPlayer.Volume;
+            Dispatcher.UIThread.InvokeAsync(() =>
+                {
+                    this._posiontionSlider.Maximum = this._mediaPlayer.Length;
+                    this.Volume = this._mediaPlayer.Volume;
+                }, DispatcherPriority.Input);
         }
 
+        private void Media_StateChanged(object sender, MediaStateChangedEventArgs e)
+        {
+            Dispatcher.UIThread.InvokeAsync(() =>
+            {
+                this.State = e.State;
+
+                if (this.State == VLCState.Paused)
+                {
+                    StreamGeometry streamGeometry = new StreamGeometry();
+                    var play = new PathIcon()
+                    {
+                        Data = StreamGeometry.Parse("M13.7501344,8.41212026 L38.1671892,21.1169293 C39.7594652,21.9454306 40.3786269,23.9078584 39.5501255,25.5001344 C39.2420737,26.0921715 38.7592263,26.5750189 38.1671892,26.8830707 L13.7501344,39.5878797 C12.1578584,40.4163811 10.1954306,39.7972194 9.36692926,38.2049434 C9.12586301,37.7416442 9,37.2270724 9,36.704809 L9,11.295191 C9,9.50026556 10.4550746,8.045191 12.25,8.045191 C12.6976544,8.045191 13.1396577,8.13766178 13.5485655,8.31589049 L13.7501344,8.41212026 Z M12.5961849,10.629867 L12.4856981,10.5831892 C12.4099075,10.5581 12.3303482,10.545191 12.25,10.545191 C11.8357864,10.545191 11.5,10.8809774 11.5,11.295191 L11.5,36.704809 C11.5,36.8253313 11.5290453,36.9440787 11.584676,37.0509939 C11.7758686,37.4184422 12.2287365,37.5613256 12.5961849,37.370133 L37.0132397,24.665324 C37.1498636,24.5942351 37.2612899,24.4828088 37.3323788,24.3461849 C37.5235714,23.9787365 37.380688,23.5258686 37.0132397,23.334676 L12.5961849,10.629867 Z"),
+                        Height = 100,
+                        Width = 100,
+                        Foreground = Brushes.Gray
+                    };
+                    this._message.Content = play;
+                }
+                else
+                {
+                    this._message.Content = null;
+                }
+            });
+
+        }
+
+        private void _mediaPlayer_Stopped(object sender, EventArgs e)
+        {
+            this.Stop();
+        }
 
         public void Play()
         {
             if (Design.IsDesignMode)
-            {
                 return;
-            }
-
             string source = this.Source;
             Task.Run(() =>
             {
@@ -250,35 +246,17 @@ namespace HeBianGu.AvaloniaUI.VlcPlayer
             this._libVlc?.Dispose();
         }
 
-
-        public static readonly StyledProperty<ICommand> PlayCommandProperty =
-       AvaloniaProperty.Register<VlcPlayer, ICommand>(nameof(PlayCommand));
-
-
-        public ICommand PlayCommand
-        {
-            get { return GetValue(PlayCommandProperty); }
-            set
-            {
-                SetValue(PlayCommandProperty, value);
-            }
-        }
-
-
-
-        //public RelayCommand PlayCommand => new RelayCommand(l =>
-        //{
-        //    if (this._mediaPlayer.IsPlaying)
-        //        this.Pause();
-        //    else
-        //        this.Play();
-        //});
-
-
         internal void SwitchPlay()
         {
             if (this._mediaPlayer.IsPlaying)
+            {
                 this.Pause();
+            }
+            else if (this._mediaPlayer.Media.State == VLCState.Ended)
+            {
+                this.Stop();
+                this.Play();
+            }
             else
                 this.Play();
         }

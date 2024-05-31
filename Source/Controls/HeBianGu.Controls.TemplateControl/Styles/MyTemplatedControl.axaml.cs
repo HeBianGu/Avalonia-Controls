@@ -5,6 +5,7 @@ using Avalonia.Data;
 using Avalonia.Interactivity;
 using System;
 using System.Collections;
+using System.Windows.Input;
 
 namespace HeBianGu.Controls.TemplateControl
 {
@@ -64,6 +65,30 @@ namespace HeBianGu.Controls.TemplateControl
         {
             RoutedEventArgs args = new RoutedEventArgs(SourceChangedEvent, this);
             this.RaiseEvent(args);
+        }
+
+        public static readonly StyledProperty<ICommand> PlayCommandProperty =
+AvaloniaProperty.Register<MyTemplatedControl, ICommand>(nameof(PlayCommand));
+
+
+        public ICommand PlayCommand
+        {
+            get { return GetValue(PlayCommandProperty); }
+            set
+            {
+                SetValue(PlayCommandProperty, value);
+            }
+        }
+
+
+        protected override void OnPropertyChanged(AvaloniaPropertyChangedEventArgs change)
+        {
+            base.OnPropertyChanged(change);
+
+            if (change.Property == PlayCommandProperty)
+            {
+                //this.OnSourceChanged(change.NewValue?.ToString());
+            }
         }
     }
 }
