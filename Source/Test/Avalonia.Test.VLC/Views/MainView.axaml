@@ -15,5 +15,6 @@
     <vm:MainViewModel />
   </Design.DataContext>
 
-  <h:VlcPlayer Source="C:\\Users\\LENOVO\\Videos\\2024-05-28-17-18-54.mp4"/>
+  <!--<h:VlcPlayer Source="C:\\Users\\LENOVO\\Videos\\2024-05-28-17-18-54.mp4"/>-->
+  <h:VlcPlayer Source="I:\课程\bandicam 2023-02-02 10-07-01-089.mp4"/>
 </UserControl>

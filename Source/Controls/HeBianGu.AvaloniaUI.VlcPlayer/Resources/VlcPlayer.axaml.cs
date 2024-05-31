@@ -193,7 +193,7 @@ namespace HeBianGu.AvaloniaUI.VlcPlayer
             RoutedEventArgs args = new RoutedEventArgs(SourceChangedEvent, this);
             this.RaiseEvent(args);
         }
-
+        private Media _media;
         private void InitVlcPlayer()
         {
             if (this._posiontionSlider == null)
@@ -206,8 +206,14 @@ namespace HeBianGu.AvaloniaUI.VlcPlayer
                 this._mediaPlayer.TimeChanged -= this.MediaPlayer_TimeChanged;
                 this._mediaPlayer.Dispose();
             }
-            using var media = new LibVLCSharp.Shared.Media(_libVlc, new Uri(this.Source));
-            this._mediaPlayer = new MediaPlayer(media);
+            if(_media != null)
+            {
+                _media.Dispose();
+            }
+                //_media.
+
+            _media = new LibVLCSharp.Shared.Media(_libVlc, new Uri(this.Source));
+            this._mediaPlayer = new MediaPlayer(_media);
             this._videoView.MediaPlayer = this._mediaPlayer;
             this._mediaPlayer.Media.StateChanged += this.Media_StateChanged;
             this._mediaPlayer.VolumeChanged += this.MediaPlayer_VolumeChanged;
