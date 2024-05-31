@@ -17,7 +17,7 @@
               VerticalAlignment="Top"
               Stroke="{DynamicResource {x:Static h:BrushKeys.ForegroundAssist}}"
               StrokeThickness="2"
-              StartPoint="0,0" EndPoint="100,0"/>
+              StartPoint="0,0" EndPoint="50,0"/>
       </Grid>
 
       <StackPanel>
@@ -51,7 +51,7 @@
             VerticalAlignment="Top"
             Stroke="{DynamicResource {x:Static h:BrushKeys.ForegroundAssist}}"
             StrokeThickness="2"
-            StartPoint="0,0" EndPoint="100,0"/>
+            StartPoint="0,0" EndPoint="50,0"/>
 
         <TextBlock Margin="-16"
                    HorizontalAlignment="Center"
@@ -115,7 +115,7 @@
                     VerticalAlignment="Top"
                     Stroke="{DynamicResource {x:Static h:BrushKeys.ForegroundAssist}}"
                     StrokeThickness="2"
-                    StartPoint="0,0" EndPoint="100,0"/>
+                    StartPoint="0,0" EndPoint="50,0"/>
       </Grid>
 
       <StackPanel>
@@ -174,7 +174,7 @@
                  VerticalAlignment="Top"
                  Stroke="{DynamicResource {x:Static h:BrushKeys.ForegroundAssist}}"
                  StrokeThickness="2"
-                 StartPoint="0,0" EndPoint="100,0"/>
+                 StartPoint="0,0" EndPoint="50,0"/>
 
         <TextBlock Margin="-10"
                    HorizontalAlignment="Center"

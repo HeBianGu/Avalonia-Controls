@@ -13,6 +13,7 @@ using HeBianGu.AvaloniaUI.Mvvm;
 using HeBianGu.AvaloniaUI.Ioc;
 using HeBianGu.AvaloniaUI.DialogMessage;
 using HeBianGu.AvaloniaUI.DemoData;
+using System.Threading.Tasks;
 
 namespace HeBianGu.Test.Main.ViewModels;
 
@@ -58,14 +59,17 @@ public class MainViewModel : ViewModelBase
     {
         IocMessage.Form.ShowEdit(Student.Random());
     });
-    public RelayCommand ShowNoticeMessageCommand => new RelayCommand((s, e) =>
+    public RelayCommand ShowTaskException => new RelayCommand((s, e) =>
     {
-        IocMessage.Notify.ShowInfo("11111");
+        Task.Run(() =>
+        {
+            throw new AggregateException("ShowTaskException");
+        });
     });
 
-    public RelayCommand ShowSnackMessageCommand => new RelayCommand((s, e) =>
+    public RelayCommand ShowException => new RelayCommand((s, e) =>
     {
-        IocMessage.Snack.ShowSuccess("11111");
+        throw new Exception("ShowException");
     });
 
     public RelayCommand SetFontSizeCommand => new RelayCommand((s, e) =>

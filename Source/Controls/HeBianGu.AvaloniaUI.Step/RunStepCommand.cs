@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace HeBianGu.AvaloniaUI.Step
 {
-    public class StepRunCommand : MarkupCommandBase
+    public class RunStepCommand : MarkupCommandBase
     {
         public override void Execute(object parameter)
         {

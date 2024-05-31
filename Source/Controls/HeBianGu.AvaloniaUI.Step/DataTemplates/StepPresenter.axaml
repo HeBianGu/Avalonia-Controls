@@ -3,14 +3,15 @@
               xmlns:h="https://github.com/HeBianGu"
               xmlns:local="clr-namespace:HeBianGu.AvaloniaUI.Step"
               DataType="local:StepPresenter">
-    <local:Step ItemsSource="{Binding Collection}">
-        <ItemsControl.ItemsPanel>
-            <ItemsPanelTemplate>
-                <StackPanel HorizontalAlignment="Left"
-                            VerticalAlignment="Center"
-                            IsItemsHost="True"
-                            Orientation="{Binding Orientation}" />
-            </ItemsPanelTemplate>
-        </ItemsControl.ItemsPanel>
-    </local:Step>
+    <Viewbox>
+        <local:Step Margin="{DynamicResource {x:Static h:LayoutKeys.Padding}}" ItemsSource="{Binding Collection}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                Orientation="{Binding Orientation}" />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+        </local:Step>
+    </Viewbox>
 </DataTemplate>

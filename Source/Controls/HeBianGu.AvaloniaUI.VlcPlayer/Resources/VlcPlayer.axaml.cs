@@ -6,7 +6,9 @@ using Avalonia.Data;
 using Avalonia.Input;
 using Avalonia.Interactivity;
 using Avalonia.Media;
+using Avalonia.Platform.Storage;
 using Avalonia.Threading;
+using HeBianGu.AvaloniaUI.Application;
 using LibVLCSharp.Avalonia;
 using LibVLCSharp.Shared;
 using System;
@@ -67,8 +69,6 @@ namespace HeBianGu.AvaloniaUI.VlcPlayer
             this._message = e.NameScope.Find<ContentControl>("PART_Message");
             this.PointerPressed += this.VlcPlayer_PointerPressed;
         }
-
-
 
         public string Source
         {

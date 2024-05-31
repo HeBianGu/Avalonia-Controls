@@ -2,6 +2,7 @@
 using Avalonia.Controls;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Data.Converters;
+using Avalonia.Logging;
 using Avalonia.Markup.Xaml;
 using Avalonia.Markup.Xaml.Styling;
 using Avalonia.Markup.Xaml.Templates;
@@ -16,7 +17,10 @@ using System.Globalization;
 using System.Linq;
 using System.Net.WebSockets;
 using System.Reflection;
+using System.Text;
 using System.Threading;
+using System.Threading.Tasks;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace HeBianGu.AvaloniaUI.Application
 {
@@ -77,6 +81,55 @@ namespace HeBianGu.AvaloniaUI.Application
                     this.DataTemplates.Add(dataTemplate);
                 System.Diagnostics.Debug.WriteLine($"LoadDataTemplates:{x}");
             });
+        }
+
+        protected virtual void OnCatchException()
+        {
+            AppDomain.CurrentDomain.UnhandledException += (s, e) =>
+            {
+                try
+                {
+                    Exception error = (Exception)e.ExceptionObject;
+                    Dispatcher.UIThread.Invoke(() => IocMessage.Window.Show("当前应用程序遇到一些问题，该操作已经终止，请进行重试，如果问题继续存在，请联系管理员", x =>
+                    {
+                        x.Title = "意外的操作";
+                    }));
+                    IocLog.Instance?.Fatal("当前应用程序遇到一些问题，该操作已经终止，请进行重试，如果问题继续存在，请联系管理员", "意外的操作");
+                    IocLog.Instance?.Fatal(error);
+                }
+                catch (Exception ex)
+                {
+                    IocLog.Instance?.Fatal(ex);
+                }
+            };
+            AppDomain.CurrentDomain.ProcessExit += (s, e) =>
+            {
+                System.Ioc.GetService<IOperationService>()?.Log<ApplicationBase>("程序退出");
+                IocLog.Instance?.Error("程序退出");
+            };
+            TaskScheduler.UnobservedTaskException += (s, e) =>
+            {
+                StringBuilder sb = new StringBuilder();
+                foreach (Exception item in e.Exception.InnerExceptions)
+                {
+                    sb.AppendLine($@"异常类型：{item.GetType()}
+异常内容：{item.Message}
+来自：{item.Source}
+{item.StackTrace}");
+                }
+
+                e.SetObserved();
+
+                IocLog.Instance?.Error("Task Exception");
+                IocLog.Instance?.Error(sb.ToString());
+                Dispatcher.UIThread.Invoke(() =>
+                {
+                    IocMessage.Window.Show(sb.ToString(), x => x.Title = "系统任务异常");
+                    //MessageProxy.Windower.ShowSumit(sb.ToString(), "系统任务异常", false, -1)
+
+                });
+            };
+
         }
 
         protected virtual List<Assembly> GetAxamlLoaderAssemblies()
@@ -290,6 +343,8 @@ namespace HeBianGu.AvaloniaUI.Application
             }
 
             base.OnFrameworkInitializationCompleted();
+
+            this.OnCatchException();
         }
 
         private void W_Closed(object? sender, EventArgs e)

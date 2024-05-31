@@ -19,6 +19,7 @@ using HeBianGu.AvaloniaUI.Modules.Operation;
 using HeBianGu.AvaloniaUI.Theme;
 using Avalonia.Controls.Templates;
 using HeBianGu.AvaloniaUI.Step;
+using ReactiveUI;
 
 namespace HeBianGu.Test.Main;
 
@@ -42,6 +43,12 @@ public partial class App : ApplicationBase
         loader.UseStep();
     }
 
+    protected override void OnCatchException()
+    {
+        base.OnCatchException();
+        //RxApp.DefaultExceptionHandler.
+    }
+
 
     protected override void ConfigureServices(IServiceCollection services)
     {
@@ -51,6 +58,7 @@ public partial class App : ApplicationBase
         services.AddLoginViewPresenter(x => x.Product = "登陆页面");
         services.AddAdornerDialogMessage();
         services.AddFormMessageService();
+        services.AddWindowMessage();
         services.AddNoticeMessage();
         services.AddSnackMessage();
         services.AddSplashScreen(x => x.Product = "启动页面");

@@ -92,6 +92,7 @@
                 <system:Double>4</system:Double>
               </ComboBox>
             </DockPanel>
+            <Button Content="打开" DockPanel.Dock="Right" HorizontalAlignment="Right" Margin="10" Command="{local:OpenFilePlayerCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:VlcPlayer}}}"/>
             <Button Content="截图" DockPanel.Dock="Right" HorizontalAlignment="Right" Margin="10" Command="{local:TakeSnapshotCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:VlcPlayer}}}"/>
             <Button Content="停止" DockPanel.Dock="Right" HorizontalAlignment="Right" Command="{local:StopCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:VlcPlayer}}}"/>
             <Button Content="下一帧" DockPanel.Dock="Right" HorizontalAlignment="Right" Margin="10" Command="{local:AddFrameCommand Frame=10000}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:VlcPlayer}}}"/>
