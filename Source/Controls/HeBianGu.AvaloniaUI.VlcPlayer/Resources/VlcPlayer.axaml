@@ -5,6 +5,8 @@
              xmlns:ia="clr-namespace:Avalonia.Xaml.Interactions.Core;assembly=Avalonia.Xaml.Interactions"
              xmlns:ic="using:Avalonia.Xaml.Interactions.Custom"
                     xmlns:vlc="clr-namespace:LibVLCSharp.Avalonia;assembly=LibVLCSharp.Avalonia"
+                                 xmlns:system="clr-namespace:System;assembly=mscorlib"
+
                     xmlns:local="clr-namespace:HeBianGu.AvaloniaUI.VlcPlayer">
   <!-- Add Resources Here -->
   <ControlTheme x:Key="{x:Type local:VlcPlayer}" TargetType="{x:Type local:VlcPlayer}">
@@ -40,19 +42,14 @@
                   <DockPanel.Background>
                     <SolidColorBrush Opacity="0.2" Color="Gray"/>
                   </DockPanel.Background>
-                  <TextBlock Foreground="White"  Text="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:VlcPlayer}},Path=Source}" VerticalAlignment="Center" Margin="10"/>
+                  <TextBlock Foreground="White" Text="{Binding ElementName=PART_Position,Path=Tag}" VerticalAlignment="Center" Margin="10"/>
                 </DockPanel>
 
                 <DockPanel VerticalAlignment="Bottom" TextElement.Foreground="White">
                   <DockPanel.Background>
                     <SolidColorBrush Opacity="0.5" Color="Gray"/>
                   </DockPanel.Background>
-                  <Button Content="减速" Margin="0" Foreground="White" Command="{local:SwitchPlayCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:VlcPlayer}}}"/>
-                  <Button Content="快退" Margin="0" Foreground="White"  Command="{local:SwitchPlayCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:VlcPlayer}}}"/>
                   <TextBlock Foreground="White" Text="{Binding ElementName=PART_Position,Path=Value,Converter={h:GetTimeSpanFromMillisecondsValueConverter}}" VerticalAlignment="Center" Margin="10"/>
-
-                  <Button Content="加速" Margin="0" Foreground="White"  DockPanel.Dock="Right" Command="{local:SwitchPlayCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:VlcPlayer}}}"/>
-                  <Button Content="快进" Margin="0" Foreground="White"  DockPanel.Dock="Right" Command="{local:SwitchPlayCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:VlcPlayer}}}"/>
                   <TextBlock Foreground="White"  DockPanel.Dock="Right"  Text="{Binding ElementName=PART_Position,Path=Maximum,Converter={h:GetTimeSpanFromMillisecondsValueConverter}}" VerticalAlignment="Center" Margin="10"/>
                   <Slider Name="PART_Position"  DockPanel.Dock="Bottom" VerticalAlignment="Bottom"
                     Foreground="White">
@@ -73,8 +70,33 @@
             <Slider Name="PART_Volume" Value="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:VlcPlayer}},Path=Volume,Mode=TwoWay}"  Width="200" VerticalAlignment="Center" HorizontalAlignment="Left"
            Foreground="{TemplateBinding Foreground}">
             </Slider>
-            <Button Content="截图" DockPanel.Dock="Right" HorizontalAlignment="Right" Margin="10" Command="{local:SwitchPlayCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:VlcPlayer}}}"/>
-            <Button Content="停止" DockPanel.Dock="Right" HorizontalAlignment="Right" Command="{local:SwitchPlayCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:VlcPlayer}}}"/>
+            <DockPanel>
+              <ComboBox VerticalAlignment="Center" Margin="10 0" SelectedItem="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:VlcPlayer}},Path=Rate}">
+                <ComboBox.ItemTemplate>
+                  <DataTemplate>
+                    <TextBlock>
+                      <Run Text="{Binding}"/>
+                      <Run Text="X"/>
+                    </TextBlock>
+                  </DataTemplate>
+                </ComboBox.ItemTemplate>
+                <system:Double>0.25</system:Double>
+                <system:Double>
+                  0.5
+                </system:Double>
+                <system:Double>1</system:Double>
+                <system:Double>1.5</system:Double>
+                <system:Double>2</system:Double>
+                <system:Double>2.5</system:Double>
+                <system:Double>3</system:Double>
+                <system:Double>4</system:Double>
+              </ComboBox>
+            </DockPanel>
+            <Button Content="截图" DockPanel.Dock="Right" HorizontalAlignment="Right" Margin="10" Command="{local:TakeSnapshotCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:VlcPlayer}}}"/>
+            <Button Content="停止" DockPanel.Dock="Right" HorizontalAlignment="Right" Command="{local:StopCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:VlcPlayer}}}"/>
+            <Button Content="下一帧" DockPanel.Dock="Right" HorizontalAlignment="Right" Margin="10" Command="{local:AddFrameCommand Frame=10000}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:VlcPlayer}}}"/>
+            <Button Content="上一帧" DockPanel.Dock="Right" HorizontalAlignment="Right" Command="{local:AddFrameCommand Frame=-10000}"  CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:VlcPlayer}}}"/>
+
             <TextBlock Name="Txt_State" DockPanel.Dock="Right" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="10"/>
             <Button Name="Btn_Play" Content="播放" HorizontalAlignment="Center"  Command="{local:SwitchPlayCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:VlcPlayer}}}"/>
             <i:Interaction.Behaviors>
