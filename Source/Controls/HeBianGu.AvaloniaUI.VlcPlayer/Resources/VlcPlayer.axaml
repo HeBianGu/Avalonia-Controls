@@ -1,10 +1,16 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:h="https://github.com/HeBianGu"
+                                 xmlns:i="clr-namespace:Avalonia.Xaml.Interactivity;assembly=Avalonia.Xaml.Interactivity"
+             xmlns:ia="clr-namespace:Avalonia.Xaml.Interactions.Core;assembly=Avalonia.Xaml.Interactions"
+             xmlns:ic="using:Avalonia.Xaml.Interactions.Custom"
                     xmlns:vlc="clr-namespace:LibVLCSharp.Avalonia;assembly=LibVLCSharp.Avalonia"
+                                 xmlns:system="clr-namespace:System;assembly=mscorlib"
+
                     xmlns:local="clr-namespace:HeBianGu.AvaloniaUI.VlcPlayer">
   <!-- Add Resources Here -->
   <ControlTheme x:Key="{x:Type local:VlcPlayer}" TargetType="{x:Type local:VlcPlayer}">
-    <Setter Property="Background" Value="Black" />
+    <!--<Setter Property="Background" Value="Black" />-->
     <!--<Setter Property="Foreground" Value="{DynamicResource {x:Static h:BrushKeys.Foreground}}" />
     <Setter Property="BorderBrush" Value="Transparent" />
     <Setter Property="BorderThickness" Value="{DynamicResource {x:Static h:LayoutKeys.BorderThickness}}" />
@@ -23,20 +29,112 @@
                 BorderBrush="{TemplateBinding BorderBrush}"
                 BorderThickness="{TemplateBinding BorderThickness}"
                 CornerRadius="{TemplateBinding CornerRadius}">
-          <Grid>
-            <vlc:VideoView Name="PART_VideoView" Margin="{TemplateBinding Padding}" 
-                           HorizontalAlignment="Stretch"
-                           VerticalAlignment="Stretch">
-              <!--<Panel Name="ControlsPanel">
-                <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" Background="#900000FF" Spacing="20">
-                  <Button  Margin="20">Play</Button>
-                  <Button  Margin="20">Stop</Button>
-                </StackPanel>
-              </Panel>-->
+          <DockPanel>
+            <TemplatedControl DockPanel.Dock="Top" Template="{TemplateBinding h:Attach.TopTemplate}" />
+            <TemplatedControl DockPanel.Dock="Bottom" Template="{TemplateBinding h:Attach.BottomTemplate}" />
+            <TemplatedControl DockPanel.Dock="Left" Template="{TemplateBinding h:Attach.LeftTemplate}" />
+            <TemplatedControl DockPanel.Dock="Right" Template="{TemplateBinding h:Attach.RightTemplate}" />
+
+            <!--<Grid>-->
+            <vlc:VideoView Name="PART_VideoView" Margin="{TemplateBinding Padding}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+              <Grid>
+                <DockPanel VerticalAlignment="Top">
+                  <DockPanel.Background>
+                    <SolidColorBrush Opacity="0.2" Color="Gray"/>
+                  </DockPanel.Background>
+                  <TextBlock Foreground="White" Text="{Binding ElementName=PART_Position,Path=Tag}" VerticalAlignment="Center" Margin="10"/>
+                </DockPanel>
+
+                <DockPanel VerticalAlignment="Bottom" TextElement.Foreground="White">
+                  <DockPanel.Background>
+                    <SolidColorBrush Opacity="0.5" Color="Gray"/>
+                  </DockPanel.Background>
+                  <TextBlock Foreground="White" Text="{Binding ElementName=PART_Position,Path=Value,Converter={h:GetTimeSpanFromMillisecondsValueConverter}}" VerticalAlignment="Center" Margin="10"/>
+                  <TextBlock Foreground="White"  DockPanel.Dock="Right"  Text="{Binding ElementName=PART_Position,Path=Maximum,Converter={h:GetTimeSpanFromMillisecondsValueConverter}}" VerticalAlignment="Center" Margin="10"/>
+                  <Slider Name="PART_Position"  DockPanel.Dock="Bottom" VerticalAlignment="Bottom"
+                    Foreground="White">
+                  </Slider>
+                </DockPanel>
+                <ContentControl Name="PART_Message" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
+              </Grid>
             </vlc:VideoView>
-          </Grid>
+          </DockPanel>
         </Border>
       </ControlTemplate>
     </Setter>
+    <Setter Property="h:Attach.BottomTemplate">
+      <Setter.Value>
+        <ControlTemplate>
+          <DockPanel DockPanel.Dock="Bottom">
+            <TextBlock Text="音量" VerticalAlignment="Center" Margin="10"/>
+            <Slider Name="PART_Volume" Value="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:VlcPlayer}},Path=Volume,Mode=TwoWay}"  Width="200" VerticalAlignment="Center" HorizontalAlignment="Left"
+           Foreground="{TemplateBinding Foreground}">
+            </Slider>
+            <DockPanel>
+              <ComboBox VerticalAlignment="Center" Margin="10 0" SelectedItem="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:VlcPlayer}},Path=Rate}">
+                <ComboBox.ItemTemplate>
+                  <DataTemplate>
+                    <TextBlock>
+                      <Run Text="{Binding}"/>
+                      <Run Text="X"/>
+                    </TextBlock>
+                  </DataTemplate>
+                </ComboBox.ItemTemplate>
+                <system:Double>0.25</system:Double>
+                <system:Double>
+                  0.5
+                </system:Double>
+                <system:Double>1</system:Double>
+                <system:Double>1.5</system:Double>
+                <system:Double>2</system:Double>
+                <system:Double>2.5</system:Double>
+                <system:Double>3</system:Double>
+                <system:Double>4</system:Double>
+              </ComboBox>
+            </DockPanel>
+            <Button Content="截图" DockPanel.Dock="Right" HorizontalAlignment="Right" Margin="10" Command="{local:TakeSnapshotCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:VlcPlayer}}}"/>
+            <Button Content="停止" DockPanel.Dock="Right" HorizontalAlignment="Right" Command="{local:StopCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:VlcPlayer}}}"/>
+            <Button Content="下一帧" DockPanel.Dock="Right" HorizontalAlignment="Right" Margin="10" Command="{local:AddFrameCommand Frame=10000}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:VlcPlayer}}}"/>
+            <Button Content="上一帧" DockPanel.Dock="Right" HorizontalAlignment="Right" Command="{local:AddFrameCommand Frame=-10000}"  CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:VlcPlayer}}}"/>
+
+            <TextBlock Name="Txt_State" DockPanel.Dock="Right" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="10"/>
+            <Button Name="Btn_Play" Content="播放" HorizontalAlignment="Center"  Command="{local:SwitchPlayCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:VlcPlayer}}}"/>
+            <i:Interaction.Behaviors>
+              <ia:DataTriggerBehavior Binding="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:VlcPlayer}},Path=State}" Value="Playing">
+                <ia:ChangePropertyAction PropertyName="Content" Value="暂停" TargetObject="{Binding ElementName=Btn_Play}"/>
+                <ia:ChangePropertyAction PropertyName="Text" Value="播放中" TargetObject="{Binding ElementName=Txt_State}"/>
+              </ia:DataTriggerBehavior>
+              <ia:DataTriggerBehavior Binding="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:VlcPlayer}},Path=State}" Value="Paused">
+                <ia:ChangePropertyAction PropertyName="Content" Value="播放" TargetObject="{Binding ElementName=Btn_Play}"/>
+                <ia:ChangePropertyAction PropertyName="Text" Value="已暂停" TargetObject="{Binding ElementName=Txt_State}"/>
+              </ia:DataTriggerBehavior>
+              <ia:DataTriggerBehavior Binding="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:VlcPlayer}},Path=State}" Value="Stopped">
+                <ia:ChangePropertyAction PropertyName="Content" Value="播放" TargetObject="{Binding ElementName=Btn_Play}"/>
+                <ia:ChangePropertyAction PropertyName="Text" Value="已停止" TargetObject="{Binding ElementName=Txt_State}"/>
+              </ia:DataTriggerBehavior>
+              <ia:DataTriggerBehavior Binding="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:VlcPlayer}},Path=State}" Value="Ended">
+                <ia:ChangePropertyAction PropertyName="Content" Value="播放" TargetObject="{Binding ElementName=Btn_Play}"/>
+                <ia:ChangePropertyAction PropertyName="Text" Value="播放结束" TargetObject="{Binding ElementName=Txt_State}"/>
+              </ia:DataTriggerBehavior>
+              <ia:DataTriggerBehavior Binding="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:VlcPlayer}},Path=State}" Value="Buffering">
+                <ia:ChangePropertyAction PropertyName="Content" Value="加载中..." TargetObject="{Binding ElementName=Btn_Play}"/>
+                <ia:ChangePropertyAction PropertyName="Text" Value="加载中..." TargetObject="{Binding ElementName=Txt_State}"/>
+              </ia:DataTriggerBehavior>
+              <ia:DataTriggerBehavior Binding="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:VlcPlayer}},Path=State}" Value="Opening">
+                <ia:ChangePropertyAction PropertyName="Content" Value="打开中..." TargetObject="{Binding ElementName=Btn_Play}"/>
+                <ia:ChangePropertyAction PropertyName="Text" Value="打开中..." TargetObject="{Binding ElementName=Txt_State}"/>
+              </ia:DataTriggerBehavior>
+              <ia:DataTriggerBehavior Binding="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:VlcPlayer}},Path=State}" Value="NothingSpecial">
+                <ia:ChangePropertyAction PropertyName="Content" Value="无视频" TargetObject="{Binding ElementName=Btn_Play}"/>
+                <ia:ChangePropertyAction PropertyName="Text" Value="无视频" TargetObject="{Binding ElementName=Txt_State}"/>
+              </ia:DataTriggerBehavior>
+            </i:Interaction.Behaviors>
+          </DockPanel>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+    <!--<Style Selector="^[State=Paused] /template/ Button#PART_Play">
+      <Setter Property="IsVisible" Value="False" />
+    </Style>-->
   </ControlTheme>
 </ResourceDictionary>

@@ -1,0 +1,247 @@
+<DataTemplate xmlns="https://github.com/avaloniaui"
+              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+              xmlns:h="https://github.com/HeBianGu"
+              xmlns:local="clr-namespace:HeBianGu.AvaloniaUI.Step"
+                 xmlns:i="clr-namespace:Avalonia.Xaml.Interactivity;assembly=Avalonia.Xaml.Interactivity"
+             xmlns:ia="clr-namespace:Avalonia.Xaml.Interactions.Core;assembly=Avalonia.Xaml.Interactions"
+             xmlns:ic="using:Avalonia.Xaml.Interactions.Custom"
+              DataType="local:StepItemPresenter">
+  <Grid>
+    <StackPanel x:Name="unkown"  IsVisible="False"
+      HorizontalAlignment="Left"
+      Orientation="Horizontal">
+      <Grid x:Name="line2"
+            Margin="0,20,0,0">
+        <Line
+              HorizontalAlignment="Stretch"
+              VerticalAlignment="Top"
+              Stroke="{DynamicResource {x:Static h:BrushKeys.ForegroundAssist}}"
+              StrokeThickness="2"
+              StartPoint="0,0" EndPoint="100,0"/>
+      </Grid>
+
+      <StackPanel>
+        <Grid>
+          <Ellipse Width="40"
+                   Height="40"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   Fill="{DynamicResource {x:Static h:BrushKeys.Background}}"
+                   Stroke="{DynamicResource {x:Static h:BrushKeys.ForegroundAssist}}"
+                   StrokeThickness="3" />
+          <TextBlock HorizontalAlignment="Center"
+                     VerticalAlignment="Center"
+                     Foreground="{DynamicResource {x:Static h:BrushKeys.ForegroundAssist}}"
+                     Text="{Binding DisplayName}" />
+        </Grid>
+
+        <TextBlock Margin="-50,10,-50,0"
+                   HorizontalAlignment="Center"
+                   Foreground="{DynamicResource {x:Static h:BrushKeys.ForegroundAssist}}"
+                   Text="{Binding Message}" />
+      </StackPanel>
+    </StackPanel>
+    <StackPanel x:Name="error"  IsVisible="False"
+                   HorizontalAlignment="Left"
+                   Orientation="Horizontal">
+      <Grid x:Name="line3"
+            Margin="0,20,0,0">
+        <Line
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Top"
+            Stroke="{DynamicResource {x:Static h:BrushKeys.ForegroundAssist}}"
+            StrokeThickness="2"
+            StartPoint="0,0" EndPoint="100,0"/>
+
+        <TextBlock Margin="-16"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Top"
+                   FontSize="25"
+                   Foreground="{DynamicResource {x:Static h:BrushKeys.Red}}"
+                   Text="×" />
+      </Grid>
+
+      <StackPanel>
+        <Grid>
+          <Ellipse Width="40"
+                   Height="40"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   StrokeThickness="3"
+                   Fill="{DynamicResource {x:Static h:BrushKeys.Red}}"
+                   Stroke="{DynamicResource {x:Static h:BrushKeys.ForegroundAssist}}" />
+          <!--<Ellipse Width="30"
+                               Height="30"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               Fill="{DynamicResource {x:Static h:BrushKeys.Red}}" />-->
+
+          <TextBlock HorizontalAlignment="Center"
+                     VerticalAlignment="Center"
+                     Foreground="White"
+                     Text="{Binding DisplayName}" />
+        </Grid>
+
+        <TextBlock Margin="-50,10,-50,0"
+                   HorizontalAlignment="Center"
+                   Foreground="{DynamicResource {x:Static h:BrushKeys.Red}}"
+                   Text="{Binding Message}" />
+
+      </StackPanel>
+    </StackPanel>
+    <StackPanel x:Name="running"  IsVisible="False"
+        HorizontalAlignment="Left"
+        Orientation="Horizontal">
+      <StackPanel.Styles>
+        <Style Selector="StackPanel">
+          <Style.Animations>
+            <!--IterationCount="INFINITE" 要无限次地重复动画，请使用特殊值 INFINITE-->
+            <Animation IterationCount="INFINITE" PlaybackDirection="AlternateReverse" Duration="0:0:1">
+              <KeyFrame Cue="0%">
+                <Setter Property="Opacity" Value="0.5"/>
+              </KeyFrame>
+              <KeyFrame Cue="100%">
+                <Setter Property="Opacity" Value="1.0"/>
+              </KeyFrame>
+            </Animation>
+          </Style.Animations>
+        </Style>
+      </StackPanel.Styles>
+      <Grid x:Name="line1"
+            Margin="0,20,0,0">
+
+        <Line
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Top"
+                    Stroke="{DynamicResource {x:Static h:BrushKeys.ForegroundAssist}}"
+                    StrokeThickness="2"
+                    StartPoint="0,0" EndPoint="100,0"/>
+      </Grid>
+
+      <StackPanel>
+        <Grid>
+          <Ellipse Width="40"
+                   Height="40"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   Fill="{DynamicResource {x:Static h:BrushKeys.Background}}"
+                   Stroke="{DynamicResource {x:Static h:BrushKeys.Accent}}"
+                   StrokeDashArray="5,1"
+                   StrokeThickness="3">
+            <Ellipse.Styles>
+              <Style Selector="Ellipse">
+                <Style.Animations>
+                  <Animation IterationCount="INFINITE"  Duration="0:0:1">
+                    <KeyFrame Cue="0%">
+                      <Setter Property="RotateTransform.Angle" Value="0" />
+                    </KeyFrame>
+                    <KeyFrame Cue="100%">
+                      <Setter Property="RotateTransform.Angle" Value="360" />
+                    </KeyFrame>
+                  </Animation>
+                </Style.Animations>
+              </Style>
+            </Ellipse.Styles>
+          </Ellipse>
+          <Ellipse Width="30"
+                   Height="30"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   Fill="{DynamicResource {x:Static h:BrushKeys.Accent}}" />
+
+          <TextBlock
+                     HorizontalAlignment="Center"
+                     VerticalAlignment="Center"
+                     Foreground="White"
+                     Text="{Binding DisplayName}" />
+        </Grid>
+
+        <TextBlock x:Name="txt"
+                   Margin="-50,10,-50,0"
+                   HorizontalAlignment="Center"
+                   Foreground="{DynamicResource {x:Static h:BrushKeys.Accent}}"
+                   Text="{Binding Message}" />
+
+      </StackPanel>
+    </StackPanel>
+    <StackPanel x:Name="success" IsVisible="False"
+               HorizontalAlignment="Left"
+               Orientation="Horizontal">
+      <Grid x:Name="line4"
+            Margin="0,20,0,0">
+        <Line
+                 HorizontalAlignment="Stretch"
+                 VerticalAlignment="Top"
+                 Stroke="{DynamicResource {x:Static h:BrushKeys.ForegroundAssist}}"
+                 StrokeThickness="2"
+                 StartPoint="0,0" EndPoint="100,0"/>
+
+        <TextBlock Margin="-10"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Top"
+                   FontSize="20"
+                   Foreground="{DynamicResource {x:Static h:BrushKeys.Green}}"
+                   Text="√" />
+      </Grid>
+      <StackPanel>
+        <Grid>
+          <Ellipse Width="40"
+                   Height="40"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   Fill="{DynamicResource {x:Static h:BrushKeys.Green}}" StrokeThickness="3"
+                   Stroke="{DynamicResource {x:Static h:BrushKeys.ForegroundAssist}}" />
+          <!--<Ellipse Width="30"
+                               Height="30"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               Fill="{DynamicResource {x:Static h:BrushKeys.Green}}" />-->
+
+          <TextBlock HorizontalAlignment="Center"
+                     VerticalAlignment="Center"
+                     Foreground="White"
+                     Text="{Binding DisplayName}" />
+        </Grid>
+
+        <TextBlock Margin="-50,10,-50,0"
+                   HorizontalAlignment="Center"
+                   Foreground="{DynamicResource {x:Static h:BrushKeys.Green}}"
+                   Text="{Binding Message}" />
+
+      </StackPanel>
+    </StackPanel>
+    <i:Interaction.Behaviors>
+      <ia:DataTriggerBehavior Binding="{Binding RelativeSource={RelativeSource AncestorType={x:Type ContentPresenter}},Converter={h:GetIndexFromContainerValueConverter}}" Value="0">
+        <ia:ChangePropertyAction PropertyName="IsVisible" Value="False" TargetObject="{Binding ElementName=line1}"/>
+        <ia:ChangePropertyAction PropertyName="IsVisible" Value="False" TargetObject="{Binding ElementName=line2}"/>
+        <ia:ChangePropertyAction PropertyName="IsVisible" Value="False" TargetObject="{Binding ElementName=line3}"/>
+        <ia:ChangePropertyAction PropertyName="IsVisible" Value="False" TargetObject="{Binding ElementName=line4}"/>
+      </ia:DataTriggerBehavior>
+
+      <ia:DataTriggerBehavior Binding="{Binding State}" Value="Success">
+        <ia:ChangePropertyAction PropertyName="IsVisible" Value="True" TargetObject="{Binding ElementName=success}"/>
+        <ia:ChangePropertyAction PropertyName="IsVisible" Value="False" TargetObject="{Binding ElementName=error}"/>
+        <ia:ChangePropertyAction PropertyName="IsVisible" Value="False" TargetObject="{Binding ElementName=unkown}"/>
+        <ia:ChangePropertyAction PropertyName="IsVisible" Value="False" TargetObject="{Binding ElementName=running}"/>
+      </ia:DataTriggerBehavior>
+      <ia:DataTriggerBehavior Binding="{Binding State}" Value="Error">
+        <ia:ChangePropertyAction PropertyName="IsVisible" Value="False" TargetObject="{Binding ElementName=success}"/>
+        <ia:ChangePropertyAction PropertyName="IsVisible" Value="True" TargetObject="{Binding ElementName=error}"/>
+        <ia:ChangePropertyAction PropertyName="IsVisible" Value="False" TargetObject="{Binding ElementName=unkown}"/>
+        <ia:ChangePropertyAction PropertyName="IsVisible" Value="False" TargetObject="{Binding ElementName=running}"/>
+      </ia:DataTriggerBehavior>
+      <ia:DataTriggerBehavior Binding="{Binding State}" Value="Ready">
+        <ia:ChangePropertyAction PropertyName="IsVisible" Value="False" TargetObject="{Binding ElementName=success}"/>
+        <ia:ChangePropertyAction PropertyName="IsVisible" Value="False" TargetObject="{Binding ElementName=error}"/>
+        <ia:ChangePropertyAction PropertyName="IsVisible" Value="True" TargetObject="{Binding ElementName=unkown}"/>
+        <ia:ChangePropertyAction PropertyName="IsVisible" Value="False" TargetObject="{Binding ElementName=running}"/>
+      </ia:DataTriggerBehavior>
+      <ia:DataTriggerBehavior Binding="{Binding State}" Value="Running">
+        <ia:ChangePropertyAction PropertyName="IsVisible" Value="False" TargetObject="{Binding ElementName=success}"/>
+        <ia:ChangePropertyAction PropertyName="IsVisible" Value="False" TargetObject="{Binding ElementName=error}"/>
+        <ia:ChangePropertyAction PropertyName="IsVisible" Value="False" TargetObject="{Binding ElementName=unkown}"/>
+        <ia:ChangePropertyAction PropertyName="IsVisible" Value="True" TargetObject="{Binding ElementName=running}"/>
+      </ia:DataTriggerBehavior>
+    </i:Interaction.Behaviors>
+  </Grid>
+</DataTemplate>

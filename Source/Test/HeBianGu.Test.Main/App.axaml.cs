@@ -17,6 +17,8 @@ using HeBianGu.AvaloniaUI.Modules.Identity;
 using HeBianGu.AvaloniaUI.DataBase.Share;
 using HeBianGu.AvaloniaUI.Modules.Operation;
 using HeBianGu.AvaloniaUI.Theme;
+using Avalonia.Controls.Templates;
+using HeBianGu.AvaloniaUI.Step;
 
 namespace HeBianGu.Test.Main;
 
@@ -34,9 +36,10 @@ public partial class App : ApplicationBase
         loader.UseMainWindowBase();
         loader.UseAbout();
         loader.UseTheme();
-        loader.UseForm(); 
+        loader.UseForm();
         loader.UseDataTest();
         loader.UseMultiComboBox();
+        loader.UseStep();
     }
 
 
@@ -67,7 +70,7 @@ public partial class App : ApplicationBase
         services.AddRoleViewPresenter();
 
         services.AddSingleton<IStringRepository<hi_dd_author>, DbContextRepository<IdentifyDataContext, hi_dd_author>>();
-        services.AddAuthorityViewPresenter(); 
+        services.AddAuthorityViewPresenter();
     }
 
     protected override void Configure(IApplicationBuilder app)
@@ -108,4 +111,5 @@ public class MyIoc : IMyIoc
 {
 
 }
+
 

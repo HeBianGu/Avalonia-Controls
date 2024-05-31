@@ -3,7 +3,9 @@ using Avalonia.Controls;
 using Avalonia.Controls.Primitives;
 using Avalonia.Data;
 using Avalonia.Interactivity;
+using System;
 using System.Collections;
+using System.Windows.Input;
 
 namespace HeBianGu.Controls.TemplateControl
 {
@@ -41,5 +43,52 @@ namespace HeBianGu.Controls.TemplateControl
                 return y;
             });
 
+    //    public static readonly RoutedEvent<RoutedEventArgs> TapEvent =
+    //RoutedEvent.Register<MyTemplatedControl, RoutedEventArgs>(nameof(Tap), RoutingStrategies.Bubble);
+
+    //    // Provide CLR accessors for the event
+    //    public event EventHandler<RoutedEventArgs> Tap
+    //    {
+    //        add => AddHandler(TapEvent, value);
+    //        remove => RemoveHandler(TapEvent, value);
+    //    }
+
+        public static readonly RoutedEvent<RoutedEventArgs> SourceChangedEvent = RoutedEvent.Register<MyTemplatedControl, RoutedEventArgs>(nameof(SourceChanged), RoutingStrategies.Bubble);
+
+        public event EventHandler<RoutedEventArgs> SourceChanged
+        {
+            add => AddHandler(SourceChangedEvent, value);
+            remove => RemoveHandler(SourceChangedEvent, value);
+        }
+
+        protected void OnSourceChanged()
+        {
+            RoutedEventArgs args = new RoutedEventArgs(SourceChangedEvent, this);
+            this.RaiseEvent(args);
+        }
+
+        public static readonly StyledProperty<ICommand> PlayCommandProperty =
+AvaloniaProperty.Register<MyTemplatedControl, ICommand>(nameof(PlayCommand));
+
+
+        public ICommand PlayCommand
+        {
+            get { return GetValue(PlayCommandProperty); }
+            set
+            {
+                SetValue(PlayCommandProperty, value);
+            }
+        }
+
+
+        protected override void OnPropertyChanged(AvaloniaPropertyChangedEventArgs change)
+        {
+            base.OnPropertyChanged(change);
+
+            if (change.Property == PlayCommandProperty)
+            {
+                //this.OnSourceChanged(change.NewValue?.ToString());
+            }
+        }
     }
 }

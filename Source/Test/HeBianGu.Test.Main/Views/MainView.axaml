@@ -40,6 +40,47 @@
       </DataTemplate>
     </TabControl.ContentTemplate>
 
+    <TabItem Header="DataTemplate.Trigger">
+      <DockPanel>
+        <Grid Width="200" Height="200" Background="Red">
+          <Grid.Styles>
+            <Style Selector="Grid">
+              <Style.Animations>
+                <!--IterationCount="INFINITE" 要无限次地重复动画，请使用特殊值 INFINITE-->
+                <Animation IterationCount="INFINITE" Duration="0:0:1">
+                  <!--<KeyFrame Cue="0%">
+                    <Setter Property="TranslateTransform.X" Value="200" />
+                  </KeyFrame>
+                  <KeyFrame Cue="100%">
+                    <Setter Property="TranslateTransform.X" Value="-100" />
+                  </KeyFrame>-->
+
+                  <KeyFrame Cue="0%">
+                    <Setter Property="Opacity" Value="0.0"/>
+                  </KeyFrame>
+                  <KeyFrame Cue="100%">
+                    <Setter Property="Opacity" Value="1.0"/>
+                  </KeyFrame>
+                </Animation>
+              </Style.Animations>
+            </Style>
+          </Grid.Styles>
+        </Grid>
+      </DockPanel>
+    </TabItem>
+
+    <TabItem Header="Step">
+      <DockPanel>
+        <Button DockPanel.Dock="Top" Content="测试" Command="{h:StepRunCommand}" CommandParameter="{Binding ElementName=step}"/>
+        <h:Step Name="step">
+          <h:StepItemPresenter State="Ready" DisplayName="1"/>
+          <h:StepItemPresenter State="Error" DisplayName="2"/>
+          <h:StepItemPresenter State="Running" DisplayName="3"/>
+          <h:StepItemPresenter State="Success" DisplayName="4"/>
+        </h:Step>
+      </DockPanel>
+    </TabItem>
+
     <!--<TabItem Header="ChangePropertyAction">
       <Grid RowDefinitions="*,Auto" ColumnDefinitions="50*,5,50*">
         <Rectangle Name="ChangePropertyRectangle"
@@ -72,9 +113,11 @@
     <TabItem Header="DataTemplate.Trigger">
       <DockPanel>
         <ListBox ItemsSource="{GetStudents Count=100}">
-          --><!--<ListBox.Resources>
+          -->
+    <!--<ListBox.Resources>
             <SolidColorBrush x:Key="S.Brush.D" Color="Pink"/>
-          </ListBox.Resources>--><!--
+          </ListBox.Resources>-->
+    <!--
           <ListBox.ItemTemplate>
             <DataTemplate DataType="{x:Type h:Student}">
               <Grid>
@@ -89,7 +132,9 @@
                       <DrawingBrush.Drawing>
                         <GeometryDrawing Brush="{Binding ElementName=g, Path=(TextElement.Foreground)}" Geometry="{x:Static Geometrys.Close}" />
 
-                        --><!--<GeometryDrawing Brush="{DynamicResource {x:Static h:BrushKeys.Foregournd}}" Geometry="{Binding Geometry}" />--><!--
+                        -->
+    <!--<GeometryDrawing Brush="{DynamicResource {x:Static h:BrushKeys.Foregournd}}" Geometry="{Binding Geometry}" />-->
+    <!--
                       </DrawingBrush.Drawing>
                     </DrawingBrush>
                   </Grid.Background>
