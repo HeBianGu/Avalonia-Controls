@@ -71,7 +71,7 @@
                                         Margin="{TemplateBinding Padding}"
                                         HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                                         VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                                        Content="{TemplateBinding SelectionBoxItem}" />
+                                        Content="{TemplateBinding SelectionBoxItem}" ContentTemplate="{TemplateBinding ItemTemplate}"/>
                         <!--  ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}"  -->
 
                         <Border x:Name="DropDownOverlay"

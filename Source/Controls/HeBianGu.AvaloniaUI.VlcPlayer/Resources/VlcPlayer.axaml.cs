@@ -182,7 +182,7 @@ namespace HeBianGu.AvaloniaUI.VlcPlayer
             {
                 if (this._mediaPlayer != null)
                 {
-                    var r = this._mediaPlayer.SetAudioOutput(this.SelectedAudioOutputDevice);
+                    //var r = this._mediaPlayer.SetAudioOutput(this.SelectedAudioOutputDevice);
                 }
             }
         }
@@ -230,6 +230,8 @@ namespace HeBianGu.AvaloniaUI.VlcPlayer
             if (!this.CanPlay())
                 return;
 
+            if (Design.IsDesignMode)
+                return;
             this.InitVlcPlayer();
             RoutedEventArgs args = new RoutedEventArgs(SourceChangedEvent, this);
             this.RaiseEvent(args);
@@ -237,6 +239,8 @@ namespace HeBianGu.AvaloniaUI.VlcPlayer
         //private Media _media;
         private void InitVlcPlayer()
         {
+            if (Design.IsDesignMode)
+                return;
             if (this._posiontionSlider == null)
                 return;
             using Media media = new Media(_libVlc, new Uri(this.Source));

@@ -41,12 +41,12 @@
         </TabControl.ContentTemplate>
 
 
-        <TabItem Header="Catch Excption">
+        <!--<TabItem Header="Catch Excption">
             <DockPanel>
                 <Button Command="{Binding RelativeSource={RelativeSource AncestorType={x:Type TabControl}}, Path=DataContext.ShowException}" Content="ShowException" />
                 <Button Command="{Binding RelativeSource={RelativeSource AncestorType={x:Type TabControl}}, Path=DataContext.ShowTaskException}" Content="ShowTaskException" />
             </DockPanel>
-        </TabItem>
+        </TabItem>-->
 
 
         <TabItem Header="Step">
@@ -192,8 +192,6 @@
         <TabItem Header="Message">
             <UniformGrid>
                 <Button Command="{ShowCommand Presnter={h:GetStudent}}" Content="ShowCommand" />
-                <Button Command="{ShowEditCommand Value={h:GetStudent}}" Content="ShowEditCommand" />
-                <Button Command="{ShowViewCommand Value={h:GetStudent}}" Content="ShowViewCommand" />
                 <Button Command="{ShowStringCommand}" Content="ShowStringCommand" />
                 <Button Command="{ShowPercentCommand}" Content="ShowPercentCommand" />
                 <Button Command="{ShowWaitCommand}" Content="ShowWaitCommand" />
@@ -434,22 +432,6 @@ as set out in XAML.</TextBlock>
                 </TreeViewItem>
             </TreeView>
         </TabItem>
-        <TabItem Header="UniformGrid">
-            <UniformGrid Width="300"
-                         Height="200"
-                         Columns="3"
-                         Rows="1">
-                <Rectangle Grid.Row="0"
-                           Grid.Column="0"
-                           Fill="navy" />
-                <Rectangle Grid.Row="0"
-                           Grid.Column="1"
-                           Fill="white" />
-                <Rectangle Grid.Row="0"
-                           Grid.Column="2"
-                           Fill="red" />
-            </UniformGrid>
-        </TabItem>
 
         <TabItem Header="Expander">
             <Border Padding="20">
@@ -501,26 +483,30 @@ as set out in XAML.</TextBlock>
 
         <TabItem Header="ProgressBar">
             <Border Padding="20">
-                <StackPanel Orientation="Horizontal" Spacing="10">
+                <UniformGrid>
+                    <Slider Name="slider_pb"
+                            Maximum="100"
+                            Minimum="0"
+                            Value="5" />
                     <StackPanel Spacing="10">
-                        <ProgressBar Maximum="10" Value="5" />
-                        <ProgressBar Value="50" />
+                        <ProgressBar Maximum="10" Value="{Binding ElementName=slider_pb, Path=Value}" />
+                        <ProgressBar Value="{Binding ElementName=slider_pb, Path=Value}" />
                         <ProgressBar Maximum="75"
                                      Minimum="25"
-                                     Value="50" />
+                                     Value="{Binding ElementName=slider_pb, Path=Value}" />
                         <ProgressBar IsIndeterminate="True" />
-                        <ProgressBar ShowProgressText="True" Value="50" />
+                        <ProgressBar ShowProgressText="True" Value="{Binding ElementName=slider_pb, Path=Value}" />
                         <ProgressBar Maximum="100"
                                      Minimum="50"
                                      ProgressTextFormat="\{1\} percent"
                                      ShowProgressText="True"
-                                     Value="70" />
+                                     Value="{Binding ElementName=slider_pb, Path=Value}" />
                     </StackPanel>
                     <ProgressBar IsIndeterminate="True" Orientation="Vertical" />
                     <ProgressBar Orientation="Vertical"
                                  ShowProgressText="True"
-                                 Value="50" />
-                </StackPanel>
+                                 Value="{Binding ElementName=slider_pb, Path=Value}" />
+                </UniformGrid>
             </Border>
         </TabItem>
 
@@ -581,7 +567,7 @@ as set out in XAML.</TextBlock>
             </StackPanel>-->
         </TabItem>
 
-        <TabItem Header="Behavior">
+        <!--<TabItem Header="Behavior">
             <Button Content="Behavior">
                 <i:Interaction.Behaviors>
                     <ic:ButtonClickEventTriggerBehavior>
@@ -589,7 +575,7 @@ as set out in XAML.</TextBlock>
                     </ic:ButtonClickEventTriggerBehavior>
                 </i:Interaction.Behaviors>
             </Button>
-        </TabItem>
+        </TabItem>-->
         <TabItem Header="From">
             <h:Form>
                 <h:Form.SelectObject>
@@ -600,8 +586,20 @@ as set out in XAML.</TextBlock>
 
         <TabItem Header="ListBox">
             <UniformGrid>
-                <ListBox ItemsSource="{Binding Collection}" />
-                <ListBox ItemsSource="{Binding Collection}" SelectionMode="Multiple,Toggle" />
+              <ListBox ItemsSource="{h:GetStudents}">
+                <ListBox.ItemTemplate>
+                  <DataTemplate>
+                    <TextBlock Text="{Binding Name}"/>
+                  </DataTemplate>
+                </ListBox.ItemTemplate>
+              </ListBox>
+              <ListBox ItemsSource="{h:GetStudents}" SelectionMode="Multiple,Toggle" >
+                <ListBox.ItemTemplate>
+                  <DataTemplate>
+                    <TextBlock Text="{Binding Name}"/>
+                  </DataTemplate>
+                </ListBox.ItemTemplate>
+              </ListBox>
             </UniformGrid>
         </TabItem>
 

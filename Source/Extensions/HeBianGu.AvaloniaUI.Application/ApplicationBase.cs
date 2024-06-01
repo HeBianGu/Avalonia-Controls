@@ -104,7 +104,7 @@ namespace HeBianGu.AvaloniaUI.Application
             };
             AppDomain.CurrentDomain.ProcessExit += (s, e) =>
             {
-                System.Ioc.GetService<IOperationService>()?.Log<ApplicationBase>("程序退出");
+                System.Ioc.GetService<IOperationService>(false)?.Log<ApplicationBase>("程序退出");
                 IocLog.Instance?.Error("程序退出");
             };
             TaskScheduler.UnobservedTaskException += (s, e) =>

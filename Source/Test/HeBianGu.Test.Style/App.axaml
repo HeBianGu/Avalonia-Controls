@@ -7,8 +7,9 @@
     <ResourceDictionary>
       <ResourceDictionary.MergedDictionaries>
         <ResourceInclude Source="avares://HeBianGu.AvaloniaUI.Styles/Resources/ControlTheme.axaml"/>
-        <ResourceInclude Source="avares://HeBianGu.AvaloniaUI.Styles/Controls/TabControl.axaml"/>
-        <ResourceInclude Source="avares://HeBianGu.AvaloniaUI.Styles/Controls/TabItem.axaml"/>
+        <ResourceInclude Source="avares://HeBianGu.AvaloniaUI.Theme/Resources/Brush.axaml"/>
+        <ResourceInclude Source="avares://HeBianGu.AvaloniaUI.Theme/Resources/FontSize.axaml"/>
+        <ResourceInclude Source="avares://HeBianGu.AvaloniaUI.Theme/Resources/Layout.axaml"/>
       </ResourceDictionary.MergedDictionaries>
     </ResourceDictionary>
   </Application.Resources>

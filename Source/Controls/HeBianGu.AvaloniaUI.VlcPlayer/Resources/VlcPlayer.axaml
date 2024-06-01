@@ -44,7 +44,7 @@
                                     <DockPanel.Background>
                                         <SolidColorBrush Opacity="0.5" Color="Gray" />
                                     </DockPanel.Background>
-                                    <TextBlock Margin="2"
+                                    <TextBlock Margin="10 6"
                                                VerticalAlignment="Center"
                                                Foreground="White"
                                                Text="{Binding ElementName=PART_Position, Path=Tag}" />
