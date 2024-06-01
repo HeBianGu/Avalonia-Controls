@@ -42,7 +42,7 @@
                             <DockPanel>
                                 <DockPanel DockPanel.Dock="Top">
                                     <DockPanel.Background>
-                                        <SolidColorBrush Opacity="0.2" Color="Gray" />
+                                        <SolidColorBrush Opacity="0.5" Color="Gray" />
                                     </DockPanel.Background>
                                     <TextBlock Margin="2"
                                                VerticalAlignment="Center"
@@ -91,7 +91,7 @@
                                 VerticalAlignment="Center"
                                 Value="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:VlcPlayer}}, Path=Volume, Mode=TwoWay}" />
                         <DockPanel>
-                            <ComboBox Margin="5,0"
+                            <ComboBox Margin="2,0"
                                       VerticalAlignment="Center"
                                       ItemsSource="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:VlcPlayer}}, Path=AudioOutputDevices}"
                                       SelectedItem="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:VlcPlayer}}, Path=SelectedAudioOutputDevice}">
@@ -103,14 +103,14 @@
                                     </DataTemplate>
                                 </ComboBox.ItemTemplate>
                             </ComboBox>
-                            <ComboBox Margin="5,0"
+                            <ComboBox Margin="2,0"
                                       VerticalAlignment="Center"
                                       SelectedItem="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:VlcPlayer}}, Path=Rate}">
                                 <ComboBox.ItemTemplate>
                                     <DataTemplate>
                                         <TextBlock>
+                                            <Run Text="×" />
                                             <Run Text="{Binding}" />
-                                            <Run Text="X" />
                                         </TextBlock>
                                     </DataTemplate>
                                 </ComboBox.ItemTemplate>
