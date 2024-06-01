@@ -53,7 +53,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".sln", ".sln", "{AD4F47D9-1
 	ProjectSection(SolutionItems) = preProject
 		..\.editorconfig = ..\.editorconfig
 		..\Directory.Build.props = ..\Directory.Build.props
-		..\Source\Test\Directory.Build.props = ..\Source\Test\Directory.Build.props
 		..\LICENSE = ..\LICENSE
 		..\README.md = ..\README.md
 	EndProjectSection
@@ -143,6 +142,10 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HeBianGu.AvaloniaUI.Sqlite", "..\Source\DataBases\HeBianGu.AvaloniaUI.Sqlite\HeBianGu.AvaloniaUI.Sqlite.csproj", "{A12AAAD7-402E-4082-B852-6A9B7164DCC2}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HeBianGu.AvaloniaUI.Step", "..\Source\Controls\HeBianGu.AvaloniaUI.Step\HeBianGu.AvaloniaUI.Step.csproj", "{AB37099F-C9E6-4642-BD0E-FC62417BA70C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avalonia.Test.Code", "..\Source\Test\Avalonia.Test.Code\Avalonia.Test.Code.csproj", "{2B1E13C8-3B5D-4BE6-A9AC-59531DCA5929}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avalonia.Test.Code.Desktop", "..\Source\Test\Avalonia.Test.Code.Desktop\Avalonia.Test.Code.Desktop.csproj", "{5C5BE615-5011-46F0-958C-3062CC4D7054}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -374,6 +377,14 @@ Global
 		{AB37099F-C9E6-4642-BD0E-FC62417BA70C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AB37099F-C9E6-4642-BD0E-FC62417BA70C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AB37099F-C9E6-4642-BD0E-FC62417BA70C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B1E13C8-3B5D-4BE6-A9AC-59531DCA5929}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B1E13C8-3B5D-4BE6-A9AC-59531DCA5929}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B1E13C8-3B5D-4BE6-A9AC-59531DCA5929}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B1E13C8-3B5D-4BE6-A9AC-59531DCA5929}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C5BE615-5011-46F0-958C-3062CC4D7054}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C5BE615-5011-46F0-958C-3062CC4D7054}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C5BE615-5011-46F0-958C-3062CC4D7054}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C5BE615-5011-46F0-958C-3062CC4D7054}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -435,6 +446,8 @@ Global
 		{15169303-DDF4-4F07-830B-95BE191240DE} = {2642476A-C116-400E-942A-D79A4EF6A1FC}
 		{A12AAAD7-402E-4082-B852-6A9B7164DCC2} = {2642476A-C116-400E-942A-D79A4EF6A1FC}
 		{AB37099F-C9E6-4642-BD0E-FC62417BA70C} = {3B623333-0D74-4C71-BD6E-57FB1AB51512}
+		{2B1E13C8-3B5D-4BE6-A9AC-59531DCA5929} = {C4BE41AE-DD8E-4D34-9951-5BADAF85BE53}
+		{5C5BE615-5011-46F0-958C-3062CC4D7054} = {C4BE41AE-DD8E-4D34-9951-5BADAF85BE53}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EC68E9A1-91AC-4B6A-B817-573F85D4F550}
