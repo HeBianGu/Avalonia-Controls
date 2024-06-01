@@ -178,6 +178,13 @@ namespace HeBianGu.AvaloniaUI.VlcPlayer
                     this.SetRate((float)this.Rate);
                 }
             }
+            if (change.Property == SelectedAudioOutputDeviceProperty)
+            {
+                if (this._mediaPlayer != null)
+                {
+                    var r = this._mediaPlayer.SetAudioOutput(this.SelectedAudioOutputDevice);
+                }
+            }
         }
 
         private void MediaPlayer_TimeChanged(object sender, MediaPlayerTimeChangedEventArgs e)

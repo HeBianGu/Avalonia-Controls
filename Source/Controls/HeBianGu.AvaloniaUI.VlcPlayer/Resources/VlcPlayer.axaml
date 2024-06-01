@@ -44,7 +44,7 @@
                                     <DockPanel.Background>
                                         <SolidColorBrush Opacity="0.2" Color="Gray" />
                                     </DockPanel.Background>
-                                    <TextBlock Margin="5"
+                                    <TextBlock Margin="2"
                                                VerticalAlignment="Center"
                                                Foreground="White"
                                                Text="{Binding ElementName=PART_Position, Path=Tag}" />
@@ -54,11 +54,11 @@
                                     <DockPanel.Background>
                                         <SolidColorBrush Opacity="0.5" Color="Gray" />
                                     </DockPanel.Background>
-                                    <TextBlock Margin="5"
+                                    <TextBlock Margin="2"
                                                VerticalAlignment="Center"
                                                Foreground="White"
                                                Text="{Binding ElementName=PART_Position, Path=Value, Converter={h:GetTimeSpanFromMillisecondsValueConverter}}" />
-                                    <TextBlock Margin="5"
+                                    <TextBlock Margin="2"
                                                VerticalAlignment="Center"
                                                DockPanel.Dock="Right"
                                                Foreground="White"
@@ -82,7 +82,7 @@
             <Setter.Value>
                 <ControlTemplate>
                     <DockPanel DockPanel.Dock="Bottom">
-                        <TextBlock Margin="5"
+                        <TextBlock Margin="2"
                                    VerticalAlignment="Center"
                                    Text="音量" />
                         <Slider Name="PART_Volume"
@@ -126,29 +126,31 @@
                                 <system:Double>4</system:Double>
                             </ComboBox>
                         </DockPanel>
-                        <Button Margin="5"
+                        <Button Margin="2"
                                 HorizontalAlignment="Right"
                                 Command="{local:OpenFilePlayerCommand}"
                                 CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:VlcPlayer}}}"
                                 Content="打开"
                                 DockPanel.Dock="Right" />
-                        <Button HorizontalAlignment="Right"
+                        <Button Margin="2"
+                                HorizontalAlignment="Right"
                                 Command="{local:TakeSnapshotCommand}"
                                 CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:VlcPlayer}}}"
                                 Content="截图"
                                 DockPanel.Dock="Right" />
-                        <Button Margin="5"
+                        <Button Margin="2"
                                 HorizontalAlignment="Right"
                                 Command="{local:StopCommand}"
                                 CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:VlcPlayer}}}"
                                 Content="停止"
                                 DockPanel.Dock="Right" />
-                        <Button HorizontalAlignment="Right"
+                        <Button Margin="2"
+                                HorizontalAlignment="Right"
                                 Command="{local:AddFrameCommand Frame=10000}"
                                 CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:VlcPlayer}}}"
                                 Content="下一帧"
                                 DockPanel.Dock="Right" />
-                        <Button Margin="5"
+                        <Button Margin="2"
                                 HorizontalAlignment="Right"
                                 Command="{local:AddFrameCommand Frame=-10000}"
                                 CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:VlcPlayer}}}"
@@ -156,15 +158,19 @@
                                 DockPanel.Dock="Right" />
 
                         <TextBlock Name="Txt_State"
-                                   Margin="5"
+                                   Margin="2"
                                    HorizontalAlignment="Right"
                                    VerticalAlignment="Center"
                                    DockPanel.Dock="Right" />
                         <Button Name="Btn_Play"
+                                Width="50"
+                                Height="50"
+                                Margin="2"
                                 HorizontalAlignment="Center"
                                 Command="{local:SwitchPlayCommand}"
                                 CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:VlcPlayer}}}"
-                                Content="播放" />
+                                Content="播放"
+                                CornerRadius="50" />
                         <i:Interaction.Behaviors>
                             <ia:DataTriggerBehavior Binding="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:VlcPlayer}}, Path=State}" Value="Playing">
                                 <ia:ChangePropertyAction PropertyName="Content"

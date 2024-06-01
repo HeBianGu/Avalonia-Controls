@@ -7,10 +7,17 @@
     <ResourceDictionary>
       <ResourceDictionary.MergedDictionaries>
         <ResourceInclude Source="avares://HeBianGu.AvaloniaUI.VlcPlayer/Resources/VlcPlayer.axaml"/>
+        <ResourceInclude Source="avares://HeBianGu.AvaloniaUI.Styles/Resources/ControlTheme.axaml"/>
+        <ResourceInclude Source="avares://HeBianGu.AvaloniaUI.Theme/Resources/Brush.axaml"/>
+        <ResourceInclude Source="avares://HeBianGu.AvaloniaUI.Theme/Resources/FontSize.axaml"/>
+        <ResourceInclude Source="avares://HeBianGu.AvaloniaUI.Theme/Resources/Layout.axaml"/>
+        <ResourceInclude Source="avares://HeBianGu.AvaloniaUI.MainWindow/Resources/MainWindowBase.axaml"/>
+        <ResourceInclude Source="avares://HeBianGu.AvaloniaUI.Styles.Extension/Resources/Button.axaml"/>
       </ResourceDictionary.MergedDictionaries>
     </ResourceDictionary>
   </Application.Resources>
     <Application.Styles>
-        <FluentTheme />
+       <FluentTheme />
+      <!--<SimpleTheme/>-->
     </Application.Styles>
 </Application>

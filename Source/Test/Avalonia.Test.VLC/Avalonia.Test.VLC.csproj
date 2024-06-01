@@ -21,5 +21,9 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Controls\HeBianGu.AvaloniaUI.VlcPlayer\HeBianGu.AvaloniaUI.VlcPlayer.csproj" />
+    <ProjectReference Include="..\..\Styles\HeBianGu.AvaloniaUI.Styles.Extension\HeBianGu.AvaloniaUI.Styles.Extension.csproj" />
+    <ProjectReference Include="..\..\Styles\HeBianGu.AvaloniaUI.Styles\HeBianGu.AvaloniaUI.Styles.csproj" />
+    <ProjectReference Include="..\..\Themes\HeBianGu.AvaloniaUI.Theme\HeBianGu.AvaloniaUI.Theme.csproj" />
+    <ProjectReference Include="..\..\Windows\HeBianGu.AvaloniaUI.MainWindow\HeBianGu.AvaloniaUI.MainWindow.csproj" />
   </ItemGroup>
 </Project>
