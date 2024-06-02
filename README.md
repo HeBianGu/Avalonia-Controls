@@ -8,6 +8,8 @@ Avalonia皮肤，主题，自定义控件，数据库，系统模块资源库
 
 Avalonia 11.0.10
 
+[![NuGet](https://buildstats.info/nuget/HeBianGu.AvaloniaUI.Mvvm)](https://www.nuget.org/packages/HeBianGu.AvaloniaUI.Mvvm)
+
 帮助
 
 [https://github.com/HeBianGu/Avalonia-Controls/wiki](https://github.com/HeBianGu/Avalonia-Controls/wiki)
