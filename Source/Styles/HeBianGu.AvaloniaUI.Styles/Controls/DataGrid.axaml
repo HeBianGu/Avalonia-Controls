@@ -69,7 +69,7 @@
                                        Fill="Transparent"
                                        IsHitTestVisible="False"
                                        Stroke="{DynamicResource {x:Static h:BrushKeys.ForegroundAssist}}"
-                                       StrokeThickness="2" />
+                                       StrokeThickness="1" />
                             <Rectangle Margin="2"
                                        HorizontalAlignment="Stretch"
                                        VerticalAlignment="Stretch"
@@ -469,6 +469,8 @@
         <Setter Property="VerticalScrollBarVisibility" Value="Auto" />
         <Setter Property="SelectionMode" Value="Extended" />
         <Setter Property="GridLinesVisibility" Value="All" />
+        <Setter Property="BorderBrush" Value="{DynamicResource {x:Static h:BrushKeys.BorderBrush}}" />
+        <Setter Property="BorderThickness" Value="{DynamicResource {x:Static h:LayoutKeys.BorderThickness}}" />
         <Setter Property="HorizontalGridLinesBrush" Value="{DynamicResource {x:Static h:BrushKeys.BorderBrush}}" />
         <Setter Property="VerticalGridLinesBrush" Value="{DynamicResource {x:Static h:BrushKeys.BorderBrush}}" />
         <Setter Property="FocusAdorner" Value="{x:Null}" />
