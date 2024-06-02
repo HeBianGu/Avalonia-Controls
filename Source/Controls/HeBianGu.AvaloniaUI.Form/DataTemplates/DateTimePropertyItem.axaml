@@ -1,0 +1,11 @@
+<DataTemplate xmlns="https://github.com/avaloniaui"
+              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+              xmlns:h="https://github.com/HeBianGu"
+              xmlns:local="clr-namespace:HeBianGu.AvaloniaUI.Form"
+              DataType="local:DateTimePropertyItem">
+    <CalendarDatePicker Height="{DynamicResource {x:Static h:LayoutKeys.ItemHeight}}"
+                VerticalAlignment="Stretch"
+                VerticalContentAlignment="Center"
+                IsEnabled="{Binding ReadOnly, Converter={h:GetTrueToFalseValueConverter}}"
+                SelectedDate="{Binding Value}" />
+</DataTemplate>

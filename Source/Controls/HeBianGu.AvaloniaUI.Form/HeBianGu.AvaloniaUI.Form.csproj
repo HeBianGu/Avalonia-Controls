@@ -23,5 +23,14 @@
     <Compile Update="DataTemplates\BoolPropertyItem.axaml.cs">
       <DependentUpon>BoolPropertyItem.axaml</DependentUpon>
     </Compile>
+    <Compile Update="DataTemplates\ComboBoxPropertyItem.axaml.cs">
+      <DependentUpon>ComboBoxPropertyItem.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="DataTemplates\DateTimePropertyItem.axaml.cs">
+      <DependentUpon>DateTimePropertyItem.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="Provider\PropertyItemSelector.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
 </Project>

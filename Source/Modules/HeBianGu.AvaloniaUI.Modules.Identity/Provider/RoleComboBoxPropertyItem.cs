@@ -5,7 +5,7 @@ using System.Reflection;
 
 namespace HeBianGu.AvaloniaUI.Modules.Identity
 {
-    public class RoleComboBoxPropertyItem : ComboBoxSelectSourcePropertyItem
+    public class RoleComboBoxPropertyItem : ComboBoxPropertyItem
     {
         public RoleComboBoxPropertyItem(PropertyInfo property, object obj) : base(property, obj)
         {

@@ -123,19 +123,13 @@ namespace HeBianGu.AvaloniaUI.Form
         }
     }
 
-    public class ComboBoxSelectSourcePropertyItem : SelectSourcePropertyItem<object>
+    public class ComboBoxFormSelectSourcePropertyItem : SelectSourcePropertyItem<object>
     {
-        public ComboBoxSelectSourcePropertyItem(PropertyInfo property, object obj) : base(property, obj)
+        public ComboBoxFormSelectSourcePropertyItem(PropertyInfo property, object obj) : base(property, obj)
         {
 
         }
     }
 
-    public class OnlyComboBoxSelectSourcePropertyItem : SelectSourcePropertyItem<object>
-    {
-        public OnlyComboBoxSelectSourcePropertyItem(PropertyInfo property, object obj) : base(property, obj)
-        {
 
-        }
-    }
 }

@@ -335,7 +335,7 @@ as set out in XAML.</TextBlock>
         </TabItem>
         <TabItem Header="CalendarDatePicker">
             <StackPanel Margin="20">
-                <CalendarDatePicker />
+                <CalendarDatePicker/>
             </StackPanel>
         </TabItem>
         <TabItem Header="DataGrid">

@@ -482,17 +482,26 @@ namespace HeBianGu.AvaloniaUI.Repository
 
         public virtual async Task<int> Save()
         {
-            int r = this.Repository == null ? 1 : await this.Repository.SaveAsync();
-            if (r >= 0)
+            try
             {
-                if (this.UseMessage)
-                    IocMessage.Snack?.ShowInfo("保存成功");
+                int r = this.Repository == null ? 1 : await this.Repository.SaveAsync();
+                if (r >= 0)
+                {
+                    if (this.UseMessage)
+                        IocMessage.Snack?.ShowInfo("保存成功");
+                }
+                else
+                {
+                    IocMessage.Snack?.ShowInfo("保存失败，数据库保存错误");
+                }
+                return r;
             }
-            else
+            catch (Exception ex)
             {
-                IocMessage.Snack?.ShowInfo("保存失败，数据库保存错误");
+                IocMessage.Snack?.ShowError("保存失败" + ex.Message);
+                IocLog.Instance?.Error(ex);
+                return -1;
             }
-            return r;
         }
 
 

@@ -78,20 +78,6 @@ namespace HeBianGu.AvaloniaUI.Modules.Identity
             }
         }
 
-        private bool _enable;
-        [Display(Name = "启用")]
-        [Column("enable", Order = 4)]
-        /// <summary> 说明  </summary>
-        public bool Enable
-        {
-            get { return _enable; }
-            set
-            {
-                _enable = value;
-                RaisePropertyChanged();
-            }
-        }
-
         private string? _mail;
         [Display(Name = "邮箱")]
         [Column("mail", Order = 5)]
@@ -106,36 +92,10 @@ namespace HeBianGu.AvaloniaUI.Modules.Identity
             }
         }
 
-        private DateTime _lastLoginTime;
-        [Display(Name = "最近登录时间")]
-        [Column("last_login_time", Order = 6)]
-        public DateTime LastLoginTime
-        {
-            get { return _lastLoginTime; }
-            set
-            {
-                _lastLoginTime = value;
-                RaisePropertyChanged();
-            }
-        }
-
-        private DateTime _license_deadline;
-        [Display(Name = "许可截止时间")]
-        [Column("license_deadline", Order = 7)]
-        public DateTime LicenseDeadline
-        {
-            get { return _license_deadline; }
-            set
-            {
-                _license_deadline = value;
-                RaisePropertyChanged();
-            }
-        }
-
         [Browsable(false)]
         [Column("role_id", Order = 8)]
         //[Binding("Role.ID")]
-        public string RoleID { get; set; }
+        public string? RoleID { get; set; }
 
         private hi_dd_role _role;
         [XmlIgnore]
@@ -144,7 +104,7 @@ namespace HeBianGu.AvaloniaUI.Modules.Identity
         [Column("role", Order = 9)]
         //[DataGridColumn("*", PropertyPath = "{0}.Name")]
         [BindingGetSelectSourceMethod(nameof(GetRoles))]
-        [PropertyItemType(Type = typeof(OnlyComboBoxSelectSourcePropertyItem))]
+        [PropertyItemType(Type = typeof(ComboBoxPropertyItem))]
         public virtual hi_dd_role Role
         {
             get { return _role; }
@@ -155,6 +115,46 @@ namespace HeBianGu.AvaloniaUI.Modules.Identity
             }
         }
 
+        private DateTime _lastLoginTime = DateTime.Now;
+        [ReadOnly(true)]
+        [Display(Name = "最近登录时间")]
+        [Column("last_login_time", Order = 10)]
+        public DateTime LastLoginTime
+        {
+            get { return _lastLoginTime; }
+            set
+            {
+                _lastLoginTime = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        private DateTime _license_deadline = DateTime.Now.AddDays(30);
+        [Display(Name = "许可截止时间")]
+        [Column("license_deadline", Order = 11)]
+        public DateTime LicenseDeadline
+        {
+            get { return _license_deadline; }
+            set
+            {
+                _license_deadline = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        private bool _enable;
+        [Display(Name = "启用")]
+        [Column("enable", Order = 4)]
+        /// <summary> 说明  </summary>
+        public bool Enable
+        {
+            get { return _enable; }
+            set
+            {
+                _enable = value;
+                RaisePropertyChanged();
+            }
+        }
         public List<hi_dd_role> GetRoles()
         {
             return System.Ioc.GetService<IStringRepository<hi_dd_role>>().GetList();

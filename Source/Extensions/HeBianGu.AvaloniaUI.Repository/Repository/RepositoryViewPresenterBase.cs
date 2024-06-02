@@ -12,6 +12,7 @@ namespace HeBianGu.AvaloniaUI.Repository
         public RepositoryViewPresenterBase()
         {
             _vm = System.Ioc.GetService<IRepositoryBindable<T>>();
+            _vm.RefreshData();
         }
         /// <summary> 说明  </summary>
         public IRepositoryBindable<T> ViewModel

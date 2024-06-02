@@ -5,10 +5,5 @@ using System.Reflection;
 
 namespace HeBianGu.AvaloniaUI.Form
 {
-    public class DateTimePropertyItem : ObjectPropertyItem<DateTime>
-    {
-        public DateTimePropertyItem(PropertyInfo property, object obj) : base(property, obj)
-        {
-        }
-    }
+   
 }

@@ -275,7 +275,7 @@ namespace HeBianGu.AvaloniaUI.Form
         }
 
         public static readonly StyledProperty<bool> UseTypeConverterProperty =
-            AvaloniaProperty.Register<Form, bool>("UseTypeConverter");
+            AvaloniaProperty.Register<Form, bool>("UseTypeConverter", true);
 
         public bool UseNull
         {
@@ -284,7 +284,7 @@ namespace HeBianGu.AvaloniaUI.Form
         }
 
         public static readonly StyledProperty<bool> UseNullProperty =
-            AvaloniaProperty.Register<Form, bool>("UseNull");
+            AvaloniaProperty.Register<Form, bool>("UseNull", true);
 
 
         public bool UseBoolen
@@ -339,7 +339,7 @@ namespace HeBianGu.AvaloniaUI.Form
 
 
         public static readonly StyledProperty<bool> UseEnumProperty =
-            AvaloniaProperty.Register<Form, bool>("UseEnum");
+            AvaloniaProperty.Register<Form, bool>("UseEnum", true);
 
         public bool UseString
         {
@@ -359,7 +359,7 @@ namespace HeBianGu.AvaloniaUI.Form
 
 
         public static readonly StyledProperty<bool> UseDateTimeProperty =
-            AvaloniaProperty.Register<Form, bool>("UseDateTime");
+            AvaloniaProperty.Register<Form, bool>("UseDateTime", true);
 
 
 
@@ -394,7 +394,7 @@ namespace HeBianGu.AvaloniaUI.Form
 
 
         public static readonly StyledProperty<bool> UseClassProperty =
-            AvaloniaProperty.Register<Form, bool>("UseClass");
+            AvaloniaProperty.Register<Form, bool>("UseClass", true);
 
 
         public bool UseArray
@@ -811,10 +811,10 @@ namespace HeBianGu.AvaloniaUI.Form
 
                 foreach (IPropertyItem item in result)
                 {
-                  Avalonia.Application.Current.BeginInvoke(DispatcherPriority.Input, new Action(() =>
-                              {
-                                  observable.Add(item);
-                              }));
+                    Avalonia.Application.Current.BeginInvoke(DispatcherPriority.Input, new Action(() =>
+                                {
+                                    observable.Add(item);
+                                }));
                 }
             }
             else

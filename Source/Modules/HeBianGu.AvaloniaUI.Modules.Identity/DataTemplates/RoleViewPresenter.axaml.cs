@@ -68,6 +68,5 @@ namespace HeBianGu.AvaloniaUI.Modules.Identity
     public class RoleViewPresenter : RepositoryViewPresenterBase<hi_dd_role>, IRoleViewPresenter
     {
 
-
     }
 }
