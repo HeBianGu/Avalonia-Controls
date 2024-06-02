@@ -17,7 +17,7 @@
     </ResourceDictionary>
   </Application.Resources>
     <Application.Styles>
-       <!--<FluentTheme />-->
-      <SimpleTheme/>
+       <FluentTheme />
+      <!--<SimpleTheme/>-->
     </Application.Styles>
 </Application>
