@@ -3,7 +3,7 @@
               xmlns:h="https://github.com/HeBianGu"
               xmlns:local="clr-namespace:HeBianGu.AvaloniaUI.Modules.About"
               DataType="local:AboutViewPresenter">
-    <h:Form Margin="{DynamicResource {x:Static h:LayoutKeys.Padding}}"
-            SelectObject="{Binding Source={x:Static local:AboutOption.Instance}}"
-            UsePropertyView="True" />
+  <h:Form Margin="{DynamicResource {x:Static h:LayoutKeys.Padding}}"
+          SelectObject="{Binding Source={x:Static local:AboutOption.Instance}}"
+          UsePropertyView="True" />
 </DataTemplate>

@@ -1,5 +1,6 @@
 ﻿using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Layout;
 using HeBianGu.AvaloniaUI.Ioc;
 using HeBianGu.AvaloniaUI.Mvvm;
@@ -16,12 +17,25 @@ namespace HeBianGu.AvaloniaUI.Modules.ThemeSetting
                 //x.Width = 800;
                 x.Title = "主题设置";
                 x.DialogButton = DialogButton.None;
-                x.HorizontalAlignment = HorizontalAlignment.Right;
-                x.HorizontalContentAlignment = HorizontalAlignment.Right;
-                x.VerticalAlignment = VerticalAlignment.Stretch;
-                x.VerticalContentAlignment = VerticalAlignment.Stretch;
-                x.MinWidth = 200;
-                x.Margin = new Thickness(2);
+                if (Avalonia.Application.Current.ApplicationLifetime is IClassicDesktopStyleApplicationLifetime)
+                {
+                    x.HorizontalAlignment = HorizontalAlignment.Right;
+                    x.HorizontalContentAlignment = HorizontalAlignment.Right;
+                    x.VerticalAlignment = VerticalAlignment.Stretch;
+                    x.VerticalContentAlignment = VerticalAlignment.Stretch;
+                    x.MinWidth = 200;
+                    x.Margin = new Thickness(2);
+
+                }
+                else
+                {
+                    //x.HorizontalContentAlignment = HorizontalAlignment.Stretch;
+                    //x.VerticalContentAlignment = VerticalAlignment.Stretch;
+                    x.VerticalAlignment = VerticalAlignment.Stretch;
+                    //x.VerticalContentAlignment = VerticalAlignment.Stretch;
+                    //x.Margin = new Avalonia.Thickness(10);
+                }
+
                 if (x is Window window)
                 {
                     window.SizeToContent = SizeToContent.Manual;
@@ -29,6 +43,8 @@ namespace HeBianGu.AvaloniaUI.Modules.ThemeSetting
                     window.ShowInTaskbar = true;
                     window.VerticalContentAlignment = VerticalAlignment.Stretch;
                 }
+
+
             });
             if (r != true)
                 return;

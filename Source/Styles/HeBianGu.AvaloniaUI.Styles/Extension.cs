@@ -1,4 +1,5 @@
-﻿using HeBianGu.AvaloniaUI.Ioc;
+﻿using HeBianGu.AvaloniaUI.Application;
+using HeBianGu.AvaloniaUI.Ioc;
 using HeBianGu.AvaloniaUI.Styles;
 using System;
 
@@ -10,6 +11,11 @@ namespace System
         {
             SettingDataManager.Instance.Add(WindowSetting.Instance);
             option?.Invoke(WindowSetting.Instance);
+            return builder;
+        }
+
+        public static IApplicationAxamlLoader UseStyles(this IApplicationAxamlLoader builder)
+        {
             return builder;
         }
     }

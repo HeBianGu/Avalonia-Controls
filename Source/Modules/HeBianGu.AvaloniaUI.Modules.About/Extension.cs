@@ -23,7 +23,7 @@ namespace System
             return services;
         }
 
-        public static IApplicationBuilder UseSplashScreen(this IApplicationBuilder builder, Action<AboutOption> option = null)
+        public static IApplicationBuilder UseAbout(this IApplicationBuilder builder, Action<AboutOption> option = null)
         {
             SettingDataManager.Instance.Add(AboutOption.Instance);
             option?.Invoke(AboutOption.Instance);

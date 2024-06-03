@@ -23,6 +23,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\HeBianGu.Test.Main\HeBianGu.Test.Main.csproj" />
+    <ProjectReference Include="..\Avalonia.Test.Mobile\Avalonia.Test.Mobile.csproj" />
   </ItemGroup>
 </Project>

@@ -4,7 +4,7 @@ namespace HeBianGu.AvaloniaUI.Ioc
 {
     public class ShowMessageCommand : MessageCommandBase
     {
-        public string Message { get; set; }
+        public string Message { get; set; } = "我是消息";
         public override void Execute(object parameter)
         {
             IocMessage.Dialog.Show(Message, x =>
