@@ -39,7 +39,21 @@
         <GroupBox Content="{Binding}" Header="{Binding RelativeSource={RelativeSource AncestorType={x:Type TabControl}}, Path=SelectedItem.Header}" />
       </DataTemplate>
     </TabControl.ContentTemplate>
+    <!--<TabItem>
+      <DockPanel>
+        <ListBox DockPanel.Dock="Bottom" ItemsSource="{Binding Collection}" SelectedItem="{Binding SelecteItem}">
+          <ListBox.ItemTemplate>
+            <DataTemplate>
+              <Border>
+                <TextBlock Text="{Binding Name}"/>
+              </Border>
+            </DataTemplate>
+          </ListBox.ItemTemplate>
+        </ListBox>
+        <ContentControl Content="{Binding SelecteItem}"/>
+      </DockPanel>
 
+    </TabItem>-->
 
     <!--<TabItem Header="Catch Excption">
             <DockPanel>
