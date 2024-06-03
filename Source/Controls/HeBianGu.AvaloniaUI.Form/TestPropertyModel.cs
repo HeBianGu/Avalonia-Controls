@@ -1,6 +1,7 @@
 ﻿// Copyright © 2024 By HeBianGu(QQ:908293466) https://github.com/HeBianGu/WPF-Control
 
 using Avalonia;
+using Avalonia.Markup.Xaml.Converters;
 using Avalonia.Media;
 using System;
 using System.Collections.Generic;
@@ -244,8 +245,8 @@ namespace HeBianGu.AvaloniaUI.Form
         //[TypeConverter(typeof(RepeatBehaviorConverter))]
         //public RepeatBehavior RepeatBehaviorConverter { get; set; }
 
-        //[TypeConverter(typeof(BrushConverter))]
-        //public Brush BrushConverter { get; set; }
+        [TypeConverter(typeof(BrushConverter))]
+        public Brush BrushConverter { get; set; }
 
         //[TypeConverter(typeof(CacheModeConverter))]
         //public CacheMode CacheModeConverter { get; set; }
@@ -260,14 +261,14 @@ namespace HeBianGu.AvaloniaUI.Form
         //[TypeConverter(typeof(DoubleIListConverter))]
         //public List<double> DoubleIListConverter { get; set; }
 
-        //[TypeConverter(typeof(PointIListConverter))]
-        //public List<Point> PointIListConverter { get; set; }
+        [TypeConverter(typeof(PointsListTypeConverter))]
+        public List<Point> PointIListConverter { get; set; }
 
         //[TypeConverter(typeof(UShortIListConverter))]
         //public List<ushort> UShortIListConverter { get; set; }
 
-        //[TypeConverter(typeof(FontFamilyConverter))]
-        //public FontFamily FontFamilyConverter { get; set; }
+        [TypeConverter(typeof(FontFamilyTypeConverter))]
+        public FontFamily FontFamilyConverter { get; set; }
 
         [TypeConverter(typeof(UriTypeConverter))]
         public Uri UriTypeConverter { get; set; }

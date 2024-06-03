@@ -21,6 +21,7 @@ public partial class App : ApplicationBase
     protected override void LoadAxamls(IApplicationAxamlLoader loader)
     {
         base.LoadAxamls(loader);
+        loader.UseMainWindowBase();
         loader.UseStylesExtension();
         loader.UseAbout();
         loader.UseTheme();

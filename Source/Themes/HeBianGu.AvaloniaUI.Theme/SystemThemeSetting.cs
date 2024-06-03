@@ -1,4 +1,5 @@
 ﻿using Avalonia.Controls;
+using Avalonia.Markup.Xaml.Converters;
 using Avalonia.Media;
 using HeBianGu.AvaloniaUI.Ioc;
 using HeBianGu.AvaloniaUI.Setting;
@@ -16,7 +17,9 @@ namespace HeBianGu.AvaloniaUI.Theme
             _fontFamily = new FontFamily("微软雅黑");
         }
         private FontFamily _fontFamily;
+
         [Display(Name = "字体类型")]
+        [TypeConverter(typeof(FontFamilyTypeConverter))]
         public FontFamily FontFamily
         {
             get { return _fontFamily; }

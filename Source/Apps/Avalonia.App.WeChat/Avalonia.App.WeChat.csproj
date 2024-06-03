@@ -35,5 +35,6 @@
     <ProjectReference Include="..\..\Modules\HeBianGu.AvaloniaUI.SnackMessage\HeBianGu.AvaloniaUI.SnackMessage.csproj" />
     <ProjectReference Include="..\..\Styles\HeBianGu.AvaloniaUI.Styles.Extension\HeBianGu.AvaloniaUI.Styles.Extension.csproj" />
     <ProjectReference Include="..\..\Styles\HeBianGu.AvaloniaUI.Styles\HeBianGu.AvaloniaUI.Styles.csproj" />
+    <ProjectReference Include="..\..\Windows\HeBianGu.AvaloniaUI.MainWindow\HeBianGu.AvaloniaUI.MainWindow.csproj" />
   </ItemGroup>
 </Project>

@@ -20,6 +20,8 @@ namespace HeBianGu.AvaloniaUI.Ioc
             if (!File.Exists(filePath))
                 return null;
             string txt = File.ReadAllText(filePath);
+            if(string.IsNullOrEmpty(txt)) 
+                return null;
             return JsonSerializer.Deserialize(txt, type, this.GetOptions());
         }
 
