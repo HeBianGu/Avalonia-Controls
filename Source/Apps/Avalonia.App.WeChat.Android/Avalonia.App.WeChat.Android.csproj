@@ -19,10 +19,10 @@
 
   <ItemGroup>
     <PackageReference Include="Avalonia.Android" Version="$(AvaloniaVersion)" />
-    <PackageReference Include="Xamarin.AndroidX.Core.SplashScreen" Version="1.0.1.7" />
+    <PackageReference Include="Xamarin.AndroidX.Core.SplashScreen" Version="1.0.1.1" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Avalonia.App.QQ\Avalonia.App.QQ.csproj" />
+    <ProjectReference Include="..\Avalonia.App.WeChat\Avalonia.App.WeChat.csproj" />
   </ItemGroup>
 </Project>

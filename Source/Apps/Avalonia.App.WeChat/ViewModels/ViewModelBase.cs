@@ -1,6 +1,6 @@
 ﻿using ReactiveUI;
 
-namespace Avalonia.App.QQ.ViewModels;
+namespace Avalonia.App.WeChat.ViewModels;
 
 public class ViewModelBase : ReactiveObject
 {

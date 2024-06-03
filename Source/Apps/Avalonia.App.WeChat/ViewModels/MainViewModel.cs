@@ -1,9 +1,11 @@
-﻿using HeBianGu.AvaloniaUI.Mvvm;
+﻿using Avalonia.App.WeChat.Views;
+using HeBianGu.AvaloniaUI.Mvvm;
+using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
-
-namespace Avalonia.App.QQ.ViewModels;
+using System.Xml.Linq;
+namespace Avalonia.App.WeChat.ViewModels;
 
 public class MainViewModel : BindableBase
 {
@@ -18,9 +20,9 @@ public class MainViewModel : BindableBase
     public string Greeting => "Welcome to Avalonia!";
 
 
-    private ObservableCollection<TabItemBindableBase> _collection = new ObservableCollection<TabItemBindableBase>();
+    private ObservableCollection<ITabItem> _collection = new ObservableCollection<ITabItem>();
     /// <summary> 说明  </summary>
-    public ObservableCollection<TabItemBindableBase> Collection
+    public ObservableCollection<ITabItem> Collection
     {
         get { return _collection; }
         set
@@ -31,9 +33,9 @@ public class MainViewModel : BindableBase
     }
 
 
-    private TabItemBindableBase _selecteItem;
+    private ITabItem _selecteItem;
     /// <summary> 说明  </summary>
-    public TabItemBindableBase SelecteItem
+    public ITabItem SelecteItem
     {
         get { return _selecteItem; }
         set
@@ -43,34 +45,6 @@ public class MainViewModel : BindableBase
         }
     }
 
-
-}
-
-public abstract class TabItemBindableBase : DisplayBindableBase
-{
-
-}
-
-[Display(Name = "微信")]
-public class MessageItem : TabItemBindableBase
-{
-
-}
-[Display(Name = "通讯录")]
-public class AdressItem : TabItemBindableBase
-{
-
-}
-
-[Display(Name = "发现")]
-public class FindItem : TabItemBindableBase
-{
-
-}
-
-[Display(Name = "我")]
-public class MyItem : TabItemBindableBase
-{
 
 }
 

@@ -1,6 +1,6 @@
 ﻿using Avalonia.Controls;
 
-namespace Avalonia.App.QQ.Views;
+namespace Avalonia.App.WeChat.Views;
 
 public partial class MainWindow : Window
 {

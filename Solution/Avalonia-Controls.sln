@@ -159,6 +159,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avalonia.Test.Mobile.Androi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avalonia.Test.Mobile.Desktop", "..\Source\Test\Avalonia.Test.Mobile.Desktop\Avalonia.Test.Mobile.Desktop.csproj", "{F8EED9C4-F8C1-42D3-84AE-59E55FC4926A}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avalonia.App.WeChat", "..\Source\Apps\Avalonia.App.WeChat\Avalonia.App.WeChat.csproj", "{3FA0DC73-E4A8-4BBD-9AC8-DF4100D7B959}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avalonia.App.WeChat.Android", "..\Source\Apps\Avalonia.App.WeChat.Android\Avalonia.App.WeChat.Android.csproj", "{68F81809-380E-4181-B7F0-F486C2853D53}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avalonia.App.WeChat.Desktop", "..\Source\Apps\Avalonia.App.WeChat.Desktop\Avalonia.App.WeChat.Desktop.csproj", "{202D2EC7-4415-4D19-8AE0-7BE8C92F31A7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -421,6 +427,18 @@ Global
 		{F8EED9C4-F8C1-42D3-84AE-59E55FC4926A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F8EED9C4-F8C1-42D3-84AE-59E55FC4926A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F8EED9C4-F8C1-42D3-84AE-59E55FC4926A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3FA0DC73-E4A8-4BBD-9AC8-DF4100D7B959}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3FA0DC73-E4A8-4BBD-9AC8-DF4100D7B959}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3FA0DC73-E4A8-4BBD-9AC8-DF4100D7B959}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3FA0DC73-E4A8-4BBD-9AC8-DF4100D7B959}.Release|Any CPU.Build.0 = Release|Any CPU
+		{68F81809-380E-4181-B7F0-F486C2853D53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68F81809-380E-4181-B7F0-F486C2853D53}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68F81809-380E-4181-B7F0-F486C2853D53}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68F81809-380E-4181-B7F0-F486C2853D53}.Release|Any CPU.Build.0 = Release|Any CPU
+		{202D2EC7-4415-4D19-8AE0-7BE8C92F31A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{202D2EC7-4415-4D19-8AE0-7BE8C92F31A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{202D2EC7-4415-4D19-8AE0-7BE8C92F31A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{202D2EC7-4415-4D19-8AE0-7BE8C92F31A7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -489,6 +507,9 @@ Global
 		{6063D8CC-01EE-4BA6-9118-5ACC7C2E05C9} = {C4BE41AE-DD8E-4D34-9951-5BADAF85BE53}
 		{51C2EF6B-6BA2-4F8B-AA68-814E6E6A7F3F} = {C4BE41AE-DD8E-4D34-9951-5BADAF85BE53}
 		{F8EED9C4-F8C1-42D3-84AE-59E55FC4926A} = {C4BE41AE-DD8E-4D34-9951-5BADAF85BE53}
+		{3FA0DC73-E4A8-4BBD-9AC8-DF4100D7B959} = {26F9C8C3-04A2-416E-8CF1-83F89E6896BE}
+		{68F81809-380E-4181-B7F0-F486C2853D53} = {26F9C8C3-04A2-416E-8CF1-83F89E6896BE}
+		{202D2EC7-4415-4D19-8AE0-7BE8C92F31A7} = {26F9C8C3-04A2-416E-8CF1-83F89E6896BE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EC68E9A1-91AC-4B6A-B817-573F85D4F550}

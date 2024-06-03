@@ -1,6 +1,6 @@
 ﻿using Avalonia;
-using Avalonia.App.QQ.ViewModels;
-using Avalonia.App.QQ.Views;
+using Avalonia.App.WeChat.ViewModels;
+using Avalonia.App.WeChat.Views;
 using Avalonia.Controls;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
@@ -8,7 +8,8 @@ using HeBianGu.AvaloniaUI.Application;
 using HeBianGu.AvaloniaUI.Theme;
 using Microsoft.Extensions.DependencyInjection;
 using System;
-namespace Avalonia.App.QQ;
+
+namespace Avalonia.App.WeChat;
 
 public partial class App : ApplicationBase
 {
@@ -25,6 +26,7 @@ public partial class App : ApplicationBase
         loader.UseTheme();
         loader.UseForm();
         loader.UseDataTest();
+        loader.UseStyles();
     }
 
 

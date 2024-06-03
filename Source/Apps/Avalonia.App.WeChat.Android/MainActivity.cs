@@ -5,10 +5,10 @@ using Avalonia;
 using Avalonia.Android;
 using Avalonia.ReactiveUI;
 
-namespace Avalonia.App.QQ.Android;
+namespace Avalonia.App.WeChat.Android;
 
 [Activity(
-    Label = "Avalonia.App.QQ.Android",
+    Label = "Avalonia.App.WeChat.Android",
     Theme = "@style/MyTheme.NoActionBar",
     Icon = "@drawable/icon",
     MainLauncher = true,
