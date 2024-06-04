@@ -22,6 +22,11 @@ namespace HeBianGu.AvaloniaUI.NoticeMessage
         {
             if (!AdornerGrid.HasPresenter(_noticeBox))
                 AdornerGrid.AddPresenter(_noticeBox);
+            else
+            {
+                AdornerGrid.RemovePresenter(_noticeBox);
+                AdornerGrid.AddPresenter(_noticeBox);
+            }
         }
 
         public async void ShowInfo(string message)

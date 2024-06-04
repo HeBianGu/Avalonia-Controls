@@ -27,6 +27,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Datas\HeBianGu.AvaloniaUI.DemoData\HeBianGu.AvaloniaUI.DemoData.csproj" />
+    <ProjectReference Include="..\..\Extensions\HeBianGu.AvaloniaUI.MarkupExtesion\HeBianGu.AvaloniaUI.MarkupExtesion.csproj" />
     <ProjectReference Include="..\..\Modules\HeBianGu.AvaloniaUI.DialogMessage\HeBianGu.AvaloniaUI.DialogMessage.csproj" />
     <ProjectReference Include="..\..\Modules\HeBianGu.AvaloniaUI.FormMessage\HeBianGu.AvaloniaUI.FormMessage.csproj" />
     <ProjectReference Include="..\..\Modules\HeBianGu.AvaloniaUI.Modules.About\HeBianGu.AvaloniaUI.Modules.About.csproj" />

@@ -6,7 +6,7 @@ namespace Avalonia.App.WeChat.Models
     {
         public override async void ShowInfo(object p)
         {
-            await AdornerDialog.ShowPresenter<MobileAdornerDialogPresenter>(new ShowAddress(this), x => x.Title = this.Name);
+            await AdornerDialog.ShowPresenter<MobileAdornerDialogPresenter>(new ShowMy(new Function()), x => x.Title = this.Name);
         }
     }
 }

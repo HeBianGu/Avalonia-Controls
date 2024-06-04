@@ -22,6 +22,11 @@ namespace HeBianGu.AvaloniaUI.SnackMessage
         {
             if (!AdornerGrid.HasPresenter(_snackBox))
                 AdornerGrid.AddPresenter(_snackBox);
+            else
+            {
+                AdornerGrid.RemovePresenter(_snackBox);
+                AdornerGrid.AddPresenter(_snackBox);
+            }
             return true;
         }
 
