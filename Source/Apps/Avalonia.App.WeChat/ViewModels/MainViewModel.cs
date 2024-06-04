@@ -1,4 +1,5 @@
-﻿using Avalonia.App.WeChat.Views;
+﻿using Avalonia.App.WeChat.Models;
+using Avalonia.App.WeChat.Views;
 using HeBianGu.AvaloniaUI.Mvvm;
 using System;
 using System.Collections.ObjectModel;
@@ -12,7 +13,7 @@ public class MainViewModel : BindableBase
     public MainViewModel()
     {
         this.Collection.Add(new MessageItem());
-        this.Collection.Add(new AdressItem());
+        this.Collection.Add(new AddressItem());
         this.Collection.Add(new FindItem());
         this.Collection.Add(new MyItem());
         this.SelecteItem = this.Collection.First();

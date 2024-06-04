@@ -4,6 +4,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:h="https://github.com/HeBianGu"
              xmlns:local="clr-namespace:Avalonia.App.WeChat.Views"
+             xmlns:m="clr-namespace:Avalonia.App.WeChat.Models"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:system="clr-namespace:System;assembly=mscorlib"
              xmlns:vm="clr-namespace:Avalonia.App.WeChat.ViewModels"
@@ -13,27 +14,29 @@
              Background="{DynamicResource {x:Static h:BrushKeys.Background}}"
              Foreground="{DynamicResource {x:Static h:BrushKeys.Foreground}}"
              mc:Ignorable="d">
-  <Design.DataContext>
-    <!--
+    <Design.DataContext>
+        <!--
             This only sets the DataContext for the previewer in an IDE,
             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs)
         -->
-    <vm:MainViewModel />
-  </Design.DataContext>
-  <UserControl.Resources>
-    <ControlTheme x:Key="S.ListBoxItem.Fuction" TargetType="ListBoxItem" BasedOn="{StaticResource {x:Type ListBoxItem}}">
-      <Style Selector="^:selected">
-        <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
-          <Setter Property="Background" Value="Transparent" />
-          <Setter Property="Foreground" Value="{DynamicResource {x:Static h:BrushKeys.Foreground}}" />
-        </Style>
-        <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
-          <Setter Property="Background" Value="{DynamicResource {x:Static h:BrushKeys.MouseOver}}" />
-        </Style>
-      </Style>
-    </ControlTheme>
+        <vm:MainViewModel />
+    </Design.DataContext>
+    <UserControl.Resources>
+        <ControlTheme x:Key="S.ListBoxItem.Fuction"
+                      BasedOn="{StaticResource {x:Type ListBoxItem}}"
+                      TargetType="ListBoxItem">
+            <Style Selector="^:selected">
+                <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+                    <Setter Property="Background" Value="Transparent" />
+                    <Setter Property="Foreground" Value="{DynamicResource {x:Static h:BrushKeys.Foreground}}" />
+                </Style>
+                <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+                    <Setter Property="Background" Value="{DynamicResource {x:Static h:BrushKeys.MouseOver}}" />
+                </Style>
+            </Style>
+        </ControlTheme>
 
-    <!--<ControlTheme x:Key="S.ListBox.Fuction" TargetType="ListBox" BasedOn="{StaticResource {x:Type ListBox}}">
+        <!--<ControlTheme x:Key="S.ListBox.Fuction" TargetType="ListBox" BasedOn="{StaticResource {x:Type ListBox}}">
       <Setter Property="Background" Value="{DynamicResource {x:Static h:BrushKeys.Dark0_1}}"/>
       <Style Selector="ListBox.message">
         <Setter Property="Background" Value="{DynamicResource {x:Static h:BrushKeys.Dark0_1}}"/>
@@ -46,526 +49,611 @@
         </Setter>
       </Style>
     </ControlTheme>-->
-  </UserControl.Resources>
-  <UserControl.Styles>
-    <Style Selector="ListBox.message">
-      <Setter Property="Background" Value="{DynamicResource {x:Static h:BrushKeys.Dark0_1}}"/>
-      <Setter Property="DockPanel.Dock" Value="Top"/>
-      <Setter Property="ItemContainerTheme">
-        <Setter.Value>
-          <ControlTheme BasedOn="{StaticResource S.ListBoxItem.Fuction}" TargetType="ListBoxItem">
-            <Setter Property="Height" Value="60" />
-          </ControlTheme>
-        </Setter.Value>
-      </Setter>
-    </Style>
+    </UserControl.Resources>
+    <UserControl.Styles>
+        <Style Selector="ListBox.message">
+            <Setter Property="Background" Value="{DynamicResource {x:Static h:BrushKeys.Dark0_1}}" />
+            <Setter Property="DockPanel.Dock" Value="Top" />
+            <Setter Property="ItemContainerTheme">
+                <Setter.Value>
+                    <ControlTheme BasedOn="{StaticResource S.ListBoxItem.Fuction}" TargetType="ListBoxItem">
+                        <Setter Property="Height" Value="60" />
+                    </ControlTheme>
+                </Setter.Value>
+            </Setter>
+        </Style>
 
-    <Style Selector="ListBox.function">
-      <Setter Property="Background" Value="{DynamicResource {x:Static h:BrushKeys.Dark0_1}}"/>
-      <Setter Property="DockPanel.Dock" Value="Top"/>
-      <Setter Property="ItemContainerTheme">
-        <Setter.Value>
-          <ControlTheme BasedOn="{StaticResource S.ListBoxItem.Fuction}" TargetType="ListBoxItem">
-            <Setter Property="Height" Value="50" />
-          </ControlTheme>
-        </Setter.Value>
-      </Setter>
-      <Setter Property="ItemTemplate">
-        <Setter.Value>
-          <DataTemplate>
-            <DockPanel Background="Transparent">
-              <Interaction.Behaviors>
-                <EventTriggerBehavior EventName="PointerPressed">
-                  <InvokeCommandAction Command="{Binding ShowCommand}" />
-                </EventTriggerBehavior>
-              </Interaction.Behaviors>
-              <Border Width="35"
-                      Height="35"
-                      Margin="0,0,10,0"
-                      ClipToBounds="True"
-                      CornerRadius="5">
-                <Image Source="/Assets/1.jpg" Stretch="UniformToFill" />
-              </Border>
-              <TextBlock VerticalAlignment="Center"
-                         Text="{Binding}" />
-            </DockPanel>
-          </DataTemplate>
-        </Setter.Value>
-      </Setter>
-    </Style>
+        <Style Selector="ListBox.function">
+            <Setter Property="Background" Value="{DynamicResource {x:Static h:BrushKeys.Dark0_1}}" />
+            <Setter Property="DockPanel.Dock" Value="Top" />
+            <Setter Property="ItemContainerTheme">
+                <Setter.Value>
+                    <ControlTheme BasedOn="{StaticResource S.ListBoxItem.Fuction}" TargetType="ListBoxItem">
+                        <Setter Property="Height" Value="50" />
+                    </ControlTheme>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="ItemTemplate">
+                <Setter.Value>
+                    <DataTemplate>
+                        <DockPanel Background="Transparent">
+                            <Interaction.Behaviors>
+                                <EventTriggerBehavior EventName="PointerPressed">
+                                    <InvokeCommandAction Command="{Binding ShowCommand}" />
+                                </EventTriggerBehavior>
+                            </Interaction.Behaviors>
+                            <Border Width="35"
+                                    Height="35"
+                                    Margin="0,0,10,0"
+                                    ClipToBounds="True"
+                                    CornerRadius="5">
+                                <Image Source="/Assets/1.jpg" Stretch="UniformToFill" />
+                            </Border>
+                            <TextBlock VerticalAlignment="Center" Text="{Binding}" />
+                        </DockPanel>
+                    </DataTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
 
-    <Style Selector="ListBox.adress">
-      <Setter Property="Background" Value="{DynamicResource {x:Static h:BrushKeys.Dark0_1}}"/>
-      <Setter Property="DockPanel.Dock" Value="Top"/>
-      <Setter Property="ItemContainerTheme">
-        <Setter.Value>
-          <ControlTheme BasedOn="{StaticResource S.ListBoxItem.Fuction}" TargetType="ListBoxItem">
-            <Setter Property="Height" Value="50" />
-          </ControlTheme>
-        </Setter.Value>
-      </Setter>
-      <Setter Property="ItemTemplate">
-        <Setter.Value>
-          <DataTemplate>
-            <DockPanel Background="Transparent">
-              <Interaction.Behaviors>
-                <EventTriggerBehavior EventName="PointerPressed">
-                  <InvokeCommandAction Command="{Binding ShowCommand}" />
-                </EventTriggerBehavior>
-              </Interaction.Behaviors>
-              <Border Width="35"
-                      Height="35"
-                      Margin="0,0,10,0"
-                      ClipToBounds="True"
-                      CornerRadius="5">
-                <Image Source="/Assets/1.jpg" Stretch="UniformToFill" />
-              </Border>
-              <TextBlock VerticalAlignment="Center"
-                         Text="{Binding Name}" />
-            </DockPanel>
-          </DataTemplate>
-        </Setter.Value>
-      </Setter>
-    </Style>
+        <Style Selector="ListBox.adress">
+            <Setter Property="Background" Value="{DynamicResource {x:Static h:BrushKeys.Dark0_1}}" />
+            <Setter Property="DockPanel.Dock" Value="Top" />
+            <Setter Property="ItemContainerTheme">
+                <Setter.Value>
+                    <ControlTheme BasedOn="{StaticResource S.ListBoxItem.Fuction}" TargetType="ListBoxItem">
+                        <Setter Property="Height" Value="50" />
+                    </ControlTheme>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="ItemTemplate">
+                <Setter.Value>
+                    <DataTemplate>
+                        <DockPanel Background="Transparent">
+                            <Interaction.Behaviors>
+                                <EventTriggerBehavior EventName="PointerPressed">
+                                    <InvokeCommandAction Command="{Binding ShowCommand}" />
+                                </EventTriggerBehavior>
+                            </Interaction.Behaviors>
+                            <Border Width="35"
+                                    Height="35"
+                                    Margin="0,0,10,0"
+                                    ClipToBounds="True"
+                                    CornerRadius="5">
+                                <Image Source="/Assets/1.jpg" Stretch="UniformToFill" />
+                            </Border>
+                            <TextBlock VerticalAlignment="Center" Text="{Binding Name}" />
+                        </DockPanel>
+                    </DataTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
 
-    <Style Selector="ListBox.goto">
-      <Setter Property="Background" Value="{DynamicResource {x:Static h:BrushKeys.Dark0_1}}"/>
-      <Setter Property="DockPanel.Dock" Value="Top"/>
-      <Setter Property="Margin" Value="0 2"/>
-      <Setter Property="ItemContainerTheme">
-        <Setter.Value>
-          <ControlTheme BasedOn="{StaticResource S.ListBoxItem.Fuction}" TargetType="ListBoxItem">
-            <Setter Property="Height" Value="40" />
-          </ControlTheme>
-        </Setter.Value>
-      </Setter>
-    </Style>
-  </UserControl.Styles>
-  <UserControl.DataTemplates>
-    <DataTemplate DataType="{x:Type local:Adress}">
-      <DockPanel>
-        <Border Width="40"
-                Height="40"
-                Margin="0,0,10,0"
-                ClipToBounds="True"
-                CornerRadius="5">
-          <Image Source="/Assets/1.jpg" Stretch="UniformToFill" />
-        </Border>
-        <TextBlock VerticalAlignment="Center"
-                   FontSize="{DynamicResource {x:Static h:FontSizeKeys.Header5}}"
-                   Foreground="{DynamicResource {x:Static h:BrushKeys.Foreground}}"
-                   Text="{Binding Name}" />
-      </DockPanel>
-    </DataTemplate>
-    <DataTemplate DataType="{x:Type local:Message}">
-      <DockPanel Background="Transparent">
-        <Interaction.Behaviors>
-          <EventTriggerBehavior EventName="PointerPressed">
-            <InvokeCommandAction Command="{Binding ShowCommand}" />
-          </EventTriggerBehavior>
-        </Interaction.Behaviors>
-        <Border Width="40"
-                Height="40"
-                Margin="0,0,10,0"
-                ClipToBounds="True"
-                CornerRadius="5">
-          <Image Source="/Assets/1.jpg" Stretch="UniformToFill" />
-        </Border>
-        <UniformGrid Columns="1">
-          <Grid>
-            <TextBlock VerticalAlignment="Center"
-                       FontSize="{DynamicResource {x:Static h:FontSizeKeys.Header5}}"
-                       Foreground="{DynamicResource {x:Static h:BrushKeys.Foreground}}"
-                       Text="{Binding Name}" />
-            <TextBlock HorizontalAlignment="Right"
-                       VerticalAlignment="Center"
-                       FontSize="{DynamicResource {x:Static h:FontSizeKeys.Header7}}"
-                       Foreground="{DynamicResource {x:Static h:BrushKeys.ForegroundAssist}}"
-                       Text="{Binding Time, Converter={local:TimeValueConverter}}" />
-          </Grid>
-          <TextBlock VerticalAlignment="Center"
-                     FontSize="{DynamicResource {x:Static h:FontSizeKeys.Header6}}"
-                     Foreground="{DynamicResource {x:Static h:BrushKeys.ForegroundAssist}}"
-                     Text="{Binding Address}" />
-        </UniformGrid>
-      </DockPanel>
-    </DataTemplate>
-    <DataTemplate DataType="{x:Type local:Function}">
-      <DockPanel Background="Transparent">
-        <Interaction.Behaviors>
-          <EventTriggerBehavior EventName="PointerPressed">
-            <InvokeCommandAction Command="{Binding ShowCommand}" />
-          </EventTriggerBehavior>
-        </Interaction.Behaviors>
-        <PathIcon Margin="10,5">
-          <PathIcon.Data>
-            <StreamGeometry>M14.0038862,2.5 C20.3551608,2.5 25.5038862,7.64872538 25.5038862,14 C25.5038862,20.3512746 20.3551608,25.5 14.0038862,25.5 C12.0828262,25.5 10.2289934,25.0277557 8.57453454,24.1400553 L4.06949813,25.4927799 C3.40830889,25.6913248 2.71135661,25.3162775 2.51281166,24.6550883 C2.44236748,24.4204969 2.44239769,24.1703786 2.5128929,23.935823 L3.86597493,19.4333464 C2.97690068,17.777898 2.50388618,15.9226229 2.50388618,14 C2.50388618,7.64872538 7.65261155,2.5 14.0038862,2.5 Z M14.0038862,4 C8.48103868,4 4.00388618,8.4771525 4.00388618,14 C4.00388618,15.7703119 4.46384891,17.4718347 5.32571954,18.9725127 L5.48656853,19.2525809 L4.08316234,23.9225148 L8.75512584,22.5196672 L9.03501121,22.6802549 C10.5348218,23.5407899 12.2350195,24 14.0038862,24 C19.5267337,24 24.0038862,19.5228475 24.0038862,14 C24.0038862,8.4771525 19.5267337,4 14.0038862,4 Z M10.2538862,15.5 L14.7521489,15.5 C15.1663625,15.5 15.5021489,15.8357864 15.5021489,16.25 C15.5021489,16.6296958 15.219995,16.943491 14.8539195,16.9931534 L14.7521489,17 L10.2538862,17 C9.83967261,17 9.50388618,16.6642136 9.50388618,16.25 C9.50388618,15.8703042 9.78604006,15.556509 10.1521156,15.5068466 L10.2538862,15.5 L14.7521489,15.5 L10.2538862,15.5 Z M10.2538862,11 L17.7583662,11 C18.1725798,11 18.5083662,11.3357864 18.5083662,11.75 C18.5083662,12.1296958 18.2262123,12.443491 17.8601368,12.4931534 L17.7583662,12.5 L10.2538862,12.5 C9.83967261,12.5 9.50388618,12.1642136 9.50388618,11.75 C9.50388618,11.3703042 9.78604006,11.056509 10.1521156,11.0068466 L10.2538862,11 L17.7583662,11 L10.2538862,11 Z</StreamGeometry>
-          </PathIcon.Data>
-        </PathIcon>
-        <PathIcon Margin="10,8" DockPanel.Dock="Right">
-          <PathIcon.Data>
-            <StreamGeometry>M16.1161 39.6339C15.628 39.1457 15.628 38.3543 16.1161 37.8661L29.9822 24L16.1161 10.1339C15.628 9.64573 15.628 8.85427 16.1161 8.36612C16.6043 7.87796 17.3957 7.87796 17.8839 8.36612L32.6339 23.1161C33.122 23.6043 33.122 24.3957 32.6339 24.8839L17.8839 39.6339C17.3957 40.122 16.6043 40.122 16.1161 39.6339Z</StreamGeometry>
-          </PathIcon.Data>
-        </PathIcon>
-        <TextBlock VerticalAlignment="Center"
-                   FontSize="{DynamicResource {x:Static h:FontSizeKeys.Header5}}"
-                   Foreground="{DynamicResource {x:Static h:BrushKeys.Foreground}}"
-                   Text="{Binding Name}" />
-      </DockPanel>
-    </DataTemplate>
-    <DataTemplate DataType="local:MessageItem">
-      <DockPanel>
-        <Grid Height="{DynamicResource {x:Static h:LayoutKeys.ItemHeight}}" DockPanel.Dock="Top">
-          <DockPanel HorizontalAlignment="Right">
-            <Button Padding="6"
-                    Content="+"
-                    DockPanel.Dock="Right"
-                    Theme="{DynamicResource {x:Static ButtonKeys.Geometry}}">
-              <StreamGeometry>M14,2 C20.627417,2 26,7.372583 26,14 C26,20.627417 20.627417,26 14,26 C7.372583,26 2,20.627417 2,14 C2,7.372583 7.372583,2 14,2 Z M14,3.5 C8.20101013,3.5 3.5,8.20101013 3.5,14 C3.5,19.7989899 8.20101013,24.5 14,24.5 C19.7989899,24.5 24.5,19.7989899 24.5,14 C24.5,8.20101013 19.7989899,3.5 14,3.5 Z M14,8 C14.4142136,8 14.75,8.33578644 14.75,8.75 L14.75,13.25 L19.25,13.25 C19.6642136,13.25 20,13.5857864 20,14 C20,14.4142136 19.6642136,14.75 19.25,14.75 L14.75,14.75 L14.75,19.25 C14.75,19.6642136 14.4142136,20 14,20 C13.5857864,20 13.25,19.6642136 13.25,19.25 L13.25,14.75 L8.75,14.75 C8.33578644,14.75 8,14.4142136 8,14 C8,13.5857864 8.33578644,13.25 8.75,13.25 L13.25,13.25 L13.25,8.75 C13.25,8.33578644 13.5857864,8 14,8 Z</StreamGeometry>
-            </Button>
-            <Button Padding="6"
-                    Content="搜索"
-                    DockPanel.Dock="Right"
-                    Theme="{DynamicResource {x:Static ButtonKeys.Geometry}}">
-              M11.5,2.75 C16.3324916,2.75 20.25,6.66750844 20.25,11.5 C20.25,13.6461673 19.4773285,15.6118676 18.1949905,17.1340957 L25.0303301,23.9696699 C25.3232233,24.2625631 25.3232233,24.7374369 25.0303301,25.0303301 C24.7640635,25.2965966 24.3473998,25.3208027 24.0537883,25.1029482 L23.9696699,25.0303301 L17.1340957,18.1949905 C15.6118676,19.4773285 13.6461673,20.25 11.5,20.25 C6.66750844,20.25 2.75,16.3324916 2.75,11.5 C2.75,6.66750844 6.66750844,2.75 11.5,2.75 Z M11.5,4.25 C7.49593556,4.25 4.25,7.49593556 4.25,11.5 C4.25,15.5040644 7.49593556,18.75 11.5,18.75 C15.5040644,18.75 18.75,15.5040644 18.75,11.5 C18.75,7.49593556 15.5040644,4.25 11.5,4.25 Z
-            </Button>
-          </DockPanel>
-          <TextBlock HorizontalAlignment="Center"
-                     VerticalAlignment="Center"
-                     FontSize="{DynamicResource {x:Static h:FontSizeKeys.Header5}}"
-                     Text="{Binding Name}" />
-        </Grid>
-        <ListBox Classes="message" Theme="{StaticResource S.ListBox.Function}" ItemsSource="{Binding Collection}"/>
-      </DockPanel>
-    </DataTemplate>
-    <DataTemplate DataType="local:AdressItem">
-      <DockPanel>
-        <Grid Height="{DynamicResource {x:Static h:LayoutKeys.ItemHeight}}" DockPanel.Dock="Top">
-          <DockPanel HorizontalAlignment="Right">
-            <Button Padding="6"
-             Content="+"
-             DockPanel.Dock="Right"
-             Theme="{DynamicResource {x:Static ButtonKeys.Geometry}}">
-              <StreamGeometry>M14,2 C20.627417,2 26,7.372583 26,14 C26,20.627417 20.627417,26 14,26 C7.372583,26 2,20.627417 2,14 C2,7.372583 7.372583,2 14,2 Z M14,3.5 C8.20101013,3.5 3.5,8.20101013 3.5,14 C3.5,19.7989899 8.20101013,24.5 14,24.5 C19.7989899,24.5 24.5,19.7989899 24.5,14 C24.5,8.20101013 19.7989899,3.5 14,3.5 Z M14,8 C14.4142136,8 14.75,8.33578644 14.75,8.75 L14.75,13.25 L19.25,13.25 C19.6642136,13.25 20,13.5857864 20,14 C20,14.4142136 19.6642136,14.75 19.25,14.75 L14.75,14.75 L14.75,19.25 C14.75,19.6642136 14.4142136,20 14,20 C13.5857864,20 13.25,19.6642136 13.25,19.25 L13.25,14.75 L8.75,14.75 C8.33578644,14.75 8,14.4142136 8,14 C8,13.5857864 8.33578644,13.25 8.75,13.25 L13.25,13.25 L13.25,8.75 C13.25,8.33578644 13.5857864,8 14,8 Z</StreamGeometry>
-            </Button>
-            <Button Padding="6"
-                    Content="搜索"
-                    DockPanel.Dock="Right"
-                    Theme="{DynamicResource {x:Static ButtonKeys.Geometry}}">
-              M11.5,2.75 C16.3324916,2.75 20.25,6.66750844 20.25,11.5 C20.25,13.6461673 19.4773285,15.6118676 18.1949905,17.1340957 L25.0303301,23.9696699 C25.3232233,24.2625631 25.3232233,24.7374369 25.0303301,25.0303301 C24.7640635,25.2965966 24.3473998,25.3208027 24.0537883,25.1029482 L23.9696699,25.0303301 L17.1340957,18.1949905 C15.6118676,19.4773285 13.6461673,20.25 11.5,20.25 C6.66750844,20.25 2.75,16.3324916 2.75,11.5 C2.75,6.66750844 6.66750844,2.75 11.5,2.75 Z M11.5,4.25 C7.49593556,4.25 4.25,7.49593556 4.25,11.5 C4.25,15.5040644 7.49593556,18.75 11.5,18.75 C15.5040644,18.75 18.75,15.5040644 18.75,11.5 C18.75,7.49593556 15.5040644,4.25 11.5,4.25 Z
-            </Button>
-          </DockPanel>
-          <TextBlock HorizontalAlignment="Center"
-                     VerticalAlignment="Center"
-                     FontSize="{DynamicResource {x:Static h:FontSizeKeys.Header5}}"
-                     Text="{Binding Name}" />
-        </Grid>
-        <ScrollViewer>
-          <StackPanel>
-            <ListBox Classes="function" Theme="{StaticResource S.ListBox.Function}">
-              <ListBox.ItemTemplate>
-                <DataTemplate>
-                  <DockPanel Background="Transparent">
-                    <Interaction.Behaviors>
-                      <EventTriggerBehavior EventName="PointerPressed">
-                        <InvokeCommandAction Command="{Binding ShowCommand}" />
-                      </EventTriggerBehavior>
-                    </Interaction.Behaviors>
-                    <Border Width="40"
-                            Height="40"
-                            Margin="0,0,10,0"
-                            ClipToBounds="True"
-                            CornerRadius="5">
-                      <Image Source="/Assets/1.jpg" Stretch="UniformToFill" />
-                    </Border>
-                    <TextBlock VerticalAlignment="Center"
-                               FontSize="{DynamicResource {x:Static h:FontSizeKeys.Header5}}"
-                               Foreground="{DynamicResource {x:Static h:BrushKeys.Foreground}}"
-                               Text="{Binding Name}" />
-                  </DockPanel>
-                </DataTemplate>
-              </ListBox.ItemTemplate>
-              <local:Function Name="新的朋友"/>
-              <local:Function Name="仅聊天的朋友"/>
-              <local:Function Name="群聊"/>
-              <local:Function Name="标签"/>
-              <local:Function Name="公众号"/>
-            </ListBox>
-            <TextBlock Margin="5"
-                       DockPanel.Dock="Top"
-                       FontSize="10"
-                       Text="我的企业及企业联系人" />
-            <ListBox  Classes="adress"  ItemsSource="{Binding Collection}">
-            </ListBox>
-          </StackPanel>
-        </ScrollViewer>
-      </DockPanel>
-    </DataTemplate>
-    <DataTemplate DataType="local:MyItem">
-      <DockPanel>
-        <Grid Background="{DynamicResource {x:Static h:BrushKeys.Dark0_1}}" DockPanel.Dock="Top">
-          <DockPanel Margin="10,20,10,10">
-            <Border Width="60"
-                    Height="60"
-                    Margin="0,0,10,0"
-                    ClipToBounds="True"
-                    CornerRadius="5">
-              <Image Source="/Assets/logo.ico" Stretch="UniformToFill" />
-
-            </Border>
-            <UniformGrid Columns="1">
-              <TextBlock VerticalAlignment="Center"
-                         FontSize="{DynamicResource {x:Static h:FontSizeKeys.Header3}}"
-                         FontWeight="Bold"
-                         Foreground="{DynamicResource {x:Static h:BrushKeys.Foreground}}"
-                         Text="HeBianGu" />
-              <TextBlock Margin="0,8"
-                         VerticalAlignment="Center"
-                         FontSize="12"
-                         Text="微信号：908293466" />
-              <DockPanel>
-                <Button Height="NaN"
-                        Padding="5,3"
-                        FontSize="{DynamicResource {x:Static h:FontSizeKeys.Header7}}"
-                        BorderBrush="{DynamicResource {x:Static h:BrushKeys.BorderBrush}}"
-                        Content="+ 状态"
-                        CornerRadius="15" />
-                <Button Height="NaN"
-                        Padding="5,3"
-                        FontSize="{DynamicResource {x:Static h:FontSizeKeys.Header7}}"
-                        BorderBrush="{DynamicResource {x:Static h:BrushKeys.BorderBrush}}"
-                        Content="3个朋友"
-                        CornerRadius="15" />
-              </DockPanel>
-            </UniformGrid>
-          </DockPanel>
-        </Grid>
-        <ScrollViewer>
-          <StackPanel>
-            <ListBox Classes="goto">
-              <local:Function Name="服务"/>
-            </ListBox>
-
-            <ListBox Classes="goto">
-              <local:Function Name="收藏"/>
-              <local:Function Name="朋友圈"/>
-              <local:Function Name="卡包"/>
-              <local:Function Name="表情"/>
-            </ListBox>
-
-            <ListBox Classes="goto">
-              <local:SettingFunction Name="设置"/>
-            </ListBox>
-
-          </StackPanel>
-        </ScrollViewer>
-      </DockPanel>
-    </DataTemplate>
-    <DataTemplate DataType="local:FindItem">
-      <DockPanel>
-        <Grid Height="{DynamicResource {x:Static h:LayoutKeys.ItemHeight}}" DockPanel.Dock="Top">
-          <DockPanel HorizontalAlignment="Right">
-            <Button Padding="6"
-                    Content="+"
-                    DockPanel.Dock="Right"
-                    Theme="{DynamicResource {x:Static ButtonKeys.Geometry}}">
-              <StreamGeometry>M14,2 C20.627417,2 26,7.372583 26,14 C26,20.627417 20.627417,26 14,26 C7.372583,26 2,20.627417 2,14 C2,7.372583 7.372583,2 14,2 Z M14,3.5 C8.20101013,3.5 3.5,8.20101013 3.5,14 C3.5,19.7989899 8.20101013,24.5 14,24.5 C19.7989899,24.5 24.5,19.7989899 24.5,14 C24.5,8.20101013 19.7989899,3.5 14,3.5 Z M14,8 C14.4142136,8 14.75,8.33578644 14.75,8.75 L14.75,13.25 L19.25,13.25 C19.6642136,13.25 20,13.5857864 20,14 C20,14.4142136 19.6642136,14.75 19.25,14.75 L14.75,14.75 L14.75,19.25 C14.75,19.6642136 14.4142136,20 14,20 C13.5857864,20 13.25,19.6642136 13.25,19.25 L13.25,14.75 L8.75,14.75 C8.33578644,14.75 8,14.4142136 8,14 C8,13.5857864 8.33578644,13.25 8.75,13.25 L13.25,13.25 L13.25,8.75 C13.25,8.33578644 13.5857864,8 14,8 Z</StreamGeometry>
-            </Button>
-            <Button Padding="6"
-                    Content="搜索"
-                    DockPanel.Dock="Right"
-                    Theme="{DynamicResource {x:Static ButtonKeys.Geometry}}">
-              M11.5,2.75 C16.3324916,2.75 20.25,6.66750844 20.25,11.5 C20.25,13.6461673 19.4773285,15.6118676 18.1949905,17.1340957 L25.0303301,23.9696699 C25.3232233,24.2625631 25.3232233,24.7374369 25.0303301,25.0303301 C24.7640635,25.2965966 24.3473998,25.3208027 24.0537883,25.1029482 L23.9696699,25.0303301 L17.1340957,18.1949905 C15.6118676,19.4773285 13.6461673,20.25 11.5,20.25 C6.66750844,20.25 2.75,16.3324916 2.75,11.5 C2.75,6.66750844 6.66750844,2.75 11.5,2.75 Z M11.5,4.25 C7.49593556,4.25 4.25,7.49593556 4.25,11.5 C4.25,15.5040644 7.49593556,18.75 11.5,18.75 C15.5040644,18.75 18.75,15.5040644 18.75,11.5 C18.75,7.49593556 15.5040644,4.25 11.5,4.25 Z
-            </Button>
-          </DockPanel>
-          <TextBlock HorizontalAlignment="Center"
-                     VerticalAlignment="Center"
-                     FontSize="{DynamicResource {x:Static h:FontSizeKeys.Header5}}"
-                     Text="{Binding Name}" />
-        </Grid>
-
-        <ScrollViewer>
-          <StackPanel>
-            <ListBox Classes="goto">
-              <local:Function Name="朋友圈"/>
-            </ListBox>
-
-            <ListBox Classes="goto">
-              <local:Function Name="视频号"/>
-              <local:Function Name="直播"/>
-            </ListBox>
-
-            <ListBox Classes="goto">
-              <local:Function Name="扫一扫"/>
-              <local:Function Name="听一听"/>
-            </ListBox>
-
-            <ListBox Classes="goto">
-              <local:Function Name="看一看"/>
-              <local:Function Name="搜一搜"/>
-            </ListBox>
-
-            <ListBox Classes="goto">
-              <local:Function Name="附近"/>
-            </ListBox>
-
-            <ListBox Classes="goto">
-              <local:Function Name="购物"/>
-              <local:Function Name="游戏"/>
-            </ListBox>
-
-            <ListBox Classes="goto">
-              <local:Function Name="小程序"/>
-            </ListBox>
-          </StackPanel>
-        </ScrollViewer>
-      </DockPanel>
-    </DataTemplate>
-
-    <DataTemplate DataType="{x:Type local:ShowSetting}">
-      <UniformGrid Columns="1" Margin="0 40 0 0">
-        <Button Command="{h:ShowBackAdornerDialogCommand}"
-                Content="ShowBackAdornerDialogCommand">
-        </Button>
-        <Button Command="{ShowCommand Presnter={h:GetStudent}}" Content="ShowCommand" />
-        <Button Command="{ShowStringCommand}" Content="ShowStringCommand" />
-        <Button Command="{ShowPercentCommand}" Content="ShowPercentCommand" />
-        <Button Command="{ShowWaitCommand}" Content="ShowWaitCommand" />
-        <Button Command="{ShowMessageCommand}" Content="ShowMessageCommand" />
-        <Button
-                Command="{h:ShowSettingCommand}"
-                Content="ShowSettingCommand"
-                DockPanel.Dock="Right">
-        </Button>
-        <Button
-                Command="{h:ShowThemeSettingCommand}"
-                Content="ShowThemeSettingCommand"
-                DockPanel.Dock="Right"> </Button>
-
-        <Button
-            Command="{h:ShowAboutCommand}"
-            Content="ShowAboutCommand">
-        </Button>
-
-        <Button Command="{ShowEditCommand Value={h:GetStudent}}" Content="ShowEditCommand" />
-        <Button Command="{ShowViewCommand Value={h:GetStudent}}" Content="ShowViewCommand" />
-
-        <Button Command="{h:ShowInfoSnackMessageCommand Message=我是Info消息}" Content="ShowInfo" />
-        <Button Command="{h:ShowErrorSnackMessageCommand Message=我是Error消息}" Content="ShowError" />
-        <Button Command="{h:ShowSuccessSnackMessageCommand Message=我是Success消息}" Content="ShowSuccess" />
-        <Button Command="{h:ShowWarnSnackMessageCommand Message=我是Warn消息}" Content="ShowWarn" />
-        <Button Command="{h:ShowFatalSnackMessageCommand Message=我是Fatal消息}" Content="ShowFatal" />
-        <Button Command="{h:ShowProgressSnackMessageCommand Message=我是Progress消息}" Content="ShowProgress" />
-        <Button Command="{h:ShowStringSnackMessageCommand Message=我是String消息}" Content="ShowString" />
-        <Button Command="{h:ShowDialogSnackMessageCommand Message=我是Dialog消息}" Content="ShowDialog" />
-
-      </UniformGrid>
-    </DataTemplate>
-    <DataTemplate DataType="{x:Type local:ShowMessage}">
-      <DockPanel Margin="0 40 0 0">
-        <DockPanel  Background="{DynamicResource {x:Static h:BrushKeys.Dark0_1}}" DockPanel.Dock="Bottom">
-          <Button Theme="{DynamicResource {x:Static ButtonKeys.Geometry}}">
-            <StreamGeometry>M25.081 6.41848C26.2076 5.4071 28 6.2067 28 7.72074V40.2793C28 41.7933 26.2077 42.5929 25.081 41.5815L16.875 34.2153C16.0034 33.4328 14.8734 33 13.702 33H9C6.10051 33 3.75 30.6495 3.75 27.75V20.25C3.75 17.3505 6.10051 15 9 15H13.702C14.8734 15 16.0034 14.5672 16.875 13.7847L25.081 6.41848ZM25.5 9.40186L18.5451 15.6451C17.2146 16.8394 15.4898 17.5 13.702 17.5H9C7.48122 17.5 6.25 18.7312 6.25 20.25V27.75C6.25 29.2688 7.48122 30.5 9 30.5H13.702C15.4898 30.5 17.2146 31.1606 18.5451 32.3549L25.5 38.5982V9.40186Z M32.3341 14.3994C32.8038 13.8936 33.5947 13.8643 34.1006 14.334L34.1023 14.3356L34.1043 14.3374L34.1092 14.3421L34.1229 14.355C34.1336 14.3653 34.1477 14.3788 34.1647 14.3955C34.1988 14.429 34.2451 14.4753 34.3018 14.5344C34.4152 14.6524 34.5707 14.8215 34.7541 15.0398C35.1202 15.4757 35.6009 16.1117 36.0798 16.9327C37.0374 18.5743 38.0001 20.9776 38.0001 24C38.0001 27.0224 37.0374 29.4257 36.0798 31.0673C35.6009 31.8883 35.1202 32.5243 34.7541 32.9602C34.5707 33.1785 34.4152 33.3476 34.3018 33.4656C34.2451 33.5247 34.1988 33.5711 34.1647 33.6045L34.1452 33.6235L34.1229 33.645L34.1092 33.6579L34.1043 33.6626L34.1015 33.6652L34.1006 33.666C33.5947 34.1357 32.8038 34.1065 32.3341 33.6006C31.8653 33.0958 31.8935 32.3072 32.3962 31.8371L32.3979 31.8355L32.414 31.8198C32.4312 31.803 32.4601 31.7741 32.4991 31.7336C32.5771 31.6524 32.695 31.5246 32.8398 31.3523C33.1299 31.0069 33.5242 30.4867 33.9203 29.8077C34.7127 28.4493 35.5001 26.4776 35.5001 24C35.5001 21.5224 34.7127 19.5507 33.9203 18.1923C33.5242 17.5133 33.1299 16.9931 32.8398 16.6477C32.695 16.4754 32.5771 16.3476 32.4991 16.2664C32.4601 16.2259 32.4312 16.197 32.414 16.1802L32.3973 16.164L32.3981 16.1647C31.8929 15.6949 31.8645 14.9051 32.3341 14.3994Z</StreamGeometry>
-          </Button>
-          <Button DockPanel.Dock="Right" Theme="{DynamicResource {x:Static ButtonKeys.Geometry}}">
-            <StreamGeometry>M14,2 C20.627417,2 26,7.372583 26,14 C26,20.627417 20.627417,26 14,26 C7.372583,26 2,20.627417 2,14 C2,7.372583 7.372583,2 14,2 Z M14,3.5 C8.20101013,3.5 3.5,8.20101013 3.5,14 C3.5,19.7989899 8.20101013,24.5 14,24.5 C19.7989899,24.5 24.5,19.7989899 24.5,14 C24.5,8.20101013 19.7989899,3.5 14,3.5 Z M14,8 C14.4142136,8 14.75,8.33578644 14.75,8.75 L14.75,13.25 L19.25,13.25 C19.6642136,13.25 20,13.5857864 20,14 C20,14.4142136 19.6642136,14.75 19.25,14.75 L14.75,14.75 L14.75,19.25 C14.75,19.6642136 14.4142136,20 14,20 C13.5857864,20 13.25,19.6642136 13.25,19.25 L13.25,14.75 L8.75,14.75 C8.33578644,14.75 8,14.4142136 8,14 C8,13.5857864 8.33578644,13.25 8.75,13.25 L13.25,13.25 L13.25,8.75 C13.25,8.33578644 13.5857864,8 14,8 Z</StreamGeometry>
-          </Button>
-
-          <Button DockPanel.Dock="Right" Theme="{DynamicResource {x:Static ButtonKeys.Geometry}}">
-            <StreamGeometry>M6.74927 12C6.53852 12 6.33749 12.0887 6.19539 12.2443C6.05329 12.4 5.98323 12.6082 6.00237 12.8181C6.28259 15.8916 8.55224 18.5 12 18.5C15.4478 18.5 17.7174 15.8916 17.9977 12.8181C18.0168 12.6082 17.9468 12.4 17.8047 12.2443C17.6626 12.0887 17.4616 12 17.2508 12H6.74927ZM12 17C9.74286 17 8.12852 15.5205 7.63237 13.5H16.3677C15.8715 15.5205 14.2571 17 12 17Z M15.2501 8.75C14.8416 8.75 14.5398 9.03719 14.492 9.35982C14.4314 9.76957 14.05 10.0526 13.6403 9.99192C13.2305 9.93126 12.9475 9.54993 13.0082 9.14018C13.1696 8.0495 14.1313 7.25 15.2501 7.25C16.3689 7.25 17.3306 8.0495 17.492 9.14018C17.5527 9.54993 17.2697 9.93126 16.8599 9.99192C16.4502 10.0526 16.0688 9.76957 16.0082 9.35982C15.9604 9.03719 15.6586 8.75 15.2501 8.75Z M7.99202 9.35982C8.03977 9.03719 8.34157 8.75 8.7501 8.75C9.15863 8.75 9.46043 9.03719 9.50818 9.35982C9.56884 9.76957 9.95017 10.0526 10.3599 9.99192C10.7697 9.93126 11.0527 9.54993 10.992 9.14018C10.8306 8.0495 9.86892 7.25 8.7501 7.25C7.63128 7.25 6.66963 8.0495 6.50818 9.14018C6.44753 9.54993 6.73053 9.93126 7.14028 9.99192C7.55003 10.0526 7.93136 9.76957 7.99202 9.35982Z M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2ZM3.5 12C3.5 7.30558 7.30558 3.5 12 3.5C16.6944 3.5 20.5 7.30558 20.5 12C20.5 16.6944 16.6944 20.5 12 20.5C7.30558 20.5 3.5 16.6944 3.5 12Z</StreamGeometry>
-          </Button>
-          <TextBox Margin="0 5" Height="{DynamicResource {x:Static h:LayoutKeys.ItemHeight}}"/>
-        </DockPanel>
-        <ItemsControl>
-          <ItemsControl.DataTemplates>
-            <DataTemplate DataType="system:String">
-              <TextBlock VerticalAlignment="Center" Margin="5" HorizontalAlignment="Center"
-                        FontSize="{DynamicResource {x:Static h:FontSizeKeys.Header7}}"
-                        Text="{Binding}" />
-            </DataTemplate>
-            <DataTemplate DataType="local:ReciveMessageItem">
-              <DockPanel Margin="10">
-                <Border Width="25"
-                        Height="25"
+        <Style Selector="ListBox.goto">
+            <Setter Property="Background" Value="{DynamicResource {x:Static h:BrushKeys.Dark0_1}}" />
+            <Setter Property="DockPanel.Dock" Value="Top" />
+            <Setter Property="Margin" Value="0 2" />
+            <Setter Property="ItemContainerTheme">
+                <Setter.Value>
+                    <ControlTheme BasedOn="{StaticResource S.ListBoxItem.Fuction}" TargetType="ListBoxItem">
+                        <Setter Property="Height" Value="40" />
+                    </ControlTheme>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Styles>
+    <UserControl.DataTemplates>
+        <DataTemplate DataType="{x:Type m:Address}">
+            <DockPanel>
+                <Border Width="40"
+                        Height="40"
                         Margin="0,0,10,0"
                         ClipToBounds="True"
                         CornerRadius="5">
-                  <Image Source="/Assets/1.jpg" Stretch="UniformToFill" />
+                    <Image Source="/Assets/1.jpg" Stretch="UniformToFill" />
                 </Border>
-                <Border CornerRadius="5" HorizontalAlignment="Left" Background="{DynamicResource {x:Static h:BrushKeys.Dark0_1}}">
-                  <TextBlock VerticalAlignment="Center" Margin="5"
-                        FontSize="{DynamicResource {x:Static h:FontSizeKeys.Header7}}"
-                        Foreground="{DynamicResource {x:Static h:BrushKeys.Foreground}}"
-                        Text="{Binding Message}" />
-                </Border>
-              </DockPanel>
-            </DataTemplate>
-            <DataTemplate DataType="local:SendMessageItem">
-              <DockPanel Margin="10">
-                <Border Width="25"
-                        Height="25"
-                        Margin="0,0,10,0" DockPanel.Dock="Right"
+                <TextBlock VerticalAlignment="Center"
+                           FontSize="{DynamicResource {x:Static h:FontSizeKeys.Header5}}"
+                           Foreground="{DynamicResource {x:Static h:BrushKeys.Foreground}}"
+                           Text="{Binding Name}" />
+            </DockPanel>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type m:Message}">
+            <DockPanel Background="Transparent">
+                <Interaction.Behaviors>
+                    <EventTriggerBehavior EventName="PointerPressed">
+                        <InvokeCommandAction Command="{Binding ShowCommand}" />
+                    </EventTriggerBehavior>
+                </Interaction.Behaviors>
+                <Border Width="40"
+                        Height="40"
+                        Margin="0,0,10,0"
                         ClipToBounds="True"
                         CornerRadius="5">
-                  <Image Source="/Assets/logo.ico" Stretch="UniformToFill" />
+                    <Image Source="/Assets/1.jpg" Stretch="UniformToFill" />
                 </Border>
-                <Border CornerRadius="5" HorizontalAlignment="Right" Background="{DynamicResource {x:Static h:BrushKeys.Dark0_1}}">
-                  <TextBlock VerticalAlignment="Center" Margin="5"
-                        FontSize="{DynamicResource {x:Static h:FontSizeKeys.Header7}}"
-                        Foreground="{DynamicResource {x:Static h:BrushKeys.Foreground}}"
-                        Text="{Binding Message}" />
-                </Border>
-              </DockPanel>
-            </DataTemplate>
-          </ItemsControl.DataTemplates>
-          <local:ReciveMessageItem Message="你好"/>
-          <local:SendMessageItem Message="你好"/>
-          <local:ReciveMessageItem Message="请问什么时间能到?"/>
-          <local:SendMessageItem Message="还有5分钟"/>
-          <local:ReciveMessageItem Message="那好，我这也差不多"/>
-          <local:SendMessageItem Message="行，到时间"/>
-          <system:String>08:20</system:String>
-          <local:ReciveMessageItem Message="你要的资料已经提交请确认"/>
-          <local:SendMessageItem Message="好的，谢谢"/>
-          <local:ReciveMessageItem Message="现在可以过来一下么？"/>
-          <local:SendMessageItem Message="好的"/>
-          <system:String>15:20</system:String>
-          <local:ReciveMessageItem Message="在么"/>
-          <local:SendMessageItem Message="在，有事？"/>
-        </ItemsControl>
-      </DockPanel>
-    </DataTemplate>
-  </UserControl.DataTemplates>
-  <DockPanel>
-    <ListBox DockPanel.Dock="Bottom"
-             ItemsSource="{Binding Collection}"
-             SelectedItem="{Binding SelecteItem}">
-      <ListBox.ItemTemplate>
-        <DataTemplate>
-          <DockPanel>
-            <TextBlock HorizontalAlignment="Center"
-                       DockPanel.Dock="Bottom"
-                       FontSize="8"
-                       Text="{Binding Name}" />
-            <PathIcon Margin="0,0,0,2">
-              <PathIcon.Data>
-                <StreamGeometry>M14.0038862,2.5 C20.3551608,2.5 25.5038862,7.64872538 25.5038862,14 C25.5038862,20.3512746 20.3551608,25.5 14.0038862,25.5 C12.0828262,25.5 10.2289934,25.0277557 8.57453454,24.1400553 L4.06949813,25.4927799 C3.40830889,25.6913248 2.71135661,25.3162775 2.51281166,24.6550883 C2.44236748,24.4204969 2.44239769,24.1703786 2.5128929,23.935823 L3.86597493,19.4333464 C2.97690068,17.777898 2.50388618,15.9226229 2.50388618,14 C2.50388618,7.64872538 7.65261155,2.5 14.0038862,2.5 Z M14.0038862,4 C8.48103868,4 4.00388618,8.4771525 4.00388618,14 C4.00388618,15.7703119 4.46384891,17.4718347 5.32571954,18.9725127 L5.48656853,19.2525809 L4.08316234,23.9225148 L8.75512584,22.5196672 L9.03501121,22.6802549 C10.5348218,23.5407899 12.2350195,24 14.0038862,24 C19.5267337,24 24.0038862,19.5228475 24.0038862,14 C24.0038862,8.4771525 19.5267337,4 14.0038862,4 Z M10.2538862,15.5 L14.7521489,15.5 C15.1663625,15.5 15.5021489,15.8357864 15.5021489,16.25 C15.5021489,16.6296958 15.219995,16.943491 14.8539195,16.9931534 L14.7521489,17 L10.2538862,17 C9.83967261,17 9.50388618,16.6642136 9.50388618,16.25 C9.50388618,15.8703042 9.78604006,15.556509 10.1521156,15.5068466 L10.2538862,15.5 L14.7521489,15.5 L10.2538862,15.5 Z M10.2538862,11 L17.7583662,11 C18.1725798,11 18.5083662,11.3357864 18.5083662,11.75 C18.5083662,12.1296958 18.2262123,12.443491 17.8601368,12.4931534 L17.7583662,12.5 L10.2538862,12.5 C9.83967261,12.5 9.50388618,12.1642136 9.50388618,11.75 C9.50388618,11.3703042 9.78604006,11.056509 10.1521156,11.0068466 L10.2538862,11 L17.7583662,11 L10.2538862,11 Z</StreamGeometry>
-              </PathIcon.Data>
-            </PathIcon>
-          </DockPanel>
+                <UniformGrid Columns="1">
+                    <Grid>
+                        <TextBlock VerticalAlignment="Center"
+                                   FontSize="{DynamicResource {x:Static h:FontSizeKeys.Header5}}"
+                                   Foreground="{DynamicResource {x:Static h:BrushKeys.Foreground}}"
+                                   Text="{Binding Name}" />
+                        <TextBlock HorizontalAlignment="Right"
+                                   VerticalAlignment="Center"
+                                   FontSize="{DynamicResource {x:Static h:FontSizeKeys.Header7}}"
+                                   Foreground="{DynamicResource {x:Static h:BrushKeys.ForegroundAssist}}"
+                                   Text="{Binding Time, Converter={m:TimeValueConverter}}" />
+                    </Grid>
+                    <TextBlock VerticalAlignment="Center"
+                               FontSize="{DynamicResource {x:Static h:FontSizeKeys.Header6}}"
+                               Foreground="{DynamicResource {x:Static h:BrushKeys.ForegroundAssist}}"
+                               Text="{Binding Address}" />
+                </UniformGrid>
+            </DockPanel>
         </DataTemplate>
-      </ListBox.ItemTemplate>
-      <ListBox.ItemContainerTheme>
-        <ControlTheme BasedOn="{StaticResource {x:Type ListBoxItem}}" TargetType="ListBoxItem">
-          <Setter Property="Height" Value="50" />
-        </ControlTheme>
-      </ListBox.ItemContainerTheme>
-      <ListBox.ItemsPanel>
-        <ItemsPanelTemplate>
-          <UniformGrid Rows="1" />
-        </ItemsPanelTemplate>
-      </ListBox.ItemsPanel>
-    </ListBox>
-    <ContentControl Content="{Binding SelecteItem}" />
-  </DockPanel>
+        <DataTemplate DataType="{x:Type m:Function}">
+            <DockPanel Background="Transparent">
+                <Interaction.Behaviors>
+                    <EventTriggerBehavior EventName="PointerPressed">
+                        <InvokeCommandAction Command="{Binding ShowCommand}" />
+                    </EventTriggerBehavior>
+                </Interaction.Behaviors>
+                <PathIcon Margin="10,5">
+                    <PathIcon.Data>
+                        <StreamGeometry>M14.0038862,2.5 C20.3551608,2.5 25.5038862,7.64872538 25.5038862,14 C25.5038862,20.3512746 20.3551608,25.5 14.0038862,25.5 C12.0828262,25.5 10.2289934,25.0277557 8.57453454,24.1400553 L4.06949813,25.4927799 C3.40830889,25.6913248 2.71135661,25.3162775 2.51281166,24.6550883 C2.44236748,24.4204969 2.44239769,24.1703786 2.5128929,23.935823 L3.86597493,19.4333464 C2.97690068,17.777898 2.50388618,15.9226229 2.50388618,14 C2.50388618,7.64872538 7.65261155,2.5 14.0038862,2.5 Z M14.0038862,4 C8.48103868,4 4.00388618,8.4771525 4.00388618,14 C4.00388618,15.7703119 4.46384891,17.4718347 5.32571954,18.9725127 L5.48656853,19.2525809 L4.08316234,23.9225148 L8.75512584,22.5196672 L9.03501121,22.6802549 C10.5348218,23.5407899 12.2350195,24 14.0038862,24 C19.5267337,24 24.0038862,19.5228475 24.0038862,14 C24.0038862,8.4771525 19.5267337,4 14.0038862,4 Z M10.2538862,15.5 L14.7521489,15.5 C15.1663625,15.5 15.5021489,15.8357864 15.5021489,16.25 C15.5021489,16.6296958 15.219995,16.943491 14.8539195,16.9931534 L14.7521489,17 L10.2538862,17 C9.83967261,17 9.50388618,16.6642136 9.50388618,16.25 C9.50388618,15.8703042 9.78604006,15.556509 10.1521156,15.5068466 L10.2538862,15.5 L14.7521489,15.5 L10.2538862,15.5 Z M10.2538862,11 L17.7583662,11 C18.1725798,11 18.5083662,11.3357864 18.5083662,11.75 C18.5083662,12.1296958 18.2262123,12.443491 17.8601368,12.4931534 L17.7583662,12.5 L10.2538862,12.5 C9.83967261,12.5 9.50388618,12.1642136 9.50388618,11.75 C9.50388618,11.3703042 9.78604006,11.056509 10.1521156,11.0068466 L10.2538862,11 L17.7583662,11 L10.2538862,11 Z</StreamGeometry>
+                    </PathIcon.Data>
+                </PathIcon>
+                <PathIcon Margin="10,8" DockPanel.Dock="Right">
+                    <PathIcon.Data>
+                        <StreamGeometry>M16.1161 39.6339C15.628 39.1457 15.628 38.3543 16.1161 37.8661L29.9822 24L16.1161 10.1339C15.628 9.64573 15.628 8.85427 16.1161 8.36612C16.6043 7.87796 17.3957 7.87796 17.8839 8.36612L32.6339 23.1161C33.122 23.6043 33.122 24.3957 32.6339 24.8839L17.8839 39.6339C17.3957 40.122 16.6043 40.122 16.1161 39.6339Z</StreamGeometry>
+                    </PathIcon.Data>
+                </PathIcon>
+                <TextBlock VerticalAlignment="Center"
+                           FontSize="{DynamicResource {x:Static h:FontSizeKeys.Header5}}"
+                           Foreground="{DynamicResource {x:Static h:BrushKeys.Foreground}}"
+                           Text="{Binding Name}" />
+            </DockPanel>
+        </DataTemplate>
+        <DataTemplate DataType="m:MessageItem">
+            <DockPanel>
+                <Grid Height="{DynamicResource {x:Static h:LayoutKeys.ItemHeight}}" DockPanel.Dock="Top">
+                    <DockPanel HorizontalAlignment="Right">
+                        <Button Padding="6"
+                                Content="+"
+                                DockPanel.Dock="Right"
+                                Theme="{DynamicResource {x:Static ButtonKeys.Geometry}}">
+                            <StreamGeometry>M14,2 C20.627417,2 26,7.372583 26,14 C26,20.627417 20.627417,26 14,26 C7.372583,26 2,20.627417 2,14 C2,7.372583 7.372583,2 14,2 Z M14,3.5 C8.20101013,3.5 3.5,8.20101013 3.5,14 C3.5,19.7989899 8.20101013,24.5 14,24.5 C19.7989899,24.5 24.5,19.7989899 24.5,14 C24.5,8.20101013 19.7989899,3.5 14,3.5 Z M14,8 C14.4142136,8 14.75,8.33578644 14.75,8.75 L14.75,13.25 L19.25,13.25 C19.6642136,13.25 20,13.5857864 20,14 C20,14.4142136 19.6642136,14.75 19.25,14.75 L14.75,14.75 L14.75,19.25 C14.75,19.6642136 14.4142136,20 14,20 C13.5857864,20 13.25,19.6642136 13.25,19.25 L13.25,14.75 L8.75,14.75 C8.33578644,14.75 8,14.4142136 8,14 C8,13.5857864 8.33578644,13.25 8.75,13.25 L13.25,13.25 L13.25,8.75 C13.25,8.33578644 13.5857864,8 14,8 Z</StreamGeometry>
+                        </Button>
+                        <Button Padding="6"
+                                Content="搜索"
+                                DockPanel.Dock="Right"
+                                Theme="{DynamicResource {x:Static ButtonKeys.Geometry}}">
+                            M11.5,2.75 C16.3324916,2.75 20.25,6.66750844 20.25,11.5 C20.25,13.6461673 19.4773285,15.6118676 18.1949905,17.1340957 L25.0303301,23.9696699 C25.3232233,24.2625631 25.3232233,24.7374369 25.0303301,25.0303301 C24.7640635,25.2965966 24.3473998,25.3208027 24.0537883,25.1029482 L23.9696699,25.0303301 L17.1340957,18.1949905 C15.6118676,19.4773285 13.6461673,20.25 11.5,20.25 C6.66750844,20.25 2.75,16.3324916 2.75,11.5 C2.75,6.66750844 6.66750844,2.75 11.5,2.75 Z M11.5,4.25 C7.49593556,4.25 4.25,7.49593556 4.25,11.5 C4.25,15.5040644 7.49593556,18.75 11.5,18.75 C15.5040644,18.75 18.75,15.5040644 18.75,11.5 C18.75,7.49593556 15.5040644,4.25 11.5,4.25 Z
+                        </Button>
+                    </DockPanel>
+                    <TextBlock HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               FontSize="{DynamicResource {x:Static h:FontSizeKeys.Header5}}"
+                               Text="{Binding Name}" />
+                </Grid>
+                <ListBox Classes="message"
+                         ItemsSource="{Binding Collection}"
+                         Theme="{StaticResource S.ListBox.Function}" />
+            </DockPanel>
+        </DataTemplate>
+        <DataTemplate DataType="m:AddressItem">
+            <DockPanel>
+                <Grid Height="{DynamicResource {x:Static h:LayoutKeys.ItemHeight}}" DockPanel.Dock="Top">
+                    <DockPanel HorizontalAlignment="Right">
+                        <Button Padding="6"
+                                Content="+"
+                                DockPanel.Dock="Right"
+                                Theme="{DynamicResource {x:Static ButtonKeys.Geometry}}">
+                            <StreamGeometry>M14,2 C20.627417,2 26,7.372583 26,14 C26,20.627417 20.627417,26 14,26 C7.372583,26 2,20.627417 2,14 C2,7.372583 7.372583,2 14,2 Z M14,3.5 C8.20101013,3.5 3.5,8.20101013 3.5,14 C3.5,19.7989899 8.20101013,24.5 14,24.5 C19.7989899,24.5 24.5,19.7989899 24.5,14 C24.5,8.20101013 19.7989899,3.5 14,3.5 Z M14,8 C14.4142136,8 14.75,8.33578644 14.75,8.75 L14.75,13.25 L19.25,13.25 C19.6642136,13.25 20,13.5857864 20,14 C20,14.4142136 19.6642136,14.75 19.25,14.75 L14.75,14.75 L14.75,19.25 C14.75,19.6642136 14.4142136,20 14,20 C13.5857864,20 13.25,19.6642136 13.25,19.25 L13.25,14.75 L8.75,14.75 C8.33578644,14.75 8,14.4142136 8,14 C8,13.5857864 8.33578644,13.25 8.75,13.25 L13.25,13.25 L13.25,8.75 C13.25,8.33578644 13.5857864,8 14,8 Z</StreamGeometry>
+                        </Button>
+                        <Button Padding="6"
+                                Content="搜索"
+                                DockPanel.Dock="Right"
+                                Theme="{DynamicResource {x:Static ButtonKeys.Geometry}}">
+                            M11.5,2.75 C16.3324916,2.75 20.25,6.66750844 20.25,11.5 C20.25,13.6461673 19.4773285,15.6118676 18.1949905,17.1340957 L25.0303301,23.9696699 C25.3232233,24.2625631 25.3232233,24.7374369 25.0303301,25.0303301 C24.7640635,25.2965966 24.3473998,25.3208027 24.0537883,25.1029482 L23.9696699,25.0303301 L17.1340957,18.1949905 C15.6118676,19.4773285 13.6461673,20.25 11.5,20.25 C6.66750844,20.25 2.75,16.3324916 2.75,11.5 C2.75,6.66750844 6.66750844,2.75 11.5,2.75 Z M11.5,4.25 C7.49593556,4.25 4.25,7.49593556 4.25,11.5 C4.25,15.5040644 7.49593556,18.75 11.5,18.75 C15.5040644,18.75 18.75,15.5040644 18.75,11.5 C18.75,7.49593556 15.5040644,4.25 11.5,4.25 Z
+                        </Button>
+                    </DockPanel>
+                    <TextBlock HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               FontSize="{DynamicResource {x:Static h:FontSizeKeys.Header5}}"
+                               Text="{Binding Name}" />
+                </Grid>
+                <ScrollViewer>
+                    <StackPanel>
+                        <ListBox Classes="function" Theme="{StaticResource S.ListBox.Function}">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <DockPanel Background="Transparent">
+                                        <Interaction.Behaviors>
+                                            <EventTriggerBehavior EventName="PointerPressed">
+                                                <InvokeCommandAction Command="{Binding ShowCommand}" />
+                                            </EventTriggerBehavior>
+                                        </Interaction.Behaviors>
+                                        <Border Width="40"
+                                                Height="40"
+                                                Margin="0,0,10,0"
+                                                ClipToBounds="True"
+                                                CornerRadius="5">
+                                            <Image Source="/Assets/1.jpg" Stretch="UniformToFill" />
+                                        </Border>
+                                        <TextBlock VerticalAlignment="Center"
+                                                   FontSize="{DynamicResource {x:Static h:FontSizeKeys.Header5}}"
+                                                   Foreground="{DynamicResource {x:Static h:BrushKeys.Foreground}}"
+                                                   Text="{Binding Name}" />
+                                    </DockPanel>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                            <m:Function Name="新的朋友" />
+                            <m:Function Name="仅聊天的朋友" />
+                            <m:Function Name="群聊" />
+                            <m:Function Name="标签" />
+                            <m:Function Name="公众号" />
+                        </ListBox>
+                        <TextBlock Margin="5"
+                                   DockPanel.Dock="Top"
+                                   FontSize="10"
+                                   Text="我的企业及企业联系人" />
+                        <ListBox Classes="adress" ItemsSource="{Binding Collection}" />
+                    </StackPanel>
+                </ScrollViewer>
+            </DockPanel>
+        </DataTemplate>
+        <DataTemplate DataType="m:MyItem">
+            <DockPanel>
+                <Grid Background="{DynamicResource {x:Static h:BrushKeys.Dark0_1}}" DockPanel.Dock="Top">
+                    <DockPanel Margin="10,20,10,10">
+                        <Border Width="60"
+                                Height="60"
+                                Margin="0,0,10,0"
+                                ClipToBounds="True"
+                                CornerRadius="5">
+                            <Image Source="/Assets/logo.ico" Stretch="UniformToFill" />
+
+                        </Border>
+                        <UniformGrid Columns="1">
+                            <TextBlock VerticalAlignment="Center"
+                                       FontSize="{DynamicResource {x:Static h:FontSizeKeys.Header3}}"
+                                       FontWeight="Bold"
+                                       Foreground="{DynamicResource {x:Static h:BrushKeys.Foreground}}"
+                                       Text="HeBianGu" />
+                            <TextBlock Margin="0,8"
+                                       VerticalAlignment="Center"
+                                       FontSize="12"
+                                       Text="微信号：908293466" />
+                            <DockPanel>
+                                <Button Height="NaN"
+                                        Padding="5,3"
+                                        BorderBrush="{DynamicResource {x:Static h:BrushKeys.BorderBrush}}"
+                                        Content="+ 状态"
+                                        CornerRadius="15"
+                                        FontSize="{DynamicResource {x:Static h:FontSizeKeys.Header7}}" />
+                                <Button Height="NaN"
+                                        Padding="5,3"
+                                        BorderBrush="{DynamicResource {x:Static h:BrushKeys.BorderBrush}}"
+                                        Content="3个朋友"
+                                        CornerRadius="15"
+                                        FontSize="{DynamicResource {x:Static h:FontSizeKeys.Header7}}" />
+                            </DockPanel>
+                        </UniformGrid>
+                    </DockPanel>
+                </Grid>
+                <ScrollViewer>
+                    <StackPanel>
+                        <ListBox Classes="goto">
+                            <m:Function Name="服务" />
+                        </ListBox>
+
+                        <ListBox Classes="goto">
+                            <m:Function Name="收藏" />
+                            <m:FriendGroup Name="朋友圈" />
+                            <m:Function Name="卡包" />
+                            <m:Function Name="表情" />
+                        </ListBox>
+
+                        <ListBox Classes="goto">
+                            <m:SettingFunction Name="设置" />
+                        </ListBox>
+
+                    </StackPanel>
+                </ScrollViewer>
+            </DockPanel>
+        </DataTemplate>
+        <DataTemplate DataType="m:FindItem">
+            <DockPanel>
+                <Grid Height="{DynamicResource {x:Static h:LayoutKeys.ItemHeight}}" DockPanel.Dock="Top">
+                    <DockPanel HorizontalAlignment="Right">
+                        <Button Padding="6"
+                                Content="+"
+                                DockPanel.Dock="Right"
+                                Theme="{DynamicResource {x:Static ButtonKeys.Geometry}}">
+                            <StreamGeometry>M14,2 C20.627417,2 26,7.372583 26,14 C26,20.627417 20.627417,26 14,26 C7.372583,26 2,20.627417 2,14 C2,7.372583 7.372583,2 14,2 Z M14,3.5 C8.20101013,3.5 3.5,8.20101013 3.5,14 C3.5,19.7989899 8.20101013,24.5 14,24.5 C19.7989899,24.5 24.5,19.7989899 24.5,14 C24.5,8.20101013 19.7989899,3.5 14,3.5 Z M14,8 C14.4142136,8 14.75,8.33578644 14.75,8.75 L14.75,13.25 L19.25,13.25 C19.6642136,13.25 20,13.5857864 20,14 C20,14.4142136 19.6642136,14.75 19.25,14.75 L14.75,14.75 L14.75,19.25 C14.75,19.6642136 14.4142136,20 14,20 C13.5857864,20 13.25,19.6642136 13.25,19.25 L13.25,14.75 L8.75,14.75 C8.33578644,14.75 8,14.4142136 8,14 C8,13.5857864 8.33578644,13.25 8.75,13.25 L13.25,13.25 L13.25,8.75 C13.25,8.33578644 13.5857864,8 14,8 Z</StreamGeometry>
+                        </Button>
+                        <Button Padding="6"
+                                Content="搜索"
+                                DockPanel.Dock="Right"
+                                Theme="{DynamicResource {x:Static ButtonKeys.Geometry}}">
+                            M11.5,2.75 C16.3324916,2.75 20.25,6.66750844 20.25,11.5 C20.25,13.6461673 19.4773285,15.6118676 18.1949905,17.1340957 L25.0303301,23.9696699 C25.3232233,24.2625631 25.3232233,24.7374369 25.0303301,25.0303301 C24.7640635,25.2965966 24.3473998,25.3208027 24.0537883,25.1029482 L23.9696699,25.0303301 L17.1340957,18.1949905 C15.6118676,19.4773285 13.6461673,20.25 11.5,20.25 C6.66750844,20.25 2.75,16.3324916 2.75,11.5 C2.75,6.66750844 6.66750844,2.75 11.5,2.75 Z M11.5,4.25 C7.49593556,4.25 4.25,7.49593556 4.25,11.5 C4.25,15.5040644 7.49593556,18.75 11.5,18.75 C15.5040644,18.75 18.75,15.5040644 18.75,11.5 C18.75,7.49593556 15.5040644,4.25 11.5,4.25 Z
+                        </Button>
+                    </DockPanel>
+                    <TextBlock HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               FontSize="{DynamicResource {x:Static h:FontSizeKeys.Header5}}"
+                               Text="{Binding Name}" />
+                </Grid>
+
+                <ScrollViewer>
+                    <StackPanel>
+                        <ListBox Classes="goto">
+                            <m:Function Name="朋友圈" />
+                        </ListBox>
+
+                        <ListBox Classes="goto">
+                            <m:Function Name="视频号" />
+                            <m:Function Name="直播" />
+                        </ListBox>
+
+                        <ListBox Classes="goto">
+                            <m:Function Name="扫一扫" />
+                            <m:Function Name="听一听" />
+                        </ListBox>
+
+                        <ListBox Classes="goto">
+                            <m:Function Name="看一看" />
+                            <m:Function Name="搜一搜" />
+                        </ListBox>
+
+                        <ListBox Classes="goto">
+                            <m:Function Name="附近" />
+                        </ListBox>
+
+                        <ListBox Classes="goto">
+                            <m:Function Name="购物" />
+                            <m:Function Name="游戏" />
+                        </ListBox>
+
+                        <ListBox Classes="goto">
+                            <m:Function Name="小程序" />
+                        </ListBox>
+                    </StackPanel>
+                </ScrollViewer>
+            </DockPanel>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type m:ShowSetting}">
+            <UniformGrid Margin="0,40,0,0" Columns="1">
+                <Button Command="{h:ShowBackAdornerDialogCommand}" Content="ShowBackAdornerDialogCommand" />
+                <Button Command="{ShowCommand Presnter={h:GetStudent}}" Content="ShowCommand" />
+                <Button Command="{ShowStringCommand}" Content="ShowStringCommand" />
+                <Button Command="{ShowPercentCommand}" Content="ShowPercentCommand" />
+                <Button Command="{ShowWaitCommand}" Content="ShowWaitCommand" />
+                <Button Command="{ShowMessageCommand}" Content="ShowMessageCommand" />
+                <Button Command="{h:ShowSettingCommand}"
+                        Content="ShowSettingCommand"
+                        DockPanel.Dock="Right" />
+                <Button Command="{h:ShowThemeSettingCommand}"
+                        Content="ShowThemeSettingCommand"
+                        DockPanel.Dock="Right" />
+
+                <Button Command="{h:ShowAboutCommand}" Content="ShowAboutCommand" />
+
+                <Button Command="{ShowEditCommand Value={h:GetStudent}}" Content="ShowEditCommand" />
+                <Button Command="{ShowViewCommand Value={h:GetStudent}}" Content="ShowViewCommand" />
+
+                <Button Command="{h:ShowInfoSnackMessageCommand Message=我是Info消息}" Content="ShowInfo" />
+                <Button Command="{h:ShowErrorSnackMessageCommand Message=我是Error消息}" Content="ShowError" />
+                <Button Command="{h:ShowSuccessSnackMessageCommand Message=我是Success消息}" Content="ShowSuccess" />
+                <Button Command="{h:ShowWarnSnackMessageCommand Message=我是Warn消息}" Content="ShowWarn" />
+                <Button Command="{h:ShowFatalSnackMessageCommand Message=我是Fatal消息}" Content="ShowFatal" />
+                <Button Command="{h:ShowProgressSnackMessageCommand Message=我是Progress消息}" Content="ShowProgress" />
+                <Button Command="{h:ShowStringSnackMessageCommand Message=我是String消息}" Content="ShowString" />
+                <Button Command="{h:ShowDialogSnackMessageCommand Message=我是Dialog消息}" Content="ShowDialog" />
+
+            </UniformGrid>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type m:ShowMessage}">
+            <DockPanel Margin="0,40,0,0">
+                <DockPanel Background="{DynamicResource {x:Static h:BrushKeys.Dark0_1}}" DockPanel.Dock="Bottom">
+                    <Button Padding="4" Theme="{DynamicResource {x:Static ButtonKeys.Geometry}}">
+                        <StreamGeometry>M25.081 6.41848C26.2076 5.4071 28 6.2067 28 7.72074V40.2793C28 41.7933 26.2077 42.5929 25.081 41.5815L16.875 34.2153C16.0034 33.4328 14.8734 33 13.702 33H9C6.10051 33 3.75 30.6495 3.75 27.75V20.25C3.75 17.3505 6.10051 15 9 15H13.702C14.8734 15 16.0034 14.5672 16.875 13.7847L25.081 6.41848ZM25.5 9.40186L18.5451 15.6451C17.2146 16.8394 15.4898 17.5 13.702 17.5H9C7.48122 17.5 6.25 18.7312 6.25 20.25V27.75C6.25 29.2688 7.48122 30.5 9 30.5H13.702C15.4898 30.5 17.2146 31.1606 18.5451 32.3549L25.5 38.5982V9.40186Z M32.3341 14.3994C32.8038 13.8936 33.5947 13.8643 34.1006 14.334L34.1023 14.3356L34.1043 14.3374L34.1092 14.3421L34.1229 14.355C34.1336 14.3653 34.1477 14.3788 34.1647 14.3955C34.1988 14.429 34.2451 14.4753 34.3018 14.5344C34.4152 14.6524 34.5707 14.8215 34.7541 15.0398C35.1202 15.4757 35.6009 16.1117 36.0798 16.9327C37.0374 18.5743 38.0001 20.9776 38.0001 24C38.0001 27.0224 37.0374 29.4257 36.0798 31.0673C35.6009 31.8883 35.1202 32.5243 34.7541 32.9602C34.5707 33.1785 34.4152 33.3476 34.3018 33.4656C34.2451 33.5247 34.1988 33.5711 34.1647 33.6045L34.1452 33.6235L34.1229 33.645L34.1092 33.6579L34.1043 33.6626L34.1015 33.6652L34.1006 33.666C33.5947 34.1357 32.8038 34.1065 32.3341 33.6006C31.8653 33.0958 31.8935 32.3072 32.3962 31.8371L32.3979 31.8355L32.414 31.8198C32.4312 31.803 32.4601 31.7741 32.4991 31.7336C32.5771 31.6524 32.695 31.5246 32.8398 31.3523C33.1299 31.0069 33.5242 30.4867 33.9203 29.8077C34.7127 28.4493 35.5001 26.4776 35.5001 24C35.5001 21.5224 34.7127 19.5507 33.9203 18.1923C33.5242 17.5133 33.1299 16.9931 32.8398 16.6477C32.695 16.4754 32.5771 16.3476 32.4991 16.2664C32.4601 16.2259 32.4312 16.197 32.414 16.1802L32.3973 16.164L32.3981 16.1647C31.8929 15.6949 31.8645 14.9051 32.3341 14.3994Z</StreamGeometry>
+                    </Button>
+                    <Button Padding="4"
+                            DockPanel.Dock="Right"
+                            Theme="{DynamicResource {x:Static ButtonKeys.Geometry}}">
+                        <StreamGeometry>M14,2 C20.627417,2 26,7.372583 26,14 C26,20.627417 20.627417,26 14,26 C7.372583,26 2,20.627417 2,14 C2,7.372583 7.372583,2 14,2 Z M14,3.5 C8.20101013,3.5 3.5,8.20101013 3.5,14 C3.5,19.7989899 8.20101013,24.5 14,24.5 C19.7989899,24.5 24.5,19.7989899 24.5,14 C24.5,8.20101013 19.7989899,3.5 14,3.5 Z M14,8 C14.4142136,8 14.75,8.33578644 14.75,8.75 L14.75,13.25 L19.25,13.25 C19.6642136,13.25 20,13.5857864 20,14 C20,14.4142136 19.6642136,14.75 19.25,14.75 L14.75,14.75 L14.75,19.25 C14.75,19.6642136 14.4142136,20 14,20 C13.5857864,20 13.25,19.6642136 13.25,19.25 L13.25,14.75 L8.75,14.75 C8.33578644,14.75 8,14.4142136 8,14 C8,13.5857864 8.33578644,13.25 8.75,13.25 L13.25,13.25 L13.25,8.75 C13.25,8.33578644 13.5857864,8 14,8 Z</StreamGeometry>
+                    </Button>
+
+                    <Button Padding="4"
+                            DockPanel.Dock="Right"
+                            Theme="{DynamicResource {x:Static ButtonKeys.Geometry}}">
+                        <StreamGeometry>M6.74927 12C6.53852 12 6.33749 12.0887 6.19539 12.2443C6.05329 12.4 5.98323 12.6082 6.00237 12.8181C6.28259 15.8916 8.55224 18.5 12 18.5C15.4478 18.5 17.7174 15.8916 17.9977 12.8181C18.0168 12.6082 17.9468 12.4 17.8047 12.2443C17.6626 12.0887 17.4616 12 17.2508 12H6.74927ZM12 17C9.74286 17 8.12852 15.5205 7.63237 13.5H16.3677C15.8715 15.5205 14.2571 17 12 17Z M15.2501 8.75C14.8416 8.75 14.5398 9.03719 14.492 9.35982C14.4314 9.76957 14.05 10.0526 13.6403 9.99192C13.2305 9.93126 12.9475 9.54993 13.0082 9.14018C13.1696 8.0495 14.1313 7.25 15.2501 7.25C16.3689 7.25 17.3306 8.0495 17.492 9.14018C17.5527 9.54993 17.2697 9.93126 16.8599 9.99192C16.4502 10.0526 16.0688 9.76957 16.0082 9.35982C15.9604 9.03719 15.6586 8.75 15.2501 8.75Z M7.99202 9.35982C8.03977 9.03719 8.34157 8.75 8.7501 8.75C9.15863 8.75 9.46043 9.03719 9.50818 9.35982C9.56884 9.76957 9.95017 10.0526 10.3599 9.99192C10.7697 9.93126 11.0527 9.54993 10.992 9.14018C10.8306 8.0495 9.86892 7.25 8.7501 7.25C7.63128 7.25 6.66963 8.0495 6.50818 9.14018C6.44753 9.54993 6.73053 9.93126 7.14028 9.99192C7.55003 10.0526 7.93136 9.76957 7.99202 9.35982Z M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2ZM3.5 12C3.5 7.30558 7.30558 3.5 12 3.5C16.6944 3.5 20.5 7.30558 20.5 12C20.5 16.6944 16.6944 20.5 12 20.5C7.30558 20.5 3.5 16.6944 3.5 12Z</StreamGeometry>
+                    </Button>
+                    <TextBox Height="{DynamicResource {x:Static h:LayoutKeys.ItemHeight}}" Margin="0,5" />
+                </DockPanel>
+                <ItemsControl>
+                    <ItemsControl.DataTemplates>
+                        <DataTemplate DataType="system:String">
+                            <TextBlock Margin="5"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       FontSize="{DynamicResource {x:Static h:FontSizeKeys.Header7}}"
+                                       Text="{Binding}" />
+                        </DataTemplate>
+                        <DataTemplate DataType="m:ReciveMessageItem">
+                            <DockPanel Margin="10">
+                                <Border Width="30"
+                                        Height="30"
+                                        Margin="0,0,10,0"
+                                        ClipToBounds="True"
+                                        CornerRadius="5">
+                                    <Image Source="/Assets/1.jpg" Stretch="UniformToFill" />
+                                </Border>
+                                <Border HorizontalAlignment="Left"
+                                        Background="{DynamicResource {x:Static h:BrushKeys.Dark0_1}}"
+                                        CornerRadius="5">
+                                    <TextBlock Margin="5"
+                                               VerticalAlignment="Center"
+                                               Text="{Binding Message}" />
+                                </Border>
+                            </DockPanel>
+                        </DataTemplate>
+                        <DataTemplate DataType="m:SendMessageItem">
+                            <DockPanel Margin="10">
+                                <Border Width="30"
+                                        Height="30"
+                                        Margin="0,0,10,0"
+                                        ClipToBounds="True"
+                                        CornerRadius="5"
+                                        DockPanel.Dock="Right">
+                                    <Image Source="/Assets/logo.ico" Stretch="UniformToFill" />
+                                </Border>
+                                <Border HorizontalAlignment="Right"
+                                        Background="{DynamicResource {x:Static h:BrushKeys.Dark0_1}}"
+                                        CornerRadius="5">
+                                    <TextBlock Margin="5"
+                                               VerticalAlignment="Center"
+                                               Text="{Binding Message}" />
+                                </Border>
+                            </DockPanel>
+                        </DataTemplate>
+                    </ItemsControl.DataTemplates>
+                    <m:ReciveMessageItem Message="你好" />
+                    <m:SendMessageItem Message="你好" />
+                    <m:ReciveMessageItem Message="请问什么时间能到?" />
+                    <m:SendMessageItem Message="还有5分钟" />
+                    <m:ReciveMessageItem Message="那好，我这也差不多" />
+                    <m:SendMessageItem Message="行，到时间" />
+                    <system:String>08:20</system:String>
+                    <m:ReciveMessageItem Message="你要的资料已经提交请确认" />
+                    <m:SendMessageItem Message="好的，谢谢" />
+                    <m:ReciveMessageItem Message="现在可以过来一下么？" />
+                    <m:SendMessageItem Message="好的" />
+                    <system:String>15:20</system:String>
+                    <m:ReciveMessageItem Message="在么" />
+                    <m:SendMessageItem Message="在，有事？" />
+                </ItemsControl>
+            </DockPanel>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type m:ShowFriendGroup}">
+            <DockPanel Margin="0,40,0,0">
+                <DockPanel Background="{DynamicResource {x:Static h:BrushKeys.Dark0_1}}" DockPanel.Dock="Bottom">
+                    <Button Padding="4" Theme="{DynamicResource {x:Static ButtonKeys.Geometry}}">
+                        <StreamGeometry>M25.081 6.41848C26.2076 5.4071 28 6.2067 28 7.72074V40.2793C28 41.7933 26.2077 42.5929 25.081 41.5815L16.875 34.2153C16.0034 33.4328 14.8734 33 13.702 33H9C6.10051 33 3.75 30.6495 3.75 27.75V20.25C3.75 17.3505 6.10051 15 9 15H13.702C14.8734 15 16.0034 14.5672 16.875 13.7847L25.081 6.41848ZM25.5 9.40186L18.5451 15.6451C17.2146 16.8394 15.4898 17.5 13.702 17.5H9C7.48122 17.5 6.25 18.7312 6.25 20.25V27.75C6.25 29.2688 7.48122 30.5 9 30.5H13.702C15.4898 30.5 17.2146 31.1606 18.5451 32.3549L25.5 38.5982V9.40186Z M32.3341 14.3994C32.8038 13.8936 33.5947 13.8643 34.1006 14.334L34.1023 14.3356L34.1043 14.3374L34.1092 14.3421L34.1229 14.355C34.1336 14.3653 34.1477 14.3788 34.1647 14.3955C34.1988 14.429 34.2451 14.4753 34.3018 14.5344C34.4152 14.6524 34.5707 14.8215 34.7541 15.0398C35.1202 15.4757 35.6009 16.1117 36.0798 16.9327C37.0374 18.5743 38.0001 20.9776 38.0001 24C38.0001 27.0224 37.0374 29.4257 36.0798 31.0673C35.6009 31.8883 35.1202 32.5243 34.7541 32.9602C34.5707 33.1785 34.4152 33.3476 34.3018 33.4656C34.2451 33.5247 34.1988 33.5711 34.1647 33.6045L34.1452 33.6235L34.1229 33.645L34.1092 33.6579L34.1043 33.6626L34.1015 33.6652L34.1006 33.666C33.5947 34.1357 32.8038 34.1065 32.3341 33.6006C31.8653 33.0958 31.8935 32.3072 32.3962 31.8371L32.3979 31.8355L32.414 31.8198C32.4312 31.803 32.4601 31.7741 32.4991 31.7336C32.5771 31.6524 32.695 31.5246 32.8398 31.3523C33.1299 31.0069 33.5242 30.4867 33.9203 29.8077C34.7127 28.4493 35.5001 26.4776 35.5001 24C35.5001 21.5224 34.7127 19.5507 33.9203 18.1923C33.5242 17.5133 33.1299 16.9931 32.8398 16.6477C32.695 16.4754 32.5771 16.3476 32.4991 16.2664C32.4601 16.2259 32.4312 16.197 32.414 16.1802L32.3973 16.164L32.3981 16.1647C31.8929 15.6949 31.8645 14.9051 32.3341 14.3994Z</StreamGeometry>
+                    </Button>
+                    <Button Padding="4"
+                            DockPanel.Dock="Right"
+                            Theme="{DynamicResource {x:Static ButtonKeys.Geometry}}">
+                        <StreamGeometry>M14,2 C20.627417,2 26,7.372583 26,14 C26,20.627417 20.627417,26 14,26 C7.372583,26 2,20.627417 2,14 C2,7.372583 7.372583,2 14,2 Z M14,3.5 C8.20101013,3.5 3.5,8.20101013 3.5,14 C3.5,19.7989899 8.20101013,24.5 14,24.5 C19.7989899,24.5 24.5,19.7989899 24.5,14 C24.5,8.20101013 19.7989899,3.5 14,3.5 Z M14,8 C14.4142136,8 14.75,8.33578644 14.75,8.75 L14.75,13.25 L19.25,13.25 C19.6642136,13.25 20,13.5857864 20,14 C20,14.4142136 19.6642136,14.75 19.25,14.75 L14.75,14.75 L14.75,19.25 C14.75,19.6642136 14.4142136,20 14,20 C13.5857864,20 13.25,19.6642136 13.25,19.25 L13.25,14.75 L8.75,14.75 C8.33578644,14.75 8,14.4142136 8,14 C8,13.5857864 8.33578644,13.25 8.75,13.25 L13.25,13.25 L13.25,8.75 C13.25,8.33578644 13.5857864,8 14,8 Z</StreamGeometry>
+                    </Button>
+
+                    <Button Padding="4"
+                            DockPanel.Dock="Right"
+                            Theme="{DynamicResource {x:Static ButtonKeys.Geometry}}">
+                        <StreamGeometry>M6.74927 12C6.53852 12 6.33749 12.0887 6.19539 12.2443C6.05329 12.4 5.98323 12.6082 6.00237 12.8181C6.28259 15.8916 8.55224 18.5 12 18.5C15.4478 18.5 17.7174 15.8916 17.9977 12.8181C18.0168 12.6082 17.9468 12.4 17.8047 12.2443C17.6626 12.0887 17.4616 12 17.2508 12H6.74927ZM12 17C9.74286 17 8.12852 15.5205 7.63237 13.5H16.3677C15.8715 15.5205 14.2571 17 12 17Z M15.2501 8.75C14.8416 8.75 14.5398 9.03719 14.492 9.35982C14.4314 9.76957 14.05 10.0526 13.6403 9.99192C13.2305 9.93126 12.9475 9.54993 13.0082 9.14018C13.1696 8.0495 14.1313 7.25 15.2501 7.25C16.3689 7.25 17.3306 8.0495 17.492 9.14018C17.5527 9.54993 17.2697 9.93126 16.8599 9.99192C16.4502 10.0526 16.0688 9.76957 16.0082 9.35982C15.9604 9.03719 15.6586 8.75 15.2501 8.75Z M7.99202 9.35982C8.03977 9.03719 8.34157 8.75 8.7501 8.75C9.15863 8.75 9.46043 9.03719 9.50818 9.35982C9.56884 9.76957 9.95017 10.0526 10.3599 9.99192C10.7697 9.93126 11.0527 9.54993 10.992 9.14018C10.8306 8.0495 9.86892 7.25 8.7501 7.25C7.63128 7.25 6.66963 8.0495 6.50818 9.14018C6.44753 9.54993 6.73053 9.93126 7.14028 9.99192C7.55003 10.0526 7.93136 9.76957 7.99202 9.35982Z M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2ZM3.5 12C3.5 7.30558 7.30558 3.5 12 3.5C16.6944 3.5 20.5 7.30558 20.5 12C20.5 16.6944 16.6944 20.5 12 20.5C7.30558 20.5 3.5 16.6944 3.5 12Z</StreamGeometry>
+                    </Button>
+                    <TextBox Height="{DynamicResource {x:Static h:LayoutKeys.ItemHeight}}" Margin="0,5" />
+                </DockPanel>
+                <ItemsControl>
+                    <ItemsControl.DataTemplates>
+                        <DataTemplate DataType="system:String">
+                            <TextBlock Margin="5"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       FontSize="{DynamicResource {x:Static h:FontSizeKeys.Header7}}"
+                                       Text="{Binding}" />
+                        </DataTemplate>
+                        <DataTemplate DataType="m:ReciveMessageItem">
+                            <DockPanel Margin="10">
+                                <Border Width="30"
+                                        Height="30"
+                                        Margin="0,0,10,0"
+                                        ClipToBounds="True"
+                                        CornerRadius="5">
+                                    <Image Source="/Assets/1.jpg" Stretch="UniformToFill" />
+                                </Border>
+                                <Border HorizontalAlignment="Left"
+                                        Background="{DynamicResource {x:Static h:BrushKeys.Dark0_1}}"
+                                        CornerRadius="5">
+                                    <TextBlock Margin="5"
+                                               VerticalAlignment="Center"
+                                               Text="{Binding Message}" />
+                                </Border>
+                            </DockPanel>
+                        </DataTemplate>
+                        <DataTemplate DataType="m:SendMessageItem">
+                            <DockPanel Margin="10">
+                                <Border Width="30"
+                                        Height="30"
+                                        Margin="0,0,10,0"
+                                        ClipToBounds="True"
+                                        CornerRadius="5"
+                                        DockPanel.Dock="Right">
+                                    <Image Source="/Assets/logo.ico" Stretch="UniformToFill" />
+                                </Border>
+                                <Border HorizontalAlignment="Right"
+                                        Background="{DynamicResource {x:Static h:BrushKeys.Dark0_1}}"
+                                        CornerRadius="5">
+                                    <TextBlock Margin="5"
+                                               VerticalAlignment="Center"
+                                               Text="{Binding Message}" />
+                                </Border>
+                            </DockPanel>
+                        </DataTemplate>
+                    </ItemsControl.DataTemplates>
+                    <m:ReciveMessageItem Message="你好" />
+                    <m:SendMessageItem Message="你好" />
+                    <m:ReciveMessageItem Message="请问什么时间能到?" />
+                    <m:SendMessageItem Message="还有5分钟" />
+                    <m:ReciveMessageItem Message="那好，我这也差不多" />
+                    <m:SendMessageItem Message="行，到时间" />
+                    <system:String>08:20</system:String>
+                    <m:ReciveMessageItem Message="你要的资料已经提交请确认" />
+                    <m:SendMessageItem Message="好的，谢谢" />
+                    <m:ReciveMessageItem Message="现在可以过来一下么？" />
+                    <m:SendMessageItem Message="好的" />
+                    <system:String>15:20</system:String>
+                    <m:ReciveMessageItem Message="在么" />
+                    <m:SendMessageItem Message="在，有事？" />
+                </ItemsControl>
+            </DockPanel>
+        </DataTemplate>
+    </UserControl.DataTemplates>
+    <DockPanel>
+        <ListBox DockPanel.Dock="Bottom"
+                 ItemsSource="{Binding Collection}"
+                 SelectedItem="{Binding SelecteItem}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <DockPanel>
+                        <TextBlock Name="tb"
+                                   HorizontalAlignment="Center"
+                                   DockPanel.Dock="Bottom"
+                                   FontSize="8"
+                                   Text="{Binding Name}" />
+                        <PathIcon Margin="0,0,0,2" Foreground="{Binding ElementName=tb, Path=Foreground}">
+                            <PathIcon.Data>
+                                <StreamGeometry>M14.0038862,2.5 C20.3551608,2.5 25.5038862,7.64872538 25.5038862,14 C25.5038862,20.3512746 20.3551608,25.5 14.0038862,25.5 C12.0828262,25.5 10.2289934,25.0277557 8.57453454,24.1400553 L4.06949813,25.4927799 C3.40830889,25.6913248 2.71135661,25.3162775 2.51281166,24.6550883 C2.44236748,24.4204969 2.44239769,24.1703786 2.5128929,23.935823 L3.86597493,19.4333464 C2.97690068,17.777898 2.50388618,15.9226229 2.50388618,14 C2.50388618,7.64872538 7.65261155,2.5 14.0038862,2.5 Z M14.0038862,4 C8.48103868,4 4.00388618,8.4771525 4.00388618,14 C4.00388618,15.7703119 4.46384891,17.4718347 5.32571954,18.9725127 L5.48656853,19.2525809 L4.08316234,23.9225148 L8.75512584,22.5196672 L9.03501121,22.6802549 C10.5348218,23.5407899 12.2350195,24 14.0038862,24 C19.5267337,24 24.0038862,19.5228475 24.0038862,14 C24.0038862,8.4771525 19.5267337,4 14.0038862,4 Z M10.2538862,15.5 L14.7521489,15.5 C15.1663625,15.5 15.5021489,15.8357864 15.5021489,16.25 C15.5021489,16.6296958 15.219995,16.943491 14.8539195,16.9931534 L14.7521489,17 L10.2538862,17 C9.83967261,17 9.50388618,16.6642136 9.50388618,16.25 C9.50388618,15.8703042 9.78604006,15.556509 10.1521156,15.5068466 L10.2538862,15.5 L14.7521489,15.5 L10.2538862,15.5 Z M10.2538862,11 L17.7583662,11 C18.1725798,11 18.5083662,11.3357864 18.5083662,11.75 C18.5083662,12.1296958 18.2262123,12.443491 17.8601368,12.4931534 L17.7583662,12.5 L10.2538862,12.5 C9.83967261,12.5 9.50388618,12.1642136 9.50388618,11.75 C9.50388618,11.3703042 9.78604006,11.056509 10.1521156,11.0068466 L10.2538862,11 L17.7583662,11 L10.2538862,11 Z</StreamGeometry>
+                            </PathIcon.Data>
+                        </PathIcon>
+                    </DockPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+            <ListBox.ItemContainerTheme>
+                <ControlTheme BasedOn="{StaticResource {x:Type ListBoxItem}}" TargetType="ListBoxItem">
+                    <Setter Property="Height" Value="50" />
+                </ControlTheme>
+            </ListBox.ItemContainerTheme>
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <UniformGrid Rows="1" />
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+        </ListBox>
+        <ContentControl Content="{Binding SelecteItem}" />
+    </DockPanel>
 </UserControl>
