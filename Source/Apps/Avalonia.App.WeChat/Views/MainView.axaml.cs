@@ -1,4 +1,5 @@
 ﻿using Avalonia.Controls;
+using Avalonia.Data;
 using HeBianGu.AvaloniaUI.DemoData;
 using HeBianGu.AvaloniaUI.DialogMessage;
 using HeBianGu.AvaloniaUI.Mvvm;
@@ -49,12 +50,25 @@ public class MessageItem : TabItemBindableBase<Message>
     }
 }
 
-public class Message : Student
+public abstract class InfoItemBase : Student
 {
-    public RelayCommand ShowCommand => new RelayCommand(async l =>
+    public RelayCommand ShowCommand => new RelayCommand(l =>
+    {
+        this.ShowInfo(l);
+    });
+
+
+    public abstract void ShowInfo(object p);
+
+}
+
+public class Message : InfoItemBase
+{
+    public override async void ShowInfo(object p)
     {
         await AdornerDialog.ShowPresenter<MobileAdornerDialogPresenter>(new ShowMessage(this), x => x.Title = this.Name);
-    });
+
+    }
 }
 
 public class ShowMessage : ModelBindable<Message>
@@ -75,20 +89,36 @@ public class AdressItem : TabItemBindableBase<Adress>
     }
 }
 
-public class Adress : Student
+public class Adress : InfoItemBase
 {
-    public RelayCommand ShowCommand => new RelayCommand(async l =>
+    public override async void ShowInfo(object p)
     {
         await AdornerDialog.ShowPresenter<MobileAdornerDialogPresenter>(new ShowAdress(this), x => x.Title = this.Name);
-    });
+    }
 }
 
-public class Function : Student
+public class Function : InfoItemBase
 {
-    public RelayCommand ShowCommand => new RelayCommand(async l =>
+    public override async void ShowInfo(object p)
     {
         await AdornerDialog.ShowPresenter<MobileAdornerDialogPresenter>(new ShowMy(this), x => x.Title = this.Name);
-    });
+    }
+}
+
+public class SettingFunction : Function
+{
+    public override async void ShowInfo(object p)
+    {
+        await AdornerDialog.ShowPresenter<MobileAdornerDialogPresenter>(new ShowSetting(this), x => x.Title = this.Name);
+    }
+}
+
+public class ShowSetting : ModelBindable<SettingFunction>
+{
+    public ShowSetting(SettingFunction model) : base(model)
+    {
+
+    }
 }
 
 public class ShowAdress : ModelBindable<Adress>
@@ -135,4 +165,14 @@ public class TimeValueConverter : MarkupValueConverterBase
             return time.ToString("MM月dd日");
         return value;
     }
+}
+
+public class SendMessageItem : BindableBase
+{
+    public string Message { get; set; }
+}
+
+public class ReciveMessageItem : BindableBase
+{
+    public string Message { get; set; }
 }
