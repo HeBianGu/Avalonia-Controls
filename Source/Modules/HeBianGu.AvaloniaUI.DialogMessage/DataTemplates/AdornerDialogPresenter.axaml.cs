@@ -14,8 +14,13 @@ using System.Windows;
 
 namespace HeBianGu.AvaloniaUI.DialogMessage
 {
-    public partial class AdornerDialogPresenter : DesignPresenterBase, IDialog, ICancelable
+
+    public partial class AdornerDialogPresenter : DesignPresenterBase, IDialog, ICancelable, IAdornerDialogPresenter
     {
+        public AdornerDialogPresenter()
+        {
+                
+        }
         public AdornerDialogPresenter(object presenter)
         {
             Presenter = presenter;

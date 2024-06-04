@@ -6,4 +6,5 @@ namespace HeBianGu.AvaloniaUI.Ioc
     {
         string Value { set; }
     }
+
 }

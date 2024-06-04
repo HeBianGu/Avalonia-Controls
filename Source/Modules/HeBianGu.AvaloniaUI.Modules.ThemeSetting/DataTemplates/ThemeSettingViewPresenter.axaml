@@ -4,7 +4,7 @@
               xmlns:local="clr-namespace:HeBianGu.AvaloniaUI.Modules.ThemeSetting"
               DataType="local:ThemeSettingViewPresenter">
     <ScrollViewer>
-        <StackPanel MinWidth="250" HorizontalAlignment="Stretch">
+        <StackPanel HorizontalAlignment="Stretch">
             <Expander Padding="0"
                       HorizontalAlignment="Stretch"
                       CornerRadius="1"

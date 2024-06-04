@@ -4,9 +4,11 @@
 using Avalonia.Controls;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Layout;
+using HeBianGu.AvaloniaUI.Application;
 using HeBianGu.AvaloniaUI.Ioc;
 using HeBianGu.AvaloniaUI.Modules.Setting;
 using HeBianGu.AvaloniaUI.Mvvm;
+using System;
 using System.Windows;
 
 namespace HeBianGu.AvaloniaUI.Modules.Setting
@@ -18,9 +20,11 @@ namespace HeBianGu.AvaloniaUI.Modules.Setting
             SettingViewPresenter setting = new SettingViewPresenter();
             bool? r = await IocMessage.Dialog.Show(setting, x =>
             {
+
+                var v = Avalonia.Application.Current.GetMainAdornerControl() as Control;
                 if (Avalonia.Application.Current.ApplicationLifetime is IClassicDesktopStyleApplicationLifetime)
                 {
-                    x.Width = 800;
+                    x.Width = v.Width > 800 ? 800 : double.NaN;
                     x.Height = 500;
                 }
                 else

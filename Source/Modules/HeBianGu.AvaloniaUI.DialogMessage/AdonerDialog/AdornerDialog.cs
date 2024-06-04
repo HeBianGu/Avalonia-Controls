@@ -10,14 +10,20 @@ namespace HeBianGu.AvaloniaUI.DialogMessage
 {
     public static class AdornerDialog
     {
-        public static async Task<bool?> ShowPresenter(object presenter, Action<IDialog> action = null, Func<bool> canSumit = null)
+        public static async Task<bool?> ShowPresenter<Dialog>(object presenter, Action<IDialog> action = null, Func<bool> canSumit = null) where Dialog : IAdornerDialogPresenter, new()
         {
-            AdornerDialogPresenter dialog = new AdornerDialogPresenter(presenter);
+            IAdornerDialogPresenter dialog = new Dialog();
             dialog.MinWidth = 400;
+            dialog.Presenter = presenter;
             dialog.CanSumit = canSumit;
             action?.Invoke(dialog);
             dialog.Title = dialog.Title ?? presenter.GetType().GetCustomAttribute<DisplayAttribute>()?.Name ?? "提示";
             return await dialog.ShowDialog();
+        }
+
+        public static async Task<bool?> ShowPresenter(object presenter, Action<IDialog> action = null, Func<bool> canSumit = null)
+        {
+            return await ShowPresenter<AdornerDialogPresenter>(presenter, action, canSumit);
         }
 
         public static async Task<T> ShowAction<P, T>(P presenter, Func<IDialog, P, T> func = null, Action<IDialog> action = null)
