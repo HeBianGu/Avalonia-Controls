@@ -37,7 +37,8 @@
             <TextBlock Margin="0,2"
                        Text="{Binding Message}"
                        TextTrimming="CharacterEllipsis" />
-            <TextBlock Text="{Binding Time}" />
+            <TextBlock Text="{Binding Time}"   FontSize="{DynamicResource {x:Static h:FontSizeKeys.Header7}}"
+                 Foreground="{DynamicResource {x:Static h:BrushKeys.ForegroundAssist}}"/>
         </StackPanel>
 
         <Button Grid.ColumnSpan="2"

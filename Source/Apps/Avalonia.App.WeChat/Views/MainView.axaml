@@ -20,6 +20,127 @@
         -->
     <vm:MainViewModel />
   </Design.DataContext>
+  <UserControl.Resources>
+    <ControlTheme x:Key="S.ListBoxItem.Fuction" TargetType="ListBoxItem" BasedOn="{StaticResource {x:Type ListBoxItem}}">
+      <Style Selector="^:selected">
+        <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+          <Setter Property="Background" Value="Transparent" />
+          <Setter Property="Foreground" Value="{DynamicResource {x:Static h:BrushKeys.Foreground}}" />
+        </Style>
+        <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+          <Setter Property="Background" Value="{DynamicResource {x:Static h:BrushKeys.MouseOver}}" />
+        </Style>
+      </Style>
+    </ControlTheme>
+
+    <!--<ControlTheme x:Key="S.ListBox.Fuction" TargetType="ListBox" BasedOn="{StaticResource {x:Type ListBox}}">
+      <Setter Property="Background" Value="{DynamicResource {x:Static h:BrushKeys.Dark0_1}}"/>
+      <Style Selector="ListBox.message">
+        <Setter Property="Background" Value="{DynamicResource {x:Static h:BrushKeys.Dark0_1}}"/>
+        <Setter Property="ItemContainerTheme">
+          <Setter.Value>
+            <ControlTheme BasedOn="{StaticResource S.ListBoxItem.Fuction}" TargetType="ListBoxItem">
+              <Setter Property="Height" Value="60" />
+            </ControlTheme>
+          </Setter.Value>
+        </Setter>
+      </Style>
+    </ControlTheme>-->
+  </UserControl.Resources>
+  <UserControl.Styles>
+    <Style Selector="ListBox.message">
+      <Setter Property="Background" Value="{DynamicResource {x:Static h:BrushKeys.Dark0_1}}"/>
+      <Setter Property="DockPanel.Dock" Value="Top"/>
+      <Setter Property="ItemContainerTheme">
+        <Setter.Value>
+          <ControlTheme BasedOn="{StaticResource S.ListBoxItem.Fuction}" TargetType="ListBoxItem">
+            <Setter Property="Height" Value="60" />
+          </ControlTheme>
+        </Setter.Value>
+      </Setter>
+    </Style>
+
+    <Style Selector="ListBox.function">
+      <Setter Property="Background" Value="{DynamicResource {x:Static h:BrushKeys.Dark0_1}}"/>
+      <Setter Property="DockPanel.Dock" Value="Top"/>
+      <Setter Property="ItemContainerTheme">
+        <Setter.Value>
+          <ControlTheme BasedOn="{StaticResource S.ListBoxItem.Fuction}" TargetType="ListBoxItem">
+            <Setter Property="Height" Value="50" />
+          </ControlTheme>
+        </Setter.Value>
+      </Setter>
+      <Setter Property="ItemTemplate">
+        <Setter.Value>
+          <DataTemplate>
+            <DockPanel Background="Transparent">
+              <Interaction.Behaviors>
+                <EventTriggerBehavior EventName="PointerPressed">
+                  <InvokeCommandAction Command="{Binding ShowCommand}" />
+                </EventTriggerBehavior>
+              </Interaction.Behaviors>
+              <Border Width="35"
+                      Height="35"
+                      Margin="0,0,10,0"
+                      ClipToBounds="True"
+                      CornerRadius="5">
+                <Image Source="/Assets/1.jpg" Stretch="UniformToFill" />
+              </Border>
+              <TextBlock VerticalAlignment="Center"
+                         Text="{Binding}" />
+            </DockPanel>
+          </DataTemplate>
+        </Setter.Value>
+      </Setter>
+    </Style>
+
+    <Style Selector="ListBox.adress">
+      <Setter Property="Background" Value="{DynamicResource {x:Static h:BrushKeys.Dark0_1}}"/>
+      <Setter Property="DockPanel.Dock" Value="Top"/>
+      <Setter Property="ItemContainerTheme">
+        <Setter.Value>
+          <ControlTheme BasedOn="{StaticResource S.ListBoxItem.Fuction}" TargetType="ListBoxItem">
+            <Setter Property="Height" Value="50" />
+          </ControlTheme>
+        </Setter.Value>
+      </Setter>
+      <Setter Property="ItemTemplate">
+        <Setter.Value>
+          <DataTemplate>
+            <DockPanel Background="Transparent">
+              <Interaction.Behaviors>
+                <EventTriggerBehavior EventName="PointerPressed">
+                  <InvokeCommandAction Command="{Binding ShowCommand}" />
+                </EventTriggerBehavior>
+              </Interaction.Behaviors>
+              <Border Width="35"
+                      Height="35"
+                      Margin="0,0,10,0"
+                      ClipToBounds="True"
+                      CornerRadius="5">
+                <Image Source="/Assets/1.jpg" Stretch="UniformToFill" />
+              </Border>
+              <TextBlock VerticalAlignment="Center"
+                         Text="{Binding Name}" />
+            </DockPanel>
+          </DataTemplate>
+        </Setter.Value>
+      </Setter>
+    </Style>
+
+    <Style Selector="ListBox.goto">
+      <Setter Property="Background" Value="{DynamicResource {x:Static h:BrushKeys.Dark0_1}}"/>
+      <Setter Property="DockPanel.Dock" Value="Top"/>
+      <Setter Property="Margin" Value="0 2"/>
+      <Setter Property="ItemContainerTheme">
+        <Setter.Value>
+          <ControlTheme BasedOn="{StaticResource S.ListBoxItem.Fuction}" TargetType="ListBoxItem">
+            <Setter Property="Height" Value="40" />
+          </ControlTheme>
+        </Setter.Value>
+      </Setter>
+    </Style>
+  </UserControl.Styles>
   <UserControl.DataTemplates>
     <DataTemplate DataType="{x:Type local:Adress}">
       <DockPanel>
@@ -37,7 +158,12 @@
       </DockPanel>
     </DataTemplate>
     <DataTemplate DataType="{x:Type local:Message}">
-      <DockPanel>
+      <DockPanel Background="Transparent">
+        <Interaction.Behaviors>
+          <EventTriggerBehavior EventName="PointerPressed">
+            <InvokeCommandAction Command="{Binding ShowCommand}" />
+          </EventTriggerBehavior>
+        </Interaction.Behaviors>
         <Border Width="40"
                 Height="40"
                 Margin="0,0,10,0"
@@ -64,6 +190,29 @@
         </UniformGrid>
       </DockPanel>
     </DataTemplate>
+    <DataTemplate DataType="{x:Type local:Function}">
+      <DockPanel Background="Transparent">
+        <Interaction.Behaviors>
+          <EventTriggerBehavior EventName="PointerPressed">
+            <InvokeCommandAction Command="{Binding ShowCommand}" />
+          </EventTriggerBehavior>
+        </Interaction.Behaviors>
+        <PathIcon Margin="10,5">
+          <PathIcon.Data>
+            <StreamGeometry>M14.0038862,2.5 C20.3551608,2.5 25.5038862,7.64872538 25.5038862,14 C25.5038862,20.3512746 20.3551608,25.5 14.0038862,25.5 C12.0828262,25.5 10.2289934,25.0277557 8.57453454,24.1400553 L4.06949813,25.4927799 C3.40830889,25.6913248 2.71135661,25.3162775 2.51281166,24.6550883 C2.44236748,24.4204969 2.44239769,24.1703786 2.5128929,23.935823 L3.86597493,19.4333464 C2.97690068,17.777898 2.50388618,15.9226229 2.50388618,14 C2.50388618,7.64872538 7.65261155,2.5 14.0038862,2.5 Z M14.0038862,4 C8.48103868,4 4.00388618,8.4771525 4.00388618,14 C4.00388618,15.7703119 4.46384891,17.4718347 5.32571954,18.9725127 L5.48656853,19.2525809 L4.08316234,23.9225148 L8.75512584,22.5196672 L9.03501121,22.6802549 C10.5348218,23.5407899 12.2350195,24 14.0038862,24 C19.5267337,24 24.0038862,19.5228475 24.0038862,14 C24.0038862,8.4771525 19.5267337,4 14.0038862,4 Z M10.2538862,15.5 L14.7521489,15.5 C15.1663625,15.5 15.5021489,15.8357864 15.5021489,16.25 C15.5021489,16.6296958 15.219995,16.943491 14.8539195,16.9931534 L14.7521489,17 L10.2538862,17 C9.83967261,17 9.50388618,16.6642136 9.50388618,16.25 C9.50388618,15.8703042 9.78604006,15.556509 10.1521156,15.5068466 L10.2538862,15.5 L14.7521489,15.5 L10.2538862,15.5 Z M10.2538862,11 L17.7583662,11 C18.1725798,11 18.5083662,11.3357864 18.5083662,11.75 C18.5083662,12.1296958 18.2262123,12.443491 17.8601368,12.4931534 L17.7583662,12.5 L10.2538862,12.5 C9.83967261,12.5 9.50388618,12.1642136 9.50388618,11.75 C9.50388618,11.3703042 9.78604006,11.056509 10.1521156,11.0068466 L10.2538862,11 L17.7583662,11 L10.2538862,11 Z</StreamGeometry>
+          </PathIcon.Data>
+        </PathIcon>
+        <PathIcon Margin="10,8" DockPanel.Dock="Right">
+          <PathIcon.Data>
+            <StreamGeometry>M16.1161 39.6339C15.628 39.1457 15.628 38.3543 16.1161 37.8661L29.9822 24L16.1161 10.1339C15.628 9.64573 15.628 8.85427 16.1161 8.36612C16.6043 7.87796 17.3957 7.87796 17.8839 8.36612L32.6339 23.1161C33.122 23.6043 33.122 24.3957 32.6339 24.8839L17.8839 39.6339C17.3957 40.122 16.6043 40.122 16.1161 39.6339Z</StreamGeometry>
+          </PathIcon.Data>
+        </PathIcon>
+        <TextBlock VerticalAlignment="Center"
+                   FontSize="{DynamicResource {x:Static h:FontSizeKeys.Header5}}"
+                   Foreground="{DynamicResource {x:Static h:BrushKeys.Foreground}}"
+                   Text="{Binding Name}" />
+      </DockPanel>
+    </DataTemplate>
     <DataTemplate DataType="local:MessageItem">
       <DockPanel>
         <Grid Height="{DynamicResource {x:Static h:LayoutKeys.ItemHeight}}" DockPanel.Dock="Top">
@@ -86,13 +235,7 @@
                      FontSize="{DynamicResource {x:Static h:FontSizeKeys.Header5}}"
                      Text="{Binding Name}" />
         </Grid>
-        <ListBox Background="{DynamicResource {x:Static h:BrushKeys.Dark0_1}}" ItemsSource="{Binding Collection}">
-          <ListBox.ItemContainerTheme>
-            <ControlTheme BasedOn="{StaticResource {x:Type ListBoxItem}}" TargetType="ListBoxItem">
-              <Setter Property="Height" Value="60" />
-            </ControlTheme>
-          </ListBox.ItemContainerTheme>
-        </ListBox>
+        <ListBox Classes="message" Theme="{StaticResource S.ListBox.Function}" ItemsSource="{Binding Collection}"/>
       </DockPanel>
     </DataTemplate>
     <DataTemplate DataType="local:AdressItem">
@@ -119,15 +262,15 @@
         </Grid>
         <ScrollViewer>
           <StackPanel>
-            <ListBox Background="{DynamicResource {x:Static h:BrushKeys.Dark0_1}}" DockPanel.Dock="Top">
-              <ListBox.ItemContainerTheme>
-                <ControlTheme BasedOn="{StaticResource {x:Type ListBoxItem}}" TargetType="ListBoxItem">
-                  <Setter Property="Height" Value="60" />
-                </ControlTheme>
-              </ListBox.ItemContainerTheme>
+            <ListBox Classes="function" Theme="{StaticResource S.ListBox.Function}">
               <ListBox.ItemTemplate>
                 <DataTemplate>
-                  <DockPanel>
+                  <DockPanel Background="Transparent">
+                    <Interaction.Behaviors>
+                      <EventTriggerBehavior EventName="PointerPressed">
+                        <InvokeCommandAction Command="{Binding ShowCommand}" />
+                      </EventTriggerBehavior>
+                    </Interaction.Behaviors>
                     <Border Width="40"
                             Height="40"
                             Margin="0,0,10,0"
@@ -138,26 +281,21 @@
                     <TextBlock VerticalAlignment="Center"
                                FontSize="{DynamicResource {x:Static h:FontSizeKeys.Header5}}"
                                Foreground="{DynamicResource {x:Static h:BrushKeys.Foreground}}"
-                               Text="{Binding}" />
+                               Text="{Binding Name}" />
                   </DockPanel>
                 </DataTemplate>
               </ListBox.ItemTemplate>
-              <system:String>新的朋友</system:String>
-              <system:String>仅聊天的朋友</system:String>
-              <system:String>群聊</system:String>
-              <system:String>标签</system:String>
-              <system:String>公众号</system:String>
+              <local:Function Name="新的朋友"/>
+              <local:Function Name="仅聊天的朋友"/>
+              <local:Function Name="群聊"/>
+              <local:Function Name="标签"/>
+              <local:Function Name="公众号"/>
             </ListBox>
             <TextBlock Margin="5"
                        DockPanel.Dock="Top"
                        FontSize="10"
                        Text="我的企业及企业联系人" />
-            <ListBox Background="{DynamicResource {x:Static h:BrushKeys.Dark0_1}}" ItemsSource="{Binding Collection}">
-              <ListBox.ItemContainerTheme>
-                <ControlTheme BasedOn="{StaticResource {x:Type ListBoxItem}}" TargetType="ListBoxItem">
-                  <Setter Property="Height" Value="60" />
-                </ControlTheme>
-              </ListBox.ItemContainerTheme>
+            <ListBox  Classes="adress"  ItemsSource="{Binding Collection}">
             </ListBox>
           </StackPanel>
         </ScrollViewer>
@@ -188,11 +326,13 @@
               <DockPanel>
                 <Button Height="NaN"
                         Padding="5,3"
+                        FontSize="{DynamicResource {x:Static h:FontSizeKeys.Header7}}"
                         BorderBrush="{DynamicResource {x:Static h:BrushKeys.BorderBrush}}"
                         Content="+ 状态"
                         CornerRadius="15" />
                 <Button Height="NaN"
                         Padding="5,3"
+                        FontSize="{DynamicResource {x:Static h:FontSizeKeys.Header7}}"
                         BorderBrush="{DynamicResource {x:Static h:BrushKeys.BorderBrush}}"
                         Content="3个朋友"
                         CornerRadius="15" />
@@ -202,100 +342,19 @@
         </Grid>
         <ScrollViewer>
           <StackPanel>
-            <ListBox Margin="0,5"
-                     Background="{DynamicResource {x:Static h:BrushKeys.Dark0_1}}"
-                     DockPanel.Dock="Top">
-              <ListBox.ItemContainerTheme>
-                <ControlTheme BasedOn="{StaticResource {x:Type ListBoxItem}}" TargetType="ListBoxItem">
-                  <Setter Property="Height" Value="40" />
-                </ControlTheme>
-              </ListBox.ItemContainerTheme>
-              <ListBox.ItemTemplate>
-                <DataTemplate>
-                  <DockPanel>
-                    <PathIcon Margin="10,5">
-                      <PathIcon.Data>
-                        <StreamGeometry>M14.0038862,2.5 C20.3551608,2.5 25.5038862,7.64872538 25.5038862,14 C25.5038862,20.3512746 20.3551608,25.5 14.0038862,25.5 C12.0828262,25.5 10.2289934,25.0277557 8.57453454,24.1400553 L4.06949813,25.4927799 C3.40830889,25.6913248 2.71135661,25.3162775 2.51281166,24.6550883 C2.44236748,24.4204969 2.44239769,24.1703786 2.5128929,23.935823 L3.86597493,19.4333464 C2.97690068,17.777898 2.50388618,15.9226229 2.50388618,14 C2.50388618,7.64872538 7.65261155,2.5 14.0038862,2.5 Z M14.0038862,4 C8.48103868,4 4.00388618,8.4771525 4.00388618,14 C4.00388618,15.7703119 4.46384891,17.4718347 5.32571954,18.9725127 L5.48656853,19.2525809 L4.08316234,23.9225148 L8.75512584,22.5196672 L9.03501121,22.6802549 C10.5348218,23.5407899 12.2350195,24 14.0038862,24 C19.5267337,24 24.0038862,19.5228475 24.0038862,14 C24.0038862,8.4771525 19.5267337,4 14.0038862,4 Z M10.2538862,15.5 L14.7521489,15.5 C15.1663625,15.5 15.5021489,15.8357864 15.5021489,16.25 C15.5021489,16.6296958 15.219995,16.943491 14.8539195,16.9931534 L14.7521489,17 L10.2538862,17 C9.83967261,17 9.50388618,16.6642136 9.50388618,16.25 C9.50388618,15.8703042 9.78604006,15.556509 10.1521156,15.5068466 L10.2538862,15.5 L14.7521489,15.5 L10.2538862,15.5 Z M10.2538862,11 L17.7583662,11 C18.1725798,11 18.5083662,11.3357864 18.5083662,11.75 C18.5083662,12.1296958 18.2262123,12.443491 17.8601368,12.4931534 L17.7583662,12.5 L10.2538862,12.5 C9.83967261,12.5 9.50388618,12.1642136 9.50388618,11.75 C9.50388618,11.3703042 9.78604006,11.056509 10.1521156,11.0068466 L10.2538862,11 L17.7583662,11 L10.2538862,11 Z</StreamGeometry>
-                      </PathIcon.Data>
-                    </PathIcon>
-                    <PathIcon Margin="10,8" DockPanel.Dock="Right">
-                      <PathIcon.Data>
-                        <StreamGeometry>M16.1161 39.6339C15.628 39.1457 15.628 38.3543 16.1161 37.8661L29.9822 24L16.1161 10.1339C15.628 9.64573 15.628 8.85427 16.1161 8.36612C16.6043 7.87796 17.3957 7.87796 17.8839 8.36612L32.6339 23.1161C33.122 23.6043 33.122 24.3957 32.6339 24.8839L17.8839 39.6339C17.3957 40.122 16.6043 40.122 16.1161 39.6339Z</StreamGeometry>
-                      </PathIcon.Data>
-                    </PathIcon>
-                    <TextBlock VerticalAlignment="Center"
-                               FontSize="{DynamicResource {x:Static h:FontSizeKeys.Header5}}"
-                               Foreground="{DynamicResource {x:Static h:BrushKeys.Foreground}}"
-                               Text="{Binding}" />
-                  </DockPanel>
-                </DataTemplate>
-              </ListBox.ItemTemplate>
-              <system:String>服务</system:String>
+            <ListBox Classes="goto">
+              <local:Function Name="服务"/>
             </ListBox>
 
-            <ListBox Margin="0,0,0,5"
-                     Background="{DynamicResource {x:Static h:BrushKeys.Dark0_1}}"
-                     DockPanel.Dock="Top">
-              <ListBox.ItemContainerTheme>
-                <ControlTheme BasedOn="{StaticResource {x:Type ListBoxItem}}" TargetType="ListBoxItem">
-                  <Setter Property="Height" Value="40" />
-                </ControlTheme>
-              </ListBox.ItemContainerTheme>
-              <ListBox.ItemTemplate>
-                <DataTemplate>
-                  <DockPanel>
-                    <PathIcon Margin="10,5">
-                      <PathIcon.Data>
-                        <StreamGeometry>M14.0038862,2.5 C20.3551608,2.5 25.5038862,7.64872538 25.5038862,14 C25.5038862,20.3512746 20.3551608,25.5 14.0038862,25.5 C12.0828262,25.5 10.2289934,25.0277557 8.57453454,24.1400553 L4.06949813,25.4927799 C3.40830889,25.6913248 2.71135661,25.3162775 2.51281166,24.6550883 C2.44236748,24.4204969 2.44239769,24.1703786 2.5128929,23.935823 L3.86597493,19.4333464 C2.97690068,17.777898 2.50388618,15.9226229 2.50388618,14 C2.50388618,7.64872538 7.65261155,2.5 14.0038862,2.5 Z M14.0038862,4 C8.48103868,4 4.00388618,8.4771525 4.00388618,14 C4.00388618,15.7703119 4.46384891,17.4718347 5.32571954,18.9725127 L5.48656853,19.2525809 L4.08316234,23.9225148 L8.75512584,22.5196672 L9.03501121,22.6802549 C10.5348218,23.5407899 12.2350195,24 14.0038862,24 C19.5267337,24 24.0038862,19.5228475 24.0038862,14 C24.0038862,8.4771525 19.5267337,4 14.0038862,4 Z M10.2538862,15.5 L14.7521489,15.5 C15.1663625,15.5 15.5021489,15.8357864 15.5021489,16.25 C15.5021489,16.6296958 15.219995,16.943491 14.8539195,16.9931534 L14.7521489,17 L10.2538862,17 C9.83967261,17 9.50388618,16.6642136 9.50388618,16.25 C9.50388618,15.8703042 9.78604006,15.556509 10.1521156,15.5068466 L10.2538862,15.5 L14.7521489,15.5 L10.2538862,15.5 Z M10.2538862,11 L17.7583662,11 C18.1725798,11 18.5083662,11.3357864 18.5083662,11.75 C18.5083662,12.1296958 18.2262123,12.443491 17.8601368,12.4931534 L17.7583662,12.5 L10.2538862,12.5 C9.83967261,12.5 9.50388618,12.1642136 9.50388618,11.75 C9.50388618,11.3703042 9.78604006,11.056509 10.1521156,11.0068466 L10.2538862,11 L17.7583662,11 L10.2538862,11 Z</StreamGeometry>
-                      </PathIcon.Data>
-                    </PathIcon>
-                    <PathIcon Margin="10,8" DockPanel.Dock="Right">
-                      <PathIcon.Data>
-                        <StreamGeometry>M16.1161 39.6339C15.628 39.1457 15.628 38.3543 16.1161 37.8661L29.9822 24L16.1161 10.1339C15.628 9.64573 15.628 8.85427 16.1161 8.36612C16.6043 7.87796 17.3957 7.87796 17.8839 8.36612L32.6339 23.1161C33.122 23.6043 33.122 24.3957 32.6339 24.8839L17.8839 39.6339C17.3957 40.122 16.6043 40.122 16.1161 39.6339Z</StreamGeometry>
-                      </PathIcon.Data>
-                    </PathIcon>
-                    <TextBlock VerticalAlignment="Center"
-                               FontSize="{DynamicResource {x:Static h:FontSizeKeys.Header5}}"
-                               Foreground="{DynamicResource {x:Static h:BrushKeys.Foreground}}"
-                               Text="{Binding}" />
-                  </DockPanel>
-                </DataTemplate>
-              </ListBox.ItemTemplate>
-              <system:String>收藏</system:String>
-              <system:String>朋友圈</system:String>
-              <system:String>卡包</system:String>
-              <system:String>表情</system:String>
+            <ListBox Classes="goto">
+              <local:Function Name="收藏"/>
+              <local:Function Name="朋友圈"/>
+              <local:Function Name="卡包"/>
+              <local:Function Name="表情"/>
             </ListBox>
 
-            <ListBox Margin="0,0,0,5"
-                     Background="{DynamicResource {x:Static h:BrushKeys.Dark0_1}}"
-                     DockPanel.Dock="Top">
-              <ListBox.ItemContainerTheme>
-                <ControlTheme BasedOn="{StaticResource {x:Type ListBoxItem}}" TargetType="ListBoxItem">
-                  <Setter Property="Height" Value="40" />
-                </ControlTheme>
-              </ListBox.ItemContainerTheme>
-              <ListBox.ItemTemplate>
-                <DataTemplate>
-                  <DockPanel>
-                    <PathIcon Margin="10,5">
-                      <PathIcon.Data>
-                        <StreamGeometry>M14.0038862,2.5 C20.3551608,2.5 25.5038862,7.64872538 25.5038862,14 C25.5038862,20.3512746 20.3551608,25.5 14.0038862,25.5 C12.0828262,25.5 10.2289934,25.0277557 8.57453454,24.1400553 L4.06949813,25.4927799 C3.40830889,25.6913248 2.71135661,25.3162775 2.51281166,24.6550883 C2.44236748,24.4204969 2.44239769,24.1703786 2.5128929,23.935823 L3.86597493,19.4333464 C2.97690068,17.777898 2.50388618,15.9226229 2.50388618,14 C2.50388618,7.64872538 7.65261155,2.5 14.0038862,2.5 Z M14.0038862,4 C8.48103868,4 4.00388618,8.4771525 4.00388618,14 C4.00388618,15.7703119 4.46384891,17.4718347 5.32571954,18.9725127 L5.48656853,19.2525809 L4.08316234,23.9225148 L8.75512584,22.5196672 L9.03501121,22.6802549 C10.5348218,23.5407899 12.2350195,24 14.0038862,24 C19.5267337,24 24.0038862,19.5228475 24.0038862,14 C24.0038862,8.4771525 19.5267337,4 14.0038862,4 Z M10.2538862,15.5 L14.7521489,15.5 C15.1663625,15.5 15.5021489,15.8357864 15.5021489,16.25 C15.5021489,16.6296958 15.219995,16.943491 14.8539195,16.9931534 L14.7521489,17 L10.2538862,17 C9.83967261,17 9.50388618,16.6642136 9.50388618,16.25 C9.50388618,15.8703042 9.78604006,15.556509 10.1521156,15.5068466 L10.2538862,15.5 L14.7521489,15.5 L10.2538862,15.5 Z M10.2538862,11 L17.7583662,11 C18.1725798,11 18.5083662,11.3357864 18.5083662,11.75 C18.5083662,12.1296958 18.2262123,12.443491 17.8601368,12.4931534 L17.7583662,12.5 L10.2538862,12.5 C9.83967261,12.5 9.50388618,12.1642136 9.50388618,11.75 C9.50388618,11.3703042 9.78604006,11.056509 10.1521156,11.0068466 L10.2538862,11 L17.7583662,11 L10.2538862,11 Z</StreamGeometry>
-                      </PathIcon.Data>
-                    </PathIcon>
-                    <PathIcon Margin="10,8" DockPanel.Dock="Right">
-                      <PathIcon.Data>
-                        <StreamGeometry>M16.1161 39.6339C15.628 39.1457 15.628 38.3543 16.1161 37.8661L29.9822 24L16.1161 10.1339C15.628 9.64573 15.628 8.85427 16.1161 8.36612C16.6043 7.87796 17.3957 7.87796 17.8839 8.36612L32.6339 23.1161C33.122 23.6043 33.122 24.3957 32.6339 24.8839L17.8839 39.6339C17.3957 40.122 16.6043 40.122 16.1161 39.6339Z</StreamGeometry>
-                      </PathIcon.Data>
-                    </PathIcon>
-                    <TextBlock VerticalAlignment="Center"
-                               FontSize="{DynamicResource {x:Static h:FontSizeKeys.Header5}}"
-                               Foreground="{DynamicResource {x:Static h:BrushKeys.Foreground}}"
-                               Text="{Binding}" />
-                  </DockPanel>
-                </DataTemplate>
-              </ListBox.ItemTemplate>
-              <system:String>设置</system:String>
+            <ListBox Classes="goto">
+              <local:Function Name="朋友圈"/>
             </ListBox>
 
             <UniformGrid Columns="1">
@@ -365,226 +424,36 @@
 
         <ScrollViewer>
           <StackPanel>
-            <ListBox Margin="0,5"
-                     Background="{DynamicResource {x:Static h:BrushKeys.Dark0_1}}"
-                     DockPanel.Dock="Top">
-              <ListBox.ItemContainerTheme>
-                <ControlTheme BasedOn="{StaticResource {x:Type ListBoxItem}}" TargetType="ListBoxItem">
-                  <Setter Property="Height" Value="40" />
-                </ControlTheme>
-              </ListBox.ItemContainerTheme>
-              <ListBox.ItemTemplate>
-                <DataTemplate>
-                  <DockPanel>
-                    <PathIcon Margin="10,5">
-                      <PathIcon.Data>
-                        <StreamGeometry>M14.0038862,2.5 C20.3551608,2.5 25.5038862,7.64872538 25.5038862,14 C25.5038862,20.3512746 20.3551608,25.5 14.0038862,25.5 C12.0828262,25.5 10.2289934,25.0277557 8.57453454,24.1400553 L4.06949813,25.4927799 C3.40830889,25.6913248 2.71135661,25.3162775 2.51281166,24.6550883 C2.44236748,24.4204969 2.44239769,24.1703786 2.5128929,23.935823 L3.86597493,19.4333464 C2.97690068,17.777898 2.50388618,15.9226229 2.50388618,14 C2.50388618,7.64872538 7.65261155,2.5 14.0038862,2.5 Z M14.0038862,4 C8.48103868,4 4.00388618,8.4771525 4.00388618,14 C4.00388618,15.7703119 4.46384891,17.4718347 5.32571954,18.9725127 L5.48656853,19.2525809 L4.08316234,23.9225148 L8.75512584,22.5196672 L9.03501121,22.6802549 C10.5348218,23.5407899 12.2350195,24 14.0038862,24 C19.5267337,24 24.0038862,19.5228475 24.0038862,14 C24.0038862,8.4771525 19.5267337,4 14.0038862,4 Z M10.2538862,15.5 L14.7521489,15.5 C15.1663625,15.5 15.5021489,15.8357864 15.5021489,16.25 C15.5021489,16.6296958 15.219995,16.943491 14.8539195,16.9931534 L14.7521489,17 L10.2538862,17 C9.83967261,17 9.50388618,16.6642136 9.50388618,16.25 C9.50388618,15.8703042 9.78604006,15.556509 10.1521156,15.5068466 L10.2538862,15.5 L14.7521489,15.5 L10.2538862,15.5 Z M10.2538862,11 L17.7583662,11 C18.1725798,11 18.5083662,11.3357864 18.5083662,11.75 C18.5083662,12.1296958 18.2262123,12.443491 17.8601368,12.4931534 L17.7583662,12.5 L10.2538862,12.5 C9.83967261,12.5 9.50388618,12.1642136 9.50388618,11.75 C9.50388618,11.3703042 9.78604006,11.056509 10.1521156,11.0068466 L10.2538862,11 L17.7583662,11 L10.2538862,11 Z</StreamGeometry>
-                      </PathIcon.Data>
-                    </PathIcon>
-                    <PathIcon Margin="10,8" DockPanel.Dock="Right">
-                      <PathIcon.Data>
-                        <StreamGeometry>M16.1161 39.6339C15.628 39.1457 15.628 38.3543 16.1161 37.8661L29.9822 24L16.1161 10.1339C15.628 9.64573 15.628 8.85427 16.1161 8.36612C16.6043 7.87796 17.3957 7.87796 17.8839 8.36612L32.6339 23.1161C33.122 23.6043 33.122 24.3957 32.6339 24.8839L17.8839 39.6339C17.3957 40.122 16.6043 40.122 16.1161 39.6339Z</StreamGeometry>
-                      </PathIcon.Data>
-                    </PathIcon>
-                    <TextBlock VerticalAlignment="Center"
-                               FontSize="{DynamicResource {x:Static h:FontSizeKeys.Header5}}"
-                               Foreground="{DynamicResource {x:Static h:BrushKeys.Foreground}}"
-                               Text="{Binding}" />
-                  </DockPanel>
-                </DataTemplate>
-              </ListBox.ItemTemplate>
-              <system:String>朋友圈</system:String>
+            <ListBox Classes="goto">
+              <local:Function Name="朋友圈"/>
             </ListBox>
 
-            <ListBox Margin="0,0,0,5"
-                     Background="{DynamicResource {x:Static h:BrushKeys.Dark0_1}}"
-                     DockPanel.Dock="Top">
-              <ListBox.ItemContainerTheme>
-                <ControlTheme BasedOn="{StaticResource {x:Type ListBoxItem}}" TargetType="ListBoxItem">
-                  <Setter Property="Height" Value="40" />
-                </ControlTheme>
-              </ListBox.ItemContainerTheme>
-              <ListBox.ItemTemplate>
-                <DataTemplate>
-                  <DockPanel>
-                    <PathIcon Margin="10,5">
-                      <PathIcon.Data>
-                        <StreamGeometry>M14.0038862,2.5 C20.3551608,2.5 25.5038862,7.64872538 25.5038862,14 C25.5038862,20.3512746 20.3551608,25.5 14.0038862,25.5 C12.0828262,25.5 10.2289934,25.0277557 8.57453454,24.1400553 L4.06949813,25.4927799 C3.40830889,25.6913248 2.71135661,25.3162775 2.51281166,24.6550883 C2.44236748,24.4204969 2.44239769,24.1703786 2.5128929,23.935823 L3.86597493,19.4333464 C2.97690068,17.777898 2.50388618,15.9226229 2.50388618,14 C2.50388618,7.64872538 7.65261155,2.5 14.0038862,2.5 Z M14.0038862,4 C8.48103868,4 4.00388618,8.4771525 4.00388618,14 C4.00388618,15.7703119 4.46384891,17.4718347 5.32571954,18.9725127 L5.48656853,19.2525809 L4.08316234,23.9225148 L8.75512584,22.5196672 L9.03501121,22.6802549 C10.5348218,23.5407899 12.2350195,24 14.0038862,24 C19.5267337,24 24.0038862,19.5228475 24.0038862,14 C24.0038862,8.4771525 19.5267337,4 14.0038862,4 Z M10.2538862,15.5 L14.7521489,15.5 C15.1663625,15.5 15.5021489,15.8357864 15.5021489,16.25 C15.5021489,16.6296958 15.219995,16.943491 14.8539195,16.9931534 L14.7521489,17 L10.2538862,17 C9.83967261,17 9.50388618,16.6642136 9.50388618,16.25 C9.50388618,15.8703042 9.78604006,15.556509 10.1521156,15.5068466 L10.2538862,15.5 L14.7521489,15.5 L10.2538862,15.5 Z M10.2538862,11 L17.7583662,11 C18.1725798,11 18.5083662,11.3357864 18.5083662,11.75 C18.5083662,12.1296958 18.2262123,12.443491 17.8601368,12.4931534 L17.7583662,12.5 L10.2538862,12.5 C9.83967261,12.5 9.50388618,12.1642136 9.50388618,11.75 C9.50388618,11.3703042 9.78604006,11.056509 10.1521156,11.0068466 L10.2538862,11 L17.7583662,11 L10.2538862,11 Z</StreamGeometry>
-                      </PathIcon.Data>
-                    </PathIcon>
-                    <PathIcon Margin="10,8" DockPanel.Dock="Right">
-                      <PathIcon.Data>
-                        <StreamGeometry>M16.1161 39.6339C15.628 39.1457 15.628 38.3543 16.1161 37.8661L29.9822 24L16.1161 10.1339C15.628 9.64573 15.628 8.85427 16.1161 8.36612C16.6043 7.87796 17.3957 7.87796 17.8839 8.36612L32.6339 23.1161C33.122 23.6043 33.122 24.3957 32.6339 24.8839L17.8839 39.6339C17.3957 40.122 16.6043 40.122 16.1161 39.6339Z</StreamGeometry>
-                      </PathIcon.Data>
-                    </PathIcon>
-                    <TextBlock VerticalAlignment="Center"
-                               FontSize="{DynamicResource {x:Static h:FontSizeKeys.Header5}}"
-                               Foreground="{DynamicResource {x:Static h:BrushKeys.Foreground}}"
-                               Text="{Binding}" />
-                  </DockPanel>
-                </DataTemplate>
-              </ListBox.ItemTemplate>
-              <system:String>视频号</system:String>
-              <system:String>直播</system:String>
+            <ListBox Classes="goto">
+              <local:Function Name="视频号"/>
+              <local:Function Name="直播"/>
             </ListBox>
 
-            <ListBox Margin="0,0,0,5"
-                     Background="{DynamicResource {x:Static h:BrushKeys.Dark0_1}}"
-                     DockPanel.Dock="Top">
-              <ListBox.ItemContainerTheme>
-                <ControlTheme BasedOn="{StaticResource {x:Type ListBoxItem}}" TargetType="ListBoxItem">
-                  <Setter Property="Height" Value="40" />
-                </ControlTheme>
-              </ListBox.ItemContainerTheme>
-              <ListBox.ItemTemplate>
-                <DataTemplate>
-                  <DockPanel>
-                    <PathIcon Margin="10,5">
-                      <PathIcon.Data>
-                        <StreamGeometry>M14.0038862,2.5 C20.3551608,2.5 25.5038862,7.64872538 25.5038862,14 C25.5038862,20.3512746 20.3551608,25.5 14.0038862,25.5 C12.0828262,25.5 10.2289934,25.0277557 8.57453454,24.1400553 L4.06949813,25.4927799 C3.40830889,25.6913248 2.71135661,25.3162775 2.51281166,24.6550883 C2.44236748,24.4204969 2.44239769,24.1703786 2.5128929,23.935823 L3.86597493,19.4333464 C2.97690068,17.777898 2.50388618,15.9226229 2.50388618,14 C2.50388618,7.64872538 7.65261155,2.5 14.0038862,2.5 Z M14.0038862,4 C8.48103868,4 4.00388618,8.4771525 4.00388618,14 C4.00388618,15.7703119 4.46384891,17.4718347 5.32571954,18.9725127 L5.48656853,19.2525809 L4.08316234,23.9225148 L8.75512584,22.5196672 L9.03501121,22.6802549 C10.5348218,23.5407899 12.2350195,24 14.0038862,24 C19.5267337,24 24.0038862,19.5228475 24.0038862,14 C24.0038862,8.4771525 19.5267337,4 14.0038862,4 Z M10.2538862,15.5 L14.7521489,15.5 C15.1663625,15.5 15.5021489,15.8357864 15.5021489,16.25 C15.5021489,16.6296958 15.219995,16.943491 14.8539195,16.9931534 L14.7521489,17 L10.2538862,17 C9.83967261,17 9.50388618,16.6642136 9.50388618,16.25 C9.50388618,15.8703042 9.78604006,15.556509 10.1521156,15.5068466 L10.2538862,15.5 L14.7521489,15.5 L10.2538862,15.5 Z M10.2538862,11 L17.7583662,11 C18.1725798,11 18.5083662,11.3357864 18.5083662,11.75 C18.5083662,12.1296958 18.2262123,12.443491 17.8601368,12.4931534 L17.7583662,12.5 L10.2538862,12.5 C9.83967261,12.5 9.50388618,12.1642136 9.50388618,11.75 C9.50388618,11.3703042 9.78604006,11.056509 10.1521156,11.0068466 L10.2538862,11 L17.7583662,11 L10.2538862,11 Z</StreamGeometry>
-                      </PathIcon.Data>
-                    </PathIcon>
-                    <PathIcon Margin="10,8" DockPanel.Dock="Right">
-                      <PathIcon.Data>
-                        <StreamGeometry>M16.1161 39.6339C15.628 39.1457 15.628 38.3543 16.1161 37.8661L29.9822 24L16.1161 10.1339C15.628 9.64573 15.628 8.85427 16.1161 8.36612C16.6043 7.87796 17.3957 7.87796 17.8839 8.36612L32.6339 23.1161C33.122 23.6043 33.122 24.3957 32.6339 24.8839L17.8839 39.6339C17.3957 40.122 16.6043 40.122 16.1161 39.6339Z</StreamGeometry>
-                      </PathIcon.Data>
-                    </PathIcon>
-                    <TextBlock VerticalAlignment="Center"
-                               FontSize="{DynamicResource {x:Static h:FontSizeKeys.Header5}}"
-                               Foreground="{DynamicResource {x:Static h:BrushKeys.Foreground}}"
-                               Text="{Binding}" />
-                  </DockPanel>
-                </DataTemplate>
-              </ListBox.ItemTemplate>
-              <system:String>扫一扫</system:String>
-              <system:String>听一听</system:String>
+            <ListBox Classes="goto">
+              <local:Function Name="扫一扫"/>
+              <local:Function Name="听一听"/>
             </ListBox>
 
-            <ListBox Margin="0,0,0,5"
-                     Background="{DynamicResource {x:Static h:BrushKeys.Dark0_1}}"
-                     DockPanel.Dock="Top">
-              <ListBox.ItemContainerTheme>
-                <ControlTheme BasedOn="{StaticResource {x:Type ListBoxItem}}" TargetType="ListBoxItem">
-                  <Setter Property="Height" Value="40" />
-                </ControlTheme>
-              </ListBox.ItemContainerTheme>
-              <ListBox.ItemTemplate>
-                <DataTemplate>
-                  <DockPanel>
-                    <PathIcon Margin="10,5">
-                      <PathIcon.Data>
-                        <StreamGeometry>M14.0038862,2.5 C20.3551608,2.5 25.5038862,7.64872538 25.5038862,14 C25.5038862,20.3512746 20.3551608,25.5 14.0038862,25.5 C12.0828262,25.5 10.2289934,25.0277557 8.57453454,24.1400553 L4.06949813,25.4927799 C3.40830889,25.6913248 2.71135661,25.3162775 2.51281166,24.6550883 C2.44236748,24.4204969 2.44239769,24.1703786 2.5128929,23.935823 L3.86597493,19.4333464 C2.97690068,17.777898 2.50388618,15.9226229 2.50388618,14 C2.50388618,7.64872538 7.65261155,2.5 14.0038862,2.5 Z M14.0038862,4 C8.48103868,4 4.00388618,8.4771525 4.00388618,14 C4.00388618,15.7703119 4.46384891,17.4718347 5.32571954,18.9725127 L5.48656853,19.2525809 L4.08316234,23.9225148 L8.75512584,22.5196672 L9.03501121,22.6802549 C10.5348218,23.5407899 12.2350195,24 14.0038862,24 C19.5267337,24 24.0038862,19.5228475 24.0038862,14 C24.0038862,8.4771525 19.5267337,4 14.0038862,4 Z M10.2538862,15.5 L14.7521489,15.5 C15.1663625,15.5 15.5021489,15.8357864 15.5021489,16.25 C15.5021489,16.6296958 15.219995,16.943491 14.8539195,16.9931534 L14.7521489,17 L10.2538862,17 C9.83967261,17 9.50388618,16.6642136 9.50388618,16.25 C9.50388618,15.8703042 9.78604006,15.556509 10.1521156,15.5068466 L10.2538862,15.5 L14.7521489,15.5 L10.2538862,15.5 Z M10.2538862,11 L17.7583662,11 C18.1725798,11 18.5083662,11.3357864 18.5083662,11.75 C18.5083662,12.1296958 18.2262123,12.443491 17.8601368,12.4931534 L17.7583662,12.5 L10.2538862,12.5 C9.83967261,12.5 9.50388618,12.1642136 9.50388618,11.75 C9.50388618,11.3703042 9.78604006,11.056509 10.1521156,11.0068466 L10.2538862,11 L17.7583662,11 L10.2538862,11 Z</StreamGeometry>
-                      </PathIcon.Data>
-                    </PathIcon>
-                    <PathIcon Margin="10,8" DockPanel.Dock="Right">
-                      <PathIcon.Data>
-                        <StreamGeometry>M16.1161 39.6339C15.628 39.1457 15.628 38.3543 16.1161 37.8661L29.9822 24L16.1161 10.1339C15.628 9.64573 15.628 8.85427 16.1161 8.36612C16.6043 7.87796 17.3957 7.87796 17.8839 8.36612L32.6339 23.1161C33.122 23.6043 33.122 24.3957 32.6339 24.8839L17.8839 39.6339C17.3957 40.122 16.6043 40.122 16.1161 39.6339Z</StreamGeometry>
-                      </PathIcon.Data>
-                    </PathIcon>
-                    <TextBlock VerticalAlignment="Center"
-                               FontSize="{DynamicResource {x:Static h:FontSizeKeys.Header5}}"
-                               Foreground="{DynamicResource {x:Static h:BrushKeys.Foreground}}"
-                               Text="{Binding}" />
-                  </DockPanel>
-                </DataTemplate>
-              </ListBox.ItemTemplate>
-              <system:String>看一看</system:String>
-              <system:String>搜一搜</system:String>
+            <ListBox Classes="goto">
+              <local:Function Name="看一看"/>
+              <local:Function Name="搜一搜"/>
             </ListBox>
 
-            <ListBox Margin="0,0,0,5"
-                     Background="{DynamicResource {x:Static h:BrushKeys.Dark0_1}}"
-                     DockPanel.Dock="Top">
-              <ListBox.ItemContainerTheme>
-                <ControlTheme BasedOn="{StaticResource {x:Type ListBoxItem}}" TargetType="ListBoxItem">
-                  <Setter Property="Height" Value="40" />
-                </ControlTheme>
-              </ListBox.ItemContainerTheme>
-              <ListBox.ItemTemplate>
-                <DataTemplate>
-                  <DockPanel>
-                    <PathIcon Margin="10,5">
-                      <PathIcon.Data>
-                        <StreamGeometry>M14.0038862,2.5 C20.3551608,2.5 25.5038862,7.64872538 25.5038862,14 C25.5038862,20.3512746 20.3551608,25.5 14.0038862,25.5 C12.0828262,25.5 10.2289934,25.0277557 8.57453454,24.1400553 L4.06949813,25.4927799 C3.40830889,25.6913248 2.71135661,25.3162775 2.51281166,24.6550883 C2.44236748,24.4204969 2.44239769,24.1703786 2.5128929,23.935823 L3.86597493,19.4333464 C2.97690068,17.777898 2.50388618,15.9226229 2.50388618,14 C2.50388618,7.64872538 7.65261155,2.5 14.0038862,2.5 Z M14.0038862,4 C8.48103868,4 4.00388618,8.4771525 4.00388618,14 C4.00388618,15.7703119 4.46384891,17.4718347 5.32571954,18.9725127 L5.48656853,19.2525809 L4.08316234,23.9225148 L8.75512584,22.5196672 L9.03501121,22.6802549 C10.5348218,23.5407899 12.2350195,24 14.0038862,24 C19.5267337,24 24.0038862,19.5228475 24.0038862,14 C24.0038862,8.4771525 19.5267337,4 14.0038862,4 Z M10.2538862,15.5 L14.7521489,15.5 C15.1663625,15.5 15.5021489,15.8357864 15.5021489,16.25 C15.5021489,16.6296958 15.219995,16.943491 14.8539195,16.9931534 L14.7521489,17 L10.2538862,17 C9.83967261,17 9.50388618,16.6642136 9.50388618,16.25 C9.50388618,15.8703042 9.78604006,15.556509 10.1521156,15.5068466 L10.2538862,15.5 L14.7521489,15.5 L10.2538862,15.5 Z M10.2538862,11 L17.7583662,11 C18.1725798,11 18.5083662,11.3357864 18.5083662,11.75 C18.5083662,12.1296958 18.2262123,12.443491 17.8601368,12.4931534 L17.7583662,12.5 L10.2538862,12.5 C9.83967261,12.5 9.50388618,12.1642136 9.50388618,11.75 C9.50388618,11.3703042 9.78604006,11.056509 10.1521156,11.0068466 L10.2538862,11 L17.7583662,11 L10.2538862,11 Z</StreamGeometry>
-                      </PathIcon.Data>
-                    </PathIcon>
-                    <PathIcon Margin="10,8" DockPanel.Dock="Right">
-                      <PathIcon.Data>
-                        <StreamGeometry>M16.1161 39.6339C15.628 39.1457 15.628 38.3543 16.1161 37.8661L29.9822 24L16.1161 10.1339C15.628 9.64573 15.628 8.85427 16.1161 8.36612C16.6043 7.87796 17.3957 7.87796 17.8839 8.36612L32.6339 23.1161C33.122 23.6043 33.122 24.3957 32.6339 24.8839L17.8839 39.6339C17.3957 40.122 16.6043 40.122 16.1161 39.6339Z</StreamGeometry>
-                      </PathIcon.Data>
-                    </PathIcon>
-                    <TextBlock VerticalAlignment="Center"
-                               FontSize="{DynamicResource {x:Static h:FontSizeKeys.Header5}}"
-                               Foreground="{DynamicResource {x:Static h:BrushKeys.Foreground}}"
-                               Text="{Binding}" />
-                  </DockPanel>
-                </DataTemplate>
-              </ListBox.ItemTemplate>
-              <system:String>附近</system:String>
+            <ListBox Classes="goto">
+              <local:Function Name="附近"/>
             </ListBox>
 
-            <ListBox Margin="0,0,0,5"
-                     Background="{DynamicResource {x:Static h:BrushKeys.Dark0_1}}"
-                     DockPanel.Dock="Top">
-              <ListBox.ItemContainerTheme>
-                <ControlTheme BasedOn="{StaticResource {x:Type ListBoxItem}}" TargetType="ListBoxItem">
-                  <Setter Property="Height" Value="40" />
-                </ControlTheme>
-              </ListBox.ItemContainerTheme>
-              <ListBox.ItemTemplate>
-                <DataTemplate>
-                  <DockPanel>
-                    <PathIcon Margin="10,5">
-                      <PathIcon.Data>
-                        <StreamGeometry>M14.0038862,2.5 C20.3551608,2.5 25.5038862,7.64872538 25.5038862,14 C25.5038862,20.3512746 20.3551608,25.5 14.0038862,25.5 C12.0828262,25.5 10.2289934,25.0277557 8.57453454,24.1400553 L4.06949813,25.4927799 C3.40830889,25.6913248 2.71135661,25.3162775 2.51281166,24.6550883 C2.44236748,24.4204969 2.44239769,24.1703786 2.5128929,23.935823 L3.86597493,19.4333464 C2.97690068,17.777898 2.50388618,15.9226229 2.50388618,14 C2.50388618,7.64872538 7.65261155,2.5 14.0038862,2.5 Z M14.0038862,4 C8.48103868,4 4.00388618,8.4771525 4.00388618,14 C4.00388618,15.7703119 4.46384891,17.4718347 5.32571954,18.9725127 L5.48656853,19.2525809 L4.08316234,23.9225148 L8.75512584,22.5196672 L9.03501121,22.6802549 C10.5348218,23.5407899 12.2350195,24 14.0038862,24 C19.5267337,24 24.0038862,19.5228475 24.0038862,14 C24.0038862,8.4771525 19.5267337,4 14.0038862,4 Z M10.2538862,15.5 L14.7521489,15.5 C15.1663625,15.5 15.5021489,15.8357864 15.5021489,16.25 C15.5021489,16.6296958 15.219995,16.943491 14.8539195,16.9931534 L14.7521489,17 L10.2538862,17 C9.83967261,17 9.50388618,16.6642136 9.50388618,16.25 C9.50388618,15.8703042 9.78604006,15.556509 10.1521156,15.5068466 L10.2538862,15.5 L14.7521489,15.5 L10.2538862,15.5 Z M10.2538862,11 L17.7583662,11 C18.1725798,11 18.5083662,11.3357864 18.5083662,11.75 C18.5083662,12.1296958 18.2262123,12.443491 17.8601368,12.4931534 L17.7583662,12.5 L10.2538862,12.5 C9.83967261,12.5 9.50388618,12.1642136 9.50388618,11.75 C9.50388618,11.3703042 9.78604006,11.056509 10.1521156,11.0068466 L10.2538862,11 L17.7583662,11 L10.2538862,11 Z</StreamGeometry>
-                      </PathIcon.Data>
-                    </PathIcon>
-                    <PathIcon Margin="10,8" DockPanel.Dock="Right">
-                      <PathIcon.Data>
-                        <StreamGeometry>M16.1161 39.6339C15.628 39.1457 15.628 38.3543 16.1161 37.8661L29.9822 24L16.1161 10.1339C15.628 9.64573 15.628 8.85427 16.1161 8.36612C16.6043 7.87796 17.3957 7.87796 17.8839 8.36612L32.6339 23.1161C33.122 23.6043 33.122 24.3957 32.6339 24.8839L17.8839 39.6339C17.3957 40.122 16.6043 40.122 16.1161 39.6339Z</StreamGeometry>
-                      </PathIcon.Data>
-                    </PathIcon>
-                    <TextBlock VerticalAlignment="Center"
-                               FontSize="{DynamicResource {x:Static h:FontSizeKeys.Header5}}"
-                               Foreground="{DynamicResource {x:Static h:BrushKeys.Foreground}}"
-                               Text="{Binding}" />
-                  </DockPanel>
-                </DataTemplate>
-              </ListBox.ItemTemplate>
-              <system:String>购物</system:String>
-              <system:String>游戏</system:String>
+            <ListBox Classes="goto">
+              <local:Function Name="购物"/>
+              <local:Function Name="游戏"/>
             </ListBox>
 
-
-            <ListBox Margin="0,0,0,5"
-                     Background="{DynamicResource {x:Static h:BrushKeys.Dark0_1}}"
-                     DockPanel.Dock="Top">
-              <ListBox.ItemContainerTheme>
-                <ControlTheme BasedOn="{StaticResource {x:Type ListBoxItem}}" TargetType="ListBoxItem">
-                  <Setter Property="Height" Value="40" />
-                </ControlTheme>
-              </ListBox.ItemContainerTheme>
-              <ListBox.ItemTemplate>
-                <DataTemplate>
-                  <DockPanel>
-                    <PathIcon Margin="10,5">
-                      <PathIcon.Data>
-                        <StreamGeometry>M14.0038862,2.5 C20.3551608,2.5 25.5038862,7.64872538 25.5038862,14 C25.5038862,20.3512746 20.3551608,25.5 14.0038862,25.5 C12.0828262,25.5 10.2289934,25.0277557 8.57453454,24.1400553 L4.06949813,25.4927799 C3.40830889,25.6913248 2.71135661,25.3162775 2.51281166,24.6550883 C2.44236748,24.4204969 2.44239769,24.1703786 2.5128929,23.935823 L3.86597493,19.4333464 C2.97690068,17.777898 2.50388618,15.9226229 2.50388618,14 C2.50388618,7.64872538 7.65261155,2.5 14.0038862,2.5 Z M14.0038862,4 C8.48103868,4 4.00388618,8.4771525 4.00388618,14 C4.00388618,15.7703119 4.46384891,17.4718347 5.32571954,18.9725127 L5.48656853,19.2525809 L4.08316234,23.9225148 L8.75512584,22.5196672 L9.03501121,22.6802549 C10.5348218,23.5407899 12.2350195,24 14.0038862,24 C19.5267337,24 24.0038862,19.5228475 24.0038862,14 C24.0038862,8.4771525 19.5267337,4 14.0038862,4 Z M10.2538862,15.5 L14.7521489,15.5 C15.1663625,15.5 15.5021489,15.8357864 15.5021489,16.25 C15.5021489,16.6296958 15.219995,16.943491 14.8539195,16.9931534 L14.7521489,17 L10.2538862,17 C9.83967261,17 9.50388618,16.6642136 9.50388618,16.25 C9.50388618,15.8703042 9.78604006,15.556509 10.1521156,15.5068466 L10.2538862,15.5 L14.7521489,15.5 L10.2538862,15.5 Z M10.2538862,11 L17.7583662,11 C18.1725798,11 18.5083662,11.3357864 18.5083662,11.75 C18.5083662,12.1296958 18.2262123,12.443491 17.8601368,12.4931534 L17.7583662,12.5 L10.2538862,12.5 C9.83967261,12.5 9.50388618,12.1642136 9.50388618,11.75 C9.50388618,11.3703042 9.78604006,11.056509 10.1521156,11.0068466 L10.2538862,11 L17.7583662,11 L10.2538862,11 Z</StreamGeometry>
-                      </PathIcon.Data>
-                    </PathIcon>
-                    <PathIcon Margin="10,8" DockPanel.Dock="Right">
-                      <PathIcon.Data>
-                        <StreamGeometry>M16.1161 39.6339C15.628 39.1457 15.628 38.3543 16.1161 37.8661L29.9822 24L16.1161 10.1339C15.628 9.64573 15.628 8.85427 16.1161 8.36612C16.6043 7.87796 17.3957 7.87796 17.8839 8.36612L32.6339 23.1161C33.122 23.6043 33.122 24.3957 32.6339 24.8839L17.8839 39.6339C17.3957 40.122 16.6043 40.122 16.1161 39.6339Z</StreamGeometry>
-                      </PathIcon.Data>
-                    </PathIcon>
-                    <TextBlock VerticalAlignment="Center"
-                               FontSize="{DynamicResource {x:Static h:FontSizeKeys.Header5}}"
-                               Foreground="{DynamicResource {x:Static h:BrushKeys.Foreground}}"
-                               Text="{Binding}" />
-                  </DockPanel>
-                </DataTemplate>
-              </ListBox.ItemTemplate>
-              <system:String>小程序</system:String>
+            <ListBox Classes="goto">
+              <local:Function Name="小程序"/>
             </ListBox>
           </StackPanel>
         </ScrollViewer>
@@ -612,7 +481,7 @@
       </ListBox.ItemTemplate>
       <ListBox.ItemContainerTheme>
         <ControlTheme BasedOn="{StaticResource {x:Type ListBoxItem}}" TargetType="ListBoxItem">
-          <Setter Property="Height" Value="45" />
+          <Setter Property="Height" Value="50" />
         </ControlTheme>
       </ListBox.ItemContainerTheme>
       <ListBox.ItemsPanel>

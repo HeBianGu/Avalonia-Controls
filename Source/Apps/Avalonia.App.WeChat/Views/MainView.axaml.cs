@@ -1,5 +1,6 @@
 ﻿using Avalonia.Controls;
 using HeBianGu.AvaloniaUI.DemoData;
+using HeBianGu.AvaloniaUI.DialogMessage;
 using HeBianGu.AvaloniaUI.Mvvm;
 using HeBianGu.AvaloniaUI.ValueConverter;
 using System;
@@ -50,8 +51,18 @@ public class MessageItem : TabItemBindableBase<Message>
 
 public class Message : Student
 {
+    public RelayCommand ShowCommand => new RelayCommand(async l =>
+    {
+        await AdornerDialog.ShowPresenter<MobileAdornerDialogPresenter>(new ShowMessage(this), x => x.Title = this.Name);
+    });
+}
 
+public class ShowMessage : ModelBindable<Message>
+{
+    public ShowMessage(Message model) : base(model)
+    {
 
+    }
 }
 
 
@@ -66,19 +77,54 @@ public class AdressItem : TabItemBindableBase<Adress>
 
 public class Adress : Student
 {
+    public RelayCommand ShowCommand => new RelayCommand(async l =>
+    {
+        await AdornerDialog.ShowPresenter<MobileAdornerDialogPresenter>(new ShowAdress(this), x => x.Title = this.Name);
+    });
+}
+
+public class Function : Student
+{
+    public RelayCommand ShowCommand => new RelayCommand(async l =>
+    {
+        await AdornerDialog.ShowPresenter<MobileAdornerDialogPresenter>(new ShowMy(this), x => x.Title = this.Name);
+    });
+}
+
+public class ShowAdress : ModelBindable<Adress>
+{
+    public ShowAdress(Adress model) : base(model)
+    {
+
+    }
+}
+
+
+[Display(Name = "发现")]
+public class FindItem : TabItemBindableBase<Function>
+{
 
 }
 
-[Display(Name = "发现")]
-public class FindItem : TabItemBindableBase<Adress>
+public class ShowFindItem : ModelBindable<Function>
 {
+    public ShowFindItem(Function model) : base(model)
+    {
 
+    }
 }
 
 [Display(Name = "我")]
 public class MyItem : TabItemBindableBase<Adress>
 {
 
+}
+public class ShowMy : ModelBindable<Function>
+{
+    public ShowMy(Function model) : base(model)
+    {
+
+    }
 }
 
 public class TimeValueConverter : MarkupValueConverterBase

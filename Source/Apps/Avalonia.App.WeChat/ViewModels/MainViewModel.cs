@@ -44,7 +44,5 @@ public class MainViewModel : BindableBase
             RaisePropertyChanged();
         }
     }
-
-
 }
 

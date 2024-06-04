@@ -40,7 +40,8 @@
                          Maximum="100.0"
                          Minimum="0.0"
                          Value="{Binding Value}" />
-            <TextBlock Text="{Binding Time}" />
+            <TextBlock Text="{Binding Time}"   FontSize="{DynamicResource {x:Static h:FontSizeKeys.Header7}}"
+                 Foreground="{DynamicResource {x:Static h:BrushKeys.ForegroundAssist}}"/>
         </StackPanel>
         <Button Grid.Column="2"
                 Margin="5,0"

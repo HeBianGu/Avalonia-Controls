@@ -34,7 +34,8 @@
                        Text="{Binding Message}"
                        TextTrimming="CharacterEllipsis" />
             <DockPanel LastChildFill="False">
-                <TextBlock VerticalAlignment="Center" Text="{Binding Time}" />
+                <TextBlock VerticalAlignment="Center" Text="{Binding Time}"   FontSize="{DynamicResource {x:Static h:FontSizeKeys.Header7}}"
+                 Foreground="{DynamicResource {x:Static h:BrushKeys.ForegroundAssist}}"/>
                 <Button Height="NaN"
                         Padding="5,2"
                         Command="{Binding CancelCommand}"
