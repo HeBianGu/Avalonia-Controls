@@ -58,6 +58,8 @@
                 <Setter.Value>
                     <ControlTheme BasedOn="{StaticResource S.ListBoxItem.Fuction}" TargetType="ListBoxItem">
                         <Setter Property="Height" Value="60" />
+                        <Setter Property="BorderBrush" Value="{DynamicResource {x:Static h:BrushKeys.Dark0_2}}" />
+                        <Setter Property="BorderThickness" Value="0 0 0 1" />
                     </ControlTheme>
                 </Setter.Value>
             </Setter>
@@ -70,6 +72,8 @@
                 <Setter.Value>
                     <ControlTheme BasedOn="{StaticResource S.ListBoxItem.Fuction}" TargetType="ListBoxItem">
                         <Setter Property="Height" Value="50" />
+                        <Setter Property="BorderBrush" Value="{DynamicResource {x:Static h:BrushKeys.Dark0_2}}" />
+                        <Setter Property="BorderThickness" Value="0 0 0 1" />
                     </ControlTheme>
                 </Setter.Value>
             </Setter>
@@ -103,27 +107,35 @@
                 <Setter.Value>
                     <ControlTheme BasedOn="{StaticResource S.ListBoxItem.Fuction}" TargetType="ListBoxItem">
                         <Setter Property="Height" Value="50" />
+                        <Setter Property="BorderBrush" Value="{DynamicResource {x:Static h:BrushKeys.Dark0_2}}" />
+                        <Setter Property="BorderThickness" Value="0 0 0 1" />
                     </ControlTheme>
                 </Setter.Value>
             </Setter>
             <Setter Property="ItemTemplate">
                 <Setter.Value>
                     <DataTemplate>
-                        <DockPanel Background="Transparent">
+                        <Button HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch">
                             <Interaction.Behaviors>
-                                <EventTriggerBehavior EventName="PointerPressed">
+                                <EventTriggerBehavior EventName="Click">
                                     <InvokeCommandAction Command="{Binding ShowCommand}" />
                                 </EventTriggerBehavior>
                             </Interaction.Behaviors>
-                            <Border Width="35"
-                                    Height="35"
-                                    Margin="0,0,10,0"
-                                    ClipToBounds="True"
-                                    CornerRadius="5">
-                                <Image Source="/Assets/1.jpg" Stretch="UniformToFill" />
-                            </Border>
-                            <TextBlock VerticalAlignment="Center" Text="{Binding Name}" />
-                        </DockPanel>
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <DockPanel Background="Transparent">
+                                        <Border Width="35"
+                                                Height="35"
+                                                Margin="0,0,10,0"
+                                                ClipToBounds="True"
+                                                CornerRadius="5">
+                                            <Image Source="/Assets/1.jpg" Stretch="UniformToFill" />
+                                        </Border>
+                                        <TextBlock VerticalAlignment="Center" Text="{Binding Name}" />
+                                    </DockPanel>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
                     </DataTemplate>
                 </Setter.Value>
             </Setter>
@@ -136,7 +148,7 @@
             <Setter Property="ItemContainerTheme">
                 <Setter.Value>
                     <ControlTheme BasedOn="{StaticResource S.ListBoxItem.Fuction}" TargetType="ListBoxItem">
-                        <Setter Property="Height" Value="40" />
+                        <Setter Property="Height" Value="50" />
                     </ControlTheme>
                 </Setter.Value>
             </Setter>
@@ -144,75 +156,98 @@
     </UserControl.Styles>
     <UserControl.DataTemplates>
         <DataTemplate DataType="{x:Type m:Address}">
-            <DockPanel>
-                <Border Width="40"
-                        Height="40"
-                        Margin="0,0,10,0"
-                        ClipToBounds="True"
-                        CornerRadius="5">
-                    <Image Source="/Assets/1.jpg" Stretch="UniformToFill" />
-                </Border>
-                <TextBlock VerticalAlignment="Center"
-                           FontSize="{DynamicResource {x:Static h:FontSizeKeys.Header5}}"
-                           Foreground="{DynamicResource {x:Static h:BrushKeys.Foreground}}"
-                           Text="{Binding Name}" />
-            </DockPanel>
+            <Button HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch">
+                <Interaction.Behaviors>
+                    <EventTriggerBehavior EventName="Click">
+                        <InvokeCommandAction Command="{Binding ShowCommand}" />
+                    </EventTriggerBehavior>
+                </Interaction.Behaviors>
+                <Button.Template>
+                    <ControlTemplate>
+                        <DockPanel>
+                            <Border Width="40"
+                                    Height="40"
+                                    Margin="0,0,10,0"
+                                    ClipToBounds="True"
+                                    CornerRadius="5">
+                                <Image Source="/Assets/1.jpg" Stretch="UniformToFill" />
+                            </Border>
+                            <TextBlock VerticalAlignment="Center"
+                                       FontSize="{DynamicResource {x:Static h:FontSizeKeys.Header5}}"
+                                       Foreground="{DynamicResource {x:Static h:BrushKeys.Foreground}}"
+                                       Text="{Binding Name}" />
+                        </DockPanel>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
         </DataTemplate>
         <DataTemplate DataType="{x:Type m:Message}">
-            <DockPanel Background="Transparent">
+            <Button HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch">
                 <Interaction.Behaviors>
-                    <EventTriggerBehavior EventName="Tapped">
+                    <EventTriggerBehavior EventName="Click">
                         <InvokeCommandAction Command="{Binding ShowCommand}" />
                     </EventTriggerBehavior>
                 </Interaction.Behaviors>
-                <Border Width="40"
-                        Height="40"
-                        Margin="0,0,10,0"
-                        ClipToBounds="True"
-                        CornerRadius="5">
-                    <Image Source="/Assets/1.jpg" Stretch="UniformToFill" />
-                </Border>
-                <UniformGrid Columns="1">
-                    <Grid>
-                        <TextBlock VerticalAlignment="Center"
-                                   FontSize="{DynamicResource {x:Static h:FontSizeKeys.Header5}}"
-                                   Foreground="{DynamicResource {x:Static h:BrushKeys.Foreground}}"
-                                   Text="{Binding Name}" />
-                        <TextBlock HorizontalAlignment="Right"
-                                   VerticalAlignment="Center"
-                                   FontSize="{DynamicResource {x:Static h:FontSizeKeys.Header7}}"
-                                   Foreground="{DynamicResource {x:Static h:BrushKeys.ForegroundAssist}}"
-                                   Text="{Binding Time, Converter={m:TimeValueConverter}}" />
-                    </Grid>
-                    <TextBlock VerticalAlignment="Center"
-                               FontSize="{DynamicResource {x:Static h:FontSizeKeys.Header6}}"
-                               Foreground="{DynamicResource {x:Static h:BrushKeys.ForegroundAssist}}"
-                               Text="{Binding Address}" />
-                </UniformGrid>
-            </DockPanel>
+                <Button.Template>
+                    <ControlTemplate>
+                        <DockPanel Background="Transparent">
+                            <Border Width="40"
+                                    Height="40"
+                                    Margin="0,0,10,0"
+                                    ClipToBounds="True"
+                                    CornerRadius="5">
+                                <Image Source="/Assets/1.jpg" Stretch="UniformToFill" />
+                            </Border>
+                            <UniformGrid Columns="1">
+                                <Grid>
+                                    <TextBlock VerticalAlignment="Center"
+                                               FontSize="{DynamicResource {x:Static h:FontSizeKeys.Header5}}"
+                                               Foreground="{DynamicResource {x:Static h:BrushKeys.Foreground}}"
+                                               Text="{Binding Name}" />
+                                    <TextBlock HorizontalAlignment="Right"
+                                               VerticalAlignment="Center"
+                                               FontSize="{DynamicResource {x:Static h:FontSizeKeys.Header7}}"
+                                               Foreground="{DynamicResource {x:Static h:BrushKeys.ForegroundAssist}}"
+                                               Text="{Binding Time, Converter={m:TimeValueConverter}}" />
+                                </Grid>
+                                <TextBlock VerticalAlignment="Center"
+                                           FontSize="{DynamicResource {x:Static h:FontSizeKeys.Header6}}"
+                                           Foreground="{DynamicResource {x:Static h:BrushKeys.ForegroundAssist}}"
+                                           Text="{Binding Address}" />
+                            </UniformGrid>
+                        </DockPanel>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
         </DataTemplate>
         <DataTemplate DataType="{x:Type m:Function}">
-            <DockPanel Background="Transparent">
+            <Button HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch">
                 <Interaction.Behaviors>
-                    <EventTriggerBehavior EventName="PointerPressed">
+                    <EventTriggerBehavior EventName="Click">
                         <InvokeCommandAction Command="{Binding ShowCommand}" />
                     </EventTriggerBehavior>
                 </Interaction.Behaviors>
-                <PathIcon Margin="10,5">
-                    <PathIcon.Data>
-                        <StreamGeometry>M14.0038862,2.5 C20.3551608,2.5 25.5038862,7.64872538 25.5038862,14 C25.5038862,20.3512746 20.3551608,25.5 14.0038862,25.5 C12.0828262,25.5 10.2289934,25.0277557 8.57453454,24.1400553 L4.06949813,25.4927799 C3.40830889,25.6913248 2.71135661,25.3162775 2.51281166,24.6550883 C2.44236748,24.4204969 2.44239769,24.1703786 2.5128929,23.935823 L3.86597493,19.4333464 C2.97690068,17.777898 2.50388618,15.9226229 2.50388618,14 C2.50388618,7.64872538 7.65261155,2.5 14.0038862,2.5 Z M14.0038862,4 C8.48103868,4 4.00388618,8.4771525 4.00388618,14 C4.00388618,15.7703119 4.46384891,17.4718347 5.32571954,18.9725127 L5.48656853,19.2525809 L4.08316234,23.9225148 L8.75512584,22.5196672 L9.03501121,22.6802549 C10.5348218,23.5407899 12.2350195,24 14.0038862,24 C19.5267337,24 24.0038862,19.5228475 24.0038862,14 C24.0038862,8.4771525 19.5267337,4 14.0038862,4 Z M10.2538862,15.5 L14.7521489,15.5 C15.1663625,15.5 15.5021489,15.8357864 15.5021489,16.25 C15.5021489,16.6296958 15.219995,16.943491 14.8539195,16.9931534 L14.7521489,17 L10.2538862,17 C9.83967261,17 9.50388618,16.6642136 9.50388618,16.25 C9.50388618,15.8703042 9.78604006,15.556509 10.1521156,15.5068466 L10.2538862,15.5 L14.7521489,15.5 L10.2538862,15.5 Z M10.2538862,11 L17.7583662,11 C18.1725798,11 18.5083662,11.3357864 18.5083662,11.75 C18.5083662,12.1296958 18.2262123,12.443491 17.8601368,12.4931534 L17.7583662,12.5 L10.2538862,12.5 C9.83967261,12.5 9.50388618,12.1642136 9.50388618,11.75 C9.50388618,11.3703042 9.78604006,11.056509 10.1521156,11.0068466 L10.2538862,11 L17.7583662,11 L10.2538862,11 Z</StreamGeometry>
-                    </PathIcon.Data>
-                </PathIcon>
-                <PathIcon Margin="10,8" DockPanel.Dock="Right">
-                    <PathIcon.Data>
-                        <StreamGeometry>M16.1161 39.6339C15.628 39.1457 15.628 38.3543 16.1161 37.8661L29.9822 24L16.1161 10.1339C15.628 9.64573 15.628 8.85427 16.1161 8.36612C16.6043 7.87796 17.3957 7.87796 17.8839 8.36612L32.6339 23.1161C33.122 23.6043 33.122 24.3957 32.6339 24.8839L17.8839 39.6339C17.3957 40.122 16.6043 40.122 16.1161 39.6339Z</StreamGeometry>
-                    </PathIcon.Data>
-                </PathIcon>
-                <TextBlock VerticalAlignment="Center"
-                           FontSize="{DynamicResource {x:Static h:FontSizeKeys.Header5}}"
-                           Foreground="{DynamicResource {x:Static h:BrushKeys.Foreground}}"
-                           Text="{Binding Name}" />
-            </DockPanel>
+                <Button.Template>
+                    <ControlTemplate>
+                        <DockPanel Background="Transparent">
+                            <PathIcon Margin="10,5">
+                                <PathIcon.Data>
+                                    <StreamGeometry>M14.0038862,2.5 C20.3551608,2.5 25.5038862,7.64872538 25.5038862,14 C25.5038862,20.3512746 20.3551608,25.5 14.0038862,25.5 C12.0828262,25.5 10.2289934,25.0277557 8.57453454,24.1400553 L4.06949813,25.4927799 C3.40830889,25.6913248 2.71135661,25.3162775 2.51281166,24.6550883 C2.44236748,24.4204969 2.44239769,24.1703786 2.5128929,23.935823 L3.86597493,19.4333464 C2.97690068,17.777898 2.50388618,15.9226229 2.50388618,14 C2.50388618,7.64872538 7.65261155,2.5 14.0038862,2.5 Z M14.0038862,4 C8.48103868,4 4.00388618,8.4771525 4.00388618,14 C4.00388618,15.7703119 4.46384891,17.4718347 5.32571954,18.9725127 L5.48656853,19.2525809 L4.08316234,23.9225148 L8.75512584,22.5196672 L9.03501121,22.6802549 C10.5348218,23.5407899 12.2350195,24 14.0038862,24 C19.5267337,24 24.0038862,19.5228475 24.0038862,14 C24.0038862,8.4771525 19.5267337,4 14.0038862,4 Z M10.2538862,15.5 L14.7521489,15.5 C15.1663625,15.5 15.5021489,15.8357864 15.5021489,16.25 C15.5021489,16.6296958 15.219995,16.943491 14.8539195,16.9931534 L14.7521489,17 L10.2538862,17 C9.83967261,17 9.50388618,16.6642136 9.50388618,16.25 C9.50388618,15.8703042 9.78604006,15.556509 10.1521156,15.5068466 L10.2538862,15.5 L14.7521489,15.5 L10.2538862,15.5 Z M10.2538862,11 L17.7583662,11 C18.1725798,11 18.5083662,11.3357864 18.5083662,11.75 C18.5083662,12.1296958 18.2262123,12.443491 17.8601368,12.4931534 L17.7583662,12.5 L10.2538862,12.5 C9.83967261,12.5 9.50388618,12.1642136 9.50388618,11.75 C9.50388618,11.3703042 9.78604006,11.056509 10.1521156,11.0068466 L10.2538862,11 L17.7583662,11 L10.2538862,11 Z</StreamGeometry>
+                                </PathIcon.Data>
+                            </PathIcon>
+                            <PathIcon Margin="10,11" DockPanel.Dock="Right">
+                                <PathIcon.Data>
+                                    <StreamGeometry>M16.1161 39.6339C15.628 39.1457 15.628 38.3543 16.1161 37.8661L29.9822 24L16.1161 10.1339C15.628 9.64573 15.628 8.85427 16.1161 8.36612C16.6043 7.87796 17.3957 7.87796 17.8839 8.36612L32.6339 23.1161C33.122 23.6043 33.122 24.3957 32.6339 24.8839L17.8839 39.6339C17.3957 40.122 16.6043 40.122 16.1161 39.6339Z</StreamGeometry>
+                                </PathIcon.Data>
+                            </PathIcon>
+                            <TextBlock VerticalAlignment="Center"
+                                       FontSize="{DynamicResource {x:Static h:FontSizeKeys.Header5}}"
+                                       Foreground="{DynamicResource {x:Static h:BrushKeys.Foreground}}"
+                                       Text="{Binding Name}" />
+                        </DockPanel>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
         </DataTemplate>
         <DataTemplate DataType="m:MessageItem">
             <DockPanel>
@@ -268,24 +303,30 @@
                         <ListBox Classes="function" Theme="{StaticResource S.ListBox.Function}">
                             <ListBox.ItemTemplate>
                                 <DataTemplate>
-                                    <DockPanel Background="Transparent">
+                                    <Button HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch">
                                         <Interaction.Behaviors>
-                                            <EventTriggerBehavior EventName="PointerPressed">
+                                            <EventTriggerBehavior EventName="Click">
                                                 <InvokeCommandAction Command="{Binding ShowCommand}" />
                                             </EventTriggerBehavior>
                                         </Interaction.Behaviors>
-                                        <Border Width="40"
-                                                Height="40"
-                                                Margin="0,0,10,0"
-                                                ClipToBounds="True"
-                                                CornerRadius="5">
-                                            <Image Source="/Assets/1.jpg" Stretch="UniformToFill" />
-                                        </Border>
-                                        <TextBlock VerticalAlignment="Center"
-                                                   FontSize="{DynamicResource {x:Static h:FontSizeKeys.Header5}}"
-                                                   Foreground="{DynamicResource {x:Static h:BrushKeys.Foreground}}"
-                                                   Text="{Binding Name}" />
-                                    </DockPanel>
+                                        <Button.Template>
+                                            <ControlTemplate>
+                                                <DockPanel Background="Transparent">
+                                                    <Border Width="40"
+                                                            Height="40"
+                                                            Margin="0,0,10,0"
+                                                            ClipToBounds="True"
+                                                            CornerRadius="5">
+                                                        <Image Source="/Assets/1.jpg" Stretch="UniformToFill" />
+                                                    </Border>
+                                                    <TextBlock VerticalAlignment="Center"
+                                                               FontSize="{DynamicResource {x:Static h:FontSizeKeys.Header5}}"
+                                                               Foreground="{DynamicResource {x:Static h:BrushKeys.Foreground}}"
+                                                               Text="{Binding Name}" />
+                                                </DockPanel>
+                                            </ControlTemplate>
+                                        </Button.Template>
+                                    </Button>
                                 </DataTemplate>
                             </ListBox.ItemTemplate>
                             <m:Function Name="新的朋友" />
@@ -538,7 +579,6 @@
                 </ItemsControl>
             </DockPanel>
         </DataTemplate>
-
         <DataTemplate DataType="{x:Type m:ShowFriendGroup}">
             <DockPanel Margin="0,40,0,0">
                 <ScrollViewer>
@@ -576,7 +616,7 @@
                                         </Border>
                                         <TextBlock DockPanel.Dock="Top"
                                                    FontSize="{DynamicResource {x:Static FontSizeKeys.Header4}}"
-                                                   FontWeight="Black"
+                                                   FontWeight="Black" Foreground="SkyBlue"
                                                    Text="{Binding Name}" />
                                         <TextBlock Margin="0,5"
                                                    DockPanel.Dock="Top"
@@ -647,7 +687,7 @@
                                                    FontSize="{DynamicResource {x:Static FontSizeKeys.Header7}}"
                                                    Foreground="{DynamicResource {x:Static BrushKeys.ForegroundAssist}}"
                                                    Text="{Binding Time, Converter={m:TimeValueConverter}}" />
-                                        <Border Height="100"
+                                        <Border Height="150"
                                                 ClipToBounds="True"
                                                 CornerRadius="5"
                                                 DockPanel.Dock="Top">
