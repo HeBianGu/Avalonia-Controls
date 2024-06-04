@@ -5,6 +5,7 @@ using HeBianGu.AvaloniaUI.Ioc;
 using HeBianGu.AvaloniaUI.Setting;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace HeBianGu.AvaloniaUI.Theme
 {
@@ -18,6 +19,7 @@ namespace HeBianGu.AvaloniaUI.Theme
         }
         private FontFamily _fontFamily;
 
+        [JsonIgnore]
         [Display(Name = "字体类型")]
         [TypeConverter(typeof(FontFamilyTypeConverter))]
         public FontFamily FontFamily

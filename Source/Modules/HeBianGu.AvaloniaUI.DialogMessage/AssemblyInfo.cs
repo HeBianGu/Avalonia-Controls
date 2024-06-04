@@ -10,3 +10,6 @@ using System.Windows.Markup;
 
 [assembly: XmlnsDefinition("https://github.com/HeBianGu", "HeBianGu.AvaloniaUI.DialogMessage")]
 [assembly: XmlnsPrefix("https://github.com/HeBianGu", "h")]
+
+[assembly: XmlnsDefinition("https://github.com/avaloniaui", "HeBianGu.AvaloniaUI.DialogMessage")]
+[assembly: XmlnsPrefix("https://github.com/avaloniaui", "h")]

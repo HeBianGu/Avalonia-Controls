@@ -10,4 +10,9 @@
     <ProjectReference Include="..\..\Extensions\HeBianGu.AvaloniaUI.Application\HeBianGu.AvaloniaUI.Application.csproj" />
     <ProjectReference Include="..\..\Windows\HeBianGu.AvaloniaUI.DialogWindow\HeBianGu.AvaloniaUI.DialogWindow.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <Compile Update="DataTemplates\MobileAdornerDialogPresenter.axaml.cs">
+      <DependentUpon>MobileAdornerDialogPresenter.axaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
 </Project>

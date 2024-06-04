@@ -14,18 +14,8 @@ using System.Windows;
 
 namespace HeBianGu.AvaloniaUI.DialogMessage
 {
-
-    public partial class AdornerDialogPresenter : DesignPresenterBase, IDialog, ICancelable, IAdornerDialogPresenter
+    public abstract class AdornerDialogPresenterBase : DesignPresenterBase, IDialog, ICancelable, IAdornerDialogPresenter
     {
-        public AdornerDialogPresenter()
-        {
-                
-        }
-        public AdornerDialogPresenter(object presenter)
-        {
-            Presenter = presenter;
-        }
-        //public string Title { get; set; } = "提示";
         public object Presenter { get; set; }
 
 
@@ -80,4 +70,17 @@ namespace HeBianGu.AvaloniaUI.DialogMessage
         public WindowBase? Owner { get; set; }
         #endregion
     }
+
+    public partial class AdornerDialogPresenter : AdornerDialogPresenterBase
+    {
+        public AdornerDialogPresenter()
+        {
+
+        }
+        public AdornerDialogPresenter(object presenter)
+        {
+            Presenter = presenter;
+        }
+    }
+
 }

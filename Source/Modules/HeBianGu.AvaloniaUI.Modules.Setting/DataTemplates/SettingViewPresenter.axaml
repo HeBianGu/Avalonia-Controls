@@ -21,7 +21,7 @@
                                 TabStripPlacement="Left">
                         <TabControl.ItemTemplate>
                             <DataTemplate>
-                                <TextBlock MinWidth="120" Text="{Binding Name}" />
+                                <TextBlock MinWidth="60" Text="{Binding Name}" />
                             </DataTemplate>
                         </TabControl.ItemTemplate>
 

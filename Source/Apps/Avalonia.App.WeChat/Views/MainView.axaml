@@ -69,14 +69,12 @@
         <Grid Height="{DynamicResource {x:Static h:LayoutKeys.ItemHeight}}" DockPanel.Dock="Top">
           <DockPanel HorizontalAlignment="Right">
             <Button Padding="6"
-                    Command="{h:ShowSettingCommand}"
                     Content="+"
                     DockPanel.Dock="Right"
                     Theme="{DynamicResource {x:Static ButtonKeys.Geometry}}">
               <StreamGeometry>M14,2 C20.627417,2 26,7.372583 26,14 C26,20.627417 20.627417,26 14,26 C7.372583,26 2,20.627417 2,14 C2,7.372583 7.372583,2 14,2 Z M14,3.5 C8.20101013,3.5 3.5,8.20101013 3.5,14 C3.5,19.7989899 8.20101013,24.5 14,24.5 C19.7989899,24.5 24.5,19.7989899 24.5,14 C24.5,8.20101013 19.7989899,3.5 14,3.5 Z M14,8 C14.4142136,8 14.75,8.33578644 14.75,8.75 L14.75,13.25 L19.25,13.25 C19.6642136,13.25 20,13.5857864 20,14 C20,14.4142136 19.6642136,14.75 19.25,14.75 L14.75,14.75 L14.75,19.25 C14.75,19.6642136 14.4142136,20 14,20 C13.5857864,20 13.25,19.6642136 13.25,19.25 L13.25,14.75 L8.75,14.75 C8.33578644,14.75 8,14.4142136 8,14 C8,13.5857864 8.33578644,13.25 8.75,13.25 L13.25,13.25 L13.25,8.75 C13.25,8.33578644 13.5857864,8 14,8 Z</StreamGeometry>
             </Button>
             <Button Padding="6"
-                    Command="{h:ShowThemeSettingCommand}"
                     Content="搜索"
                     DockPanel.Dock="Right"
                     Theme="{DynamicResource {x:Static ButtonKeys.Geometry}}">
@@ -102,15 +100,12 @@
         <Grid Height="{DynamicResource {x:Static h:LayoutKeys.ItemHeight}}" DockPanel.Dock="Top">
           <DockPanel HorizontalAlignment="Right">
             <Button Padding="6"
-                    Command="{h:ShowAboutCommand}"
-                    Content="+"
-                    DockPanel.Dock="Right"
-                    Theme="{DynamicResource {x:Static ButtonKeys.Geometry}}">
+             Content="+"
+             DockPanel.Dock="Right"
+             Theme="{DynamicResource {x:Static ButtonKeys.Geometry}}">
               <StreamGeometry>M14,2 C20.627417,2 26,7.372583 26,14 C26,20.627417 20.627417,26 14,26 C7.372583,26 2,20.627417 2,14 C2,7.372583 7.372583,2 14,2 Z M14,3.5 C8.20101013,3.5 3.5,8.20101013 3.5,14 C3.5,19.7989899 8.20101013,24.5 14,24.5 C19.7989899,24.5 24.5,19.7989899 24.5,14 C24.5,8.20101013 19.7989899,3.5 14,3.5 Z M14,8 C14.4142136,8 14.75,8.33578644 14.75,8.75 L14.75,13.25 L19.25,13.25 C19.6642136,13.25 20,13.5857864 20,14 C20,14.4142136 19.6642136,14.75 19.25,14.75 L14.75,14.75 L14.75,19.25 C14.75,19.6642136 14.4142136,20 14,20 C13.5857864,20 13.25,19.6642136 13.25,19.25 L13.25,14.75 L8.75,14.75 C8.33578644,14.75 8,14.4142136 8,14 C8,13.5857864 8.33578644,13.25 8.75,13.25 L13.25,13.25 L13.25,8.75 C13.25,8.33578644 13.5857864,8 14,8 Z</StreamGeometry>
             </Button>
             <Button Padding="6"
-                    Command="{h:ShowEditCommand}"
-                    CommandParameter="{GetStudent}"
                     Content="搜索"
                     DockPanel.Dock="Right"
                     Theme="{DynamicResource {x:Static ButtonKeys.Geometry}}">
@@ -303,6 +298,44 @@
               <system:String>设置</system:String>
             </ListBox>
 
+            <UniformGrid Columns="1">
+              <Button
+          Command="{h:ShowBackAdornerDialogCommand}"
+          Content="ShowBackAdornerDialogCommand">
+              </Button>
+              <Button Command="{ShowCommand Presnter={h:GetStudent}}" Content="ShowCommand" />
+              <Button Command="{ShowStringCommand}" Content="ShowStringCommand" />
+              <Button Command="{ShowPercentCommand}" Content="ShowPercentCommand" />
+              <Button Command="{ShowWaitCommand}" Content="ShowWaitCommand" />
+              <Button Command="{ShowMessageCommand}" Content="ShowMessageCommand" />
+              <Button
+                      Command="{h:ShowSettingCommand}"
+                      Content="ShowSettingCommand"
+                      DockPanel.Dock="Right">
+              </Button>
+              <Button
+                      Command="{h:ShowThemeSettingCommand}"
+                      Content="ShowThemeSettingCommand"
+                      DockPanel.Dock="Right"> </Button>
+
+              <Button
+                  Command="{h:ShowAboutCommand}"
+                  Content="ShowAboutCommand">
+              </Button>
+
+              <Button Command="{ShowEditCommand Value={h:GetStudent}}" Content="ShowEditCommand" />
+              <Button Command="{ShowViewCommand Value={h:GetStudent}}" Content="ShowViewCommand" />
+
+              <Button Command="{h:ShowInfoSnackMessageCommand Message=我是Info消息}" Content="ShowInfo" />
+              <Button Command="{h:ShowErrorSnackMessageCommand Message=我是Error消息}" Content="ShowError" />
+              <Button Command="{h:ShowSuccessSnackMessageCommand Message=我是Success消息}" Content="ShowSuccess" />
+              <Button Command="{h:ShowWarnSnackMessageCommand Message=我是Warn消息}" Content="ShowWarn" />
+              <Button Command="{h:ShowFatalSnackMessageCommand Message=我是Fatal消息}" Content="ShowFatal" />
+              <Button Command="{h:ShowProgressSnackMessageCommand Message=我是Progress消息}" Content="ShowProgress" />
+              <Button Command="{h:ShowStringSnackMessageCommand Message=我是String消息}" Content="ShowString" />
+              <Button Command="{h:ShowDialogSnackMessageCommand Message=我是Dialog消息}" Content="ShowDialog" />
+
+            </UniformGrid>
           </StackPanel>
         </ScrollViewer>
       </DockPanel>

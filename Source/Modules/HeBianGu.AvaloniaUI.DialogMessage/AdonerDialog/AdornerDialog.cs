@@ -1,4 +1,7 @@
 ﻿
+using Avalonia.Controls.ApplicationLifetimes;
+using Avalonia.Layout;
+using Avalonia;
 using HeBianGu.AvaloniaUI.Ioc;
 using System;
 using System.ComponentModel.DataAnnotations;
@@ -13,7 +16,15 @@ namespace HeBianGu.AvaloniaUI.DialogMessage
         public static async Task<bool?> ShowPresenter<Dialog>(object presenter, Action<IDialog> action = null, Func<bool> canSumit = null) where Dialog : IAdornerDialogPresenter, new()
         {
             IAdornerDialogPresenter dialog = new Dialog();
-            dialog.MinWidth = 400;
+            if (Avalonia.Application.Current.ApplicationLifetime is IClassicDesktopStyleApplicationLifetime)
+            {
+                dialog.MinWidth = 400;
+            }
+            else
+            {
+                dialog.HorizontalContentAlignment = HorizontalAlignment.Stretch;
+                dialog.HorizontalAlignment = HorizontalAlignment.Stretch;
+            }
             dialog.Presenter = presenter;
             dialog.CanSumit = canSumit;
             action?.Invoke(dialog);
@@ -29,8 +40,16 @@ namespace HeBianGu.AvaloniaUI.DialogMessage
         public static async Task<T> ShowAction<P, T>(P presenter, Func<IDialog, P, T> func = null, Action<IDialog> action = null)
         {
             AdornerDialogPresenter dialog = new AdornerDialogPresenter(presenter);
-            dialog.MinWidth = 400;
-            dialog.MinHeight = 150;
+            if (Avalonia.Application.Current.ApplicationLifetime is IClassicDesktopStyleApplicationLifetime)
+            {
+                dialog.MinWidth = 400;
+                dialog.MinHeight = 150;
+            }
+            else
+            {
+                dialog.HorizontalContentAlignment = HorizontalAlignment.Stretch;
+                dialog.HorizontalAlignment = HorizontalAlignment.Stretch;
+            }
             action?.Invoke(dialog);
             dialog.Title = dialog.Title ?? presenter.GetType().GetCustomAttribute<DisplayAttribute>()?.Name ?? "提示";
             T result = default;

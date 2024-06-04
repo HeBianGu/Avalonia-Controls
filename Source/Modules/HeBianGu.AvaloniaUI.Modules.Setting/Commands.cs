@@ -30,6 +30,7 @@ namespace HeBianGu.AvaloniaUI.Modules.Setting
                 else
                 {
                     x.VerticalAlignment = VerticalAlignment.Stretch;
+                    x.HorizontalAlignment = HorizontalAlignment.Stretch;
                     //x.Margin = new Avalonia.Thickness(10);
                 }
 

@@ -20,10 +20,10 @@ namespace HeBianGu.AvaloniaUI.Modules.ThemeSetting
                 if (Avalonia.Application.Current.ApplicationLifetime is IClassicDesktopStyleApplicationLifetime)
                 {
                     x.HorizontalAlignment = HorizontalAlignment.Right;
-                    x.HorizontalContentAlignment = HorizontalAlignment.Right;
+                    x.HorizontalContentAlignment = HorizontalAlignment.Stretch;
                     x.VerticalAlignment = VerticalAlignment.Stretch;
                     x.VerticalContentAlignment = VerticalAlignment.Stretch;
-                    x.MinWidth = 200;
+                    x.MinWidth = 250;
                     x.Margin = new Thickness(2);
 
                 }
@@ -32,6 +32,7 @@ namespace HeBianGu.AvaloniaUI.Modules.ThemeSetting
                     //x.HorizontalContentAlignment = HorizontalAlignment.Stretch;
                     //x.VerticalContentAlignment = VerticalAlignment.Stretch;
                     x.VerticalAlignment = VerticalAlignment.Stretch;
+                    x.HorizontalAlignment = HorizontalAlignment.Stretch;
                     //x.VerticalContentAlignment = VerticalAlignment.Stretch;
                     //x.Margin = new Avalonia.Thickness(10);
                 }
