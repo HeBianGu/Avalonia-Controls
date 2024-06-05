@@ -21,7 +21,7 @@
         -->
     <vm:MainViewModel />
   </Design.DataContext>
-  <TabControl TabStripPlacement="Left">
+  <TabControl TabStripPlacement="Left" Theme="{DynamicResource {x:Static h:TabControlKeys.ScrollViewer}}">
     <TabControl.Resources>
       <ControlTheme x:Key="{x:Type GroupBox}"
                     BasedOn="{StaticResource {x:Type GroupBox}}"
@@ -39,6 +39,11 @@
         <GroupBox Content="{Binding}" Header="{Binding RelativeSource={RelativeSource AncestorType={x:Type TabControl}}, Path=SelectedItem.Header}" />
       </DataTemplate>
     </TabControl.ContentTemplate>
+    <!--<TabControl.ItemsPanel>
+      <ItemsPanelTemplate>
+        <StackPanel Background="{DynamicResource {x:Static BrushKeys.Dark0_1}}"/>
+      </ItemsPanelTemplate>
+    </TabControl.ItemsPanel>-->
     <!--<TabItem>
       <DockPanel>
         <ListBox DockPanel.Dock="Bottom" ItemsSource="{Binding Collection}" SelectedItem="{Binding SelecteItem}">
@@ -289,19 +294,61 @@
     </TabItem>
 
     <TabItem Header="TabControl">
-      <TabControl>
-        <TabItem Header="Arch">
-          <Border Height="100" Background="AntiqueWhite">
-            <TextBlock FontSize="20"
-                       Foreground="Black"
-                       Text="Content" />
-          </Border>
-        </TabItem>
-        <TabItem Header="Leaf">
-          <Border Height="100" Background="Green" />
-        </TabItem>
-        <TabItem Header="Disabled" IsEnabled="False" />
-      </TabControl>
+      <UniformGrid>
+        <TabControl TabStripPlacement="Top">
+          <TabItem Header="Arch">
+            <Border Height="100" Background="AntiqueWhite">
+              <TextBlock FontSize="20"
+                         Foreground="Black"
+                         Text="Content" />
+            </Border>
+          </TabItem>
+          <TabItem Header="Leaf">
+            <Border Height="100" Background="Green" />
+          </TabItem>
+          <TabItem Header="Disabled" IsEnabled="False" />
+        </TabControl>
+        <TabControl  TabStripPlacement="Right">
+          <TabItem Header="Arch">
+            <Border Height="100" Background="AntiqueWhite">
+              <TextBlock FontSize="20"
+                         Foreground="Black"
+                         Text="Content" />
+            </Border>
+          </TabItem>
+          <TabItem Header="Leaf">
+            <Border Height="100" Background="Green" />
+          </TabItem>
+          <TabItem Header="Disabled" IsEnabled="False" />
+        </TabControl>
+        <TabControl  TabStripPlacement="Bottom">
+          <TabItem Header="Arch">
+            <Border Height="100" Background="AntiqueWhite">
+              <TextBlock FontSize="20"
+                         Foreground="Black"
+                         Text="Content" />
+            </Border>
+          </TabItem>
+          <TabItem Header="Leaf">
+            <Border Height="100" Background="Green" />
+          </TabItem>
+          <TabItem Header="Disabled" IsEnabled="False" />
+        </TabControl>
+
+        <TabControl  TabStripPlacement="Right">
+          <TabItem Header="Arch">
+            <Border Height="100" Background="AntiqueWhite">
+              <TextBlock FontSize="20"
+                         Foreground="Black"
+                         Text="Content" />
+            </Border>
+          </TabItem>
+          <TabItem Header="Leaf">
+            <Border Height="100" Background="Green" />
+          </TabItem>
+          <TabItem Header="Disabled" IsEnabled="False" />
+        </TabControl>
+      </UniformGrid>
     </TabItem>
 
     <TabItem Header="Button">

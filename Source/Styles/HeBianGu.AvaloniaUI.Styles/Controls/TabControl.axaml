@@ -36,9 +36,12 @@
                 BorderThickness="{TemplateBinding BorderThickness}"
                 CornerRadius="{TemplateBinding CornerRadius}">
           <DockPanel>
-            <ItemsPresenter Name="PART_ItemsPresenter"
-                            DockPanel.Dock="{TemplateBinding TabStripPlacement}"
-                            ItemsPanel="{TemplateBinding ItemsPanel}" />
+            <ScrollViewer HorizontalScrollBarVisibility="Disabled"
+                                VerticalScrollBarVisibility="Disabled"
+                                DockPanel.Dock="{TemplateBinding TabStripPlacement}">
+              <ItemsPresenter Name="PART_ItemsPresenter"
+                          ItemsPanel="{TemplateBinding ItemsPanel}" />
+            </ScrollViewer>
             <ContentPresenter Name="PART_SelectedContentHost"
                               Margin="{TemplateBinding Padding}"
                               HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"

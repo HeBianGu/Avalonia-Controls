@@ -1,0 +1,65 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:h="https://github.com/HeBianGu"
+                    xmlns:local="clr-namespace:HeBianGu.AvaloniaUI.Styles.Extension">
+
+  <ControlTheme x:Key="{StringResourceKey ResourceId=ScrollViewer,
+                                                  TypeInTargetAssembly=TabControl}"
+                   BasedOn="{StaticResource {x:Type TabControl}}" TargetType="TabControl">
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Border HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                VerticalAlignment="{TemplateBinding VerticalAlignment}"
+                Background="{TemplateBinding Background}"
+                BorderBrush="{TemplateBinding BorderBrush}"
+                BorderThickness="{TemplateBinding BorderThickness}"
+                CornerRadius="{TemplateBinding CornerRadius}">
+          <DockPanel>
+            <DockPanel DockPanel.Dock="{TemplateBinding TabStripPlacement}">
+              <TemplatedControl Name="PART_HeaderLeft" DockPanel.Dock="Left" Template="{TemplateBinding h:Attach.HeaderLeftTemplate}"/>
+              <TemplatedControl Name="PART_HeaderRight" DockPanel.Dock="Right" Template="{TemplateBinding h:Attach.HeaderRightTemplate}" />
+              <ScrollViewer HorizontalScrollBarVisibility="Auto"
+                            VerticalScrollBarVisibility="Auto" >
+                <ItemsPresenter Name="PART_ItemsPresenter"
+                         ItemsPanel="{TemplateBinding ItemsPanel}" />
+              </ScrollViewer>
+            </DockPanel>
+
+            <ContentPresenter Name="PART_SelectedContentHost"
+                              Margin="{TemplateBinding Padding}"
+                              HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                              VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                              Content="{TemplateBinding SelectedContent}"
+                              ContentTemplate="{TemplateBinding SelectedContentTemplate}" />
+          </DockPanel>
+        </Border>
+      </ControlTemplate>
+    </Setter>
+    <Setter Property="h:Attach.HeaderLeftTemplate">
+      <Setter.Value>
+        <ControlTemplate>
+          <TextBox Watermark="Search" MinWidth="120"  Classes="clearButton"/>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+    <Setter Property="h:Attach.HeaderRightTemplate">
+      <Setter.Value>
+        <ControlTemplate>
+          <TextBox Watermark="Search" MinWidth="120"  Classes="clearButton"/>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+    <Style Selector="^[TabStripPlacement=Left] /template/ TemplatedControl#PART_HeaderLeft">
+      <Setter Property="DockPanel.Dock" Value="Top" />
+    </Style>
+    <Style Selector="^[TabStripPlacement=Left] /template/ TemplatedControl#PART_HeaderRight">
+      <Setter Property="DockPanel.Dock" Value="Bottom" />
+    </Style>
+    <Style Selector="^[TabStripPlacement=Right] /template/ TemplatedControl#PART_HeaderLeft">
+      <Setter Property="DockPanel.Dock" Value="Top" />
+    </Style>
+    <Style Selector="^[TabStripPlacement=Right] /template/ TemplatedControl#PART_HeaderRight">
+      <Setter Property="DockPanel.Dock" Value="Bottom" />
+    </Style>
+  </ControlTheme>
+</ResourceDictionary>

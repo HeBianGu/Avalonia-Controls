@@ -1,7 +1,13 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <ItemGroup>
     <ProjectReference Include="..\..\Extensions\HeBianGu.AvaloniaUI.Application\HeBianGu.AvaloniaUI.Application.csproj" />
+    <ProjectReference Include="..\..\Extensions\HeBianGu.AvaloniaUI.Attach\HeBianGu.AvaloniaUI.Attach.csproj" />
     <ProjectReference Include="..\..\Extensions\HeBianGu.AvaloniaUI.ResourceKey\HeBianGu.AvaloniaUI.ResourceKey.csproj" />
     <ProjectReference Include="..\..\Themes\HeBianGu.AvaloniaUI.Theme\HeBianGu.AvaloniaUI.Theme.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Resources\TabControl.axaml.cs">
+      <DependentUpon>TabControl.axaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 </Project>
