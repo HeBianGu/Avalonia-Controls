@@ -6,6 +6,7 @@
              xmlns:model="clr-namespace:HeBianGu.Test.Controls.Models"
              xmlns:system="clr-namespace:System;assembly=mscorlib"
              xmlns:vm="clr-namespace:HeBianGu.Test.Controls.ViewModels"
+             xmlns:v="clr-namespace:HeBianGu.Test.Controls.Views"
              d:DesignHeight="450"
              d:DesignWidth="800"
              x:DataType="vm:MainViewModel"
@@ -44,6 +45,106 @@
         </Border>
       </ControlTemplate>
     </TabControl.Template>
+
+
+    <TabItem Header="TransitioningContentControl">
+      <DockPanel>
+        <ComboBox Name="cbb_PageTransition" SelectedIndex="0">
+          <CrossFade/>
+          <CrossFade Duration="00:00:02"/>
+          <PageSlide Orientation="Horizontal"/>
+          <PageSlide Orientation="Horizontal" Duration="00:00:02"/>
+          <PageSlide Orientation="Vertical"/>
+          <PageSlide Orientation="Vertical" Duration="00:00:02"/>
+          <CompositePageTransition>
+            <CrossFade/>
+            <PageSlide Orientation="Horizontal"/>
+          </CompositePageTransition>
+          <v:CustomTransition/>
+        </ComboBox>
+        <ComboBox Name="cbb_pe"  ItemsSource="{Binding People}">
+       
+        </ComboBox>
+        <CheckBox Name="cb_PageTransition"/>
+        <TransitioningContentControl Content="{Binding ElementName=cbb_pe,Path=SelectedItem}"
+                                       PageTransition="{Binding ElementName=cbb_PageTransition,Path=SelectedItem}"
+                                       IsTransitionReversed="{Binding ElementName=cb_PageTransition,Path=IsChecked}">
+          <TransitioningContentControl.ContentTemplate>
+            <DataTemplate>
+              <Image Source="avares://HeBianGu.Test.Controls/Assets/1.jpg"  />
+            </DataTemplate>
+          </TransitioningContentControl.ContentTemplate>
+        </TransitioningContentControl>
+      </DockPanel>
+    </TabItem>
+
+
+    <TabItem Header="Template">
+      <StackPanel Margin="20">
+
+      </StackPanel>
+    </TabItem>
+
+
+    <TabItem Header="Template">
+      <StackPanel Margin="20">
+
+      </StackPanel>
+    </TabItem>
+
+
+    <TabItem Header="Template">
+      <StackPanel Margin="20">
+
+      </StackPanel>
+    </TabItem>
+
+
+    <TabItem Header="Template">
+      <StackPanel Margin="20">
+
+      </StackPanel>
+    </TabItem>
+    <TabItem Header="ToggleSwitch">
+      <StackPanel Margin="20">
+        <ToggleSwitch />
+      </StackPanel>
+    </TabItem>
+    <TabItem Header="ExperimentalAcrylicBorder">
+      <Grid Margin="20">
+        <ExperimentalAcrylicBorder DockPanel.Dock="Bottom" Margin="10" CornerRadius="5" >
+          <ExperimentalAcrylicBorder.Material>
+            <ExperimentalAcrylicMaterial BackgroundSource="Digger" TintColor="White" />
+          </ExperimentalAcrylicBorder.Material>
+          <ToggleSwitch />
+        </ExperimentalAcrylicBorder>
+      </Grid>
+    </TabItem>
+
+    <TabItem Header="GridSplitter">
+      <Grid ColumnDefinitions="200,5,*" Margin="20">
+        <GridSplitter Margin="2" BorderThickness="1" BorderBrush="Gray"
+                      Background="#e0e0e0" Grid.Column="1"
+                      ResizeDirection="Columns" ResizeBehavior="PreviousAndNext" />
+        <Border Grid.Column="2" Background="Red">
+
+        </Border>
+        <Border Grid.Column="0" Background="Yellow">
+
+        </Border>
+      </Grid>
+    </TabItem>
+
+    <TabItem Header="LayoutTransformControl">
+      <StackPanel Margin="20">
+        <LayoutTransformControl HorizontalAlignment="Center" MinWidth="30">
+          <LayoutTransformControl.LayoutTransform>
+            <RotateTransform Angle="90"/>
+          </LayoutTransformControl.LayoutTransform>
+          <TextBlock>Resize me</TextBlock>
+        </LayoutTransformControl>
+      </StackPanel>
+    </TabItem>
 
     <TabItem Header="AutoCompleteBox">
       <StackPanel Margin="20">

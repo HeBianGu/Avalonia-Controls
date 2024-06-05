@@ -35,13 +35,13 @@
         </Border>
       </ControlTemplate>
     </Setter>
-    <Setter Property="h:Attach.HeaderLeftTemplate">
+    <!--<Setter Property="h:Attach.HeaderLeftTemplate">
       <Setter.Value>
         <ControlTemplate>
           <TextBox Watermark="Search" MinWidth="120"  Classes="clearButton"/>
         </ControlTemplate>
       </Setter.Value>
-    </Setter>
+    </Setter>-->
     <Setter Property="h:Attach.HeaderRightTemplate">
       <Setter.Value>
         <ControlTemplate>
