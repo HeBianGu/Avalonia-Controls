@@ -5,546 +5,786 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:model="clr-namespace:HeBianGu.Test.Controls.Models"
              xmlns:system="clr-namespace:System;assembly=mscorlib"
-             xmlns:vm="clr-namespace:HeBianGu.Test.Controls.ViewModels"
              xmlns:v="clr-namespace:HeBianGu.Test.Controls.Views"
+             xmlns:vm="clr-namespace:HeBianGu.Test.Controls.ViewModels"
              d:DesignHeight="450"
              d:DesignWidth="800"
              x:DataType="vm:MainViewModel"
              mc:Ignorable="d">
-  <Design.DataContext>
-    <!--
+    <Design.DataContext>
+        <!--
             This only sets the DataContext for the previewer in an IDE,
             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs)
         -->
-    <vm:MainViewModel />
-  </Design.DataContext>
+        <vm:MainViewModel />
+    </Design.DataContext>
 
-  <TabControl TabStripPlacement="Left">
-    <TabControl.Template>
-      <ControlTemplate>
-        <Border HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
-                VerticalAlignment="{TemplateBinding VerticalAlignment}"
-                Background="{TemplateBinding Background}"
-                BorderBrush="{TemplateBinding BorderBrush}"
-                BorderThickness="{TemplateBinding BorderThickness}"
-                CornerRadius="{TemplateBinding CornerRadius}">
-          <DockPanel>
-            <ScrollViewer HorizontalScrollBarVisibility="Auto"
-                          VerticalScrollBarVisibility="Auto"
-                          DockPanel.Dock="{TemplateBinding TabStripPlacement}">
-              <ItemsPresenter Name="PART_ItemsPresenter"
-                          ItemsPanel="{TemplateBinding ItemsPanel}" />
-            </ScrollViewer>
-            <ContentPresenter Name="PART_SelectedContentHost"
-                              Margin="{TemplateBinding Padding}"
-                              HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                              VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                              Content="{TemplateBinding SelectedContent}"
-                              ContentTemplate="{TemplateBinding SelectedContentTemplate}" />
-          </DockPanel>
-        </Border>
-      </ControlTemplate>
-    </TabControl.Template>
-
-
-    <TabItem Header="TransitioningContentControl">
-      <DockPanel>
-        <ComboBox Name="cbb_PageTransition" SelectedIndex="0">
-          <CrossFade/>
-          <CrossFade Duration="00:00:02"/>
-          <PageSlide Orientation="Horizontal"/>
-          <PageSlide Orientation="Horizontal" Duration="00:00:02"/>
-          <PageSlide Orientation="Vertical"/>
-          <PageSlide Orientation="Vertical" Duration="00:00:02"/>
-          <CompositePageTransition>
-            <CrossFade/>
-            <PageSlide Orientation="Horizontal"/>
-          </CompositePageTransition>
-          <v:CustomTransition/>
-        </ComboBox>
-        <ComboBox Name="cbb_pe"  ItemsSource="{Binding People}">
-       
-        </ComboBox>
-        <CheckBox Name="cb_PageTransition"/>
-        <TransitioningContentControl Content="{Binding ElementName=cbb_pe,Path=SelectedItem}"
-                                       PageTransition="{Binding ElementName=cbb_PageTransition,Path=SelectedItem}"
-                                       IsTransitionReversed="{Binding ElementName=cb_PageTransition,Path=IsChecked}">
-          <TransitioningContentControl.ContentTemplate>
-            <DataTemplate>
-              <Image Source="avares://HeBianGu.Test.Controls/Assets/1.jpg"  />
-            </DataTemplate>
-          </TransitioningContentControl.ContentTemplate>
-        </TransitioningContentControl>
-      </DockPanel>
-    </TabItem>
+    <TabControl TabStripPlacement="Left">
+        <TabControl.Template>
+            <ControlTemplate>
+                <Border HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                        VerticalAlignment="{TemplateBinding VerticalAlignment}"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding CornerRadius}">
+                    <DockPanel>
+                        <ScrollViewer DockPanel.Dock="{TemplateBinding TabStripPlacement}"
+                                      HorizontalScrollBarVisibility="Auto"
+                                      VerticalScrollBarVisibility="Auto">
+                            <ItemsPresenter Name="PART_ItemsPresenter" ItemsPanel="{TemplateBinding ItemsPanel}" />
+                        </ScrollViewer>
+                        <ContentPresenter Name="PART_SelectedContentHost"
+                                          Margin="{TemplateBinding Padding}"
+                                          HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                          Content="{TemplateBinding SelectedContent}"
+                                          ContentTemplate="{TemplateBinding SelectedContentTemplate}" />
+                    </DockPanel>
+                </Border>
+            </ControlTemplate>
+        </TabControl.Template>
 
 
-    <TabItem Header="Template">
-      <StackPanel Margin="20">
+        <TabItem Header="TransitioningContentControl">
+            <DockPanel>
+                <ComboBox Name="cbb_PageTransition" SelectedIndex="0">
+                    <CrossFade />
+                    <CrossFade Duration="00:00:02" />
+                    <PageSlide Orientation="Horizontal" />
+                    <PageSlide Orientation="Horizontal" Duration="00:00:02" />
+                    <PageSlide Orientation="Vertical" />
+                    <PageSlide Orientation="Vertical" Duration="00:00:02" />
+                    <CompositePageTransition>
+                        <CrossFade />
+                        <PageSlide Orientation="Horizontal" />
+                    </CompositePageTransition>
+                    <v:CustomTransition />
+                </ComboBox>
+                <ComboBox Name="cbb_pe" ItemsSource="{Binding People}" />
+                <CheckBox Name="cb_PageTransition" />
+                <TransitioningContentControl Content="{Binding ElementName=cbb_pe, Path=SelectedItem}"
+                                             IsTransitionReversed="{Binding ElementName=cb_PageTransition, Path=IsChecked}"
+                                             PageTransition="{Binding ElementName=cbb_PageTransition, Path=SelectedItem}">
+                    <TransitioningContentControl.ContentTemplate>
+                        <DataTemplate>
+                            <Image Source="avares://HeBianGu.Test.Controls/Assets/1.jpg" />
+                        </DataTemplate>
+                    </TransitioningContentControl.ContentTemplate>
+                </TransitioningContentControl>
+            </DockPanel>
+        </TabItem>
 
-      </StackPanel>
-    </TabItem>
+
+        <TabItem Header="Template">
+            <StackPanel Margin="20">
+                <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+                    <RelativePanel Width="620"
+                                   Height="700"
+                                   Margin="32">
+                        <Border Name="Rect1"
+                                Width="50"
+                                Height="50"
+                                Background="Red">
+                            <TextBlock HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       FontWeight="Bold"
+                                       Foreground="White"
+                                       Text="Rect1" />
+                        </Border>
+                        <Border Name="Rect2"
+                                Width="50"
+                                Height="50"
+                                Background="Blue"
+                                RelativePanel.AlignHorizontalCenterWithPanel="True">
+                            <TextBlock HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       FontWeight="Bold"
+                                       Foreground="White"
+                                       Text="Rect2" />
+                        </Border>
+                        <Border Name="Rect3"
+                                Width="50"
+                                Height="50"
+                                Background="Green"
+                                RelativePanel.AlignRightWithPanel="True">
+                            <TextBlock HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       FontWeight="Bold"
+                                       Foreground="White"
+                                       Text="Rect3" />
+                        </Border>
+                        <Border Name="Rect4"
+                                Width="50"
+                                Height="50"
+                                Background="Red"
+                                RelativePanel.AlignBottomWithPanel="True">
+                            <TextBlock HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       FontWeight="Bold"
+                                       Foreground="White"
+                                       Text="Rect4" />
+                        </Border>
+                        <Border Name="Rect5"
+                                Width="50"
+                                Height="50"
+                                Background="Blue"
+                                RelativePanel.AlignBottomWithPanel="True"
+                                RelativePanel.AlignHorizontalCenterWithPanel="True">
+                            <TextBlock HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       FontWeight="Bold"
+                                       Foreground="White"
+                                       Text="Rect5" />
+                        </Border>
+                        <Border Name="Rect6"
+                                Width="50"
+                                Height="50"
+                                Background="Green"
+                                RelativePanel.AlignBottomWithPanel="True"
+                                RelativePanel.AlignRightWithPanel="True">
+                            <TextBlock HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       FontWeight="Bold"
+                                       Foreground="White"
+                                       Text="Rect6" />
+                        </Border>
+                        <Border Name="Rect7"
+                                Height="50"
+                                Background="Blue"
+                                RelativePanel.RightOf="Rect1">
+                            <TextBlock Padding="10,0"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       FontWeight="Bold"
+                                       Foreground="White"
+                                       Text="Rect7 (RightOf Rect1)" />
+                        </Border>
+                        <Border Name="Rect8"
+                                Height="50"
+                                Background="Green"
+                                RelativePanel.Below="Rect7">
+                            <TextBlock Padding="10,0"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       FontWeight="Bold"
+                                       Foreground="White"
+                                       Text="Rect8 (Below Rect7)" />
+                        </Border>
+                        <Border Name="Rect9"
+                                Width="460"
+                                Height="140"
+                                Background="Blue"
+                                RelativePanel.AlignHorizontalCenterWithPanel="True"
+                                RelativePanel.AlignVerticalCenterWithPanel="True">
+                            <TextBlock Padding="10"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Top"
+                                       FontWeight="Bold"
+                                       Foreground="White"
+                                       Text="Rect9" />
+                        </Border>
+                        <Border Name="Rect10"
+                                Width="50"
+                                Background="Red"
+                                RelativePanel.AlignVerticalCenterWith="Rect9"
+                                RelativePanel.RightOf="Rect9">
+                            <TextBlock Padding="10,0"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       FontWeight="Bold"
+                                       Foreground="White"
+                                       Text="Rect14 (RightOf Rect9, AlignVerticalCenterWith Rect9)">
+                                <TextBlock.RenderTransform>
+                                    <TransformGroup>
+                                        <RotateTransform Angle="-90" />
+                                    </TransformGroup>
+                                </TextBlock.RenderTransform>
+                            </TextBlock>
+                        </Border>
+                        <Border Name="Rect11"
+                                Height="50"
+                                Background="Red"
+                                RelativePanel.AlignBottomWith="Rect9"
+                                RelativePanel.AlignHorizontalCenterWith="Rect9">
+                            <TextBlock Padding="10,0"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       FontWeight="Bold"
+                                       Foreground="White"
+                                       Text="Rect11 (AlignBottomWith Rect9, AlignHorizontalCenterWith Rect9)" />
+                        </Border>
+                        <Border Name="Rect12"
+                                Height="50"
+                                Background="Red"
+                                RelativePanel.AlignLeftWith="Rect7"
+                                RelativePanel.Below="Rect8">
+                            <TextBlock Padding="10,0"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       FontWeight="Bold"
+                                       Foreground="White"
+                                       Text="Rect12 (Below Rect8, AlignLeftWith Rect7)" />
+                        </Border>
+                        <Border Name="Rect13"
+                                Height="50"
+                                Background="Blue"
+                                RelativePanel.AlignRightWith="Rect12"
+                                RelativePanel.Below="Rect12">
+                            <TextBlock Padding="10,0"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       FontWeight="Bold"
+                                       Foreground="White"
+                                       Text="Rect13 (Below Rect12, AlignRightWith Rect12)" />
+                        </Border>
+                        <Border Name="Rect14"
+                                Height="50"
+                                Background="Green"
+                                RelativePanel.Above="Rect9"
+                                RelativePanel.AlignRightWith="Rect9">
+                            <TextBlock Padding="10,0"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       FontWeight="Bold"
+                                       Foreground="White"
+                                       Text="Rect14 (Above Rect9, AlignRightWith Rect9)" />
+                        </Border>
+                        <Border Name="Rect15"
+                                Height="50"
+                                Background="Red"
+                                RelativePanel.AlignTopWith="Rect9"
+                                RelativePanel.LeftOf="Rect2">
+                            <TextBlock Padding="10,0"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       FontWeight="Bold"
+                                       Foreground="White"
+                                       Text="Rect15 (LeftOf Rect2, AlignTopWith Rect9)" />
+                        </Border>
+                    </RelativePanel>
+                </ScrollViewer>
+            </StackPanel>
+        </TabItem>
 
 
-    <TabItem Header="Template">
-      <StackPanel Margin="20">
-
-      </StackPanel>
-    </TabItem>
+        <TabItem Header="Template">
+            <StackPanel Margin="20" />
+        </TabItem>
 
 
-    <TabItem Header="Template">
-      <StackPanel Margin="20">
-
-      </StackPanel>
-    </TabItem>
+        <TabItem Header="Template">
+            <StackPanel Margin="20" />
+        </TabItem>
 
 
-    <TabItem Header="Template">
-      <StackPanel Margin="20">
+        <TabItem Header="Template">
+            <StackPanel Margin="20" />
+        </TabItem>
+        <TabItem Header="ToggleSwitch">
+            <StackPanel Margin="20">
+                <ToggleSwitch />
+            </StackPanel>
+        </TabItem>
+        <TabItem Header="ExperimentalAcrylicBorder">
+            <Grid Margin="20">
+                <ExperimentalAcrylicBorder Margin="10"
+                                           CornerRadius="5"
+                                           DockPanel.Dock="Bottom">
+                    <ExperimentalAcrylicBorder.Material>
+                        <ExperimentalAcrylicMaterial BackgroundSource="Digger" TintColor="White" />
+                    </ExperimentalAcrylicBorder.Material>
+                    <ToggleSwitch />
+                </ExperimentalAcrylicBorder>
+            </Grid>
+        </TabItem>
 
-      </StackPanel>
-    </TabItem>
-    <TabItem Header="ToggleSwitch">
-      <StackPanel Margin="20">
-        <ToggleSwitch />
-      </StackPanel>
-    </TabItem>
-    <TabItem Header="ExperimentalAcrylicBorder">
-      <Grid Margin="20">
-        <ExperimentalAcrylicBorder DockPanel.Dock="Bottom" Margin="10" CornerRadius="5" >
-          <ExperimentalAcrylicBorder.Material>
-            <ExperimentalAcrylicMaterial BackgroundSource="Digger" TintColor="White" />
-          </ExperimentalAcrylicBorder.Material>
-          <ToggleSwitch />
-        </ExperimentalAcrylicBorder>
-      </Grid>
-    </TabItem>
+        <TabItem Header="GridSplitter">
+            <Grid Margin="20" ColumnDefinitions="200,5,*">
+                <GridSplitter Grid.Column="1"
+                              Margin="2"
+                              Background="#e0e0e0"
+                              BorderBrush="Gray"
+                              BorderThickness="1"
+                              ResizeBehavior="PreviousAndNext"
+                              ResizeDirection="Columns" />
+                <Border Grid.Column="2" Background="Red" />
+                <Border Grid.Column="0" Background="Yellow" />
+            </Grid>
+        </TabItem>
 
-    <TabItem Header="GridSplitter">
-      <Grid ColumnDefinitions="200,5,*" Margin="20">
-        <GridSplitter Margin="2" BorderThickness="1" BorderBrush="Gray"
-                      Background="#e0e0e0" Grid.Column="1"
-                      ResizeDirection="Columns" ResizeBehavior="PreviousAndNext" />
-        <Border Grid.Column="2" Background="Red">
+        <TabItem Header="LayoutTransformControl">
+            <StackPanel Margin="20">
+                <LayoutTransformControl MinWidth="30" HorizontalAlignment="Center">
+                    <LayoutTransformControl.LayoutTransform>
+                        <RotateTransform Angle="90" />
+                    </LayoutTransformControl.LayoutTransform>
+                    <TextBlock>Resize me</TextBlock>
+                </LayoutTransformControl>
+            </StackPanel>
+        </TabItem>
 
-        </Border>
-        <Border Grid.Column="0" Background="Yellow">
-
-        </Border>
-      </Grid>
-    </TabItem>
-
-    <TabItem Header="LayoutTransformControl">
-      <StackPanel Margin="20">
-        <LayoutTransformControl HorizontalAlignment="Center" MinWidth="30">
-          <LayoutTransformControl.LayoutTransform>
-            <RotateTransform Angle="90"/>
-          </LayoutTransformControl.LayoutTransform>
-          <TextBlock>Resize me</TextBlock>
-        </LayoutTransformControl>
-      </StackPanel>
-    </TabItem>
-
-    <TabItem Header="AutoCompleteBox">
-      <StackPanel Margin="20">
-        <TextBlock Margin="0,5">Choose an animal:</TextBlock>
-        <AutoCompleteBox x:Name="animals" FilterMode="StartsWith" />
-      </StackPanel>
-    </TabItem>
-    <TabItem Header="Button">
-      <Button Content="{Binding Greeting}" />
-    </TabItem>
-    <TabItem Header="TextBlock">
-      <StackPanel Margin="20">
-        <TextBlock Margin="0,5"
-                   FontSize="18"
-                   FontWeight="Bold">
-          Heading
-        </TextBlock>
-        <TextBlock Margin="0,5"
-                   xml:space="preserve"
-                   FontStyle="Italic">This is  a single line.</TextBlock>
-        <TextBlock Margin="0,5" xml:space="preserve">This is a multi-line display
+        <TabItem Header="AutoCompleteBox">
+            <StackPanel Margin="20">
+                <TextBlock Margin="0,5">Choose an animal:</TextBlock>
+                <AutoCompleteBox x:Name="animals" FilterMode="StartsWith" />
+            </StackPanel>
+        </TabItem>
+        <TabItem Header="Button">
+            <Button Content="{Binding Greeting}" />
+        </TabItem>
+        <TabItem Header="TextBlock">
+            <StackPanel Margin="20">
+                <TextBlock Margin="0,5"
+                           FontSize="18"
+                           FontWeight="Bold">
+                    Heading
+                </TextBlock>
+                <TextBlock Margin="0,5"
+                           xml:space="preserve"
+                           FontStyle="Italic">This is  a single line.</TextBlock>
+                <TextBlock Margin="0,5" xml:space="preserve">This is a multi-line display
 that has returns in it.
 The text block respects the line breaks
 as set out in XAML.</TextBlock>
-      </StackPanel>
-    </TabItem>
-    <TabItem Header="Border">
-      <StackPanel>
-        <Border Margin="10"
-                Padding="10"
-                Background="Gainsboro"
-                BorderBrush="Black"
-                BorderThickness="2"
-                CornerRadius="3">
-          <TextBlock>Box 1</TextBlock>
-        </Border>
-        <Border Margin="10"
-                Padding="10"
-                Background="Gainsboro"
-                BorderBrush="Black"
-                BorderThickness="2"
-                CornerRadius="3">
-          <TextBlock>Box 2</TextBlock>
-        </Border>
-      </StackPanel>
-    </TabItem>
-    <TabItem Header="Canvas">
-      <Canvas Margin="20" Background="AliceBlue">
-        <Rectangle Width="100"
-                   Height="100"
-                   Margin="10"
-                   Fill="Red" />
-        <Rectangle Canvas.Left="50"
-                   Canvas.Top="20"
-                   Width="100"
-                   Height="100"
-                   Fill="Blue"
-                   Opacity="0.5" />
-        <Rectangle Canvas.Left="60"
-                   Canvas.Top="40"
-                   Width="100"
-                   Height="100"
-                   Margin="40"
-                   Fill="Green" />
-        <Rectangle Canvas.Right="70"
-                   Canvas.Bottom="60"
-                   Width="100"
-                   Height="100"
-                   Fill="Orange" />
-      </Canvas>
-    </TabItem>
+            </StackPanel>
+        </TabItem>
+        <TabItem Header="Border">
+            <StackPanel>
+                <Border Margin="10"
+                        Padding="10"
+                        Background="Gainsboro"
+                        BorderBrush="Black"
+                        BorderThickness="2"
+                        CornerRadius="3">
+                    <TextBlock>Box 1</TextBlock>
+                </Border>
+                <Border Margin="10"
+                        Padding="10"
+                        Background="Gainsboro"
+                        BorderBrush="Black"
+                        BorderThickness="2"
+                        CornerRadius="3">
+                    <TextBlock>Box 2</TextBlock>
+                </Border>
+            </StackPanel>
+        </TabItem>
+        <TabItem Header="Canvas">
+            <Canvas Margin="20" Background="AliceBlue">
+                <Rectangle Width="100"
+                           Height="100"
+                           Margin="10"
+                           Fill="Red" />
+                <Rectangle Canvas.Left="50"
+                           Canvas.Top="20"
+                           Width="100"
+                           Height="100"
+                           Fill="Blue"
+                           Opacity="0.5" />
+                <Rectangle Canvas.Left="60"
+                           Canvas.Top="40"
+                           Width="100"
+                           Height="100"
+                           Margin="40"
+                           Fill="Green" />
+                <Rectangle Canvas.Right="70"
+                           Canvas.Bottom="60"
+                           Width="100"
+                           Height="100"
+                           Fill="Orange" />
+            </Canvas>
+        </TabItem>
 
-    <TabItem Header="DockPanel">
-      <DockPanel Width="300" Height="300">
-        <Rectangle Height="100"
-                   DockPanel.Dock="Top"
-                   Fill="Red" />
-        <Rectangle Width="100"
-                   DockPanel.Dock="Left"
-                   Fill="Blue" />
-        <Rectangle Height="100"
-                   DockPanel.Dock="Bottom"
-                   Fill="Green" />
-        <Rectangle Width="100"
-                   DockPanel.Dock="Right"
-                   Fill="Orange"
-                   Opacity="0.5" />
-        <Rectangle Fill="Gray" />
-      </DockPanel>
-    </TabItem>
+        <TabItem Header="DockPanel">
+            <DockPanel Width="300" Height="300">
+                <Rectangle Height="100"
+                           DockPanel.Dock="Top"
+                           Fill="Red" />
+                <Rectangle Width="100"
+                           DockPanel.Dock="Left"
+                           Fill="Blue" />
+                <Rectangle Height="100"
+                           DockPanel.Dock="Bottom"
+                           Fill="Green" />
+                <Rectangle Width="100"
+                           DockPanel.Dock="Right"
+                           Fill="Orange"
+                           Opacity="0.5" />
+                <Rectangle Fill="Gray" />
+            </DockPanel>
+        </TabItem>
 
-    <TabItem Header="ButtonSpinner">
-      <ButtonSpinner Width="130"
-                     Height="20"
-                     ButtonSpinnerLocation="Left">
-        123
-      </ButtonSpinner>
-    </TabItem>
-    <TabItem Header="RadioButton">
-      <StackPanel Margin="20">
-        <TextBlock Margin="0,10,0,5">First Group</TextBlock>
-        <RadioButton Content="First Option" GroupName="First Group" />
-        <RadioButton Content="Second Option" GroupName="First Group" />
-        <RadioButton Content="Third Option"
-                     GroupName="First Group"
-                     IsEnabled="False" />
+        <TabItem Header="ButtonSpinner">
+            <ButtonSpinner Width="130"
+                           Height="20"
+                           ButtonSpinnerLocation="Left">
+                123
+            </ButtonSpinner>
+        </TabItem>
+        <TabItem Header="RadioButton">
+            <StackPanel Margin="20">
+                <TextBlock Margin="0,10,0,5">First Group</TextBlock>
+                <RadioButton Content="First Option" GroupName="First Group" />
+                <RadioButton Content="Second Option" GroupName="First Group" />
+                <RadioButton Content="Third Option"
+                             GroupName="First Group"
+                             IsEnabled="False" />
 
-        <TextBlock Margin="0,10,0,5">Second Group</TextBlock>
-        <RadioButton Content="Fourth Option" GroupName="Second Group" />
-        <RadioButton Content="Fifth Option" GroupName="Second Group" />
-      </StackPanel>
-    </TabItem>
-    <TabItem Header="SplitButton">
-      <SplitButton Content="Content">
-        <SplitButton.Flyout>
-          <MenuFlyout Placement="Bottom">
-            <MenuItem Header="Item 1">
-              <MenuItem Header="Subitem 1" />
-              <MenuItem Header="Subitem 2" />
-              <MenuItem Header="Subitem 3" />
-            </MenuItem>
-            <MenuItem Header="Item 2" InputGesture="Ctrl+A" />
-            <MenuItem Header="Item 3" />
-          </MenuFlyout>
-        </SplitButton.Flyout>
-      </SplitButton>
-    </TabItem>
-    <TabItem Header="ToggleButton">
-      <ToggleButton IsChecked="True">
-        <Panel>
-          <PathIcon>
-            <PathIcon.Data>
-              <StreamGeometry>M28 29.7678L41.8661 43.6339C42.3543 44.122 43.1457 44.122 43.6339 43.6339C44.122 43.1457 44.122 42.3543 43.6339 41.8661L6.13388 4.36612C5.64573 3.87796 4.85427 3.87796 4.36611 4.36612C3.87796 4.85427 3.87796 5.64573 4.36611 6.13388L13.2322 15H9C6.10051 15 3.75 17.3505 3.75 20.25V27.75C3.75 30.6495 6.10051 33 9 33H13.702C14.8734 33 16.0034 33.4328 16.875 34.2153L25.081 41.5815C26.2077 42.5929 28 41.7933 28 40.2793V29.7678ZM25.5 27.2678V38.5981L18.5451 32.3549C17.2146 31.1606 15.4898 30.5 13.702 30.5H9C7.48122 30.5 6.25 29.2688 6.25 27.75V20.25C6.25 18.7312 7.48122 17.5 9 17.5H13.702C14.3147 17.5 14.92 17.4224 15.5046 17.2723L25.5 27.2678Z M19.8115 14.5082L18.0412 12.7379L25.081 6.41847C26.2076 5.40709 28 6.20669 28 7.72074V22.6967L25.5 20.1967V9.40185L19.8115 14.5082Z M36.1857 30.8824L34.335 29.0317C34.966 27.7376 35.5 26.0404 35.5 24C35.5 21.5224 34.7127 19.5507 33.9203 18.1923C33.5242 17.5133 33.1298 16.9931 32.8397 16.6477C32.695 16.4754 32.577 16.3476 32.499 16.2664C32.46 16.2259 32.4311 16.197 32.414 16.1802L32.3972 16.164L32.398 16.1646C31.8935 15.6947 31.8647 14.9048 32.334 14.3994C32.8038 13.8935 33.5947 13.8642 34.1006 14.334L33.25 15.25C34.1006 14.334 34.1014 14.3347 34.1014 14.3347L34.1022 14.3356L34.1042 14.3374L34.1092 14.3421L34.1228 14.355C34.1336 14.3653 34.1476 14.3788 34.1646 14.3955C34.1987 14.4289 34.245 14.4753 34.3018 14.5343C34.4152 14.6524 34.5707 14.8215 34.754 15.0398C35.1202 15.4757 35.6008 16.1117 36.0797 16.9327C37.0373 18.5743 38 20.9776 38 24C38 26.9108 37.1071 29.2474 36.1857 30.8824Z M41.0185 35.7152L39.1733 33.87C40.3712 31.5479 41.5 28.2383 41.5 24C41.5 19.4474 40.1976 15.9662 38.906 13.6297C38.2594 12.46 37.6157 11.5776 37.1403 10.9943C36.9028 10.7028 36.708 10.4867 36.5767 10.3474C36.511 10.2777 36.4614 10.2274 36.4303 10.1965C36.4148 10.181 36.4039 10.1704 36.398 10.1648L36.3949 10.1617L36.393 10.16C35.8916 9.68785 35.8665 8.89867 36.3376 8.39562C36.8094 7.89169 37.6004 7.8657 38.1044 8.33755L37.2501 9.24987C38.1044 8.33755 38.1053 8.33839 38.1053 8.33839L38.1063 8.33935L38.1087 8.34162L38.115 8.34761L38.1336 8.36536C38.1485 8.37975 38.1685 8.39926 38.1932 8.42388C38.2427 8.4731 38.3112 8.54276 38.396 8.6327C38.5655 8.81253 38.8003 9.07375 39.0784 9.41509C39.6343 10.0974 40.3656 11.1025 41.094 12.4203C42.5524 15.0587 44 18.9526 44 24C44 29.0474 42.5524 32.9412 41.094 35.5797L41.0739 35.6159L41.0185 35.7152Z</StreamGeometry>
-            </PathIcon.Data>
-          </PathIcon>
-        </Panel>
-      </ToggleButton>
-    </TabItem>
-    <TabItem Header="ToggleSplitButton">
-      <ToggleSplitButton Content="Content">
-        <ToggleSplitButton.Flyout>
-          <MenuFlyout Placement="Bottom">
-            <MenuItem Header="Item 1">
-              <MenuItem Header="Subitem 1" />
-              <MenuItem Header="Subitem 2" />
-              <MenuItem Header="Subitem 3" />
-            </MenuItem>
-            <MenuItem Header="Item 2" InputGesture="Ctrl+A" />
-            <MenuItem Header="Item 3" />
-          </MenuFlyout>
-        </ToggleSplitButton.Flyout>
-      </ToggleSplitButton>
-    </TabItem>
-    <TabItem Header="Carousel">
-      <Panel>
-        <Carousel Name="slides">
-          <Carousel.PageTransition>
-            <CompositePageTransition>
-              <PageSlide Orientation="Horizontal" Duration="0:00:00.500" />
-            </CompositePageTransition>
-          </Carousel.PageTransition>
-          <Carousel.Items>
-            <Image Source="avares://HeBianGu.Test.Controls/Assets/1.jpg" />
-            <Image Source="avares://HeBianGu.Test.Controls/Assets/2.jpg" />
-            <Image Source="avares://HeBianGu.Test.Controls/Assets/3.jpg" />
-          </Carousel.Items>
-        </Carousel>
-        <Panel Margin="20">
-          <Button Background="White" Click="Previous">&lt;</Button>
-          <Button HorizontalAlignment="Right"
-                  Background="White"
-                  Click="Next">
-            &gt;
-          </Button>
-        </Panel>
-      </Panel>
-    </TabItem>
-    <TabItem Header="CheckBox">
-      <StackPanel Margin="20">
-        <CheckBox>Not checked by default</CheckBox>
-        <CheckBox IsChecked="True">Checked by default</CheckBox>
-      </StackPanel>
-    </TabItem>
-    <TabItem Header="ColorPicker">
-      <ColorPicker />
-    </TabItem>
-    <TabItem Header="ComboBox">
-      <StackPanel Margin="20">
-        <ComboBox MaxDropDownHeight="100" SelectedIndex="0">
-          <ComboBoxItem>Text Item 1</ComboBoxItem>
-          <ComboBoxItem>Text Item 2</ComboBoxItem>
-          <ComboBoxItem>Text Item 3</ComboBoxItem>
-          <ComboBoxItem>Text Item 4</ComboBoxItem>
-          <ComboBoxItem>Text Item 5</ComboBoxItem>
-          <ComboBoxItem>Text Item 6</ComboBoxItem>
-          <ComboBoxItem>Text Item 7</ComboBoxItem>
-          <ComboBoxItem>Text Item 8</ComboBoxItem>
-          <ComboBoxItem>Text Item 9</ComboBoxItem>
-        </ComboBox>
-      </StackPanel>
-    </TabItem>
-    <TabItem Header="ContentControl">
-      <ContentControl>
-        <ContentControl.Content>
-          1111
-        </ContentControl.Content>
-        <ContentControl.ContentTemplate>
-          <DataTemplate>
-            <Grid ColumnDefinitions="Auto,Auto" RowDefinitions="Auto,Auto">
-              <TextBlock Grid.Row="0" Grid.Column="0">First Name:</TextBlock>
-              <TextBlock Grid.Row="0"
-                         Grid.Column="1"
-                         Text="FirstName" />
-              <TextBlock Grid.Row="1" Grid.Column="0">Last Name:</TextBlock>
-              <TextBlock Grid.Row="1"
-                         Grid.Column="1"
-                         Text="LastName" />
-            </Grid>
-          </DataTemplate>
-        </ContentControl.ContentTemplate>
-      </ContentControl>
-    </TabItem>
-    <TabItem Header="ContextMenu">
-      <TextBox AcceptsReturn="True" TextWrapping="Wrap">
-        <TextBox.ContextMenu>
-          <ContextMenu>
-            <MenuItem Header="Copy" />
-            <MenuItem Header="Paste" />
-          </ContextMenu>
-        </TextBox.ContextMenu>
-      </TextBox>
-    </TabItem>
-    <TabItem Header="DataGrid">
-      <!--<DataGrid Margin="20" ItemsSource="{Binding People}"
+                <TextBlock Margin="0,10,0,5">Second Group</TextBlock>
+                <RadioButton Content="Fourth Option" GroupName="Second Group" />
+                <RadioButton Content="Fifth Option" GroupName="Second Group" />
+            </StackPanel>
+        </TabItem>
+        <TabItem Header="SplitButton">
+            <SplitButton Content="Content">
+                <SplitButton.Flyout>
+                    <MenuFlyout Placement="Bottom">
+                        <MenuItem Header="Item 1">
+                            <MenuItem Header="Subitem 1" />
+                            <MenuItem Header="Subitem 2" />
+                            <MenuItem Header="Subitem 3" />
+                        </MenuItem>
+                        <MenuItem Header="Item 2" InputGesture="Ctrl+A" />
+                        <MenuItem Header="Item 3" />
+                    </MenuFlyout>
+                </SplitButton.Flyout>
+            </SplitButton>
+        </TabItem>
+        <TabItem Header="ToggleButton">
+            <ToggleButton IsChecked="True">
+                <Panel>
+                    <PathIcon>
+                        <PathIcon.Data>
+                            <StreamGeometry>M28 29.7678L41.8661 43.6339C42.3543 44.122 43.1457 44.122 43.6339 43.6339C44.122 43.1457 44.122 42.3543 43.6339 41.8661L6.13388 4.36612C5.64573 3.87796 4.85427 3.87796 4.36611 4.36612C3.87796 4.85427 3.87796 5.64573 4.36611 6.13388L13.2322 15H9C6.10051 15 3.75 17.3505 3.75 20.25V27.75C3.75 30.6495 6.10051 33 9 33H13.702C14.8734 33 16.0034 33.4328 16.875 34.2153L25.081 41.5815C26.2077 42.5929 28 41.7933 28 40.2793V29.7678ZM25.5 27.2678V38.5981L18.5451 32.3549C17.2146 31.1606 15.4898 30.5 13.702 30.5H9C7.48122 30.5 6.25 29.2688 6.25 27.75V20.25C6.25 18.7312 7.48122 17.5 9 17.5H13.702C14.3147 17.5 14.92 17.4224 15.5046 17.2723L25.5 27.2678Z M19.8115 14.5082L18.0412 12.7379L25.081 6.41847C26.2076 5.40709 28 6.20669 28 7.72074V22.6967L25.5 20.1967V9.40185L19.8115 14.5082Z M36.1857 30.8824L34.335 29.0317C34.966 27.7376 35.5 26.0404 35.5 24C35.5 21.5224 34.7127 19.5507 33.9203 18.1923C33.5242 17.5133 33.1298 16.9931 32.8397 16.6477C32.695 16.4754 32.577 16.3476 32.499 16.2664C32.46 16.2259 32.4311 16.197 32.414 16.1802L32.3972 16.164L32.398 16.1646C31.8935 15.6947 31.8647 14.9048 32.334 14.3994C32.8038 13.8935 33.5947 13.8642 34.1006 14.334L33.25 15.25C34.1006 14.334 34.1014 14.3347 34.1014 14.3347L34.1022 14.3356L34.1042 14.3374L34.1092 14.3421L34.1228 14.355C34.1336 14.3653 34.1476 14.3788 34.1646 14.3955C34.1987 14.4289 34.245 14.4753 34.3018 14.5343C34.4152 14.6524 34.5707 14.8215 34.754 15.0398C35.1202 15.4757 35.6008 16.1117 36.0797 16.9327C37.0373 18.5743 38 20.9776 38 24C38 26.9108 37.1071 29.2474 36.1857 30.8824Z M41.0185 35.7152L39.1733 33.87C40.3712 31.5479 41.5 28.2383 41.5 24C41.5 19.4474 40.1976 15.9662 38.906 13.6297C38.2594 12.46 37.6157 11.5776 37.1403 10.9943C36.9028 10.7028 36.708 10.4867 36.5767 10.3474C36.511 10.2777 36.4614 10.2274 36.4303 10.1965C36.4148 10.181 36.4039 10.1704 36.398 10.1648L36.3949 10.1617L36.393 10.16C35.8916 9.68785 35.8665 8.89867 36.3376 8.39562C36.8094 7.89169 37.6004 7.8657 38.1044 8.33755L37.2501 9.24987C38.1044 8.33755 38.1053 8.33839 38.1053 8.33839L38.1063 8.33935L38.1087 8.34162L38.115 8.34761L38.1336 8.36536C38.1485 8.37975 38.1685 8.39926 38.1932 8.42388C38.2427 8.4731 38.3112 8.54276 38.396 8.6327C38.5655 8.81253 38.8003 9.07375 39.0784 9.41509C39.6343 10.0974 40.3656 11.1025 41.094 12.4203C42.5524 15.0587 44 18.9526 44 24C44 29.0474 42.5524 32.9412 41.094 35.5797L41.0739 35.6159L41.0185 35.7152Z</StreamGeometry>
+                        </PathIcon.Data>
+                    </PathIcon>
+                </Panel>
+            </ToggleButton>
+        </TabItem>
+        <TabItem Header="ToggleSplitButton">
+            <ToggleSplitButton Content="Content">
+                <ToggleSplitButton.Flyout>
+                    <MenuFlyout Placement="Bottom">
+                        <MenuItem Header="Item 1">
+                            <MenuItem Header="Subitem 1" />
+                            <MenuItem Header="Subitem 2" />
+                            <MenuItem Header="Subitem 3" />
+                        </MenuItem>
+                        <MenuItem Header="Item 2" InputGesture="Ctrl+A" />
+                        <MenuItem Header="Item 3" />
+                    </MenuFlyout>
+                </ToggleSplitButton.Flyout>
+            </ToggleSplitButton>
+        </TabItem>
+        <TabItem Header="Carousel">
+            <Panel>
+                <Carousel Name="slides">
+                    <Carousel.PageTransition>
+                        <CompositePageTransition>
+                            <PageSlide Orientation="Horizontal" Duration="0:00:00.500" />
+                        </CompositePageTransition>
+                    </Carousel.PageTransition>
+                    <Carousel.Items>
+                        <Image Source="avares://HeBianGu.Test.Controls/Assets/1.jpg" />
+                        <Image Source="avares://HeBianGu.Test.Controls/Assets/2.jpg" />
+                        <Image Source="avares://HeBianGu.Test.Controls/Assets/3.jpg" />
+                    </Carousel.Items>
+                </Carousel>
+                <Panel Margin="20">
+                    <Button Background="White" Click="Previous">&lt;</Button>
+                    <Button HorizontalAlignment="Right"
+                            Background="White"
+                            Click="Next">
+                        &gt;
+                    </Button>
+                </Panel>
+            </Panel>
+        </TabItem>
+        <TabItem Header="CheckBox">
+            <StackPanel Margin="20">
+                <CheckBox>Not checked by default</CheckBox>
+                <CheckBox IsChecked="True">Checked by default</CheckBox>
+            </StackPanel>
+        </TabItem>
+        <TabItem Header="ColorPicker">
+            <ColorPicker />
+        </TabItem>
+        <TabItem Header="ComboBox">
+            <StackPanel Margin="20">
+                <ComboBox MaxDropDownHeight="100" SelectedIndex="0">
+                    <ComboBoxItem>Text Item 1</ComboBoxItem>
+                    <ComboBoxItem>Text Item 2</ComboBoxItem>
+                    <ComboBoxItem>Text Item 3</ComboBoxItem>
+                    <ComboBoxItem>Text Item 4</ComboBoxItem>
+                    <ComboBoxItem>Text Item 5</ComboBoxItem>
+                    <ComboBoxItem>Text Item 6</ComboBoxItem>
+                    <ComboBoxItem>Text Item 7</ComboBoxItem>
+                    <ComboBoxItem>Text Item 8</ComboBoxItem>
+                    <ComboBoxItem>Text Item 9</ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+        </TabItem>
+        <TabItem Header="ContentControl">
+            <ContentControl>
+                <ContentControl.Content>
+                    1111
+                </ContentControl.Content>
+                <ContentControl.ContentTemplate>
+                    <DataTemplate>
+                        <Grid ColumnDefinitions="Auto,Auto" RowDefinitions="Auto,Auto">
+                            <TextBlock Grid.Row="0" Grid.Column="0">First Name:</TextBlock>
+                            <TextBlock Grid.Row="0"
+                                       Grid.Column="1"
+                                       Text="FirstName" />
+                            <TextBlock Grid.Row="1" Grid.Column="0">Last Name:</TextBlock>
+                            <TextBlock Grid.Row="1"
+                                       Grid.Column="1"
+                                       Text="LastName" />
+                        </Grid>
+                    </DataTemplate>
+                </ContentControl.ContentTemplate>
+            </ContentControl>
+        </TabItem>
+        <TabItem Header="ContextMenu">
+            <TextBox AcceptsReturn="True" TextWrapping="Wrap">
+                <TextBox.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="Copy" />
+                        <MenuItem Header="Paste" />
+                    </ContextMenu>
+                </TextBox.ContextMenu>
+            </TextBox>
+        </TabItem>
+
+        <TabItem Header="ContextFlyout">
+            <TextBox Name="TextBox"
+                     Width="150"
+                     HorizontalAlignment="Center"
+                     ContextMenu="{x:Null}">
+                <TextBox.ContextFlyout>
+                    <Flyout FlyoutPresenterClasses="NoPadding">
+                        <StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <StackPanel.Styles>
+                                    <Style Selector="Button">
+                                        <Setter Property="Background" Value="Transparent" />
+                                        <Setter Property="Height" Value="40" />
+                                        <Setter Property="Width" Value="40" />
+                                        <Setter Property="VerticalContentAlignment" Value="Center" />
+                                    </Style>
+                                    <Style Selector="Button:disabled /template/ ContentPresenter#PART_ContentPresenter">
+                                        <Setter Property="Background" Value="Transparent" />
+                                        <Setter Property="Opacity" Value="0.5" />
+                                    </Style>
+                                </StackPanel.Styles>
+                                <Button Name="CutButton"
+                                        Command="{Binding $parent[TextBox].Cut}"
+                                        IsEnabled="{Binding $parent[TextBox].CanCut}">
+                                    <PathIcon Width="14"
+                                              Height="14"
+                                              Data="M5.22774,2.08072 C5.43359778,1.94704 5.7011484,1.98419259 5.86368634,2.15675215 L5.91939,2.22774 L12.5191,12.3904 C12.956,12.1419 13.4614,12.0000019 14,12.0000019 C15.6569,12.0000019 17,13.3431 17,15.0000019 C17,16.6569 15.6569,18.0000019 14,18.0000019 C12.3431,18.0000019 11,16.6569 11,15.0000019 C11,14.3201402 11.226152,13.693011 11.6073785,13.1899092 L11.7401,13.0269 L10,10.3474 L8.25991,13.0269 C8.72078,13.5543 9,14.2446 9,15.0000019 C9,16.6569 7.65685,18.0000019 6,18.0000019 C4.34315,18.0000019 3,16.6569 3,15.0000019 C3,13.3431 4.34315,12.0000019 6,12.0000019 C6.46163143,12.0000019 6.89890041,12.1042536 7.28955831,12.2905296 L7.4809,12.3904 L9.40382,9.42936 L5.08072,2.77238 C4.93033,2.54079 4.99615,2.23112 5.22774,2.08072 Z M14,13 C12.8954,13 12,13.8954 12,15 C12,16.1046 12.8954,17 14,17 C15.1046,17 16,16.1046 16,15 C16,13.8954 15.1046,13 14,13 Z M6,13 C4.89543,13 4,13.8954 4,15 C4,16.1046 4.89543,17 6,17 C7.10457,17 8,16.1046 8,15 C8,13.8954 7.10457,13 6,13 Z M14.7723,2.08072 C15.0039,2.23112 15.0697,2.54079 14.9193,2.77238 L11.1924,8.51133 L10.5962,7.59329 L14.0806,2.22774 C14.231,1.99615 14.5407,1.93033 14.7723,2.08072 Z" />
+                                </Button>
+                                <Button Name="CopyButton"
+                                        Command="{Binding $parent[TextBox].Copy}"
+                                        IsEnabled="{Binding $parent[TextBox].CanCopy}">
+                                    <PathIcon Width="14"
+                                              Height="14"
+                                              Data="M5.50280381,4.62704038 L5.5,6.75 L5.5,17.2542087 C5.5,19.0491342 6.95507456,20.5042087 8.75,20.5042087 L17.3662868,20.5044622 C17.057338,21.3782241 16.2239751,22.0042087 15.2444057,22.0042087 L8.75,22.0042087 C6.12664744,22.0042087 4,19.8775613 4,17.2542087 L4,6.75 C4,5.76928848 4.62744523,4.93512464 5.50280381,4.62704038 Z M17.75,2 C18.9926407,2 20,3.00735931 20,4.25 L20,17.25 C20,18.4926407 18.9926407,19.5 17.75,19.5 L8.75,19.5 C7.50735931,19.5 6.5,18.4926407 6.5,17.25 L6.5,4.25 C6.5,3.00735931 7.50735931,2 8.75,2 L17.75,2 Z M17.75,3.5 L8.75,3.5 C8.33578644,3.5 8,3.83578644 8,4.25 L8,17.25 C8,17.6642136 8.33578644,18 8.75,18 L17.75,18 C18.1642136,18 18.5,17.6642136 18.5,17.25 L18.5,4.25 C18.5,3.83578644 18.1642136,3.5 17.75,3.5 Z" />
+                                </Button>
+                                <Button Name="PasteButton"
+                                        Command="{Binding $parent[TextBox].Paste}"
+                                        IsEnabled="{Binding $parent[TextBox].CanPaste}">
+                                    <PathIcon Width="14"
+                                              Height="14"
+                                              Data="M13.75,2 C14.940864,2 15.9156449,2.92516159 15.9948092,4.09595119 L16,4.25 L16,4.25 C16,4.16530567 15.9953205,4.0817043 15.9862059,3.99944035 L17.75,4 C18.9926407,4 20,5.00735931 20,6.25 L20,19.75 C20,20.9926407 18.9926407,22 17.75,22 L6.25,22 C5.00735931,22 4,20.9926407 4,19.75 L4,6.25 C4,5.00735931 5.00735931,4 6.25,4 L8.01379413,3.99944035 C8.00733496,4.05773764 8.00310309,4.11670658 8.00118552,4.17626017 L8,4.25 C8,3.00735931 9.00735931,2 10.25,2 L13.75,2 Z M13.75,6.5 L10.25,6.5 C9.45594921,6.5 8.75796956,6.08867052 8.357512,5.4674625 L8.37902077,5.50019943 L8.37902077,5.50019943 L6.25,5.5 C5.83578644,5.5 5.5,5.83578644 5.5,6.25 L5.5,19.75 C5.5,20.1642136 5.83578644,20.5 6.25,20.5 L17.75,20.5 C18.1642136,20.5 18.5,20.1642136 18.5,19.75 L18.5,6.25 C18.5,5.83578644 18.1642136,5.5 17.75,5.5 L15.6209792,5.50019943 L15.642488,5.4674625 C15.2420304,6.08867052 14.5440508,6.5 13.75,6.5 Z M13.75,3.5 L10.25,3.5 C9.83578644,3.5 9.5,3.83578644 9.5,4.25 C9.5,4.66421356 9.83578644,5 10.25,5 L13.75,5 C14.1642136,5 14.5,4.66421356 14.5,4.25 C14.5,3.83578644 14.1642136,3.5 13.75,3.5 Z" />
+                                </Button>
+                                <Button Name="ClearButton" Command="{Binding $parent[TextBox].Clear}">
+                                    <PathIcon Width="14"
+                                              Height="14"
+                                              Data="M3.52499419,3.71761187 L3.61611652,3.61611652 C4.0717282,3.16050485 4.79154862,3.13013074 5.28238813,3.52499419 L5.38388348,3.61611652 L14,12.233 L22.6161165,3.61611652 C23.1042719,3.12796116 23.8957281,3.12796116 24.3838835,3.61611652 C24.8720388,4.10427189 24.8720388,4.89572811 24.3838835,5.38388348 L15.767,14 L24.3838835,22.6161165 C24.8394952,23.0717282 24.8698693,23.7915486 24.4750058,24.2823881 L24.3838835,24.3838835 C23.9282718,24.8394952 23.2084514,24.8698693 22.7176119,24.4750058 L22.6161165,24.3838835 L14,15.767 L5.38388348,24.3838835 C4.89572811,24.8720388 4.10427189,24.8720388 3.61611652,24.3838835 C3.12796116,23.8957281 3.12796116,23.1042719 3.61611652,22.6161165 L12.233,14 L3.61611652,5.38388348 C3.16050485,4.9282718 3.13013074,4.20845138 3.52499419,3.71761187 L3.61611652,3.61611652 L3.52499419,3.71761187 Z" />
+                                </Button>
+                            </StackPanel>
+                            <Border Padding="4,20" Classes="context-target">
+                                <Border.ContextFlyout>
+                                    <Flyout>
+                                        <TextBlock>Hello world</TextBlock>
+                                    </Flyout>
+                                </Border.ContextFlyout>
+                                <TextBlock>Inner context flyout</TextBlock>
+                            </Border>
+                        </StackPanel>
+                    </Flyout>
+                </TextBox.ContextFlyout>
+            </TextBox>
+        </TabItem>
+        <TabItem Header="DataGrid">
+            <!--<DataGrid Margin="20" ItemsSource="{Binding People}"
                 AutoGenerateColumns="True" IsReadOnly="True"
                 GridLinesVisibility="All"
                 BorderThickness="1" BorderBrush="Gray">
       </DataGrid>-->
-      <DataGrid Margin="20"
-                BorderBrush="Gray"
-                BorderThickness="1"
-                GridLinesVisibility="All"
-                IsReadOnly="True">
-        <!--  ItemsSource="{Binding People}"  -->
-        <DataGrid.Columns>
-          <DataGridTextColumn Width="*"
-                              Binding="{Binding FirstName}"
-                              Header="First Name" />
-          <DataGridTextColumn Width="*"
-                              Binding="{Binding LastName}"
-                              Header="Last Name" />
-        </DataGrid.Columns>
-        <!--<system:String>111</system:String>
+            <DataGrid Margin="20"
+                      BorderBrush="Gray"
+                      BorderThickness="1"
+                      GridLinesVisibility="All"
+                      IsReadOnly="True">
+                <!--  ItemsSource="{Binding People}"  -->
+                <DataGrid.Columns>
+                    <DataGridTextColumn Width="*"
+                                        Binding="{Binding FirstName}"
+                                        Header="First Name" />
+                    <DataGridTextColumn Width="*"
+                                        Binding="{Binding LastName}"
+                                        Header="Last Name" />
+                </DataGrid.Columns>
+                <!--<system:String>111</system:String>
               <system:String>111</system:String>
               <system:String>111</system:String>-->
-      </DataGrid>
-    </TabItem>
-    <TabItem Header="DatePicker">
-      <StackPanel Margin="20">
-        <DatePicker DayFormat="ddd dd" />
-      </StackPanel>
-    </TabItem>
-    <TabItem Header="Calendar">
-      <StackPanel Margin="20">
-        <Calendar x:Name="calendar" SelectionMode="MultipleRange" />
-        <TextBlock Margin="20" Text="{Binding #calendar.SelectedDate}" />
-      </StackPanel>
-    </TabItem>
-    <TabItem Header="CalendarDatePicker">
-      <StackPanel Margin="20">
-        <CalendarDatePicker />
-      </StackPanel>
-    </TabItem>
-    <TabItem Header="DataGrid">
-      <DataGrid Margin="20"
-                BorderBrush="Gray"
-                BorderThickness="1"
-                GridLinesVisibility="All"
-                ItemsSource="{Binding People}">
-        <DataGrid.Columns>
-          <DataGridTextColumn Width="2*"
-                              Binding="{Binding FirstName}"
-                              Header="First Name" />
-          <DataGridTextColumn Width="2*"
-                              Binding="{Binding LastName}"
-                              Header="Last Name" />
+            </DataGrid>
+        </TabItem>
+        <TabItem Header="DatePicker">
+            <StackPanel Margin="20">
+                <DatePicker DayFormat="ddd dd" />
+            </StackPanel>
+        </TabItem>
+        <TabItem Header="Calendar">
+            <StackPanel Margin="20">
+                <Calendar x:Name="calendar" SelectionMode="MultipleRange" />
+                <TextBlock Margin="20" Text="{Binding #calendar.SelectedDate}" />
+            </StackPanel>
+        </TabItem>
+        <TabItem Header="CalendarDatePicker">
+            <StackPanel Margin="20">
+                <CalendarDatePicker />
+            </StackPanel>
+        </TabItem>
+        <TabItem Header="DataGrid">
+            <DataGrid Margin="20"
+                      BorderBrush="Gray"
+                      BorderThickness="1"
+                      GridLinesVisibility="All"
+                      ItemsSource="{Binding People}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Width="2*"
+                                        Binding="{Binding FirstName}"
+                                        Header="First Name" />
+                    <DataGridTextColumn Width="2*"
+                                        Binding="{Binding LastName}"
+                                        Header="Last Name" />
 
-          <DataGridTemplateColumn Header="Age">
-            <DataGridTemplateColumn.CellTemplate>
-              <DataTemplate DataType="model:Person">
-                <TextBlock HorizontalAlignment="Center"
-                           VerticalAlignment="Center"
-                           Text="{Binding AgeInYears, StringFormat='{}{0} years'}" />
-              </DataTemplate>
-            </DataGridTemplateColumn.CellTemplate>
-            <DataGridTemplateColumn.CellEditingTemplate>
-              <DataTemplate DataType="model:Person">
-                <NumericUpDown HorizontalAlignment="Stretch"
-                               FormatString="N0"
-                               Maximum="120"
-                               Minimum="0"
-                               Value="{Binding AgeInYears}" />
-              </DataTemplate>
-            </DataGridTemplateColumn.CellEditingTemplate>
-          </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="Age">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate DataType="model:Person">
+                                <TextBlock HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"
+                                           Text="{Binding AgeInYears, StringFormat='{}{0} years'}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                        <DataGridTemplateColumn.CellEditingTemplate>
+                            <DataTemplate DataType="model:Person">
+                                <NumericUpDown HorizontalAlignment="Stretch"
+                                               FormatString="N0"
+                                               Maximum="120"
+                                               Minimum="0"
+                                               Value="{Binding AgeInYears}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellEditingTemplate>
+                    </DataGridTemplateColumn>
 
-        </DataGrid.Columns>
-      </DataGrid>
-    </TabItem>
-    <TabItem Header="DrawingImage">
-      <DrawingImage>
-        <DrawingImage.Drawing>
-          <ImageDrawing ImageSource="/Assets/1.jpg" />
-        </DrawingImage.Drawing>
-      </DrawingImage>
-    </TabItem>
-    <TabItem Header="Label">
-      <Label Content="Label" />
-    </TabItem>
-    <TabItem Header="MenuFlyout">
-      <Button HorizontalAlignment="Center" Content="Button">
-        <Button.Flyout>
-          <MenuFlyout>
-            <MenuItem Header="Open" />
-            <MenuItem Header="-" />
-            <MenuItem Header="Close" />
-          </MenuFlyout>
-        </Button.Flyout>
-      </Button>
-    </TabItem>
-    <TabItem Header="PathIcon">
-      <PathIcon Width="200"
-                Height="200"
-                Foreground="Blue">
-        <PathIcon.Data>
-          <StreamGeometry>M17.9999 2C18.1738 2 18.3411 2.06037 18.4742 2.16902L18.5497 2.23991L21.822 5.76824L21.8527 5.80714C21.9544 5.94281 22.0003 6.09665 22.0003 6.24775L21.9988 8.16674C21.9988 9.16092 21.6202 10.0667 20.9994 10.7478L20.9986 21.25C20.9986 21.6297 20.7165 21.9435 20.3504 21.9932L20.2486 22H3.75113C3.37144 22 3.05764 21.7178 3.00798 21.3518L3.00113 21.25L3.00035 10.7478C2.42729 10.1191 2.06067 9.29893 2.00765 8.39453L2.001 8.16674L2.0008 6.29097C1.99273 6.15366 2.02238 6.01238 2.09673 5.88313L2.16199 5.78767L2.20117 5.74193L5.45006 2.23991C5.56833 2.11243 5.7264 2.03081 5.89656 2.00715L5.99989 2H17.9999ZM15.0818 10.4421L15.0699 10.4598C14.371 11.3944 13.2555 11.9993 11.9987 11.9993C10.7349 11.9993 9.61393 11.3876 8.9158 10.4441C8.21835 11.3876 7.0974 11.9993 5.83357 11.9993C5.36446 11.9993 4.91504 11.915 4.49962 11.7608L4.50089 20.499H5.99951L5.99989 13.751C5.99989 13.3713 6.28204 13.0575 6.64812 13.0079L6.74989 13.001H11.2458C11.6255 13.001 11.9393 13.2832 11.989 13.6492L11.9958 13.751L11.9955 20.499H19.4979L19.4981 11.7615C19.0833 11.9153 18.6346 11.9993 18.1662 11.9993C16.9015 11.9993 15.7799 11.3867 15.0818 10.4421ZM10.4949 14.501H7.49989V20.499H10.4949V14.501ZM17.2546 13.001C17.6343 13.001 17.9481 13.2832 17.9978 13.6492L18.0046 13.751V17.253C18.0046 17.6327 17.7225 17.9465 17.3564 17.9962L17.2546 18.003H13.7532C13.3735 18.003 13.0597 17.7209 13.01 17.3548L13.0032 17.253V13.751C13.0032 13.3713 13.2853 13.0575 13.6514 13.0079L13.7532 13.001H17.2546ZM16.5039 14.501H14.5029V16.503H16.5039V14.501ZM8.16589 7.002H3.50089L3.501 8.16674L3.50717 8.33777L3.53555 8.569L3.5683 8.72528L3.61768 8.89726L3.67203 9.0451L3.71271 9.1391C3.74388 9.20697 3.77821 9.27309 3.81551 9.33727L3.91846 9.49873L3.97274 9.57344L4.10151 9.72909L4.24329 9.87318L4.33953 9.95811L4.38162 9.99243C4.69615 10.2429 5.07686 10.4138 5.49329 10.4747L5.67387 10.4939L5.83357 10.4993C7.06813 10.4993 8.07869 9.54019 8.16076 8.32644L8.16614 8.16674L8.16589 7.002ZM14.3309 7.002H9.66589L9.66614 8.16674C9.66614 9.34763 10.5437 10.3236 11.6822 10.478L11.839 10.4939L11.9987 10.4993C13.2333 10.4993 14.2438 9.54019 14.3259 8.32644L14.3313 8.16674L14.3309 7.002ZM20.4979 7.002H15.8329L15.8336 8.16674C15.8336 9.34763 16.7112 10.3236 17.8497 10.478L18.0065 10.4939L18.1662 10.4993C18.7305 10.4993 19.248 10.2989 19.6514 9.96542L19.7412 9.88731L19.857 9.7736L20.0032 9.60441C20.0572 9.53545 20.1075 9.46337 20.1536 9.38849L20.2571 9.20179L20.32 9.06383L20.3783 8.90873L20.4081 8.81314L20.4463 8.66108L20.4747 8.50352L20.4927 8.33678L20.4988 8.16674L20.4979 7.002ZM9.06151 3.499H6.32689L4.46889 5.502H8.44551L9.06151 3.499ZM13.3685 3.499H10.6305L10.0145 5.502H13.9845L13.3685 3.499ZM17.6719 3.499H14.9375L15.5535 5.502H19.5299L17.6719 3.499Z</StreamGeometry>
-        </PathIcon.Data>
-      </PathIcon>
-    </TabItem>
-    <TabItem Header="SelectableTextBlock">
-      <StackPanel Margin="20">
-        <SelectableTextBlock Margin="0,5"
-                             FontSize="18"
-                             FontWeight="Bold">
-          Heading
-        </SelectableTextBlock>
-        <SelectableTextBlock Margin="0,5"
-                             xml:space="preserve"
-                             FontStyle="Italic"
-                             SelectionBrush="Red">This is a single line.</SelectableTextBlock>
-        <SelectableTextBlock Margin="0,5"
-                             xml:space="preserve"
-                             SelectionEnd="13"
-                             SelectionStart="3">This is a multi-line display
+                </DataGrid.Columns>
+            </DataGrid>
+        </TabItem>
+        <TabItem Header="DrawingImage">
+            <DrawingImage>
+                <DrawingImage.Drawing>
+                    <ImageDrawing ImageSource="/Assets/1.jpg" />
+                </DrawingImage.Drawing>
+            </DrawingImage>
+        </TabItem>
+        <TabItem Header="Label">
+            <Label Content="Label" />
+        </TabItem>
+        <TabItem Header="MenuFlyout">
+            <Button HorizontalAlignment="Center" Content="Button">
+                <Button.Flyout>
+                    <MenuFlyout>
+                        <MenuItem Header="Open" />
+                        <MenuItem Header="-" />
+                        <MenuItem Header="Close" />
+                    </MenuFlyout>
+                </Button.Flyout>
+            </Button>
+        </TabItem>
+        <TabItem Header="PathIcon">
+            <PathIcon Width="200"
+                      Height="200"
+                      Foreground="Blue">
+                <PathIcon.Data>
+                    <StreamGeometry>M17.9999 2C18.1738 2 18.3411 2.06037 18.4742 2.16902L18.5497 2.23991L21.822 5.76824L21.8527 5.80714C21.9544 5.94281 22.0003 6.09665 22.0003 6.24775L21.9988 8.16674C21.9988 9.16092 21.6202 10.0667 20.9994 10.7478L20.9986 21.25C20.9986 21.6297 20.7165 21.9435 20.3504 21.9932L20.2486 22H3.75113C3.37144 22 3.05764 21.7178 3.00798 21.3518L3.00113 21.25L3.00035 10.7478C2.42729 10.1191 2.06067 9.29893 2.00765 8.39453L2.001 8.16674L2.0008 6.29097C1.99273 6.15366 2.02238 6.01238 2.09673 5.88313L2.16199 5.78767L2.20117 5.74193L5.45006 2.23991C5.56833 2.11243 5.7264 2.03081 5.89656 2.00715L5.99989 2H17.9999ZM15.0818 10.4421L15.0699 10.4598C14.371 11.3944 13.2555 11.9993 11.9987 11.9993C10.7349 11.9993 9.61393 11.3876 8.9158 10.4441C8.21835 11.3876 7.0974 11.9993 5.83357 11.9993C5.36446 11.9993 4.91504 11.915 4.49962 11.7608L4.50089 20.499H5.99951L5.99989 13.751C5.99989 13.3713 6.28204 13.0575 6.64812 13.0079L6.74989 13.001H11.2458C11.6255 13.001 11.9393 13.2832 11.989 13.6492L11.9958 13.751L11.9955 20.499H19.4979L19.4981 11.7615C19.0833 11.9153 18.6346 11.9993 18.1662 11.9993C16.9015 11.9993 15.7799 11.3867 15.0818 10.4421ZM10.4949 14.501H7.49989V20.499H10.4949V14.501ZM17.2546 13.001C17.6343 13.001 17.9481 13.2832 17.9978 13.6492L18.0046 13.751V17.253C18.0046 17.6327 17.7225 17.9465 17.3564 17.9962L17.2546 18.003H13.7532C13.3735 18.003 13.0597 17.7209 13.01 17.3548L13.0032 17.253V13.751C13.0032 13.3713 13.2853 13.0575 13.6514 13.0079L13.7532 13.001H17.2546ZM16.5039 14.501H14.5029V16.503H16.5039V14.501ZM8.16589 7.002H3.50089L3.501 8.16674L3.50717 8.33777L3.53555 8.569L3.5683 8.72528L3.61768 8.89726L3.67203 9.0451L3.71271 9.1391C3.74388 9.20697 3.77821 9.27309 3.81551 9.33727L3.91846 9.49873L3.97274 9.57344L4.10151 9.72909L4.24329 9.87318L4.33953 9.95811L4.38162 9.99243C4.69615 10.2429 5.07686 10.4138 5.49329 10.4747L5.67387 10.4939L5.83357 10.4993C7.06813 10.4993 8.07869 9.54019 8.16076 8.32644L8.16614 8.16674L8.16589 7.002ZM14.3309 7.002H9.66589L9.66614 8.16674C9.66614 9.34763 10.5437 10.3236 11.6822 10.478L11.839 10.4939L11.9987 10.4993C13.2333 10.4993 14.2438 9.54019 14.3259 8.32644L14.3313 8.16674L14.3309 7.002ZM20.4979 7.002H15.8329L15.8336 8.16674C15.8336 9.34763 16.7112 10.3236 17.8497 10.478L18.0065 10.4939L18.1662 10.4993C18.7305 10.4993 19.248 10.2989 19.6514 9.96542L19.7412 9.88731L19.857 9.7736L20.0032 9.60441C20.0572 9.53545 20.1075 9.46337 20.1536 9.38849L20.2571 9.20179L20.32 9.06383L20.3783 8.90873L20.4081 8.81314L20.4463 8.66108L20.4747 8.50352L20.4927 8.33678L20.4988 8.16674L20.4979 7.002ZM9.06151 3.499H6.32689L4.46889 5.502H8.44551L9.06151 3.499ZM13.3685 3.499H10.6305L10.0145 5.502H13.9845L13.3685 3.499ZM17.6719 3.499H14.9375L15.5535 5.502H19.5299L17.6719 3.499Z</StreamGeometry>
+                </PathIcon.Data>
+            </PathIcon>
+        </TabItem>
+        <TabItem Header="SelectableTextBlock">
+            <StackPanel Margin="20">
+                <SelectableTextBlock Margin="0,5"
+                                     FontSize="18"
+                                     FontWeight="Bold">
+                    Heading
+                </SelectableTextBlock>
+                <SelectableTextBlock Margin="0,5"
+                                     xml:space="preserve"
+                                     FontStyle="Italic"
+                                     SelectionBrush="Red">This is a single line.</SelectableTextBlock>
+                <SelectableTextBlock Margin="0,5"
+                                     xml:space="preserve"
+                                     SelectionEnd="13"
+                                     SelectionStart="3">This is a multi-line display
     that has returns in it.
     The text block respects the line breaks
     as set out in XAML.</SelectableTextBlock>
-      </StackPanel>
-    </TabItem>
-    <TabItem Header="TabStrip">
-      <TabStrip Margin="5">
-        <TabItem Header="Tab 1" />
-        <TabItem Header="Tab 2" />
-        <TabItem Header="Tab 3" />
-      </TabStrip>
-    </TabItem>
-    <TabItem Header="TextBox">
-      <StackPanel Margin="20">
-        <TextBlock Margin="0,5">Name:</TextBlock>
-        <TextBox Watermark="Enter your name" />
-        <TextBlock Margin="0,5">Password:</TextBlock>
-        <TextBox PasswordChar="*" Watermark="Enter your password" />
-        <TextBlock Margin="0,15,0,5">Notes:</TextBlock>
-        <TextBox Height="100"
-                 AcceptsReturn="True"
-                 TextWrapping="Wrap" />
-      </StackPanel>
-    </TabItem>
-    <TabItem Header="TimePicker">
-      <StackPanel Margin="20" Spacing="4">
-        <Label Content="Please choose your time:" />
-        <TimePicker ClockIdentifier="24HourClock" MinuteIncrement="20" />
-      </StackPanel>
-    </TabItem>
-    <TabItem Header="ToolTip.Tip">
-      <Rectangle Width="400"
-                 Height="200"
-                 Fill="Aqua"
-                 ToolTip.Tip="This is a rectangle" />
-    </TabItem>
-    <TabItem Header="TransitioningContentControl">
-      <TransitioningContentControl Content="{Binding SelectedImage}">
-        <TransitioningContentControl.ContentTemplate>
-          <DataTemplate DataType="Bitmap">
-            <Image Source="{Binding}" />
-          </DataTemplate>
-        </TransitioningContentControl.ContentTemplate>
-      </TransitioningContentControl>
-    </TabItem>
-    <!--<TabItem Header="TrayIcon.Icons">
+            </StackPanel>
+        </TabItem>
+        <TabItem Header="TabStrip">
+            <TabStrip Margin="5">
+                <TabItem Header="Tab 1" />
+                <TabItem Header="Tab 2" />
+                <TabItem Header="Tab 3" />
+            </TabStrip>
+        </TabItem>
+        <TabItem Header="TextBox">
+            <StackPanel Margin="20">
+                <TextBlock Margin="0,5">Name:</TextBlock>
+                <TextBox Watermark="Enter your name" />
+                <TextBlock Margin="0,5">Password:</TextBlock>
+                <TextBox PasswordChar="*" Watermark="Enter your password" />
+                <TextBlock Margin="0,15,0,5">Notes:</TextBlock>
+                <TextBox Height="100"
+                         AcceptsReturn="True"
+                         TextWrapping="Wrap" />
+            </StackPanel>
+        </TabItem>
+        <TabItem Header="TimePicker">
+            <StackPanel Margin="20" Spacing="4">
+                <Label Content="Please choose your time:" />
+                <TimePicker ClockIdentifier="24HourClock" MinuteIncrement="20" />
+            </StackPanel>
+        </TabItem>
+        <TabItem Header="ToolTip.Tip">
+            <Rectangle Width="400"
+                       Height="200"
+                       Fill="Aqua"
+                       ToolTip.Tip="This is a rectangle" />
+        </TabItem>
+        <TabItem Header="TransitioningContentControl">
+            <TransitioningContentControl Content="{Binding SelectedImage}">
+                <TransitioningContentControl.ContentTemplate>
+                    <DataTemplate DataType="Bitmap">
+                        <Image Source="{Binding}" />
+                    </DataTemplate>
+                </TransitioningContentControl.ContentTemplate>
+            </TransitioningContentControl>
+        </TabItem>
+        <!--<TabItem Header="TrayIcon.Icons">
       <TrayIcon.Icons>
         <TrayIcons>
           <TrayIcon Icon="/Assets/avalonia-logo.ico"
@@ -565,207 +805,230 @@ as set out in XAML.</TextBlock>
         </TrayIcons>
       </TrayIcon.Icons>
     </TabItem>-->
-    <TabItem Header="TreeDataGrid">
-      <TreeDataGrid Source="{Binding PersonSource}" />
-    </TabItem>
-    <TabItem Header="TreeView">
-      <TreeView ItemsSource="{Binding Nodes}">
-        <TreeView.ItemTemplate>
-          <TreeDataTemplate ItemsSource="{Binding SubNodes}">
-            <TextBlock Text="{Binding Title}" />
-          </TreeDataTemplate>
-        </TreeView.ItemTemplate>
-      </TreeView>
-    </TabItem>
-    <TabItem Header="UniformGrid">
-      <UniformGrid Width="300"
-                   Height="200"
-                   Columns="3"
-                   Rows="1">
-        <Rectangle Grid.Row="0"
-                   Grid.Column="0"
-                   Fill="navy" />
-        <Rectangle Grid.Row="0"
-                   Grid.Column="1"
-                   Fill="white" />
-        <Rectangle Grid.Row="0"
-                   Grid.Column="2"
-                   Fill="red" />
-      </UniformGrid>
-    </TabItem>
-    <TabItem Header="Viewbox">
-      <Viewbox Width="300"
-               Height="300"
-               Stretch="Uniform">
-        <Ellipse Width="50"
-                 Height="50"
-                 Fill="CornflowerBlue" />
-      </Viewbox>
-    </TabItem>
-    <TabItem Header="WrapPanel">
-      <WrapPanel>
-        <Rectangle Width="100"
-                   Height="100"
-                   Margin="20"
-                   Fill="Navy" />
-        <Rectangle Width="100"
-                   Height="100"
-                   Margin="20"
-                   Fill="Yellow" />
-        <Rectangle Width="100"
-                   Height="100"
-                   Margin="20"
-                   Fill="Green" />
-        <Rectangle Width="100"
-                   Height="100"
-                   Margin="20"
-                   Fill="Red" />
-        <Rectangle Width="100"
-                   Height="100"
-                   Margin="20"
-                   Fill="Purple" />
-      </WrapPanel>
-    </TabItem>
-    <TabItem Header="Expander">
-      <Expander VerticalAlignment="Top">
-        <Expander.Header>
-          Hidden Search
-        </Expander.Header>
-        <Grid ColumnDefinitions="150,*" RowDefinitions="*,*">
-          <TextBlock Grid.Row="0"
-                     Grid.Column="0"
-                     VerticalAlignment="Center">
-            Search
-          </TextBlock>
-          <TextBox Grid.Row="0"
-                   Grid.Column="1"
-                   Width="200"
-                   Watermark="Search text" />
-          <TextBlock Grid.Row="1"
-                     Grid.Column="0"
-                     VerticalAlignment="Center">
-            Case sensitive?
-          </TextBlock>
-          <CheckBox Grid.Row="1" Grid.Column="1" />
-        </Grid>
-      </Expander>
-    </TabItem>
-    <TabItem Header="Button.Flyout">
-      <Button Content="Button with Flyout">
-        <Button.Flyout>
-          <Flyout>This is the button flyout.</Flyout>
-        </Button.Flyout>
-      </Button>
-    </TabItem>
-    <TabItem Header="Grid">
-      <StackPanel Grid.IsSharedSizeScope="True">
-        <StackPanel.Styles>
-          <Style Selector="ListBoxItem">
-            <Setter Property="Padding" Value="0" />
-          </Style>
-        </StackPanel.Styles>
+        <TabItem Header="TreeDataGrid">
+            <TreeDataGrid Source="{Binding PersonSource}" />
+        </TabItem>
+        <TabItem Header="TreeView">
+            <TreeView ItemsSource="{Binding Nodes}">
+                <TreeView.ItemTemplate>
+                    <TreeDataTemplate ItemsSource="{Binding SubNodes}">
+                        <TextBlock Text="{Binding Title}" />
+                    </TreeDataTemplate>
+                </TreeView.ItemTemplate>
+            </TreeView>
+        </TabItem>
+        <TabItem Header="UniformGrid">
+            <UniformGrid Width="300"
+                         Height="200"
+                         Columns="3"
+                         Rows="1">
+                <Rectangle Grid.Row="0"
+                           Grid.Column="0"
+                           Fill="navy" />
+                <Rectangle Grid.Row="0"
+                           Grid.Column="1"
+                           Fill="white" />
+                <Rectangle Grid.Row="0"
+                           Grid.Column="2"
+                           Fill="red" />
+            </UniformGrid>
+        </TabItem>
+        <TabItem Header="Viewbox">
+            <Viewbox Width="300"
+                     Height="300"
+                     Stretch="Uniform">
+                <Ellipse Width="50"
+                         Height="50"
+                         Fill="CornflowerBlue" />
+            </Viewbox>
+        </TabItem>
+        <TabItem Header="WrapPanel">
+            <WrapPanel>
+                <Rectangle Width="100"
+                           Height="100"
+                           Margin="20"
+                           Fill="Navy" />
+                <Rectangle Width="100"
+                           Height="100"
+                           Margin="20"
+                           Fill="Yellow" />
+                <Rectangle Width="100"
+                           Height="100"
+                           Margin="20"
+                           Fill="Green" />
+                <Rectangle Width="100"
+                           Height="100"
+                           Margin="20"
+                           Fill="Red" />
+                <Rectangle Width="100"
+                           Height="100"
+                           Margin="20"
+                           Fill="Purple" />
+            </WrapPanel>
+        </TabItem>
+        <TabItem Header="Expander">
+            <Expander VerticalAlignment="Top">
+                <Expander.Header>
+                    Hidden Search
+                </Expander.Header>
+                <Grid ColumnDefinitions="150,*" RowDefinitions="*,*">
+                    <TextBlock Grid.Row="0"
+                               Grid.Column="0"
+                               VerticalAlignment="Center">
+                        Search
+                    </TextBlock>
+                    <TextBox Grid.Row="0"
+                             Grid.Column="1"
+                             Width="200"
+                             Watermark="Search text" />
+                    <TextBlock Grid.Row="1"
+                               Grid.Column="0"
+                               VerticalAlignment="Center">
+                        Case sensitive?
+                    </TextBlock>
+                    <CheckBox Grid.Row="1" Grid.Column="1" />
+                </Grid>
+            </Expander>
+        </TabItem>
+        <TabItem Header="Button.Flyout">
+            <Button Content="Button with Flyout">
+                <Button.Flyout>
+                    <Flyout>This is the button flyout.</Flyout>
+                </Button.Flyout>
+            </Button>
+        </TabItem>
+        <TabItem Header="Grid">
+            <StackPanel Grid.IsSharedSizeScope="True">
+                <StackPanel.Styles>
+                    <Style Selector="ListBoxItem">
+                        <Setter Property="Padding" Value="0" />
+                    </Style>
+                </StackPanel.Styles>
 
-        <ListBox ItemsSource="{Binding People}">
-          <ListBox.ItemTemplate>
-            <DataTemplate>
-              <Grid Name="myGrid"
-                    RowDefinitions="auto, auto"
-                    ShowGridLines="True">
-                <Grid.ColumnDefinitions>
-                  <ColumnDefinition SharedSizeGroup="A" />
-                  <ColumnDefinition SharedSizeGroup="B" />
-                  <ColumnDefinition Width="*" />
-                  <ColumnDefinition SharedSizeGroup="C" />
-                </Grid.ColumnDefinitions>
+                <ListBox ItemsSource="{Binding People}">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Name="myGrid"
+                                  RowDefinitions="auto, auto"
+                                  ShowGridLines="True">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition SharedSizeGroup="A" />
+                                    <ColumnDefinition SharedSizeGroup="B" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition SharedSizeGroup="C" />
+                                </Grid.ColumnDefinitions>
 
-                <TextBlock Grid.Column="0"
-                           Margin="6,0"
-                           Text="{Binding FirstName}" />
-                <TextBlock Grid.Column="1"
-                           Margin="6,0"
-                           Text="{Binding LastName}" />
-                <TextBlock Grid.Column="2"
-                           Margin="6,0"
-                           Text="{Binding Age}" />
-                <TextBlock Grid.Column="3"
-                           Margin="6,0"
-                           Text="{Binding Occupation}" />
-              </Grid>
-            </DataTemplate>
-          </ListBox.ItemTemplate>
-        </ListBox>
+                                <TextBlock Grid.Column="0"
+                                           Margin="6,0"
+                                           Text="{Binding FirstName}" />
+                                <TextBlock Grid.Column="1"
+                                           Margin="6,0"
+                                           Text="{Binding LastName}" />
+                                <TextBlock Grid.Column="2"
+                                           Margin="6,0"
+                                           Text="{Binding Age}" />
+                                <TextBlock Grid.Column="3"
+                                           Margin="6,0"
+                                           Text="{Binding Occupation}" />
+                            </Grid>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
 
-        <!--  Controls may appear in-between Grids with SharedSizeGroups  -->
-        <Separator />
+                <!--  Controls may appear in-between Grids with SharedSizeGroups  -->
+                <Separator />
 
-        <Grid>
-          <Grid.ColumnDefinitions>
-            <ColumnDefinition SharedSizeGroup="A" />
-            <ColumnDefinition SharedSizeGroup="B" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition SharedSizeGroup="C" />
-          </Grid.ColumnDefinitions>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition SharedSizeGroup="A" />
+                        <ColumnDefinition SharedSizeGroup="B" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition SharedSizeGroup="C" />
+                    </Grid.ColumnDefinitions>
 
-          <Button Grid.Column="0"
-                  HorizontalAlignment="Stretch"
-                  Content="This is the First Name" />
-          <Button Grid.Column="1"
-                  HorizontalAlignment="Stretch"
-                  Content="Last" />
-          <Button Grid.Column="2"
-                  HorizontalAlignment="Stretch"
-                  Content="Age" />
-          <Button Grid.Column="3"
-                  HorizontalAlignment="Stretch"
-                  Content="Occupation" />
-        </Grid>
+                    <Button Grid.Column="0"
+                            HorizontalAlignment="Stretch"
+                            Content="This is the First Name" />
+                    <Button Grid.Column="1"
+                            HorizontalAlignment="Stretch"
+                            Content="Last" />
+                    <Button Grid.Column="2"
+                            HorizontalAlignment="Stretch"
+                            Content="Age" />
+                    <Button Grid.Column="3"
+                            HorizontalAlignment="Stretch"
+                            Content="Occupation" />
+                </Grid>
 
-      </StackPanel>
-    </TabItem>
-    <TabItem Header="GridSplitter">
-      <Grid ColumnDefinitions="*, 4, *">
-        <Rectangle Grid.Column="0" Fill="Blue" />
-        <GridSplitter Grid.Column="1"
-                      Background="Black"
-                      ResizeDirection="Columns" />
-        <Rectangle Grid.Column="2" Fill="Red" />
-      </Grid>
-    </TabItem>
-    <TabItem Header="Image">
-      <Panel>
-        <Rectangle Width="300"
-                   Height="300"
-                   Fill="LightGray" />
-        <Image Width="200"
-               Height="200"
-               Margin="20"
-               Source="avares://HeBianGu.Test.Controls/Assets/1.jpg" />
-      </Panel>
-    </TabItem>
-    <TabItem Header="ItemsControl">
-      <StackPanel Margin="20">
-        <TextBlock Margin="0,5">List of crockery:</TextBlock>
-        <ItemsControl ItemsSource="{Binding People}">
-          <ItemsControl.ItemTemplate>
-            <DataTemplate>
-              <Border Margin="0,10,0,0"
-                      Padding="5"
-                      BorderBrush="Gray"
-                      BorderThickness="1"
-                      CornerRadius="5">
-                <StackPanel Orientation="Horizontal">
-                  <TextBlock Text="{Binding FirstName}" />
-                  <TextBlock Margin="5,0"
-                             FontWeight="Bold"
-                             Text="{Binding LastName}" />
-                </StackPanel>
-              </Border>
-            </DataTemplate>
-          </ItemsControl.ItemTemplate>
-        </ItemsControl>
-      </StackPanel>
-    </TabItem>
-    <!--<TabItem Header="ItemsRepeater">
+            </StackPanel>
+        </TabItem>
+        <TabItem Header="GridSplitter">
+            <Grid ColumnDefinitions="*, 4, *">
+                <Rectangle Grid.Column="0" Fill="Blue" />
+                <GridSplitter Grid.Column="1"
+                              Background="Black"
+                              ResizeDirection="Columns" />
+                <Rectangle Grid.Column="2" Fill="Red" />
+            </Grid>
+        </TabItem>
+        <TabItem Header="Image">
+            <TabControl>
+                <TabItem Header="DrawingImage">
+                    <Image>
+                        <Image.Source>
+                            <DrawingImage>
+                                <GeometryDrawing Brush="Red">
+                                    <PathGeometry>
+                                        <PathFigure IsClosed="True" StartPoint="0,0">
+                                            <QuadraticBezierSegment Point1="50,0" Point2="50,-50" />
+                                            <QuadraticBezierSegment Point1="100,-50" Point2="100,0" />
+                                            <LineSegment Point="50,0" />
+                                            <LineSegment Point="50,50" />
+                                        </PathFigure>
+                                    </PathGeometry>
+                                </GeometryDrawing>
+                            </DrawingImage>
+                        </Image.Source>
+                    </Image>
+                </TabItem>
+                <TabItem Header="Image">
+                    <Panel>
+                        <Rectangle Width="300"
+                                   Height="300"
+                                   Fill="LightGray" />
+                        <Image Width="200"
+                               Height="200"
+                               Margin="20"
+                               Source="avares://HeBianGu.Test.Controls/Assets/1.jpg" />
+                    </Panel>
+                </TabItem>
+            </TabControl>
+
+        </TabItem>
+        <TabItem Header="ItemsControl">
+            <StackPanel Margin="20">
+                <TextBlock Margin="0,5">List of crockery:</TextBlock>
+                <ItemsControl ItemsSource="{Binding People}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Border Margin="0,10,0,0"
+                                    Padding="5"
+                                    BorderBrush="Gray"
+                                    BorderThickness="1"
+                                    CornerRadius="5">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding FirstName}" />
+                                    <TextBlock Margin="5,0"
+                                               FontWeight="Bold"
+                                               Text="{Binding LastName}" />
+                                </StackPanel>
+                            </Border>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </StackPanel>
+        </TabItem>
+        <!--<TabItem Header="ItemsRepeater">
       <StackPanel Margin="20">
         <TextBlock Margin="0 5">List of crockery:</TextBlock>
         <ItemsRepeater  ItemsSource="{Binding People}" >
@@ -786,136 +1049,136 @@ as set out in XAML.</TextBlock>
         </ItemsRepeater>
       </StackPanel>
     </TabItem>-->
-    <TabItem Header="ListBox">
-      <ListBox ItemsSource="{Binding People}" SelectionMode="Multiple,Toggle" />
-    </TabItem>
-    <TabItem Header="MaskedTextBox">
-      <StackPanel Margin="20">
-        <TextBlock Margin="0,5">International phone number:</TextBlock>
-        <MaskedTextBox Mask="(+09) 000 000 0000" />
-        <TextBlock Margin="0,15,0,5">UK VAT number:</TextBlock>
-        <MaskedTextBox Mask="GB 000 000 000" />
-      </StackPanel>
-    </TabItem>
-    <TabItem Header="Menu">
-      <DockPanel>
-        <Menu DockPanel.Dock="Top">
-          <MenuItem Header="_File">
-            <MenuItem Header="_Open..." />
-            <Separator />
-            <MenuItem Header="_Exit" />
-          </MenuItem>
-          <MenuItem Header="_Edit">
-            <MenuItem Header="Copy" />
-            <MenuItem Header="Paste" />
-          </MenuItem>
-        </Menu>
-        <TextBlock />
-      </DockPanel>
-    </TabItem>
-    <TabItem Header="NumericUpDown">
-      <StackPanel Margin="20">
-        <TextBlock Margin="0,5">Number of items:</TextBlock>
-        <NumericUpDown Value="10" />
-      </StackPanel>
-    </TabItem>
-    <TabItem Header="Panel">
-      <Panel Width="300" Height="300">
-        <Rectangle Height="100"
-                   VerticalAlignment="Top"
-                   Fill="Red" />
-        <Rectangle Width="100"
-                   HorizontalAlignment="Right"
-                   Fill="Blue"
-                   Opacity="0.5" />
-        <Rectangle Height="100"
-                   VerticalAlignment="Bottom"
-                   Fill="Green"
-                   Opacity="0.5" />
-        <Rectangle Width="100"
-                   HorizontalAlignment="Left"
-                   Fill="Orange" />
-      </Panel>
-    </TabItem>
-    <TabItem Header="ProgressBar">
-      <StackPanel Margin="20">
-        <ProgressBar Height="20"
-                     Margin="0,10"
-                     Maximum="100"
-                     Minimum="0"
-                     ShowProgressText="True"
-                     Value="14" />
-        <ProgressBar Height="20"
-                     Margin="0,10"
-                     Foreground="Red"
-                     Maximum="100"
-                     Minimum="0"
-                     ShowProgressText="True"
-                     Value="92" />
-      </StackPanel>
-    </TabItem>
-    <TabItem Header="ScrollViewer">
-      <Border Width="300"
-              Height="300"
-              Background="AliceBlue">
-        <ScrollViewer>
-          <StackPanel>
-            <TextBlock Height="100"
-                       Background="LightBlue"
-                       FontSize="22">
-              Block 1
-            </TextBlock>
-            <TextBlock Height="100" FontSize="22">Block 2</TextBlock>
-            <TextBlock Height="100"
-                       Background="LightBlue"
-                       FontSize="22">
-              Block 3
-            </TextBlock>
-            <TextBlock Height="100" FontSize="22">Block 4</TextBlock>
-            <TextBlock Height="100"
-                       Background="LightBlue"
-                       FontSize="22">
-              Block 5
-            </TextBlock>
-          </StackPanel>
-        </ScrollViewer>
-      </Border>
-    </TabItem>
-    <TabItem Header="Slider">
-      <StackPanel Margin="20">
-        <TextBlock HorizontalAlignment="Center" Text="{Binding #slider.Value}" />
-        <Slider x:Name="slider" />
-      </StackPanel>
-    </TabItem>
-    <TabItem Header="SplitView">
-      <SplitView DisplayMode="Inline"
-                 IsPaneOpen="True"
-                 OpenPaneLength="300">
-        <SplitView.Pane>
-          <TextBlock HorizontalAlignment="Center"
-                     VerticalAlignment="Center"
-                     FontSize="24"
-                     Text="Pane" />
-        </SplitView.Pane>
+        <TabItem Header="ListBox">
+            <ListBox ItemsSource="{Binding People}" AutoScrollToSelectedItem="True" SelectionMode="Multiple,Toggle" />
+        </TabItem>
+        <TabItem Header="MaskedTextBox">
+            <StackPanel Margin="20">
+                <TextBlock Margin="0,5">International phone number:</TextBlock>
+                <MaskedTextBox Mask="(+09) 000 000 0000" />
+                <TextBlock Margin="0,15,0,5">UK VAT number:</TextBlock>
+                <MaskedTextBox Mask="GB 000 000 000" />
+            </StackPanel>
+        </TabItem>
+        <TabItem Header="Menu">
+            <DockPanel>
+                <Menu DockPanel.Dock="Top">
+                    <MenuItem Header="_File">
+                        <MenuItem Header="_Open..." />
+                        <Separator />
+                        <MenuItem Header="_Exit" />
+                    </MenuItem>
+                    <MenuItem Header="_Edit">
+                        <MenuItem Header="Copy" />
+                        <MenuItem Header="Paste" />
+                    </MenuItem>
+                </Menu>
+                <TextBlock />
+            </DockPanel>
+        </TabItem>
+        <TabItem Header="NumericUpDown">
+            <StackPanel Margin="20">
+                <TextBlock Margin="0,5">Number of items:</TextBlock>
+                <NumericUpDown Value="10" />
+            </StackPanel>
+        </TabItem>
+        <TabItem Header="Panel">
+            <Panel Width="300" Height="300">
+                <Rectangle Height="100"
+                           VerticalAlignment="Top"
+                           Fill="Red" />
+                <Rectangle Width="100"
+                           HorizontalAlignment="Right"
+                           Fill="Blue"
+                           Opacity="0.5" />
+                <Rectangle Height="100"
+                           VerticalAlignment="Bottom"
+                           Fill="Green"
+                           Opacity="0.5" />
+                <Rectangle Width="100"
+                           HorizontalAlignment="Left"
+                           Fill="Orange" />
+            </Panel>
+        </TabItem>
+        <TabItem Header="ProgressBar">
+            <StackPanel Margin="20">
+                <ProgressBar Height="20"
+                             Margin="0,10"
+                             Maximum="100"
+                             Minimum="0"
+                             ShowProgressText="True"
+                             Value="14" />
+                <ProgressBar Height="20"
+                             Margin="0,10"
+                             Foreground="Red"
+                             Maximum="100"
+                             Minimum="0"
+                             ShowProgressText="True"
+                             Value="92" />
+            </StackPanel>
+        </TabItem>
+        <TabItem Header="ScrollViewer">
+            <Border Width="300"
+                    Height="300"
+                    Background="AliceBlue">
+                <ScrollViewer>
+                    <StackPanel>
+                        <TextBlock Height="100"
+                                   Background="LightBlue"
+                                   FontSize="22">
+                            Block 1
+                        </TextBlock>
+                        <TextBlock Height="100" FontSize="22">Block 2</TextBlock>
+                        <TextBlock Height="100"
+                                   Background="LightBlue"
+                                   FontSize="22">
+                            Block 3
+                        </TextBlock>
+                        <TextBlock Height="100" FontSize="22">Block 4</TextBlock>
+                        <TextBlock Height="100"
+                                   Background="LightBlue"
+                                   FontSize="22">
+                            Block 5
+                        </TextBlock>
+                    </StackPanel>
+                </ScrollViewer>
+            </Border>
+        </TabItem>
+        <TabItem Header="Slider">
+            <StackPanel Margin="20">
+                <TextBlock HorizontalAlignment="Center" Text="{Binding #slider.Value}" />
+                <Slider x:Name="slider" />
+            </StackPanel>
+        </TabItem>
+        <TabItem Header="SplitView">
+            <SplitView DisplayMode="Inline"
+                       IsPaneOpen="True"
+                       OpenPaneLength="300">
+                <SplitView.Pane>
+                    <TextBlock HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               FontSize="24"
+                               Text="Pane" />
+                </SplitView.Pane>
 
-        <Grid>
-          <TextBlock HorizontalAlignment="Center"
-                     VerticalAlignment="Center"
-                     FontSize="24"
-                     Text="Content" />
-        </Grid>
-      </SplitView>
-    </TabItem>
-    <TabItem Header="HeaderedContentControl">
-      <HeaderedContentControl Header="HeaderedContentControl">
-        <HeaderedContentControl.HeaderTemplate>
-          <DataTemplate>
-            <TextBlock Text="2222" />
-          </DataTemplate>
-        </HeaderedContentControl.HeaderTemplate>
-        <Button Content="HeaderedContentControl" />
-      </HeaderedContentControl>
-    </TabItem>
+                <Grid>
+                    <TextBlock HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               FontSize="24"
+                               Text="Content" />
+                </Grid>
+            </SplitView>
+        </TabItem>
+        <TabItem Header="HeaderedContentControl">
+            <HeaderedContentControl Header="HeaderedContentControl">
+                <HeaderedContentControl.HeaderTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="2222" />
+                    </DataTemplate>
+                </HeaderedContentControl.HeaderTemplate>
+                <Button Content="HeaderedContentControl" />
+            </HeaderedContentControl>
+        </TabItem>
 
-  </TabControl>
+    </TabControl>
 </UserControl>

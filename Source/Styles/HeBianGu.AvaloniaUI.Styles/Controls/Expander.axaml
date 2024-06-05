@@ -32,7 +32,7 @@
         <Setter Property="Background" Value="{DynamicResource {x:Static h:BrushKeys.Background}}" />
         <Setter Property="Foreground" Value="{DynamicResource {x:Static h:BrushKeys.Foreground}}" />
         <Setter Property="BorderBrush" Value="{DynamicResource {x:Static h:BrushKeys.BorderBrush}}" />
-        <Setter Property="BorderThickness" Value="{DynamicResource {x:Static h:LayoutKeys.BorderThickness}}" />
+        <Setter Property="BorderThickness" Value="0 0 0 1" />
         <Setter Property="CornerRadius" Value="{DynamicResource {x:Static h:LayoutKeys.CornerRadius}}" />
         <Setter Property="Padding" Value="{DynamicResource {x:Static h:LayoutKeys.Padding}}" />
         <Setter Property="Height" Value="{DynamicResource {x:Static h:LayoutKeys.ItemHeight}}" />
@@ -98,6 +98,10 @@
                     </KeyFrame>
                 </Animation>
             </Style.Animations>
+        </Style>
+
+        <Style Selector="^[Tag=collapsed]">
+            <Setter Property="BorderThickness" Value="0" />
         </Style>
 
         <!--  PointerOver  -->
@@ -200,33 +204,36 @@
         <!--<Setter Property="CornerRadius" Value="{DynamicResource ControlCornerRadius}" />-->
         <Setter Property="Template">
             <ControlTemplate>
-                <DockPanel MinWidth="{TemplateBinding MinWidth}" MaxWidth="{TemplateBinding MaxWidth}">
-                    <ToggleButton x:Name="ExpanderHeader"
-                                  MinHeight="{TemplateBinding MinHeight}"
-                                  Content="{TemplateBinding Header}"
-                                  ContentTemplate="{TemplateBinding HeaderTemplate}"
-                                  CornerRadius="{TemplateBinding CornerRadius}"
-                                  IsChecked="{TemplateBinding IsExpanded,
-                                                              Mode=TwoWay}"
-                                  IsEnabled="{TemplateBinding IsEnabled}" />
-                    <Border x:Name="ExpanderContent"
-                            MinHeight="{TemplateBinding MinHeight}"
-                            Padding="{TemplateBinding Padding}"
-                            HorizontalAlignment="Stretch"
-                            VerticalAlignment="Stretch"
-                            Background="{TemplateBinding Background}"
-                            BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="{TemplateBinding BorderThickness}"
-                            IsVisible="{TemplateBinding IsExpanded,
-                                                        Mode=TwoWay}">
-                        <ContentPresenter x:Name="PART_ContentPresenter"
-                                          HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                          VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                                          Content="{TemplateBinding Content}"
-                                          ContentTemplate="{TemplateBinding ContentTemplate}"
-                                          Foreground="{TemplateBinding Foreground}" />
-                    </Border>
-                </DockPanel>
+                <Border Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding CornerRadius}">
+                    <DockPanel MinWidth="{TemplateBinding MinWidth}" MaxWidth="{TemplateBinding MaxWidth}">
+                        <ToggleButton x:Name="ExpanderHeader"
+                                      MinHeight="{TemplateBinding MinHeight}"
+                                      Content="{TemplateBinding Header}"
+                                      ContentTemplate="{TemplateBinding HeaderTemplate}"
+                                      CornerRadius="{TemplateBinding CornerRadius}"
+                                      IsChecked="{TemplateBinding IsExpanded,
+                                                                  Mode=TwoWay}"
+                                      IsEnabled="{TemplateBinding IsEnabled}" />
+                        <Border x:Name="ExpanderContent"
+                                MinHeight="{TemplateBinding MinHeight}"
+                                Padding="{TemplateBinding Padding}"
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Stretch"
+                                IsVisible="{TemplateBinding IsExpanded,
+                                                            Mode=TwoWay}">
+                            <ContentPresenter x:Name="PART_ContentPresenter"
+                                              HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                              Content="{TemplateBinding Content}"
+                                              ContentTemplate="{TemplateBinding ContentTemplate}"
+                                              Foreground="{TemplateBinding Foreground}" />
+                        </Border>
+                    </DockPanel>
+
+                </Border>
             </ControlTemplate>
         </Setter>
 
