@@ -14,11 +14,6 @@ namespace HeBianGu.AvaloniaUI.DialogMessage
 {
     public class AdornerGrid : Grid, IDisposable
     {
-        public AdornerGrid()
-        {
-            TopLevel.GetTopLevel(this).BackRequested += this.AdornerGrid_BackRequested;
-        }
-
         private void AdornerGrid_BackRequested(object sender, Avalonia.Interactivity.RoutedEventArgs e)
         {
            var last= this.Children.LastOrDefault();
@@ -45,6 +40,7 @@ namespace HeBianGu.AvaloniaUI.DialogMessage
                 ContentPresenter contentPresenter = adornerGrid.ToContentPresenter(presenter);
                 adornerGrid.Children.Add(contentPresenter);
                 AdornerLayer.SetAdorner(visual, adornerGrid);
+                TopLevel.GetTopLevel(adornerGrid).BackRequested += adornerGrid.AdornerGrid_BackRequested;
             }
         }
 
@@ -71,8 +67,8 @@ namespace HeBianGu.AvaloniaUI.DialogMessage
                     grid.Children.RemoveAll(finds);
                     if (grid.Children.Count == 0)
                     {
-                        AdornerLayer.SetAdorner(visual, null);
                         grid.Dispose();
+                        AdornerLayer.SetAdorner(visual, null);
                     }
                 }
             });

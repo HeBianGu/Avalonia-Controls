@@ -15,7 +15,7 @@ namespace HeBianGu.AvaloniaUI.DialogMessage
 
         public override bool CanExecute(object parameter)
         {
-            return parameter is IAdornerDialogPresenter;
+            return parameter is IAdornerDialogPresenter presenter;
         }
     }
 }

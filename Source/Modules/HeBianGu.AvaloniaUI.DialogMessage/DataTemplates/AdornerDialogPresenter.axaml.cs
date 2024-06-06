@@ -4,6 +4,7 @@ using Avalonia.Controls;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Controls.Presenters;
 using Avalonia.Controls.Primitives;
+using Avalonia.Interactivity;
 using Avalonia.Layout;
 using HeBianGu.AvaloniaUI.Ioc;
 using HeBianGu.AvaloniaUI.Mvvm;
@@ -31,6 +32,17 @@ namespace HeBianGu.AvaloniaUI.DialogMessage
                 RaisePropertyChanged();
             }
         }
+
+
+        public RelayCommand CancelCommand => new RelayCommand((s, e) =>
+        {
+            if (e is RoutedEventArgs project && project.Source is Grid grid && grid.Name == "g_all")
+            {
+                if (this.DialogButton == DialogButton.None)
+                    this.Close();
+            }
+        });
+
         public DialogButton DialogButton { get; set; }
 
         private ManualResetEvent _waitHandle = new ManualResetEvent(false);
@@ -57,6 +69,7 @@ namespace HeBianGu.AvaloniaUI.DialogMessage
             DialogResult = false;
             Close();
         }
+
 
         public void Close()
         {

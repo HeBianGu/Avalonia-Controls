@@ -19,6 +19,15 @@
   </Design.DataContext>
 
   <TabControl>
+    <TabItem Header="Behaviors">
+      <Grid Background="Transparent">
+        <Interaction.Behaviors>
+          <EventTriggerBehavior EventName="PointerPressed">
+            <InvokeCommandAction Command="" PassEventArgsToCommand="True"/>
+          </EventTriggerBehavior>
+        </Interaction.Behaviors>
+      </Grid>
+    </TabItem>
     <TabItem Header="Selector - Border#clipChild">
       <Grid ColumnDefinitions="Auto" RowDefinitions="Auto,Auto">
         <Grid.Styles>
