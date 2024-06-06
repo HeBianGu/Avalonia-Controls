@@ -147,7 +147,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avalonia.Test.Code", "..\So
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avalonia.Test.Code.Desktop", "..\Source\Test\Avalonia.Test.Code.Desktop\Avalonia.Test.Code.Desktop.csproj", "{5C5BE615-5011-46F0-958C-3062CC4D7054}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - App", "1 - App", "{26F9C8C3-04A2-416E-8CF1-83F89E6896BE}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Apps", "1 - Apps", "{26F9C8C3-04A2-416E-8CF1-83F89E6896BE}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avalonia.Test.Mobile", "..\Source\Test\Avalonia.Test.Mobile\Avalonia.Test.Mobile.csproj", "{6063D8CC-01EE-4BA6-9118-5ACC7C2E05C9}"
 EndProject
