@@ -17,8 +17,8 @@
     <!--<Setter Property="Foreground" Value="{DynamicResource {x:Static h:BrushKeys.Red}}" />-->
     <Setter Property="Grid.Column" Value="0" />
     <Setter Property="VerticalAlignment" Value="Center" />
-    <Setter Property="MinWidth" Value="80" />
-    <Setter Property="MaxWidth" Value="200" />
+    <Setter Property="MinWidth" Value="0" />
+    <Setter Property="MaxWidth" Value="400" />
 
     <!--<Setter Property="Margin" Value="10 0" />-->
   </ControlTheme>
@@ -52,6 +52,7 @@
     <Setter Property="Padding" Value="0,0,10,0" />
     <!--<Setter Property="Width" Value="Auto" />
         <Setter Property="Height" Value="Auto" />-->
+    <Setter Property="Grid.IsSharedSizeScope" Value="True" />
     <Setter Property="Title" Value="Title" />
     <Setter Property="MessageWidth" Value="15" />
     <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />

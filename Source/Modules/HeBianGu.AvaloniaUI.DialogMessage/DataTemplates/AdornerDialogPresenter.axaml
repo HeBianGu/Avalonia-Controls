@@ -24,13 +24,15 @@
             RowDefinitions="Auto,*,Auto">
         <Grid Height="{DynamicResource {x:Static h:LayoutKeys.RowHeight}}">
           <Button HorizontalAlignment="Right"
-            VerticalAlignment="Center"
-            Command="{local:CloseAdornerDialogCommand}"
-            CommandParameter="{Binding}"
-            Content="{x:Static h:Geometrys.Close}"
-            Theme="{DynamicResource {x:Static h:ButtonKeys.Geometry}}"
-            ToolTip.Tip="×" />
-          <TextBlock VerticalAlignment="Center" Margin="{DynamicResource {x:Static h:LayoutKeys.Padding}}" Text="{Binding Title}" />
+                  VerticalAlignment="Center"
+                  Command="{local:CloseAdornerDialogCommand}"
+                  CommandParameter="{Binding}"
+                  Content="{x:Static h:Geometrys.Close}"
+                  Theme="{DynamicResource {x:Static h:ButtonKeys.Geometry}}"
+                  ToolTip.Tip="×" />
+          <TextBlock Margin="{DynamicResource {x:Static h:LayoutKeys.Padding}}"
+                     VerticalAlignment="Center"
+                     Text="{Binding Title}" />
         </Grid>
 
         <ContentControl Grid.Row="1"
@@ -38,12 +40,32 @@
                         HorizontalAlignment="{Binding HorizontalContentAlignment}"
                         VerticalAlignment="{Binding VerticalContentAlignment}"
                         Content="{Binding Presenter}" />
-        <Button Grid.Row="2"
-                Margin="10,6"
-                HorizontalAlignment="Center"
-                Command="{local:SumitAdornerDialogCommand}"
-                CommandParameter="{Binding}"
-                Content="确定" />
+        <DockPanel Margin="10,6" HorizontalAlignment="Center" Grid.Row="2">
+          <Button Tag="{Binding DialogButton}" Command="{local:CancelAdornerDialogCommand}"
+                  CommandParameter="{Binding}"
+                  Content="取消">
+            <Button.Styles>
+              <Style Selector="Button[Tag=Sumit]">
+                <Setter Property="IsVisible" Value="False"/>
+              </Style>
+              <Style Selector="Button[Tag=None]">
+                <Setter Property="IsVisible" Value="False"/>
+              </Style>
+            </Button.Styles>
+          </Button>
+          <Button Tag="{Binding DialogButton}" Command="{local:SumitAdornerDialogCommand}"
+                  CommandParameter="{Binding}"
+                  Content="确定" >
+            <Button.Styles>
+              <Style Selector="Button[Tag=Cancel]">
+                <Setter Property="IsVisible" Value="False"/>
+              </Style>
+              <Style Selector="Button[Tag=None]">
+                <Setter Property="IsVisible" Value="False"/>
+              </Style>
+            </Button.Styles>
+          </Button>
+        </DockPanel>
       </Grid>
     </Border>
   </Grid>

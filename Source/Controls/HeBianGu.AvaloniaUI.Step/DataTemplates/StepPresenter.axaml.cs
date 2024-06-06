@@ -1,5 +1,6 @@
 ﻿
 using Avalonia.Layout;
+using HeBianGu.AvaloniaUI.Ioc;
 using HeBianGu.AvaloniaUI.Mvvm;
 using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
@@ -7,7 +8,7 @@ using System.ComponentModel.DataAnnotations;
 namespace HeBianGu.AvaloniaUI.Step
 {
     [Display(Name = "步骤")]
-    public class StepPresenter : DisplayBindableBase
+    public class StepPresenter : DisplayBindableBase, IPresenter
     {
         private Orientation _orientation = Orientation.Horizontal;
         public Orientation Orientation
