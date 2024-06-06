@@ -1,6 +1,6 @@
 ﻿namespace HeBianGu.AvaloniaUI.Ioc
 {
-    public interface ISplashScreenViewPresenter
+    public interface ISplashScreenViewPresenter : IPresenter
     {
         string Message { get; set; }
     }

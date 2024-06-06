@@ -2,7 +2,7 @@
 
 namespace HeBianGu.AvaloniaUI.Ioc
 {
-    public interface IAuthorityViewPresenter
+    public interface IAuthorityViewPresenter : IPresenter
     {
 
     }

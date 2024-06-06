@@ -35,10 +35,10 @@ public partial class App : ApplicationBase
         base.LoadAxamls(loader);
         loader.UseStylesExtension();
         loader.UseMainWindowBase();
-        loader.UseAbout();
-        loader.UseTheme();
+        //loader.UseAbout();
+        //loader.UseTheme();
         loader.UseForm();
-        loader.UseDataTest();
+        //loader.UseDataTest();
         loader.UseMultiComboBox();
         loader.UseStep();
     }
@@ -54,12 +54,14 @@ public partial class App : ApplicationBase
     {
         base.ConfigureServices(services);
         services.AddSingleton<IMyIoc, MyIoc>();
-        //services.AddLoginWindow().AddLoginViewPresenter(x => x.Product = "登陆页面").AddTestLoginService();
+        services.AddSplashScreen();
+        services.AddLoginWindow().AddLoginViewPresenter(x => x.Product = "登陆页面").AddTestLoginService();
         services.AddAdornerDialogMessage();
         services.AddFormMessageService();
         services.AddWindowMessage();
         services.AddNoticeMessage();
         services.AddSnackMessage();
+        services.AddAbout();
 
         //  Do ：操作日志
         services.AddDbContextBySetting<OperationDataContext>();

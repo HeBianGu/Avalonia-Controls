@@ -17,10 +17,10 @@ using System.Windows;
 
 namespace HeBianGu.AvaloniaUI.SnackMessage
 {
-    public class SnackBoxPresenter : BindableBase
+    public class SnackBoxPresenter : BindableBase,IPresenter
     {
-        private ObservableCollection<ISnackItem> _collection = new ObservableCollection<ISnackItem>();
-        public ObservableCollection<ISnackItem> Collection
+        private ObservableCollection<ISnackItemPresenter> _collection = new ObservableCollection<ISnackItemPresenter>();
+        public ObservableCollection<ISnackItemPresenter> Collection
         {
             get { return _collection; }
             set

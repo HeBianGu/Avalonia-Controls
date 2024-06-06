@@ -8,7 +8,7 @@ using System;
 
 namespace HeBianGu.AvaloniaUI.NoticeMessage
 {
-    public abstract class MessagePresenterBase : BindableBase, INoticeItem
+    public abstract class MessagePresenterBase : BindableBase, INoticeItemPresenter
     {
         public string Time { get; } = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
         public Avalonia.Media.Geometry Geometry { get; set; }

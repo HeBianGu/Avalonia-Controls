@@ -9,7 +9,7 @@ namespace HeBianGu.AvaloniaUI.Ioc
     {
         public override void Execute(object parameter)
         {
-            Func<ISnackItem, bool> action = x =>
+            Func<ISnackItemPresenter, bool> action = x =>
             {
                 for (int i = 0; i < 100; i++)
                 {

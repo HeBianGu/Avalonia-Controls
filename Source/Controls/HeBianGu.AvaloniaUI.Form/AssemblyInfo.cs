@@ -5,7 +5,7 @@ using HeBianGu.AvaloniaUI.Application;
 using System.Windows;
 using System.Windows.Markup;
 
-[assembly: ApplicationDataTemplateLoader]
+
 [assembly: ApplicationResourceLoader]
 [assembly: XmlnsDefinition("QQ:908293466", "HeBianGu.AvaloniaUI.Form")]
 [assembly: XmlnsPrefix("QQ:908293466", "h")]

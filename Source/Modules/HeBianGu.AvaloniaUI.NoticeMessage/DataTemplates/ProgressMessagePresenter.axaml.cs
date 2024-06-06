@@ -8,7 +8,7 @@ using HeBianGu.AvaloniaUI.Ioc;
 
 namespace HeBianGu.AvaloniaUI.NoticeMessage
 {
-    public class ProgressMessagePresenter : MessagePresenterBase, IPercentNoticeItem
+    public class ProgressMessagePresenter : MessagePresenterBase, IPercentNoticeItemPresenter
     {
         public ProgressMessagePresenter()
         {

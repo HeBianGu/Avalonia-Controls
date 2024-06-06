@@ -1,10 +1,11 @@
 ﻿
+using HeBianGu.AvaloniaUI.Ioc;
 using HeBianGu.AvaloniaUI.Mvvm;
 using System.Collections.ObjectModel;
 
 namespace HeBianGu.AvaloniaUI.Form
 {
-    public class FormPresenter : DisplayBindableBase
+    public class FormPresenter : DisplayBindableBase, IPresenter
     {
         public FormPresenter(object value)
         {
@@ -31,14 +32,6 @@ namespace HeBianGu.AvaloniaUI.Form
                 _usePropertyView = value;
                 RaisePropertyChanged();
             }
-        }
-    }
-
-    public class StaticFormPresenter : FormPresenter
-    {
-        public StaticFormPresenter(object value) : base(value)
-        {
-
         }
     }
 

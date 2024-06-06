@@ -264,7 +264,7 @@ namespace HeBianGu.AvaloniaUI.Form
     }
 
     /// <summary> 类型基类 </summary>
-    public abstract class ObjectPropertyItem : DisplayBindableBase, IPropertyItem
+    public abstract class ObjectPropertyItem : DisplayBindableBase, IPropertyItemPresenter
     {
         public string TabGroup { get; set; }
         public PropertyInfo PropertyInfo { get; set; }

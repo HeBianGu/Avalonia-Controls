@@ -2,7 +2,7 @@
 
 namespace HeBianGu.AvaloniaUI.Ioc
 {
-    public interface IRoleViewPresenter
+    public interface IRoleViewPresenter : IPresenter
     {
 
     }

@@ -11,9 +11,9 @@ namespace HeBianGu.AvaloniaUI.Ioc
         void ShowError(string message);
         void ShowFatal(string message);
         void ShowInfo(string message);
-        void Show(ISnackItem message);
-        Task<T> ShowProgress<T>(Func<IPercentSnackItem, T> action);
-        Task<T> ShowString<T>(Func<ISnackItem, T> action);
+        void Show(ISnackItemPresenter message);
+        Task<T> ShowProgress<T>(Func<IPercentSnackItemPresenter, T> action);
+        Task<T> ShowString<T>(Func<ISnackItemPresenter, T> action);
         void ShowSuccess(string message);
         void ShowWarn(string message);
     }

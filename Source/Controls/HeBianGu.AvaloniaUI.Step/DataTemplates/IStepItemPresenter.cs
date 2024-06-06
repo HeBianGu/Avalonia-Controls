@@ -1,6 +1,8 @@
-﻿namespace HeBianGu.AvaloniaUI.Step
+﻿using HeBianGu.AvaloniaUI.Ioc;
+
+namespace HeBianGu.AvaloniaUI.Step
 {
-    public interface IStepItemPresenter
+    public interface IStepItemPresenter: IPresenter
     {
         string DisplayName { get; set; }
         string Message { get; set; }

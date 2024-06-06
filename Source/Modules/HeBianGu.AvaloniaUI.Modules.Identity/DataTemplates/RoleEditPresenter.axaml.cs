@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace HeBianGu.AvaloniaUI.Modules.Identity
 {
-    public class RoleEditPresenter : ModelBindable<hi_dd_role>
+    public class RoleEditPresenter : ModelBindable<hi_dd_role>,IPresenter
     {
         public RoleEditPresenter(hi_dd_role model) : base(model)
         {

@@ -14,15 +14,17 @@ class Program
     [STAThread]
     public static void Main(string[] args)
     {
-        try
-        {
+        //try
+        //{
             BuildAvaloniaApp().StartWithClassicDesktopLifetime(args);
-        }
-        catch (Exception ex)
-        {
-            //IocMessage.Window.Show(ex.Message);
-            IocLog.Instance?.Error(ex);
-        }
+        //}
+        //catch (Exception ex)
+        //{
+        //    IocLog.Instance?.Error(ex);
+        //    throw ex;
+        //    //IocMessage.Window.Show(ex.Message);
+           
+        //}
     }
 
     // Avalonia configuration, don't remove; also used by visual designer.

@@ -12,14 +12,14 @@ namespace HeBianGu.AvaloniaUI.Form
 {
     public static class PropertyExtention
     {
-        public static IPropertyItem Create(this PropertyInfo info, object obj)
+        public static IPropertyItemPresenter Create(this PropertyInfo info, object obj)
         {
             PropertyItemTypeAttribute editor = info.GetCustomAttribute<PropertyItemTypeAttribute>();
             if (editor?.Type != null)
             {
-                if (typeof(IPropertyItem).IsAssignableFrom(editor.Type))
+                if (typeof(IPropertyItemPresenter).IsAssignableFrom(editor.Type))
                 {
-                    return Activator.CreateInstance(editor.Type, info, obj) as IPropertyItem;
+                    return Activator.CreateInstance(editor.Type, info, obj) as IPropertyItemPresenter;
                 }
             }
 
@@ -166,14 +166,14 @@ namespace HeBianGu.AvaloniaUI.Form
             return (T)Convert.ChangeType(obj, typeof(T));
         }
 
-        public static IPropertyItem CreateView(this PropertyInfo info, object obj)
+        public static IPropertyItemPresenter CreateView(this PropertyInfo info, object obj)
         {
             PropertyItemTypeAttribute editor = info.GetCustomAttribute<PropertyItemTypeAttribute>();
             if (editor?.Type != null)
             {
-                if (typeof(IPropertyViewItem).IsAssignableFrom(editor.Type))
+                if (typeof(IPropertyViewItemPresenter).IsAssignableFrom(editor.Type))
                 {
-                    return Activator.CreateInstance(editor.Type, info, obj) as IPropertyViewItem;
+                    return Activator.CreateInstance(editor.Type, info, obj) as IPropertyViewItemPresenter;
                 }
             }
 

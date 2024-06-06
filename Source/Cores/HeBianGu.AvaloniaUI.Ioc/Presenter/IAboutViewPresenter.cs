@@ -1,6 +1,6 @@
 ﻿namespace HeBianGu.AvaloniaUI.Ioc
 {
-    public interface IAboutViewPresenter
+    public interface IAboutViewPresenter : IPresenter
     {
 
     }

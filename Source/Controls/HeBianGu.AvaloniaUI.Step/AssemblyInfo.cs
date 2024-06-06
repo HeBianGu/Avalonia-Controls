@@ -4,7 +4,7 @@ using System.Windows;
 using System.Windows.Markup;
 
 [assembly: ApplicationResourceLoader]
-[assembly: ApplicationDataTemplateLoader]
+
 [assembly: XmlnsDefinition("QQ:908293466", "HeBianGu.AvaloniaUI.Step")]
 [assembly: XmlnsPrefix("QQ:908293466", "h")]
 

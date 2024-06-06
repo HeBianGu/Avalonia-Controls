@@ -3,7 +3,7 @@ using HeBianGu.AvaloniaUI.Application;
 
 [assembly: ApplicationStylesLoader]
 [assembly: ApplicationResourceLoader]
-[assembly: ApplicationDataTemplateLoader]
+
 
 [assembly: XmlnsDefinition("QQ:908293466", "HeBianGu.AvaloniaUI.Styles")]
 [assembly: XmlnsPrefix("QQ:908293466", "h")]

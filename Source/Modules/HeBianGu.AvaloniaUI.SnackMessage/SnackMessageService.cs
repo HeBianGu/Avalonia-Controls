@@ -56,7 +56,7 @@ namespace HeBianGu.AvaloniaUI.SnackMessage
                 return;
             this._snackBox.Collection.Add(new ErrorMessagePresenter() { Message = message });
         }
-        public void Show(ISnackItem message)
+        public void Show(ISnackItemPresenter message)
         {
             if (this.CheckValid() == false)
                 return;
@@ -81,7 +81,7 @@ namespace HeBianGu.AvaloniaUI.SnackMessage
             return r;
         }
 
-        public async Task<T> ShowProgress<T>(Func<IPercentSnackItem, T> action)
+        public async Task<T> ShowProgress<T>(Func<IPercentSnackItemPresenter, T> action)
         {
             if (this.CheckValid() == false)
                 return default(T);
@@ -92,7 +92,7 @@ namespace HeBianGu.AvaloniaUI.SnackMessage
             return r;
         }
 
-        public async Task<T> ShowString<T>(Func<ISnackItem, T> action)
+        public async Task<T> ShowString<T>(Func<ISnackItemPresenter, T> action)
         {
             if (this.CheckValid() == false)
                 return default(T);

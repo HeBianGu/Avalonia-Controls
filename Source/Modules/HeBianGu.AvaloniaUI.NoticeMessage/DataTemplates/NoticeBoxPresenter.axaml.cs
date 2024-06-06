@@ -10,10 +10,10 @@ using System.Threading.Tasks;
 
 namespace HeBianGu.AvaloniaUI.NoticeMessage
 {
-    public class NoticeBoxPresenter : BindableBase
+    public class NoticeBoxPresenter : BindableBase, IPresenter
     {
-        private ObservableCollection<INoticeItem> _collection = new ObservableCollection<INoticeItem>();
-        public ObservableCollection<INoticeItem> Collection
+        private ObservableCollection<INoticeItemPresenter> _collection = new ObservableCollection<INoticeItemPresenter>();
+        public ObservableCollection<INoticeItemPresenter> Collection
         {
             get { return _collection; }
             set

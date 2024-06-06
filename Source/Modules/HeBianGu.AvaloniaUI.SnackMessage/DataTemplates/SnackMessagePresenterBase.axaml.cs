@@ -7,7 +7,7 @@ using System;
 
 namespace HeBianGu.AvaloniaUI.SnackMessage
 {
-    public abstract class SnackMessagePresenterBase : BindableBase, ISnackItem
+    public abstract class SnackMessagePresenterBase : BindableBase, ISnackItemPresenter
     {
         public string Time { get; } = DateTime.Now.ToString("HH:mm:ss");
         public Avalonia.Media.Geometry Geometry { get; set; }

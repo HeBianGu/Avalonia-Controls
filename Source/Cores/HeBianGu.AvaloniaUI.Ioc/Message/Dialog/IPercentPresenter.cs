@@ -2,7 +2,7 @@
 
 namespace HeBianGu.AvaloniaUI.Ioc
 {
-    public interface IPercentPresenter
+    public interface IPercentPresenter : IPresenter
     {
         int Value { set; }
     }

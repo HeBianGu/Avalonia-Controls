@@ -430,15 +430,15 @@ namespace HeBianGu.AvaloniaUI.Form
         public static readonly StyledProperty<bool> UsePrimitiveProperty =
             AvaloniaProperty.Register<Form, bool>("UsePrimitive", true);
 
-        public Func<PropertyInfo, object, IPropertyItem> Mapper
+        public Func<PropertyInfo, object, IPropertyItemPresenter> Mapper
         {
-            get { return (Func<PropertyInfo, object, IPropertyItem>)GetValue(MapperProperty); }
+            get { return (Func<PropertyInfo, object, IPropertyItemPresenter>)GetValue(MapperProperty); }
             set { SetValue(MapperProperty, value); }
         }
 
 
-        public static readonly StyledProperty<Func<PropertyInfo, object, IPropertyItem>> MapperProperty =
-            AvaloniaProperty.Register<Form, Func<PropertyInfo, object, IPropertyItem>>("Mapper");
+        public static readonly StyledProperty<Func<PropertyInfo, object, IPropertyItemPresenter>> MapperProperty =
+            AvaloniaProperty.Register<Form, Func<PropertyInfo, object, IPropertyItemPresenter>>("Mapper");
 
         //public string FilterGroup
         //{
@@ -507,7 +507,7 @@ namespace HeBianGu.AvaloniaUI.Form
 
         //激发路由事件,借用Click事件的激发方法
 
-        protected void OnValueChanged(Tuple<IPropertyItem, object> tuple)
+        protected void OnValueChanged(Tuple<IPropertyItemPresenter, object> tuple)
         {
             RoutedEventArgs args = new RoutedEventArgs(ValueChangedRoutedEvent, this);
             args.Source = tuple;
@@ -661,7 +661,7 @@ namespace HeBianGu.AvaloniaUI.Form
             {
                 action.Invoke(type);
             }
-            List<IPropertyItem> items = new List<IPropertyItem>();
+            List<IPropertyItemPresenter> items = new List<IPropertyItemPresenter>();
 
             var ss = propertys.Distinct();
             foreach (PropertyInfo item in propertys.Distinct())
@@ -774,7 +774,7 @@ namespace HeBianGu.AvaloniaUI.Form
 
                 //System.Diagnostics.Debug.WriteLine($"PropertyGrid {o.GetType()} - {item.Name} - {item.PropertyType} - {item.GetValue(o)}");
 
-                IPropertyItem from = this.Mapper?.Invoke(item, o);
+                IPropertyItemPresenter from = this.Mapper?.Invoke(item, o);
                 if (from is ObjectPropertyItem obj)
                 {
                     obj.ValueChanged = l =>
@@ -785,7 +785,7 @@ namespace HeBianGu.AvaloniaUI.Form
                 items.Add(from);
             }
 
-            IEnumerable<IPropertyItem> result;
+            IEnumerable<IPropertyItemPresenter> result;
 
             if (this.UseOrder)
             {
@@ -806,10 +806,10 @@ namespace HeBianGu.AvaloniaUI.Form
 
             if (this.UseAsync)
             {
-                ObservableCollection<IPropertyItem> observable = new ObservableCollection<IPropertyItem>();
+                ObservableCollection<IPropertyItemPresenter> observable = new ObservableCollection<IPropertyItemPresenter>();
                 this.ItemsSource = observable;
 
-                foreach (IPropertyItem item in result)
+                foreach (IPropertyItemPresenter item in result)
                 {
                     Avalonia.Application.Current.BeginInvoke(DispatcherPriority.Input, new Action(() =>
                                 {

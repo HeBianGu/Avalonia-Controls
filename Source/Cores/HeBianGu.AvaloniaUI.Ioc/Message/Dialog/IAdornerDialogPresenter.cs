@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace HeBianGu.AvaloniaUI.Ioc
 {
-    public interface IAdornerDialogPresenter : IDialog
+    public interface IAdornerDialogPresenter : IDialog, IPresenter
     {
         object Presenter { get; set; }
 

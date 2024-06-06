@@ -6,7 +6,7 @@ using System.Reflection;
 
 namespace HeBianGu.AvaloniaUI.Form
 {
-    public class TextPropertyViewItem : ObjectPropertyItem<string>, IPropertyViewItem
+    public class TextPropertyViewItem : ObjectPropertyItem<string>, IPropertyViewItemPresenter
     {
         public TextPropertyViewItem(PropertyInfo property, object obj) : base(property, obj)
         {
@@ -33,7 +33,7 @@ namespace HeBianGu.AvaloniaUI.Form
         }
     }
 
-    public class DictionaryPropertyViewItem : ObjectPropertyItem<IDictionary>, IPropertyViewItem
+    public class DictionaryPropertyViewItem : ObjectPropertyItem<IDictionary>, IPropertyViewItemPresenter
     {
         public DictionaryPropertyViewItem(PropertyInfo property, object obj) : base(property, obj)
         {

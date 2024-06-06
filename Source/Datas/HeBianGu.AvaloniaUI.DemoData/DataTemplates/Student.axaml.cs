@@ -1,5 +1,6 @@
 ﻿
 using HeBianGu.AvaloniaUI.DemoData;
+using HeBianGu.AvaloniaUI.Ioc;
 using HeBianGu.AvaloniaUI.Mvvm;
 using System;
 using System.Collections.Generic;
@@ -13,7 +14,7 @@ using System.Xml.Linq;
 namespace HeBianGu.AvaloniaUI.DemoData
 {
     [DisplayName("学生信息")]
-    public class Student : BindableBase, ICloneable
+    public class Student : BindableBase, ICloneable, IPresenter
     {
         [Display(Name = "姓名", GroupName = "基础信息")]
         [Required()]

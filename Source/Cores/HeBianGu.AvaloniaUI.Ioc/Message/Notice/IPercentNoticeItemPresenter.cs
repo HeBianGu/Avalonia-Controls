@@ -2,9 +2,8 @@
 
 namespace HeBianGu.AvaloniaUI.Ioc
 {
-    public interface ISnackItem
+    public interface IPercentNoticeItemPresenter : INoticeItemPresenter
     {
-        string Message { get; set; }
-        string Time { get; }
+        double Value { get; set; }
     }
 }

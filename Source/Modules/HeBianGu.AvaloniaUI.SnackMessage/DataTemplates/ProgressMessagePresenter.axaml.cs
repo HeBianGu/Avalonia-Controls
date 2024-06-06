@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace HeBianGu.AvaloniaUI.SnackMessage
 {
-    public class ProgressMessagePresenter : SnackMessagePresenterBase, IPercentSnackItem
+    public class ProgressMessagePresenter : SnackMessagePresenterBase, IPercentSnackItemPresenter
     {
         public ProgressMessagePresenter()
         {

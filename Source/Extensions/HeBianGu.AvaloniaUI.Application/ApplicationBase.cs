@@ -1,6 +1,7 @@
 ﻿using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.ApplicationLifetimes;
+using Avalonia.Controls.Templates;
 using Avalonia.Data.Converters;
 using Avalonia.Logging;
 using Avalonia.Markup.Xaml;
@@ -33,7 +34,14 @@ namespace HeBianGu.AvaloniaUI.Application
             System.Ioc.Build(sc);
             ApplicationBuilder bulder = new ApplicationBuilder();
             this.Configure(bulder);
+            this.OnCreatePresenterLocator();
         }
+
+        public void OnCreatePresenterLocator()
+        {
+            this.DataTemplates.Add(new PresenterViewLocator());
+        }
+
 
         //        public override void Initialize()
         //        {
@@ -69,17 +77,6 @@ namespace HeBianGu.AvaloniaUI.Application
                 resourceInclude.Source = new Uri(x);
                 this.Resources.MergedDictionaries.Add(resourceInclude);
                 System.Diagnostics.Debug.WriteLine($"LoadResources:{x}");
-            });
-        }
-
-        protected virtual void LoadDataTemplates(List<Assembly> assemblies)
-        {
-            this.LoadAxamls<ApplicationDataTemplateLoaderAttribute>(assemblies, x =>
-            {
-                var s = AvaloniaXamlLoader.Load(new Uri(x));
-                if (s is DataTemplate dataTemplate)
-                    this.DataTemplates.Add(dataTemplate);
-                System.Diagnostics.Debug.WriteLine($"LoadDataTemplates:{x}");
             });
         }
 
@@ -132,6 +129,8 @@ namespace HeBianGu.AvaloniaUI.Application
 
         }
 
+
+
         protected virtual List<Assembly> GetAxamlLoaderAssemblies()
         {
             List<Assembly> GetReferanceAssemblies(Func<Assembly, bool> mactch)
@@ -157,7 +156,7 @@ namespace HeBianGu.AvaloniaUI.Application
                 }
 
                 var list = new List<Assembly>();
-                var all = AppDomain.CurrentDomain.GetAssemblies().Where(x => x.GetCustomAttribute<ApplicationDataTemplateLoaderAttribute>() != null || x.GetCustomAttribute<ApplicationStylesLoaderAttribute>() != null || x.GetCustomAttribute<ApplicationResourceLoaderAttribute>() != null || x == Assembly.GetEntryAssembly());
+                var all = AppDomain.CurrentDomain.GetAssemblies().Where(x => x.GetCustomAttribute<ApplicationStylesLoaderAttribute>() != null || x.GetCustomAttribute<ApplicationResourceLoaderAttribute>() != null || x == Assembly.GetEntryAssembly());
                 foreach (var item in all)
                 {
                     if (!list.Contains(item))
@@ -167,10 +166,9 @@ namespace HeBianGu.AvaloniaUI.Application
                 return list;
             }
 
-            var all = GetReferanceAssemblies(x => x.GetCustomAttribute<ApplicationDataTemplateLoaderAttribute>() != null || x.GetCustomAttribute<ApplicationStylesLoaderAttribute>() != null || x.GetCustomAttribute<ApplicationResourceLoaderAttribute>() != null || x == Assembly.GetEntryAssembly());
+            var all = GetReferanceAssemblies(x => x.GetCustomAttribute<ApplicationStylesLoaderAttribute>() != null || x.GetCustomAttribute<ApplicationResourceLoaderAttribute>() != null || x == Assembly.GetEntryAssembly());
 
             return all.Where(x =>
-            x.GetCustomAttribute<ApplicationDataTemplateLoaderAttribute>() != null ||
             x.GetCustomAttribute<ApplicationStylesLoaderAttribute>() != null ||
             x.GetCustomAttribute<ApplicationResourceLoaderAttribute>() != null).ToList();
         }
@@ -231,7 +229,7 @@ namespace HeBianGu.AvaloniaUI.Application
                 System.Diagnostics.Debug.WriteLine($"GetReferanceAssemblies:{item}");
             }
 #endif
-            this.LoadDataTemplates(assemblies);
+            //this.LoadDataTemplates(assemblies);
             this.LoadResources(assemblies);
             this.LoadStyles(assemblies);
         }

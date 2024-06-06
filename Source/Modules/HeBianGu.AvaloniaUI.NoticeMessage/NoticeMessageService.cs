@@ -46,7 +46,7 @@ namespace HeBianGu.AvaloniaUI.NoticeMessage
             this.CheckValid();
             this._noticeBox.Collection.Add(new ErrorMessagePresenter() { Message = message });
         }
-        public void Show(INoticeItem message)
+        public void Show(INoticeItemPresenter message)
         {
             this.CheckValid();
             this._noticeBox.Collection.Add(message);
@@ -68,7 +68,7 @@ namespace HeBianGu.AvaloniaUI.NoticeMessage
             return r;
         }
 
-        public async Task<T> ShowProgress<T>(Func<IPercentNoticeItem, T> action)
+        public async Task<T> ShowProgress<T>(Func<IPercentNoticeItemPresenter, T> action)
         {
             this.CheckValid();
             ProgressMessagePresenter progress = new ProgressMessagePresenter();
@@ -78,7 +78,7 @@ namespace HeBianGu.AvaloniaUI.NoticeMessage
             return r;
         }
 
-        public async Task<T> ShowString<T>(Func<INoticeItem, T> action)
+        public async Task<T> ShowString<T>(Func<INoticeItemPresenter, T> action)
         {
             this.CheckValid();
             StringMessagePresenter progress = new StringMessagePresenter();
