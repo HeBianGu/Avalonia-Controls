@@ -1,4 +1,5 @@
 ﻿
+using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Controls.Presenters;
@@ -17,7 +18,6 @@ namespace HeBianGu.AvaloniaUI.DialogMessage
     public abstract class AdornerDialogPresenterBase : DesignPresenterBase, IDialog, ICancelable, IAdornerDialogPresenter
     {
         public object Presenter { get; set; }
-
 
         private string _title = "提示";
         /// <summary> 说明  </summary>

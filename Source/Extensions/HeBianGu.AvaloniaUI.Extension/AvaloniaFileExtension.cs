@@ -8,7 +8,6 @@ namespace HeBianGu.AvaloniaUI.Extension
 {
     public static class AvaloniaFileExtension
     {
-
         public static async Task<string> SaveFilePickerAsync(this Avalonia.Visual visual)
         {
             // 从当前控件获取 TopLevel。或者，您也可以使用 Window 引用。
