@@ -2,9 +2,6 @@
               xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
               xmlns:h="https://github.com/HeBianGu"
               xmlns:local="clr-namespace:HeBianGu.AvaloniaUI.Step"
-                 xmlns:i="clr-namespace:Avalonia.Xaml.Interactivity;assembly=Avalonia.Xaml.Interactivity"
-             xmlns:ia="clr-namespace:Avalonia.Xaml.Interactions.Core;assembly=Avalonia.Xaml.Interactions"
-             xmlns:ic="using:Avalonia.Xaml.Interactions.Custom"
               DataType="local:StepItemVerticalPresenter">
   <Grid>
     <StackPanel x:Name="unkown"  IsVisible="False"
@@ -210,38 +207,5 @@
 
       </StackPanel>
     </StackPanel>
-    <i:Interaction.Behaviors>
-      <ia:DataTriggerBehavior Binding="{Binding RelativeSource={RelativeSource AncestorType={x:Type ContentPresenter}},Converter={h:GetIndexFromContainerValueConverter}}" Value="0">
-        <ia:ChangePropertyAction PropertyName="IsVisible" Value="False" TargetObject="{Binding ElementName=line1}"/>
-        <ia:ChangePropertyAction PropertyName="IsVisible" Value="False" TargetObject="{Binding ElementName=line2}"/>
-        <ia:ChangePropertyAction PropertyName="IsVisible" Value="False" TargetObject="{Binding ElementName=line3}"/>
-        <ia:ChangePropertyAction PropertyName="IsVisible" Value="False" TargetObject="{Binding ElementName=line4}"/>
-      </ia:DataTriggerBehavior>
-
-      <ia:DataTriggerBehavior Binding="{Binding State}" Value="Success">
-        <ia:ChangePropertyAction PropertyName="IsVisible" Value="True" TargetObject="{Binding ElementName=success}"/>
-        <ia:ChangePropertyAction PropertyName="IsVisible" Value="False" TargetObject="{Binding ElementName=error}"/>
-        <ia:ChangePropertyAction PropertyName="IsVisible" Value="False" TargetObject="{Binding ElementName=unkown}"/>
-        <ia:ChangePropertyAction PropertyName="IsVisible" Value="False" TargetObject="{Binding ElementName=running}"/>
-      </ia:DataTriggerBehavior>
-      <ia:DataTriggerBehavior Binding="{Binding State}" Value="Error">
-        <ia:ChangePropertyAction PropertyName="IsVisible" Value="False" TargetObject="{Binding ElementName=success}"/>
-        <ia:ChangePropertyAction PropertyName="IsVisible" Value="True" TargetObject="{Binding ElementName=error}"/>
-        <ia:ChangePropertyAction PropertyName="IsVisible" Value="False" TargetObject="{Binding ElementName=unkown}"/>
-        <ia:ChangePropertyAction PropertyName="IsVisible" Value="False" TargetObject="{Binding ElementName=running}"/>
-      </ia:DataTriggerBehavior>
-      <ia:DataTriggerBehavior Binding="{Binding State}" Value="Ready">
-        <ia:ChangePropertyAction PropertyName="IsVisible" Value="False" TargetObject="{Binding ElementName=success}"/>
-        <ia:ChangePropertyAction PropertyName="IsVisible" Value="False" TargetObject="{Binding ElementName=error}"/>
-        <ia:ChangePropertyAction PropertyName="IsVisible" Value="True" TargetObject="{Binding ElementName=unkown}"/>
-        <ia:ChangePropertyAction PropertyName="IsVisible" Value="False" TargetObject="{Binding ElementName=running}"/>
-      </ia:DataTriggerBehavior>
-      <ia:DataTriggerBehavior Binding="{Binding State}" Value="Running">
-        <ia:ChangePropertyAction PropertyName="IsVisible" Value="False" TargetObject="{Binding ElementName=success}"/>
-        <ia:ChangePropertyAction PropertyName="IsVisible" Value="False" TargetObject="{Binding ElementName=error}"/>
-        <ia:ChangePropertyAction PropertyName="IsVisible" Value="False" TargetObject="{Binding ElementName=unkown}"/>
-        <ia:ChangePropertyAction PropertyName="IsVisible" Value="True" TargetObject="{Binding ElementName=running}"/>
-      </ia:DataTriggerBehavior>
-    </i:Interaction.Behaviors>
   </Grid>
 </DataTemplate>
