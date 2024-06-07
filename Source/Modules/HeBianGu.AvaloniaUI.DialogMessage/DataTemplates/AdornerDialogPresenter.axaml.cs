@@ -6,6 +6,7 @@ using Avalonia.Controls.Presenters;
 using Avalonia.Controls.Primitives;
 using Avalonia.Interactivity;
 using Avalonia.Layout;
+using HeBianGu.AvaloniaUI.Animations;
 using HeBianGu.AvaloniaUI.Ioc;
 using HeBianGu.AvaloniaUI.Mvvm;
 using System;
@@ -81,6 +82,7 @@ namespace HeBianGu.AvaloniaUI.DialogMessage
         public bool IsCancel => DialogResult == false;
         //public DialogButton DialogButton { get; set; } = DialogButton.Sumit;
         public WindowBase? Owner { get; set; }
+        public IVisualTransitionable VisualTransitionable { get; set; } = new OpacityTransitionable();
         #endregion
     }
 

@@ -1,6 +1,7 @@
 ﻿using Avalonia.Controls;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Layout;
+using HeBianGu.AvaloniaUI.Animations;
 using HeBianGu.AvaloniaUI.Application;
 using HeBianGu.AvaloniaUI.Ioc;
 using HeBianGu.AvaloniaUI.Modules.About;
@@ -27,6 +28,7 @@ namespace HeBianGu.AvaloniaUI.Modules.About
                     //x.HorizontalContentAlignment = HorizontalAlignment.Stretch;
                 }
 
+                x.VisualTransitionable = new ScaleTransitionable();
 
                 x.DialogButton = DialogButton.None;
                 if (x is Window window)

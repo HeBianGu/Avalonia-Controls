@@ -1,5 +1,6 @@
 ﻿// Copyright © 2024 By HeBianGu(QQ:908293466) https://github.com/HeBianGu/WPF-Control
 
+using Avalonia.Controls;
 using Avalonia.Controls.Presenters;
 using Avalonia.Controls.Primitives;
 using Avalonia.Layout;
@@ -37,7 +38,7 @@ namespace HeBianGu.AvaloniaUI.SnackMessage
             InfoMessagePresenter presenter = new InfoMessagePresenter() { Message = message };
             Dispatcher.UIThread.Invoke(() =>
              {
-                 this._snackBox.Collection.Add(presenter);
+                 this.Add(presenter);
              });
 
             await Task.Run(() =>
@@ -46,28 +47,38 @@ namespace HeBianGu.AvaloniaUI.SnackMessage
             });
             Dispatcher.UIThread.Invoke(() =>
             {
-                this._snackBox.Collection.Remove(presenter);
+                this.Remove(presenter);
             });
+        }
+
+        private void Add(ISnackItemPresenter presenter)
+        {
+            this._snackBox.Collection.Add(presenter);
+        }
+
+        private void Remove(ISnackItemPresenter presenter)
+        {
+            this._snackBox.Collection.Remove(presenter);
         }
 
         public void ShowError(string message)
         {
             if (this.CheckValid() == false)
                 return;
-            this._snackBox.Collection.Add(new ErrorMessagePresenter() { Message = message });
+            this.Add(new ErrorMessagePresenter() { Message = message });
         }
         public void Show(ISnackItemPresenter message)
         {
             if (this.CheckValid() == false)
                 return;
-            this._snackBox.Collection.Add(message);
+            this.Add(message);
         }
 
         public void ShowFatal(string message)
         {
             if (this.CheckValid() == false)
                 return;
-            this._snackBox.Collection.Add(new FatalMessagePresenter() { Message = message });
+            this.Add(new FatalMessagePresenter() { Message = message });
         }
 
         public async Task<bool?> ShowDialog(string message)
@@ -75,9 +86,9 @@ namespace HeBianGu.AvaloniaUI.SnackMessage
             if (this.CheckValid() == false)
                 return false;
             DialogMessagePresenter dialog = new DialogMessagePresenter() { Message = message };
-            this._snackBox.Collection.Add(dialog);
+            this.Add(dialog);
             bool? r = await dialog.ShowDialog();
-            this._snackBox.Collection.Remove(dialog);
+            this.Remove(dialog);
             return r;
         }
 
@@ -86,9 +97,9 @@ namespace HeBianGu.AvaloniaUI.SnackMessage
             if (this.CheckValid() == false)
                 return default(T);
             ProgressMessagePresenter progress = new ProgressMessagePresenter();
-            this._snackBox.Collection.Add(progress);
+            this.Add(progress);
             T r = await Task.Run(() => action.Invoke(progress));
-            this._snackBox.Collection.Remove(progress);
+            this.Remove(progress);
             return r;
         }
 
@@ -97,9 +108,9 @@ namespace HeBianGu.AvaloniaUI.SnackMessage
             if (this.CheckValid() == false)
                 return default(T);
             StringMessagePresenter progress = new StringMessagePresenter();
-            this._snackBox.Collection.Add(progress);
+            this.Add(progress);
             T r = await Task.Run(() => action.Invoke(progress));
-            this._snackBox.Collection.Remove(progress);
+            this.Remove(progress);
             return r;
         }
 
@@ -108,19 +119,19 @@ namespace HeBianGu.AvaloniaUI.SnackMessage
             if (this.CheckValid() == false)
                 return;
             SuccessMessagePresenter presenter = new SuccessMessagePresenter() { Message = message };
-            this._snackBox.Collection.Add(presenter);
+            this.Add(presenter);
             await Task.Run(() =>
              {
                  Thread.Sleep(3000);
              });
-            this._snackBox.Collection.Remove(presenter);
+            this.Remove(presenter);
         }
 
         public void ShowWarn(string message)
         {
             if (this.CheckValid() == false)
                 return;
-            this._snackBox.Collection.Add(new WarnMessagePresenter() { Message = message });
+            this.Add(new WarnMessagePresenter() { Message = message });
 
         }
     }

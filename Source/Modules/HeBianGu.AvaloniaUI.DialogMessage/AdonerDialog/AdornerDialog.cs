@@ -16,6 +16,8 @@ namespace HeBianGu.AvaloniaUI.DialogMessage
         public static async Task<bool?> ShowPresenter<Dialog>(object presenter, Action<IDialog> action = null, Func<bool> canSumit = null) where Dialog : IAdornerDialogPresenter, new()
         {
             IAdornerDialogPresenter dialog = new Dialog();
+            if (presenter is IVisualTransitionableHost host)
+                dialog.VisualTransitionable = dialog.VisualTransitionable ?? host.VisualTransitionable;
             if (Avalonia.Application.Current.ApplicationLifetime is IClassicDesktopStyleApplicationLifetime)
             {
                 dialog.MinWidth = 400;
@@ -40,6 +42,8 @@ namespace HeBianGu.AvaloniaUI.DialogMessage
         public static async Task<T> ShowAction<P, T>(P presenter, Func<IDialog, P, T> func = null, Action<IDialog> action = null)
         {
             AdornerDialogPresenter dialog = new AdornerDialogPresenter(presenter);
+            if (presenter is IVisualTransitionableHost host)
+                dialog.VisualTransitionable = dialog.VisualTransitionable ?? host.VisualTransitionable;
             if (Avalonia.Application.Current.ApplicationLifetime is IClassicDesktopStyleApplicationLifetime)
             {
                 dialog.MinWidth = 400;

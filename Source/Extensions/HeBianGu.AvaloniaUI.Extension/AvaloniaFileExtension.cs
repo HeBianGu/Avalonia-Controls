@@ -1,7 +1,14 @@
 ﻿// Copyright © 2024 By HeBianGu(QQ:908293466) https://github.com/HeBianGu/WPF-Control
 
+using Avalonia;
+using Avalonia.Animation;
 using Avalonia.Controls;
+using Avalonia.Media;
 using Avalonia.Platform.Storage;
+using Avalonia.Styling;
+using Avalonia.VisualTree;
+using System;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace HeBianGu.AvaloniaUI.Extension

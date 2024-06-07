@@ -6,7 +6,9 @@ using Avalonia.Layout;
 using Avalonia.Media;
 using Avalonia.Threading;
 using HeBianGu.AvaloniaUI.Application;
+using HeBianGu.AvaloniaUI.Extension;
 using HeBianGu.AvaloniaUI.Ioc;
+using HeBianGu.AvaloniaUI.Mvvm;
 using System;
 using System.Linq;
 
@@ -14,16 +16,20 @@ namespace HeBianGu.AvaloniaUI.DialogMessage
 {
     public class AdornerGrid : Grid, IDisposable
     {
+        public AdornerGrid()
+        {
+            this.Background = new SolidColorBrush(Colors.Black, 0.5);
+        }
         private void AdornerGrid_BackRequested(object sender, Avalonia.Interactivity.RoutedEventArgs e)
         {
-           var last= this.Children.LastOrDefault();
+            var last = this.Children.LastOrDefault();
             if (last == null)
                 return;
-            if(last is ContentPresenter content&&content.Content is IDialog dialog)
+            if (last is ContentPresenter content && content.Content is IDialog dialog)
                 dialog.Close();
         }
 
-        public static void AddPresenter(object presenter)
+        public static async void AddPresenter(object presenter)
         {
             var visual = Avalonia.Application.Current.GetMainAdornerControl();
             if (visual == null)
@@ -33,6 +39,8 @@ namespace HeBianGu.AvaloniaUI.DialogMessage
             {
                 ContentPresenter contentPresenter = grid.ToContentPresenter(presenter);
                 grid.Children.Add(contentPresenter);
+                if (presenter is IVisualTransitionableHost host)
+                    await host.Show(contentPresenter);
             }
             else
             {
@@ -40,6 +48,8 @@ namespace HeBianGu.AvaloniaUI.DialogMessage
                 ContentPresenter contentPresenter = adornerGrid.ToContentPresenter(presenter);
                 adornerGrid.Children.Add(contentPresenter);
                 AdornerLayer.SetAdorner(visual, adornerGrid);
+                if (presenter is IVisualTransitionableHost host)
+                    await host.Show(contentPresenter);
                 TopLevel.GetTopLevel(adornerGrid).BackRequested += adornerGrid.AdornerGrid_BackRequested;
             }
         }
@@ -55,7 +65,7 @@ namespace HeBianGu.AvaloniaUI.DialogMessage
 
         public static void RemovePresenter(object presenter)
         {
-            Dispatcher.UIThread.Invoke(() =>
+            Dispatcher.UIThread.Invoke(async () =>
             {
                 var visual = Avalonia.Application.Current.GetMainAdornerControl();
                 if (visual == null)
@@ -63,8 +73,13 @@ namespace HeBianGu.AvaloniaUI.DialogMessage
                 var control = AdornerLayer.GetAdorner(visual);
                 if (control is AdornerGrid grid)
                 {
-                    var finds = grid.Children.OfType<ContentPresenter>().Where(x => x.Content == presenter).ToList();
-                    grid.Children.RemoveAll(finds);
+                    var contentPresenter = grid.Children.OfType<ContentPresenter>().Where(x => x.Content == presenter).FirstOrDefault();
+                    if (contentPresenter != null)
+                    {
+                        if (presenter is IVisualTransitionableHost host)
+                            await host.Close(contentPresenter);
+                        grid.Children.Remove(contentPresenter);
+                    }
                     if (grid.Children.Count == 0)
                     {
                         grid.Dispose();

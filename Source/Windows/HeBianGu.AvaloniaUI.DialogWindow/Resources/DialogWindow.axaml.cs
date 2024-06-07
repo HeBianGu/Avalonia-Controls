@@ -61,7 +61,7 @@ namespace HeBianGu.AvaloniaUI.DialogWindow
         }
 
         public DialogButton DialogButton { get; set; } = DialogButton.Sumit;
-
+        public IVisualTransitionable VisualTransitionable { get; set; }
 
         public static readonly StyledProperty<ControlTemplate> BottomTemplateProperty =
             AvaloniaProperty.Register<DialogWindow, ControlTemplate>("BottomTemplate");

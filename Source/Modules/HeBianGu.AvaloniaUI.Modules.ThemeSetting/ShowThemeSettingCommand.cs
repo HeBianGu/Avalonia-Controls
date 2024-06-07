@@ -2,6 +2,7 @@
 using Avalonia.Controls;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Layout;
+using HeBianGu.AvaloniaUI.Animations;
 using HeBianGu.AvaloniaUI.Ioc;
 using HeBianGu.AvaloniaUI.Mvvm;
 
@@ -17,6 +18,7 @@ namespace HeBianGu.AvaloniaUI.Modules.ThemeSetting
                 //x.Width = 800;
                 x.Title = "主题设置";
                 x.DialogButton = DialogButton.None;
+                x.VisualTransitionable = new TranslateXTransitionable();
                 if (Avalonia.Application.Current.ApplicationLifetime is IClassicDesktopStyleApplicationLifetime)
                 {
                     x.HorizontalAlignment = HorizontalAlignment.Right;

@@ -1,4 +1,6 @@
-﻿namespace Avalonia.Test.Code.ViewModels;
+﻿using Avalonia.Animation;
+
+namespace Avalonia.Test.Code.ViewModels;
 
 public class MainViewModel : ViewModelBase
 {

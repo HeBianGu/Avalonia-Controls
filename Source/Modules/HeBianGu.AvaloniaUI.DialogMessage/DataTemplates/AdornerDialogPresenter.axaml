@@ -4,7 +4,11 @@
               xmlns:h="https://github.com/HeBianGu"
               xmlns:local="clr-namespace:HeBianGu.AvaloniaUI.DialogMessage"
               DataType="{x:Type local:AdornerDialogPresenter}">
-  <Grid Name="g_all" Background="{DynamicResource {x:Static h:BrushKeys.DialogCover}}">
+  <!--Background="{DynamicResource {x:Static h:BrushKeys.DialogCover}}"-->
+  <Grid Name="g_all">
+    <Grid.Background>
+      <SolidColorBrush Color="Black" Opacity="0.5"/>
+    </Grid.Background>
     <Interaction.Behaviors>
       <EventTriggerBehavior EventName="PointerReleased">
         <InvokeCommandAction Command="{Binding CancelCommand}" PassEventArgsToCommand="True" />

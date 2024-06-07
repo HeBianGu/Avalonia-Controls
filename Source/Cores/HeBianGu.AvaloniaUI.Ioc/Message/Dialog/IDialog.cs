@@ -4,7 +4,7 @@ using System.Windows;
 
 namespace HeBianGu.AvaloniaUI.Ioc
 {
-    public interface IDialog : ILayoutable, ICancelable
+    public interface IDialog : ILayoutable, ICancelable, IVisualTransitionableHost
     {
         Func<bool> CanSumit { get; set; }
         void Sumit();
