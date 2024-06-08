@@ -39,33 +39,29 @@
                 <GroupBox Content="{Binding}" Header="{Binding RelativeSource={RelativeSource AncestorType={x:Type TabControl}}, Path=SelectedItem.Header}" />
             </DataTemplate>
         </TabControl.ContentTemplate>
-        <!--<TabControl.ItemsPanel>
-      <ItemsPanelTemplate>
-        <StackPanel Background="{DynamicResource {x:Static BrushKeys.Dark0_1}}"/>
-      </ItemsPanelTemplate>
-    </TabControl.ItemsPanel>-->
-        <!--<TabItem>
-      <DockPanel>
-        <ListBox DockPanel.Dock="Bottom" ItemsSource="{Binding Collection}" SelectedItem="{Binding SelecteItem}">
-          <ListBox.ItemTemplate>
-            <DataTemplate>
-              <Border>
-                <TextBlock Text="{Binding Name}"/>
-              </Border>
-            </DataTemplate>
-          </ListBox.ItemTemplate>
-        </ListBox>
-        <ContentControl Content="{Binding SelecteItem}"/>
-      </DockPanel>
+        <TabItem Header="From">
+            <DockPanel>
+                <GroupBox DockPanel.Dock="Right" Header="Form的属性">
+                    <h:Form MinWidth="250"
+                            SelectObject="{Binding ElementName=f_tctm}"
+                            UseClass="False" />
+                </GroupBox>
+                <GroupBox Header="Form">
+                    <h:Form Name="f_tctm" Classes="search gridline setdefault">
+                        <h:Form.SelectObject>
+                            <h:TypeCTestModel />
+                        </h:Form.SelectObject>
+                    </h:Form>
+                </GroupBox>
+            </DockPanel>
+        </TabItem>
 
-    </TabItem>-->
-
-        <!--<TabItem Header="Catch Excption">
+        <TabItem Header="Catch Excption">
             <DockPanel>
                 <Button Command="{Binding RelativeSource={RelativeSource AncestorType={x:Type TabControl}}, Path=DataContext.ShowException}" Content="ShowException" />
                 <Button Command="{Binding RelativeSource={RelativeSource AncestorType={x:Type TabControl}}, Path=DataContext.ShowTaskException}" Content="ShowTaskException" />
             </DockPanel>
-        </TabItem>-->
+        </TabItem>
 
         <TabItem Header="DrawerBox">
             <UniformGrid>
@@ -80,11 +76,11 @@
                         <h:ScaleTransitionable />
                     </h:DrawerBox.VisualTransitionable>
                 </h:DrawerBox>
-              <h:DrawerBox>
-                <h:DrawerBox.VisualTransitionable>
-                  <h:RotateTransitionable />
-                </h:DrawerBox.VisualTransitionable>
-              </h:DrawerBox>
+                <h:DrawerBox>
+                    <h:DrawerBox.VisualTransitionable>
+                        <h:RotateTransitionable />
+                    </h:DrawerBox.VisualTransitionable>
+                </h:DrawerBox>
             </UniformGrid>
         </TabItem>
 
@@ -111,92 +107,6 @@
             </DockPanel>
         </TabItem>
 
-        <!--<TabItem Header="ChangePropertyAction">
-      <Grid RowDefinitions="*,Auto" ColumnDefinitions="50*,5,50*">
-        <Rectangle Name="ChangePropertyRectangle"
-                   Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"
-                   Margin="5"
-                   Fill="{DynamicResource PinkBrush}"
-                   Stroke="{DynamicResource GrayBrush}"
-                   StrokeThickness="5" />
-        <Button Name="PinkButton" Content="Pink" Grid.Row="1" Grid.Column="0" Margin="5,0,0,5">
-          <i:Interaction.Behaviors>
-            <ia:EventTriggerBehavior EventName="Click" SourceObject="PinkButton">
-              <ia:ChangePropertyAction TargetObject="ChangePropertyRectangle"
-                                       PropertyName="Fill"
-                                       Value="{DynamicResource S.Brush.D}" />
-            </ia:EventTriggerBehavior>
-          </i:Interaction.Behaviors>
-        </Button>
-        <Button Name="YellowButton" Content="Yellow" Grid.Row="1" Grid.Column="2" Margin="0,0,5,5">
-          <i:Interaction.Behaviors>
-            <ia:EventTriggerBehavior EventName="Click" SourceObject="YellowButton">
-              <ia:ChangePropertyAction TargetObject="ChangePropertyRectangle"
-                                       PropertyName="Fill"
-                                       Value="{DynamicResource S.Brush.D}" />
-            </ia:EventTriggerBehavior>
-          </i:Interaction.Behaviors>
-        </Button>
-      </Grid>
-    </TabItem>
-
-    <TabItem Header="DataTemplate.Trigger">
-      <DockPanel>
-        <ListBox ItemsSource="{GetStudents Count=100}">
-        -->
-        <!--<ListBox.Resources>
-            <SolidColorBrush x:Key="S.Brush.D" Color="Pink"/>
-          </ListBox.Resources>-->
-        <!--
-          <ListBox.ItemTemplate>
-            <DataTemplate DataType="{x:Type h:Student}">
-              <Grid>
-                <Grid.Resources>
-                  <SolidColorBrush x:Key="S.Brush.D" Color="Pink"/>
-                </Grid.Resources>
-                <Grid Name="g"
-                      Width="25"
-                      Height="25">
-                  <Grid.Background>
-                    <DrawingBrush>
-                      <DrawingBrush.Drawing>
-                        <GeometryDrawing Brush="{Binding ElementName=g, Path=(TextElement.Foreground)}" Geometry="{x:Static Geometrys.Close}" />
-
-        -->
-        <!--<GeometryDrawing Brush="{DynamicResource {x:Static h:BrushKeys.Foregournd}}" Geometry="{Binding Geometry}" />-->
-        <!--
-                      </DrawingBrush.Drawing>
-                    </DrawingBrush>
-                  </Grid.Background>
-                  <TextBlock Name="TT" Text="{Binding Name}"/>
-
-                  <i:Interaction.Behaviors>
-                    <ia:DataTriggerBehavior Binding="{Binding Name}" Value="Jim">
-                      <ia:ChangePropertyAction PropertyName="(TextElement.Foreground)" Value="Red" TargetObject="{Binding ElementName=g}"/>
-                    </ia:DataTriggerBehavior>
-                    <ia:DataTriggerBehavior Binding="{Binding Name}" Value="Linda">
-                      <ia:ChangePropertyAction PropertyName="(TextElement.Foreground)" Value="{DynamicResource {x:Static h:BrushKeys.Red}}" TargetObject="{Binding ElementName=g}"/>
-                    </ia:DataTriggerBehavior>
-                    <ia:DataTriggerBehavior Binding="{Binding Name}" Value="Tom">
-                      <ia:ChangePropertyAction PropertyName="(TextElement.Foreground)" Value="{DynamicResource {x:Static h:BrushKeys.Orange}}" TargetObject="{Binding ElementName=g}"/>
-                    </ia:DataTriggerBehavior>
-                    <ia:DataTriggerBehavior Binding="{Binding Name}" Value="Angle">
-                      <ia:ChangePropertyAction PropertyName="(TextElement.Foreground)" Value="{DynamicResource S.Brush.D}" TargetObject="{Binding ElementName=g}"/>
-                    </ia:DataTriggerBehavior>
-                    <ia:DataTriggerBehavior Binding="{Binding Name}" Value="Angle">
-                      <ia:ChangePropertyAction PropertyName="Foreground" Value="Orange" TargetObject="TT"/>
-                    </ia:DataTriggerBehavior>
-                    <ia:DataTriggerBehavior Binding="{Binding Name}" Value="Summi">
-                      <ia:ChangePropertyAction PropertyName="(TextElement.Foreground)" Value="{DynamicResource {x:Static h:BrushKeys.Green}}" TargetObject="{Binding ElementName=g}"/>
-                    </ia:DataTriggerBehavior>
-                  </i:Interaction.Behaviors>
-                </Grid>
-              </Grid>
-            </DataTemplate>
-          </ListBox.ItemTemplate>
-        </ListBox>
-      </DockPanel>
-    </TabItem>-->
         <TabItem Header="MultiComboBox">
             <DockPanel>
                 <DockPanel.DataContext>
@@ -657,14 +567,6 @@ as set out in XAML.</TextBlock>
                 </i:Interaction.Behaviors>
             </Button>
         </TabItem>-->
-        <TabItem Header="From">
-            <h:Form>
-                <h:Form.SelectObject>
-                    <h:TypeCTestModel />
-                </h:Form.SelectObject>
-            </h:Form>
-        </TabItem>
-
         <TabItem Header="ListBox">
             <UniformGrid>
                 <ListBox ItemsSource="{h:GetStudents}">

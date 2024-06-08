@@ -3,123 +3,181 @@
                     xmlns:h="https://github.com/HeBianGu"
                     xmlns:local="clr-namespace:HeBianGu.AvaloniaUI.Form"
                     xmlns:sys="clr-namespace:System;assembly=mscorlib">
-  <ControlTheme x:Key="S.TextBlock.Unit" TargetType="TextBlock">
-    <Setter Property="Text" Value="{Binding Unit}" />
-    <!--<Setter Property="Foreground" Value="{DynamicResource {x:Static h:BrushKeys.Red}}" />-->
-    <Setter Property="Grid.Column" Value="4" />
-    <Setter Property="VerticalAlignment" Value="Center" />
-  </ControlTheme>
+    <ControlTheme x:Key="S.TextBlock.Unit" TargetType="TextBlock">
+        <Setter Property="Text" Value="{Binding Unit}" />
+        <!--<Setter Property="Foreground" Value="{DynamicResource {x:Static h:BrushKeys.Red}}" />-->
+        <Setter Property="Grid.Column" Value="4" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+    </ControlTheme>
 
-  <ControlTheme x:Key="S.TextBlock.Header" TargetType="TextBlock">
-    <Setter Property="Text" Value="{Binding Name}" />
-    <Setter Property="TextWrapping" Value="Wrap" />
-    <Setter Property="ToolTip.Tip" Value="{Binding Name}" />
-    <!--<Setter Property="Foreground" Value="{DynamicResource {x:Static h:BrushKeys.Red}}" />-->
-    <Setter Property="Grid.Column" Value="0" />
-    <Setter Property="VerticalAlignment" Value="Center" />
-    <Setter Property="MinWidth" Value="0" />
-    <Setter Property="MaxWidth" Value="400" />
+    <ControlTheme x:Key="S.TextBlock.Header" TargetType="TextBlock">
+        <Setter Property="Text" Value="{Binding Name}" />
+        <Setter Property="TextWrapping" Value="Wrap" />
+        <Setter Property="ToolTip.Tip" Value="{Binding Name}" />
+        <!--<Setter Property="Foreground" Value="{DynamicResource {x:Static h:BrushKeys.Red}}" />-->
+        <Setter Property="Grid.Column" Value="0" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="MinWidth" Value="0" />
+        <Setter Property="MaxWidth" Value="300" />
+        <!--<Setter Property="Margin" Value="10 0" />-->
+    </ControlTheme>
 
-    <!--<Setter Property="Margin" Value="10 0" />-->
-  </ControlTheme>
+    <ControlTheme x:Key="S.TextBlock.Flag" TargetType="TextBlock">
+        <Setter Property="Text" Value="{Binding Flag}" />
+        <Setter Property="Width" Value="10" />
+        <Setter Property="Grid.Column" Value="1" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="Foreground" Value="{DynamicResource {x:Static h:BrushKeys.Red}}" />
+    </ControlTheme>
 
-  <ControlTheme x:Key="S.TextBlock.Flag" TargetType="TextBlock">
-    <Setter Property="Text" Value="{Binding Flag}" />
-    <Setter Property="Width" Value="10" />
-    <Setter Property="Grid.Column" Value="1" />
-    <Setter Property="VerticalAlignment" Value="Center" />
-    <Setter Property="Foreground" Value="{DynamicResource {x:Static h:BrushKeys.Red}}" />
-  </ControlTheme>
+    <ControlTheme x:Key="S.TextBlock.Error" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="Text" Value=" ！" />
+        <Setter Property="ToolTip.Tip" Value="{Binding Message}" />
+        <Setter Property="TextTrimming" Value="{Binding CharacterEllipsis}" />
+        <Setter Property="IsVisible" Value="{Binding Message, Converter={h:GetStringIsNullOrEmptyValueConverter TrueValue=False, FalseValue=True}}" />
+        <Setter Property="Width" Value="NaN" />
+        <Setter Property="TextAlignment" Value="Center" />
+        <Setter Property="Grid.Column" Value="4" />
+        <Setter Property="Foreground" Value="{DynamicResource {x:Static h:BrushKeys.Red}}" />
+    </ControlTheme>
 
-  <ControlTheme x:Key="S.TextBlock.Error" TargetType="TextBlock">
-    <Setter Property="FontSize" Value="14" />
-    <Setter Property="VerticalAlignment" Value="Center" />
-    <Setter Property="HorizontalAlignment" Value="Center" />
-    <Setter Property="Text" Value="！" />
-    <Setter Property="ToolTip.Tip" Value="{Binding Message}" />
-    <Setter Property="TextTrimming" Value="{Binding CharacterEllipsis}" />
-    <Setter Property="IsVisible" Value="{Binding Message, Converter={h:GetStringIsNullOrEmptyValueConverter TrueValue=False, FalseValue=True}}" />
-    <Setter Property="Width" Value="{Binding RelativeSource={RelativeSource AncestorType=local:Form}, Path=MessageWidth}" />
-    <Setter Property="TextAlignment" Value="Center" />
-    <Setter Property="Grid.Column" Value="4" />
-    <Setter Property="Foreground" Value="{DynamicResource {x:Static h:BrushKeys.Red}}" />
-  </ControlTheme>
-
-  <ControlTheme x:Key="{x:Type local:Form}" TargetType="local:Form">
-    <Setter Property="BorderBrush" Value="Transparent" />
-    <Setter Property="VerticalAlignment" Value="Top" />
-    <!--<Setter Property="HorizontalContentAlignment" Value="Stretch" />-->
-    <Setter Property="Padding" Value="0,0,10,0" />
-    <!--<Setter Property="Width" Value="Auto" />
-        <Setter Property="Height" Value="Auto" />-->
-    <Setter Property="Grid.IsSharedSizeScope" Value="True" />
-    <Setter Property="Title" Value="Title" />
-    <Setter Property="MessageWidth" Value="15" />
-    <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
-    <!--<Setter Property="VirtualizingStackPanel.IsVirtualizing" Value="True" />
-        <Setter Property="VirtualizingStackPanel.VirtualizationMode" Value="Recycling" />-->
-    <Setter Property="ItemsPanel">
-      <Setter.Value>
-        <ItemsPanelTemplate>
-          <VirtualizingStackPanel />
-        </ItemsPanelTemplate>
-      </Setter.Value>
-    </Setter>
-    <Setter Property="Template">
-      <Setter.Value>
-        <ControlTemplate TargetType="local:Form">
-          <Border Background="{TemplateBinding Background}"
-                  BorderBrush="{TemplateBinding BorderBrush}"
-                  BorderThickness="{TemplateBinding BorderThickness}">
-            <ScrollViewer Margin="0" Padding="0">
-              <!--<b:Interaction.Behaviors>
+    <ControlTheme x:Key="{x:Type local:Form}" TargetType="local:Form">
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="BorderThickness" Value="{DynamicResource {x:Static h:LayoutKeys.BorderThickness}}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource {x:Static h:LayoutKeys.CornerRadius}}" />
+        <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="Grid.IsSharedSizeScope" Value="True" />
+        <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
+        <Setter Property="ItemsPanel">
+            <Setter.Value>
+                <ItemsPanelTemplate>
+                    <VirtualizingStackPanel />
+                </ItemsPanelTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:Form">
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{TemplateBinding CornerRadius}">
+                        <DockPanel>
+                            <TemplatedControl DockPanel.Dock="Top" Template="{TemplateBinding h:Attach.TopTemplate}" />
+                            <TemplatedControl DockPanel.Dock="Bottom" Template="{TemplateBinding h:Attach.BottomTemplate}" />
+                            <ScrollViewer>
+                                <!--<b:Interaction.Behaviors>
                 <h:ScrollViewerBebavior UseMouseWheelHijack="True" />
               </b:Interaction.Behaviors>-->
-              <ItemsPresenter Margin="0" />
-            </ScrollViewer>
+                                <ItemsPresenter Margin="{TemplateBinding Padding}" />
+                            </ScrollViewer>
+                        </DockPanel>
+                    </Border>
 
-          </Border>
-        </ControlTemplate>
-      </Setter.Value>
-    </Setter>
-    <Setter Property="ItemHeaderTemplate">
-      <Setter.Value>
-        <DataTemplate>
-          <TextBlock Width="100"
-                     Margin="10,6"
-                     VerticalAlignment="Center"
-                     Text="{Binding}" />
-        </DataTemplate>
-      </Setter.Value>
-    </Setter>
-    <Setter Property="ItemContainerTheme">
-      <Setter.Value>
-        <ControlTheme TargetType="ContentPresenter">
-          <Setter Property="ContentTemplate">
-            <Setter.Value>
-              <DataTemplate>
-                <Grid ToolTip.Tip="{Binding Description}">
-                  <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto" SharedSizeGroup="FormHeader"/>
-                    <ColumnDefinition Width="Auto" />
-                    <ColumnDefinition />
-                    <ColumnDefinition Width="Auto" />
-                  </Grid.ColumnDefinitions>
-                  <!--<ContentControl Grid.Column="0"
-                                                      Content="{Binding Name}"
-                                                      ContentTemplate="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:Form}}, Path=ItemHeaderTemplate}" />-->
-                  <TextBlock Grid.Column="1" Theme="{StaticResource S.TextBlock.Flag}" />
-                  <TextBlock Grid.Column="0" Theme="{StaticResource S.TextBlock.Header}" />
-                  <ContentPresenter Grid.Column="2" Content="{Binding}" />
-                  <TextBlock Grid.Column="3" Theme="{StaticResource S.TextBlock.Error}" />
-                </Grid>
-              </DataTemplate>
+                </ControlTemplate>
             </Setter.Value>
-          </Setter>
-        </ControlTheme>
-      </Setter.Value>
-    </Setter>
-    <!--<Setter Property="GroupStyle">
+        </Setter>
+
+        <Setter Property="ItemHeaderTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Theme="{StaticResource S.TextBlock.Header}" />
+                        <TextBlock Grid.Column="1" Theme="{StaticResource S.TextBlock.Flag}" />
+                    </Grid>
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="ItemContainerTheme">
+            <Setter.Value>
+                <ControlTheme TargetType="ContentPresenter">
+                    <Setter Property="ContentTemplate">
+                        <Setter.Value>
+                            <DataTemplate>
+                                <Grid ToolTip.Tip="{Binding Description}">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" SharedSizeGroup="FormHeader" />
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
+                                    <Border Grid.Column="0"
+                                            BorderBrush="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:Form}}, Path=BorderBrush}"
+                                            BorderThickness="0,0,1,1">
+                                        <ContentPresenter Grid.Column="0"
+                                                          Content="{Binding}"
+                                                          ContentTemplate="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:Form}}, Path=ItemHeaderTemplate}" />
+                                    </Border>
+                                    <Border Grid.Column="1"
+                                            BorderBrush="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:Form}}, Path=BorderBrush}"
+                                            BorderThickness="0,0,1,1">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition />
+                                                <ColumnDefinition Width="Auto" />
+                                            </Grid.ColumnDefinitions>
+                                            <ContentPresenter Grid.Column="0" Content="{Binding}" />
+                                            <TextBlock Grid.Column="1" Theme="{StaticResource S.TextBlock.Error}" />
+                                        </Grid>
+                                    </Border>
+                                </Grid>
+                            </DataTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </ControlTheme>
+            </Setter.Value>
+        </Setter>
+
+        <Style Selector="^.setdefault">
+            <Setter Property="ItemHeaderTemplate">
+                <Setter.Value>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Theme="{StaticResource S.TextBlock.Header}" />
+                            <Button Grid.Column="1"
+                                    Width="NaN"
+                                    Height="NaN"
+                                    Padding="5,2"
+                                    Command="{Binding SetDefaultCommand}"
+                                    Content="D" />
+                            <TextBlock Grid.Column="2" Theme="{StaticResource S.TextBlock.Flag}" />
+                        </Grid>
+                    </DataTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style Selector="^.search">
+            <Setter Property="h:Attach.TopTemplate">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <DockPanel>
+                            <ToggleButton BorderBrush="{DynamicResource {x:Static h:BrushKeys.BorderBrush}}"
+                                          BorderThickness="{DynamicResource {x:Static h:LayoutKeys.BorderThickness}}"
+                                          Content="Az↓"
+                                          IsChecked="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:Form}}, Path=UseOrderByName, Mode=TwoWay}" />
+                            <TextBox Classes="clearButton"
+                                     Text="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:Form}}, Path=SearchText, Mode=TwoWay}"
+                                     Watermark="Search" />
+                        </DockPanel>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style Selector="^.gridline">
+            <Setter Property="BorderBrush" Value="{DynamicResource {x:Static h:BrushKeys.BorderBrush}}" />
+        </Style>
+        <!--<Setter Property="GroupStyle">
             <Setter.Value>
                 <GroupStyle>
                     <GroupStyle.ContainerStyle>
@@ -149,7 +207,7 @@
                     </GroupStyle.ContainerStyle>
                 </GroupStyle>
         -->
-    <!--<GroupStyle>
+        <!--<GroupStyle>
                                 <GroupStyle.HeaderTemplate>
                                     <DataTemplate>
                                         <DockPanel Background="LightBlue" Height="40">
@@ -159,9 +217,9 @@
                                     </DataTemplate>
                                 </GroupStyle.HeaderTemplate>
                             </GroupStyle>-->
-    <!--
+        <!--
             </Setter.Value>
         </Setter>-->
 
-  </ControlTheme>
+    </ControlTheme>
 </ResourceDictionary>

@@ -56,16 +56,16 @@ public partial class App : ApplicationBase
     {
         base.ConfigureServices(services);
         services.AddSingleton<IMyIoc, MyIoc>();
-        services.AddSplashScreen(x =>
-        {
-            x.Product = "启动页面";
-            x.VisualTransitionable = new ScaleTransitionable();
-        });
-        services.AddLoginWindow().AddLoginViewPresenter(x =>
-        {
-            x.Product = "登陆页面";
-            x.VisualTransitionable = new ScaleTransitionable();
-        }).AddTestLoginService();
+        //services.AddSplashScreen(x =>
+        //{
+        //    x.Product = "启动页面";
+        //    x.VisualTransitionable = new ScaleTransitionable();
+        //});
+        //services.AddLoginWindow().AddLoginViewPresenter(x =>
+        //{
+        //    x.Product = "登陆页面";
+        //    x.VisualTransitionable = new ScaleTransitionable();
+        //}).AddTestLoginService();
         services.AddAdornerDialogMessage();
         services.AddFormMessageService();
         services.AddWindowMessage();

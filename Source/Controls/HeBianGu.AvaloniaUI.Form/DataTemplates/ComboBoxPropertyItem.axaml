@@ -2,6 +2,7 @@
               xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
               xmlns:local="clr-namespace:HeBianGu.AvaloniaUI.Form"
               DataType="local:ComboBoxPropertyItem">
-  <ComboBox ItemsSource="{Binding Collection}"
-                 SelectedItem="{Binding Value}" />
+    <ComboBox IsEnabled="{Binding !ReadOnly}"
+              ItemsSource="{Binding Collection}"
+              SelectedItem="{Binding Value}" />
 </DataTemplate>

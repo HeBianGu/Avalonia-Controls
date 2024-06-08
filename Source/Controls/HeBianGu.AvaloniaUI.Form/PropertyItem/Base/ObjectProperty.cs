@@ -17,9 +17,6 @@ namespace HeBianGu.AvaloniaUI.Form
         {
             List<RequiredAttribute> required = property.GetCustomAttributes<RequiredAttribute>()?.ToList();
             Validations = property.GetCustomAttributes<ValidationAttribute>()?.ToList();
-            ////  Do ：这两个特性用在通知，本控件默认不可用于验证属性定义
-            //Validations.RemoveAll(l => l is CustomValidationAttribute);
-            //Validations.RemoveAll(l => l is CompareAttribute);
             if (required != null && required.Count > 0)
             {
                 this.Flag = "*";
@@ -29,19 +26,6 @@ namespace HeBianGu.AvaloniaUI.Form
             {
                 notify.PropertyChanged += Notify_PropertyChanged;
             }
-
-            //if (obj is DependencyObject dependencyObject)
-            //{
-            //    var descriptor = StyledPropertyDescriptor.FromName(this.PropertyInfo.Name, this.PropertyInfo.DeclaringType, this.PropertyInfo.DeclaringType);
-            //    if (descriptor != null)
-            //    {
-            //        descriptor.AddValueChanged(obj, new EventHandler((s, e) =>
-            //        {
-            //            this.LoadValue();
-            //        }));
-            //    }
-
-            //}
             this.LoadValue();
         }
 
@@ -49,6 +33,31 @@ namespace HeBianGu.AvaloniaUI.Form
         {
             if (e.PropertyName == this.PropertyInfo.Name)
                 this.LoadValue();
+        }
+
+
+        public RelayCommand SetDefaultCommand => new RelayCommand((s, e) =>
+        {
+            this.SetDefault();
+        }, (s, e) => this.CanSetDefault());
+
+        protected virtual void SetDefault()
+        {
+            var d = this.PropertyInfo.GetCustomAttribute<DefaultValueAttribute>();
+            if (d == null)
+                return;
+            if (d.Value.TryChangeType(typeof(T), out object v))
+                this.Value = (T)v;
+        }
+
+        protected virtual bool CanSetDefault()
+        {
+            var d = this.PropertyInfo.GetCustomAttribute<DefaultValueAttribute>();
+            if(d==null)
+                return false;
+            if (!d.Value.TryChangeType(typeof(T), out object v))
+                return false;
+            return !v.Equals(this.Value);
         }
 
         private T _value;

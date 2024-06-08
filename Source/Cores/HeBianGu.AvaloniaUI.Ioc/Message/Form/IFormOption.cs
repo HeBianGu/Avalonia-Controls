@@ -12,9 +12,7 @@ namespace HeBianGu.AvaloniaUI.Ioc
     {
         string ExceptPropertyNames { get; set; }
         Predicate<PropertyInfo> Filter { get; set; }
-        double MessageWidth { get; set; }
         object SelectObject { get; set; }
-        string Title { get; set; }
         bool UseArray { get; set; }
         bool UseAsync { get; set; }
         bool UseBoolen { get; set; }
