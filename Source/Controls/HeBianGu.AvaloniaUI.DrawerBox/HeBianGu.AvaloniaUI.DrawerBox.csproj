@@ -2,6 +2,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\Extensions\HeBianGu.AvaloniaUI.Animations\HeBianGu.AvaloniaUI.Animations.csproj" />
     <ProjectReference Include="..\..\Extensions\HeBianGu.AvaloniaUI.Application\HeBianGu.AvaloniaUI.Application.csproj" />
+    <ProjectReference Include="..\..\Themes\HeBianGu.AvaloniaUI.Theme\HeBianGu.AvaloniaUI.Theme.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="Resources\DrawerBox.axaml.cs">

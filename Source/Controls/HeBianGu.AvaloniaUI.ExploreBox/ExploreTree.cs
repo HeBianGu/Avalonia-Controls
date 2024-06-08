@@ -1,0 +1,83 @@
+﻿using System.Linq;
+using System;
+using System.IO;
+using System.Collections;
+using HeBianGu.AvaloniaUI.Tree;
+using HeBianGu.AvaloniaUI.ValueConverter;
+using System.Globalization;
+using Avalonia.Media;
+
+namespace HeBianGu.AvaloniaUI.ExploreBox
+{
+    public interface IExploreTree : ITreeable
+    {
+        bool IsFile(object current);
+    }
+
+
+    public class ExploreIsFileConverter : MarkupValueConverterBase
+    {
+        private IExploreTree _exploreTree = new ExploreTree();
+        public override object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            return _exploreTree.IsFile(value);
+            //if (_exploreTree.IsFile(value))
+            //    return StreamGeometry.Parse("M8 10.25C8 9.83579 8.33579 9.5 8.75 9.5H18.75C19.1642 9.5 19.5 9.83579 19.5 10.25C19.5 10.6642 19.1642 11 18.75 11H8.75C8.33579 11 8 10.6642 8 10.25Z M8 14.75C8 14.3358 8.33579 14 8.75 14H18.75C19.1642 14 19.5 14.3358 19.5 14.75C19.5 15.1642 19.1642 15.5 18.75 15.5H8.75C8.33579 15.5 8 15.1642 8 14.75Z M8.75 18.5C8.33579 18.5 8 18.8358 8 19.25C8 19.6642 8.33579 20 8.75 20H13.25C13.6642 20 14 19.6642 14 19.25C14 18.8358 13.6642 18.5 13.25 18.5H8.75Z M14 2C14.4142 2 14.75 2.33579 14.75 2.75V4H18.5V2.75C18.5 2.33579 18.8358 2 19.25 2C19.6642 2 20 2.33579 20 2.75V4H20.75C21.9926 4 23 5.00736 23 6.25V19.2459C23 19.4448 22.921 19.6356 22.7803 19.7762L17.2762 25.2803C17.1355 25.421 16.9447 25.5 16.7458 25.5H6.75C5.50736 25.5 4.5 24.4926 4.5 23.25V6.25C4.5 5.00736 5.50736 4 6.75 4H8V2.75C8 2.33579 8.33579 2 8.75 2C9.16421 2 9.5 2.33579 9.5 2.75V4H13.25V2.75C13.25 2.33579 13.5858 2 14 2ZM6 6.25V23.25C6 23.6642 6.33579 24 6.75 24H15.9958V20.7459C15.9958 19.5032 17.0032 18.4959 18.2458 18.4959H21.5V6.25C21.5 5.83579 21.1642 5.5 20.75 5.5H6.75C6.33579 5.5 6 5.83579 6 6.25ZM18.2458 19.9959C17.8316 19.9959 17.4958 20.3317 17.4958 20.7459V22.9394L20.4393 19.9959H18.2458Z");
+            //return StreamGeometry.Parse("M17.0606622,9 C17.8933043,9 18.7000032,9.27703406 19.3552116,9.78392956 L19.5300545,9.92783739 L22.116207,12.1907209 C22.306094,12.356872 22.5408581,12.4608817 22.7890575,12.4909364 L22.9393378,12.5 L40.25,12.5 C42.2542592,12.5 43.8912737,14.0723611 43.994802,16.0508414 L44,16.25 L44,35.25 C44,37.2542592 42.4276389,38.8912737 40.4491586,38.994802 L40.25,39 L7.75,39 C5.74574083,39 4.10872626,37.4276389 4.00519801,35.4491586 L4,35.25 L4,12.75 C4,10.7457408 5.57236105,9.10872626 7.55084143,9.00519801 L7.75,9 L17.0606622,9 Z M22.8474156,14.9988741 L20.7205012,17.6147223 C20.0558881,18.4327077 19.0802671,18.9305178 18.0350306,18.993257 L17.8100737,19 L6.5,18.999 L6.5,35.25 C6.5,35.8972087 6.99187466,36.4295339 7.62219476,36.4935464 L7.75,36.5 L40.25,36.5 C40.8972087,36.5 41.4295339,36.0081253 41.4935464,35.3778052 L41.5,35.25 L41.5,16.25 C41.5,15.6027913 41.0081253,15.0704661 40.3778052,15.0064536 L40.25,15 L22.8474156,14.9988741 Z M17.0606622,11.5 L7.75,11.5 C7.10279131,11.5 6.5704661,11.9918747 6.50645361,12.6221948 L6.5,12.75 L6.5,16.499 L17.8100737,16.5 C18.1394331,16.5 18.4534488,16.3701335 18.6858203,16.1419575 L18.7802162,16.0382408 L20.415,14.025 L17.883793,11.8092791 C17.693906,11.643128 17.4591419,11.5391183 17.2109425,11.5090636 L17.0606622,11.5 Z");
+        }
+    }
+
+    public class ExploreTree : ITreeable, IParentable, IExploreTree
+    {
+        public string SearchPattern { get; set; } = "*";
+        public SearchOption SearchOption { get; set; }
+
+        public bool UseDirectoryOnly { get; set; }
+        public string Root { get; set; }
+        public IEnumerable GetChildren(object parent)
+        {
+            if (parent == null)
+            {
+                if (!Directory.Exists(Root))
+                    return DriveInfo.GetDrives();
+                return new DirectoryInfo[] { new DirectoryInfo(Root) };
+            }
+
+            if (parent is DriveInfo drive)
+                return drive.RootDirectory.GetFileSystemInfos(SearchPattern, SearchOption).Where(d => !d.Attributes.HasFlag(FileAttributes.Hidden | FileAttributes.System));
+
+            if (parent is DirectoryInfo directory)
+            {
+                try
+                {
+                    var finds = directory.GetFileSystemInfos(SearchPattern, SearchOption).Where(d => !d.Attributes.HasFlag(FileAttributes.Hidden | FileAttributes.System)).OrderBy(x => x.Attributes);
+                    if (this.UseDirectoryOnly)
+                        return finds.Where(x => x.Attributes.HasFlag(FileAttributes.Directory));
+                    return finds;
+                }
+                catch (Exception ex)
+                {
+
+
+                }
+            }
+            return Enumerable.Empty<string>();
+        }
+
+        public object GetParent(object current)
+        {
+            if (current is FileInfo info)
+                return info.Directory;
+            if (current is DirectoryInfo dir)
+                return dir.Parent;
+            return null;
+            //return DriveInfo.;
+        }
+
+        public bool IsFile(object current)
+        {
+            return current is FileInfo;
+        }
+    }
+
+}

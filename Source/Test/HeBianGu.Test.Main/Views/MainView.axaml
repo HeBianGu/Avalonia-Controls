@@ -39,6 +39,37 @@
                 <GroupBox Content="{Binding}" Header="{Binding RelativeSource={RelativeSource AncestorType={x:Type TabControl}}, Path=SelectedItem.Header}" />
             </DataTemplate>
         </TabControl.ContentTemplate>
+
+        <TabItem Header="资源管理器">
+            <DockPanel>
+                <h:ExploreBox MinWidth="800" />
+            </DockPanel>
+
+            <!--<TreeView ItemsSource="{h:ExploreTreeDataProvider}">
+                <TreeView.ItemTemplate>
+                    <TreeDataTemplate ItemsSource="{Binding Nodes}">
+                        <TextBlock x:Name="a"
+                                   VerticalAlignment="Center"
+                                   Text="{Binding Model.Name}" />
+                    </TreeDataTemplate>
+                </TreeView.ItemTemplate>
+                <TreeView.ItemContainerTheme>
+                    <ControlTheme TargetType="TreeViewItem">
+                        <Setter Property="Interaction.Behaviors">
+                            <Setter.Value>
+                                <BehaviorCollection>
+                                    <h:TreeViewItemLazyLoadBehavior>
+                                        <h:TreeViewItemLazyLoadBehavior.Tree>
+                                            <h:ExploreTree />
+                                        </h:TreeViewItemLazyLoadBehavior.Tree>
+                                    </h:TreeViewItemLazyLoadBehavior>
+                                </BehaviorCollection>
+                            </Setter.Value>
+                        </Setter>
+                    </ControlTheme>
+                </TreeView.ItemContainerTheme>
+            </TreeView>-->
+        </TabItem>
         <TabItem Header="From">
             <DockPanel>
                 <GroupBox DockPanel.Dock="Right" Header="Form的属性">
@@ -210,7 +241,7 @@
                             <DataGridTemplateColumn Width="*" Header="操作账号">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
-                                        <TextBlock Text="{Binding Name}" />
+                                        <TextBlock Text="{Binding Name}" VerticalAlignment="Center" />
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
                             </DataGridTemplateColumn>

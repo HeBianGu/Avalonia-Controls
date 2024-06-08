@@ -1,0 +1,63 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:h="https://github.com/HeBianGu"
+                    xmlns:local="clr-namespace:HeBianGu.AvaloniaUI.ExploreBox">
+    <ControlTheme x:Key="{x:Type local:ExploreNavigatorBox}"
+                  BasedOn="{StaticResource {x:Type ListBox}}"
+                  TargetType="{x:Type local:ExploreNavigatorBox}">
+        <Setter Property="ItemsPanel">
+            <ItemsPanelTemplate>
+                <DockPanel HorizontalAlignment="Left" />
+            </ItemsPanelTemplate>
+        </Setter>
+        <Setter Property="Template">
+            <ControlTemplate>
+                <DockPanel>
+                    <TemplatedControl DockPanel.Dock="Left" Template="{TemplateBinding h:Attach.LeftTemplate}" />
+                    <TemplatedControl DockPanel.Dock="Right" Template="{TemplateBinding h:Attach.RightTemplate}" />
+                    <Border Margin="{TemplateBinding Padding}"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{TemplateBinding CornerRadius}">
+                        <ItemsPresenter Name="PART_ItemsPresenter" ItemsPanel="{TemplateBinding ItemsPanel}" />
+                    </Border>
+                </DockPanel>
+            </ControlTemplate>
+        </Setter>
+
+        <Setter Property="h:Attach.LeftTemplate">
+            <ControlTemplate>
+                <DockPanel>
+                    <Button Padding="2" Content="返回" />
+                    <Button Padding="2" Content="前进" />
+                    <Button Padding="2" Content="最近浏览" />
+                    <Button Padding="2" Content="上一级" />
+                </DockPanel>
+            </ControlTemplate>
+        </Setter>
+        <Setter Property="h:Attach.RightTemplate">
+            <ControlTemplate>
+                <TextBox Width="120"
+                         Classes="clearButton"
+                         Watermark="Search" />
+            </ControlTemplate>
+        </Setter>
+        <Setter Property="ItemTemplate">
+            <DataTemplate>
+                <TextBlock>
+                    <Run Text="{Binding Name}" />
+                    <Run Text=">" />
+                </TextBlock>
+            </DataTemplate>
+        </Setter>
+        <Setter Property="BorderBrush" Value="{DynamicResource {x:Static BrushKeys.BorderBrush}}" />
+        <Setter Property="BorderThickness" Value="{DynamicResource {x:Static LayoutKeys.BorderThickness}}" />
+        <Setter Property="Height" Value="{DynamicResource {x:Static LayoutKeys.ItemHeight}}" />
+        <Setter Property="ItemContainerTheme">
+            <ControlTheme BasedOn="{StaticResource {x:Type ListBoxItem}}" TargetType="ListBoxItem">
+                <Setter Property="Padding" Value="2" />
+            </ControlTheme>
+        </Setter>
+    </ControlTheme>
+</ResourceDictionary>

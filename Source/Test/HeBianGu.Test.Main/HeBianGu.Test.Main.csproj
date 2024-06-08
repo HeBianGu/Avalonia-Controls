@@ -35,12 +35,14 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Controls\HeBianGu.AvaloniaUI.DrawerBox\HeBianGu.AvaloniaUI.DrawerBox.csproj" />
+    <ProjectReference Include="..\..\Controls\HeBianGu.AvaloniaUI.ExploreBox\HeBianGu.AvaloniaUI.ExploreBox.csproj" />
     <ProjectReference Include="..\..\Controls\HeBianGu.AvaloniaUI.MultiComboBox\HeBianGu.AvaloniaUI.MultiComboBox.csproj" />
     <ProjectReference Include="..\..\Controls\HeBianGu.AvaloniaUI.Step\HeBianGu.AvaloniaUI.Step.csproj" />
     <ProjectReference Include="..\..\Controls\HeBianGu.Controls.TemplateControl\HeBianGu.Controls.TemplateControl.csproj" />
     <ProjectReference Include="..\..\Cores\HeBianGu.AvaloniaUI.Mvvm\HeBianGu.AvaloniaUI.Mvvm.csproj" />
     <ProjectReference Include="..\..\DataBases\HeBianGu.AvaloniaUI.Sqlite\HeBianGu.AvaloniaUI.Sqlite.csproj" />
     <ProjectReference Include="..\..\Datas\HeBianGu.AvaloniaUI.DemoData\HeBianGu.AvaloniaUI.DemoData.csproj" />
+    <ProjectReference Include="..\..\Extensions\HeBianGu.AvaloniaUI.Tree\HeBianGu.AvaloniaUI.Tree.csproj" />
     <ProjectReference Include="..\..\Modules\HeBianGu.AvaloniaUI.DialogMessage\HeBianGu.AvaloniaUI.DialogMessage.csproj" />
     <ProjectReference Include="..\..\Modules\HeBianGu.AvaloniaUI.FormMessage\HeBianGu.AvaloniaUI.FormMessage.csproj" />
     <ProjectReference Include="..\..\Modules\HeBianGu.AvaloniaUI.Modules.About\HeBianGu.AvaloniaUI.Modules.About.csproj" />
