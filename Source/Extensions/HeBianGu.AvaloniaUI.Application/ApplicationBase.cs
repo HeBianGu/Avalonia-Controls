@@ -39,7 +39,7 @@ namespace HeBianGu.AvaloniaUI.Application
 
         public void OnCreatePresenterLocator()
         {
-            this.DataTemplates.Add(new PresenterViewLocator());
+            this.DataTemplates.Add(new PresenterDataTemplateLocator());
         }
 
 

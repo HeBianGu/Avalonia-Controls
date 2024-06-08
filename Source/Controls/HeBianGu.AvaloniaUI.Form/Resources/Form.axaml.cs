@@ -1,10 +1,8 @@
 ﻿// Copyright © 2024 By HeBianGu(QQ:908293466) https://github.com/HeBianGu/WPF-Control
-
-
-
-
 using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Controls.Primitives;
+using Avalonia.Controls.Templates;
 using Avalonia.Data;
 using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml.Templates;
@@ -26,51 +24,22 @@ namespace HeBianGu.AvaloniaUI.Form
 {
     public partial class Form : ItemsControl, IFormOption
     {
-        //static Form()
-        //{
-        //    DefaultStyleKeyProperty.OverrideMetadata(typeof(Form), new FrameworkPropertyMetadata(typeof(Form)));
-        //}
-
         protected override Type StyleKeyOverride => typeof(Form);
 
         public Form()
         {
-            //this.BindCommand(Commander.Sure, (l, k) =>
-            // {
-            //     this.TrySumit(out string message);
-            // });
-
-            //this.BindCommand(Commander.Close, (l, k) =>
-            //{
-            //    this.OnClose();
-            //});
-
             this.RefreshMapper();
-
             this.RefreshObject();
         }
 
-        //public void TransitionSumit()
-        //{
-        //    if (this.TrySumit(out string error))
-        //    {
-        //        TransitionService.SetIsVisible(this, false);
-        //    }
-        //}
-
-        //public bool TrySumit(out string message)
-        //{
-        //    message = null;
-        //    if (!this.SelectObject.ModelState(out List<string> error))
-        //    {
-        //        message = error?.FirstOrDefault();
-        //        MessageProxy.Snacker.ShowTime(message);
-        //        return false;
-        //    }
-        //    this.Result = true;
-        //    this.OnSumit();
-        //    return true;
-        //}
+        protected override void OnPropertyChanged(AvaloniaPropertyChangedEventArgs change)
+        {
+            base.OnPropertyChanged(change);
+            if (change.Property == Form.SearchTextProperty)
+            {
+                this.RefreshObject();
+            }
+        }
 
         private void RefreshMapper()
         {
@@ -91,58 +60,18 @@ namespace HeBianGu.AvaloniaUI.Form
                         }
                     }
                 }
-
                 return this.UsePropertyView ? l.CreateView(k) : l.Create(k);
             };
         }
 
-
-        public bool Result { get; set; }
-
-        public static readonly RoutedEvent<RoutedEventArgs> SumitRoutedEvent =
-            RoutedEvent.Register<Form, RoutedEventArgs>("Sumit", RoutingStrategies.Bubble);
-
-        public event EventHandler<RoutedEventArgs> Sumit
+        public IDataTemplate ItemHeaderTemplate
         {
-            add { this.AddHandler(SumitRoutedEvent, value); }
-            remove { this.RemoveHandler(SumitRoutedEvent, value); }
-        }
-        protected void OnSumit()
-        {
-            RoutedEventArgs args = new RoutedEventArgs(SumitRoutedEvent, this);
-            this.RaiseEvent(args);
-        }
-        public static readonly RoutedEvent<RoutedEventArgs> CloseRoutedEvent =
-            RoutedEvent.Register<Form, RoutedEventArgs>("Close", RoutingStrategies.Bubble);
-        public event EventHandler<RoutedEventArgs> Close
-        {
-            add { this.AddHandler(CloseRoutedEvent, value); }
-            remove { this.RemoveHandler(CloseRoutedEvent, value); }
-        }
-        protected void OnClose()
-        {
-            RoutedEventArgs args = new RoutedEventArgs(CloseRoutedEvent, this);
-            this.RaiseEvent(args);
-        }
-
-        public DataTemplate ItemHeaderTemplate
-        {
-            get { return (DataTemplate)GetValue(ItemHeaderTemplateProperty); }
+            get { return (IDataTemplate)GetValue(ItemHeaderTemplateProperty); }
             set { SetValue(ItemHeaderTemplateProperty, value); }
         }
 
-
-        public static readonly StyledProperty<DataTemplate> ItemHeaderTemplateProperty =
-            AvaloniaProperty.Register<Form, DataTemplate>("ItemHeaderTemplate");
-
-        public string Title
-        {
-            get { return (string)GetValue(TitleProperty); }
-            set { SetValue(TitleProperty, value); }
-        }
-
-        public static readonly StyledProperty<string> TitleProperty =
-            AvaloniaProperty.Register<Form, string>("Title");
+        public static readonly StyledProperty<IDataTemplate> ItemHeaderTemplateProperty =
+            AvaloniaProperty.Register<Form, IDataTemplate>("ItemHeaderTemplate");
 
         public object SelectObject
         {
@@ -160,15 +89,6 @@ namespace HeBianGu.AvaloniaUI.Form
                     form.RefreshObject();
                 return y;
             });
-
-        public object BottomContent
-        {
-            get { return GetValue(BottomContentProperty); }
-            set { SetValue(BottomContentProperty, value); }
-        }
-
-        public static readonly StyledProperty<object> BottomContentProperty =
-            AvaloniaProperty.Register<Form, object>("BottomContent");
 
         public Predicate<PropertyInfo> Filter
         {
@@ -222,8 +142,6 @@ namespace HeBianGu.AvaloniaUI.Form
 
         public static readonly StyledProperty<string> UsePropertyNamesProperty =
             AvaloniaProperty.Register<Form, string>("UsePropertyNames");
-
-
 
         public bool UsePropertyView
         {
@@ -361,9 +279,6 @@ namespace HeBianGu.AvaloniaUI.Form
         public static readonly StyledProperty<bool> UseDateTimeProperty =
             AvaloniaProperty.Register<Form, bool>("UseDateTime", true);
 
-
-
-
         public bool UseCommandOnly
         {
             get { return (bool)GetValue(UseCommandOnlyProperty); }
@@ -418,8 +333,6 @@ namespace HeBianGu.AvaloniaUI.Form
         public static readonly StyledProperty<bool> UseInterfaceProperty =
             AvaloniaProperty.Register<Form, bool>("UseInterface");
 
-
-
         public bool UsePrimitive
         {
             get { return (bool)GetValue(UsePrimitiveProperty); }
@@ -440,32 +353,6 @@ namespace HeBianGu.AvaloniaUI.Form
         public static readonly StyledProperty<Func<PropertyInfo, object, IPropertyItemPresenter>> MapperProperty =
             AvaloniaProperty.Register<Form, Func<PropertyInfo, object, IPropertyItemPresenter>>("Mapper");
 
-        //public string FilterGroup
-        //{
-        //    get { return (string)GetValue(FilterGroupProperty); }
-        //    set { SetValue(FilterGroupProperty, value); }
-        //}
-
-        //
-        //public static readonly StyledProperty<bool> FilterGroupProperty =
-        //    AvaloniaProperty.Register<Form, bool>("FilterGroup", typeof(string), typeof(PropertyGrid), new FrameworkPropertyMetadata(default(string), (d, e) =>
-        //     {
-        //         PropertyGrid control = d as PropertyGrid;
-
-        //         if (control == null) return;
-
-        //         if (e.OldValue is string o)
-        //         {
-
-        //         }
-
-        //         if (e.NewValue is string n)
-        //         {
-
-        //         }
-
-        //     }));
-
 
         public bool UseGroup
         {
@@ -476,8 +363,6 @@ namespace HeBianGu.AvaloniaUI.Form
 
         public static readonly StyledProperty<bool> UseGroupProperty =
             AvaloniaProperty.Register<Form, bool>("UseGroup");
-
-
 
         public string UseGroupNames
         {
@@ -494,77 +379,19 @@ namespace HeBianGu.AvaloniaUI.Form
             return this.SelectObject.ModelState(out errors);
         }
 
-
-        //声明和注册路由事件
         public static readonly RoutedEvent<RoutedEventArgs> ValueChangedRoutedEvent =
             RoutedEvent.Register<RoutedEventArgs>("ValueChanged", RoutingStrategies.Bubble, typeof(Form));
-        //CLR事件包装
+
         public event EventHandler ValueChanged
         {
             add { this.AddHandler(ValueChangedRoutedEvent, value); }
             remove { this.RemoveHandler(ValueChangedRoutedEvent, value); }
         }
 
-        //激发路由事件,借用Click事件的激发方法
-
         protected void OnValueChanged(Tuple<IPropertyItemPresenter, object> tuple)
         {
             RoutedEventArgs args = new RoutedEventArgs(ValueChangedRoutedEvent, this);
             args.Source = tuple;
-            ////  Do ：触发通知方法
-            //CustomValidationAttribute attribute = tuple.Item1.PropertyInfo.GetCustomAttribute<CustomValidationAttribute>();
-
-            //if (attribute != null)
-            //{
-            //    MethodInfo method = tuple.Item1.Obj.GetType().GetMethod(attribute.Method);
-            //    method?.Invoke(tuple.Item1.Obj, null);
-            //}
-
-            //{
-            //    //  Do ：触发绑定属性值刷新
-            //    List<IPropertyItem> binds = this.ItemsSource.Cast<IPropertyItem>().Where(l => l.PropertyInfo.GetCustomAttribute<CompareAttribute>()?.OtherProperty == tuple.Item1.PropertyInfo.Name)?.ToList();
-
-            //    foreach (IPropertyItem bind in binds)
-            //    {
-            //        if (bind is ObjectPropertyItem objectProperty)
-            //        {
-            //            objectProperty.LoadValue();
-            //        }
-            //    }
-            //}
-
-            //{
-            //    Func<IPropertyItem, bool> predicate = l =>
-            //          {
-            //              BindingAttribute binding = l.PropertyInfo.GetCustomAttribute<BindingAttribute>();
-
-            //              if (binding == null) return false;
-
-            //              string firstPath = binding.GetPaths()?.FirstOrDefault();
-
-            //              return firstPath == tuple.Item1.PropertyInfo.Name;
-            //          };
-
-            //    IEnumerable<IPropertyItem> binds = this.ItemsSource.Cast<IPropertyItem>().Where(predicate);
-
-            //    foreach (IPropertyItem bind in binds)
-            //    {
-            //        BindingAttribute binding = bind.PropertyInfo.GetCustomAttribute<BindingAttribute>();
-
-            //        string[] paths = binding.GetPaths();
-
-            //        if (bind is ObjectPropertyItem objectProperty)
-            //        {
-            //            object v = binding.GetValue(tuple.Item2);
-
-            //            bind.PropertyInfo.SetValue(bind.Obj, v);
-
-            //            objectProperty.LoadValue();
-            //        }
-
-            //    }
-            //}
-
             if (this.CheckAccess())
             {
                 this.RaiseEvent(args);
@@ -574,19 +401,6 @@ namespace HeBianGu.AvaloniaUI.Form
                 this.Invoke(() => this.RaiseEvent(args));
             }
         }
-
-        //[TypeConverter(typeof(LengthConverter))]
-        public double MessageWidth
-        {
-            get { return (double)GetValue(MessageWidthProperty); }
-            set { SetValue(MessageWidthProperty, value); }
-        }
-
-
-        public static readonly StyledProperty<double> MessageWidthProperty =
-            AvaloniaProperty.Register<Form, double>("MessageWidth");
-
-
     }
 
     public partial class Form
@@ -604,6 +418,15 @@ namespace HeBianGu.AvaloniaUI.Form
                 this.RefreshObjectinternal();
             }), DispatcherPriority.Input);
         }
+
+        public string SearchText
+        {
+            get { return (string)GetValue(SearchTextProperty); }
+            set { SetValue(SearchTextProperty, value); }
+        }
+
+        public static readonly StyledProperty<string> SearchTextProperty =
+            AvaloniaProperty.Register<Form, string>("SearchText");
 
         public bool UseAsync
         {
@@ -775,6 +598,9 @@ namespace HeBianGu.AvaloniaUI.Form
                 //System.Diagnostics.Debug.WriteLine($"PropertyGrid {o.GetType()} - {item.Name} - {item.PropertyType} - {item.GetValue(o)}");
 
                 IPropertyItemPresenter from = this.Mapper?.Invoke(item, o);
+
+                if (!string.IsNullOrEmpty(this.SearchText) && !from.Name.Contains(this.SearchText))
+                    continue;
                 if (from is ObjectPropertyItem obj)
                 {
                     obj.ValueChanged = l =>

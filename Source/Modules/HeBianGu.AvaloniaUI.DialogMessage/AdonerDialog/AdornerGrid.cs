@@ -16,10 +16,10 @@ namespace HeBianGu.AvaloniaUI.DialogMessage
 {
     public class AdornerGrid : Grid, IDisposable
     {
-        public AdornerGrid()
-        {
-            this.Background = new SolidColorBrush(Colors.Black, 0.5);
-        }
+        //public AdornerGrid()
+        //{
+        //    this.Background = new SolidColorBrush(Colors.Black, 0.5);
+        //}
         private void AdornerGrid_BackRequested(object sender, Avalonia.Interactivity.RoutedEventArgs e)
         {
             var last = this.Children.LastOrDefault();

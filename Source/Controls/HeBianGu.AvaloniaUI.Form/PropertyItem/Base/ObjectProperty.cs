@@ -17,9 +17,6 @@ namespace HeBianGu.AvaloniaUI.Form
         {
             List<RequiredAttribute> required = property.GetCustomAttributes<RequiredAttribute>()?.ToList();
             Validations = property.GetCustomAttributes<ValidationAttribute>()?.ToList();
-            ////  Do ：这两个特性用在通知，本控件默认不可用于验证属性定义
-            //Validations.RemoveAll(l => l is CustomValidationAttribute);
-            //Validations.RemoveAll(l => l is CompareAttribute);
             if (required != null && required.Count > 0)
             {
                 this.Flag = "*";
@@ -29,19 +26,6 @@ namespace HeBianGu.AvaloniaUI.Form
             {
                 notify.PropertyChanged += Notify_PropertyChanged;
             }
-
-            //if (obj is DependencyObject dependencyObject)
-            //{
-            //    var descriptor = StyledPropertyDescriptor.FromName(this.PropertyInfo.Name, this.PropertyInfo.DeclaringType, this.PropertyInfo.DeclaringType);
-            //    if (descriptor != null)
-            //    {
-            //        descriptor.AddValueChanged(obj, new EventHandler((s, e) =>
-            //        {
-            //            this.LoadValue();
-            //        }));
-            //    }
-
-            //}
             this.LoadValue();
         }
 
