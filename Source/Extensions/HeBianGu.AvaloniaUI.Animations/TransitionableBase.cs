@@ -9,8 +9,8 @@ namespace HeBianGu.AvaloniaUI.Animations
 {
     public abstract class TransitionableBase : IVisualTransitionable
     {
-        public TimeSpan ShowDuration { get; set; } = TimeSpan.FromMilliseconds(500);
-        public TimeSpan CloseDuration { get; set; } = TimeSpan.FromMilliseconds(500);
+        public TimeSpan ShowDuration { get; set; } = TimeSpan.FromMilliseconds(200);
+        public TimeSpan CloseDuration { get; set; } = TimeSpan.FromMilliseconds(100);
         public double From { get; set; } = 0d;
         public double To { get; set; } = 1d;
 

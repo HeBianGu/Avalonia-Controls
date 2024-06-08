@@ -161,7 +161,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avalonia.App.WeChat.Android
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avalonia.App.WeChat.Desktop", "..\Source\Apps\Avalonia.App.WeChat.Desktop\Avalonia.App.WeChat.Desktop.csproj", "{202D2EC7-4415-4D19-8AE0-7BE8C92F31A7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeBianGu.AvaloniaUI.Animations", "..\Source\Extensions\HeBianGu.AvaloniaUI.Animations\HeBianGu.AvaloniaUI.Animations.csproj", "{17CB94DD-B612-49CF-ACBD-9168F9B4AF27}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HeBianGu.AvaloniaUI.Animations", "..\Source\Extensions\HeBianGu.AvaloniaUI.Animations\HeBianGu.AvaloniaUI.Animations.csproj", "{17CB94DD-B612-49CF-ACBD-9168F9B4AF27}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeBianGu.AvaloniaUI.DrawerBox", "..\Source\Controls\HeBianGu.AvaloniaUI.DrawerBox\HeBianGu.AvaloniaUI.DrawerBox.csproj", "{39D731E1-5E60-42AD-9FA5-6478231C4EFE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -431,6 +433,10 @@ Global
 		{17CB94DD-B612-49CF-ACBD-9168F9B4AF27}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{17CB94DD-B612-49CF-ACBD-9168F9B4AF27}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{17CB94DD-B612-49CF-ACBD-9168F9B4AF27}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39D731E1-5E60-42AD-9FA5-6478231C4EFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39D731E1-5E60-42AD-9FA5-6478231C4EFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39D731E1-5E60-42AD-9FA5-6478231C4EFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39D731E1-5E60-42AD-9FA5-6478231C4EFE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -501,6 +507,7 @@ Global
 		{68F81809-380E-4181-B7F0-F486C2853D53} = {26F9C8C3-04A2-416E-8CF1-83F89E6896BE}
 		{202D2EC7-4415-4D19-8AE0-7BE8C92F31A7} = {26F9C8C3-04A2-416E-8CF1-83F89E6896BE}
 		{17CB94DD-B612-49CF-ACBD-9168F9B4AF27} = {197618A0-BDD0-40C0-BBC3-678E58EAFF70}
+		{39D731E1-5E60-42AD-9FA5-6478231C4EFE} = {3B623333-0D74-4C71-BD6E-57FB1AB51512}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EC68E9A1-91AC-4B6A-B817-573F85D4F550}

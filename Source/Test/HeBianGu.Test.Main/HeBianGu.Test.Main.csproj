@@ -34,6 +34,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Controls\HeBianGu.AvaloniaUI.DrawerBox\HeBianGu.AvaloniaUI.DrawerBox.csproj" />
     <ProjectReference Include="..\..\Controls\HeBianGu.AvaloniaUI.MultiComboBox\HeBianGu.AvaloniaUI.MultiComboBox.csproj" />
     <ProjectReference Include="..\..\Controls\HeBianGu.AvaloniaUI.Step\HeBianGu.AvaloniaUI.Step.csproj" />
     <ProjectReference Include="..\..\Controls\HeBianGu.Controls.TemplateControl\HeBianGu.Controls.TemplateControl.csproj" />

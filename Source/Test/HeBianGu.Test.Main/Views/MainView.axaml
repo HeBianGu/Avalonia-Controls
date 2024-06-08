@@ -67,6 +67,26 @@
             </DockPanel>
         </TabItem>-->
 
+        <TabItem Header="DrawerBox">
+            <UniformGrid>
+                <h:DrawerBox />
+                <h:DrawerBox>
+                    <h:DrawerBox.VisualTransitionable>
+                        <h:TranslateXTransitionable />
+                    </h:DrawerBox.VisualTransitionable>
+                </h:DrawerBox>
+                <h:DrawerBox>
+                    <h:DrawerBox.VisualTransitionable>
+                        <h:ScaleTransitionable />
+                    </h:DrawerBox.VisualTransitionable>
+                </h:DrawerBox>
+              <h:DrawerBox>
+                <h:DrawerBox.VisualTransitionable>
+                  <h:RotateTransitionable />
+                </h:DrawerBox.VisualTransitionable>
+              </h:DrawerBox>
+            </UniformGrid>
+        </TabItem>
 
         <TabItem Header="Step">
             <DockPanel>

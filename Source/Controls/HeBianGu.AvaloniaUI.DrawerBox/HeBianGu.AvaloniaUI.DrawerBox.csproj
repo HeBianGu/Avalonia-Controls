@@ -1,0 +1,11 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <ProjectReference Include="..\..\Extensions\HeBianGu.AvaloniaUI.Animations\HeBianGu.AvaloniaUI.Animations.csproj" />
+    <ProjectReference Include="..\..\Extensions\HeBianGu.AvaloniaUI.Application\HeBianGu.AvaloniaUI.Application.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Resources\DrawerBox.axaml.cs">
+      <DependentUpon>DrawerBox.axaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,50 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:h="https://github.com/HeBianGu"
+                    xmlns:local="clr-namespace:HeBianGu.AvaloniaUI.DrawerBox">
+  <!--  Add Resources Here  -->
+  <ControlTheme x:Key="{x:Type local:DrawerBox}" TargetType="{x:Type local:DrawerBox}">
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Border Name="border"
+                Background="{TemplateBinding Background}"
+                BorderBrush="{TemplateBinding BorderBrush}"
+                BorderThickness="{TemplateBinding BorderThickness}"
+                CornerRadius="{TemplateBinding CornerRadius}">
+          <Grid>
+            <TemplatedControl Name="PART_DrawerTemplate" Template="{TemplateBinding DrawerTemplate}" />
+            <TemplatedControl Name="PART_ToggleTemplate" Template="{TemplateBinding ToggleTemplate}" />
+          </Grid>
+        </Border>
+      </ControlTemplate>
+    </Setter>
+    <Setter Property="ToggleTemplate">
+      <Setter.Value>
+        <ControlTemplate>
+          <Button HorizontalAlignment="Right"
+                  VerticalAlignment="Top"
+                  Command="{local:ShowDrawerCommand}"
+                  CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:DrawerBox}}}"
+                  Content="显示" />
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+
+    <Setter Property="DrawerTemplate">
+      <Setter.Value>
+        <ControlTemplate>
+          <Grid>
+            <Grid.Background>
+              <SolidColorBrush Opacity="0.5" Color="Black" />
+            </Grid.Background>
+            <Button HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Command="{local:CloseDrawerCommand}"
+                    CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:DrawerBox}}}"
+                    Content="隐藏" />
+          </Grid>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+  </ControlTheme>
+</ResourceDictionary>

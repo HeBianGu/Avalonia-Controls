@@ -41,6 +41,7 @@ public partial class App : ApplicationBase
         //loader.UseDataTest();
         loader.UseMultiComboBox();
         loader.UseStep();
+        loader.UseDrawerBox();
     }
 
     protected override void OnCatchException()
