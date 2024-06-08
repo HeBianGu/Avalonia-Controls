@@ -104,6 +104,8 @@ namespace HeBianGu.AvaloniaUI.DialogMessage
 
         public void Dispose()
         {
+            if (TopLevel.GetTopLevel(this) == null)
+                return;
             TopLevel.GetTopLevel(this).BackRequested -= this.AdornerGrid_BackRequested;
         }
     }

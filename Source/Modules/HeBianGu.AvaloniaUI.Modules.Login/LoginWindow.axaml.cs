@@ -20,6 +20,7 @@ namespace HeBianGu.AvaloniaUI.Modules.Login
             //this.Height=double.NaN;
             _presenter = System.Ioc.GetService<ILoginViewPresenter>();
             this.Content = _presenter;
+            this.VisualTransitionable = LoginOptions.Instance.VisualTransitionable;
         }
 
         public void OnLogined()
@@ -50,8 +51,6 @@ namespace HeBianGu.AvaloniaUI.Modules.Login
                                .MainWindow;
             window.Close();
         }
-
-
 
         public Window GetWindow()
         {

@@ -25,6 +25,8 @@ namespace HeBianGu.AvaloniaUI.Command
                     if (r != true)
                         return;
                 }
+                if (window is IVisualTransitionableHost host)
+                    await host.Close(window);
                 window.Close();
             }
         }

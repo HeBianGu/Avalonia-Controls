@@ -14,7 +14,7 @@ namespace HeBianGu.AvaloniaUI.Animations
         public TranslateXTransitionable()
         {
             this.From = 200;
-            this.To = 0;
+            this.To = 200;
         }
         public override async Task Show(Visual visual)
         {
@@ -42,7 +42,7 @@ namespace HeBianGu.AvaloniaUI.Animations
                             new Setter
                             {
                                 Property = TranslateTransform.XProperty,
-                                Value = this.To
+                                Value = 0d
                             }
                         },
                         Cue = new Cue(1d)
@@ -66,7 +66,7 @@ namespace HeBianGu.AvaloniaUI.Animations
                             new Setter
                             {
                                 Property = TranslateTransform.XProperty,
-                                Value = this.To
+                                Value = 0d
                             }
                         },
                         Cue = new Cue(0d)
@@ -78,7 +78,7 @@ namespace HeBianGu.AvaloniaUI.Animations
                             new Setter
                             {
                                 Property = TranslateTransform.XProperty,
-                                Value = this.From
+                                Value = this.To
                             }
                         },
                         Cue = new Cue(1d)

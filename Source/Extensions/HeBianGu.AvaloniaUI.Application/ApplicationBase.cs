@@ -306,11 +306,13 @@ namespace HeBianGu.AvaloniaUI.Application
                     {
                         Window loginWindow = login.GetWindow();
                         desktop.MainWindow = loginWindow;
-                        login.Logined += (l, k) =>
+                        login.Logined += async (l, k) =>
                         {
                             desktop.MainWindow = mainWindow;
                             mainWindow.Show();
-                            loginWindow.Close();
+                            if (loginWindow is IDialog dialog)
+                                await dialog.Close();
+
                         };
                         if (splash != null)
                             loginWindow.Show();
@@ -324,7 +326,8 @@ namespace HeBianGu.AvaloniaUI.Application
                     splash.Successed += (l, k) =>
                     {
                         ShowLogin();
-                        w.Close();
+                        if(w is IDialog dialog)
+                            dialog.Close();
                     };
                 }
                 else

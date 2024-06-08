@@ -59,23 +59,24 @@ namespace HeBianGu.AvaloniaUI.DialogMessage
         }
         #region - IDialogWindow -
         public bool? DialogResult { get; set; }
-        public void Sumit()
+        public async Task Sumit()
         {
             DialogResult = true;
-            Close();
+            await Close();
         }
 
-        public void Cancel()
+        public async Task Cancel()
         {
             DialogResult = false;
-            Close();
+            await Close();
         }
 
 
-        public void Close()
+        public Task Close()
         {
             AdornerGrid.RemovePresenter(this);
             _waitHandle.Set();
+            return Task.CompletedTask;
         }
 
         public Func<bool> CanSumit { get; set; }

@@ -19,7 +19,7 @@ namespace HeBianGu.AvaloniaUI.Ioc
             //        return parent.DataContext as IDialog;
 
             //}
-            return null;
+            return parameter as IDialog;
         }
     }
 }

@@ -1,26 +1,32 @@
-﻿using Avalonia.Controls;
+﻿using Avalonia;
+using Avalonia.Controls;
 using Avalonia.Controls.Primitives;
 using Avalonia.Input;
 using Avalonia.Markup.Xaml.Templates;
 using Avalonia.Media;
+using Avalonia.Media.Imaging;
 using Avalonia.Platform;
+using HeBianGu.AvaloniaUI.Ioc;
 using System;
 using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
 using System.Reflection;
 using System.Threading.Tasks;
 using System.Windows;
 
 namespace HeBianGu.AvaloniaUI.MainWindow
 {
-    public abstract partial class MainWindowBase : Window
+
+    public abstract partial class MainWindowBase : Window,IVisualTransitionableHost
     {
         protected override Type StyleKeyOverride => typeof(MainWindowBase);
 
-        public MainWindowBase()
+        public IVisualTransitionable VisualTransitionable
         {
-
+            get { return (IVisualTransitionable)GetValue(VisualTransitionableProperty); }
+            set { SetValue(VisualTransitionableProperty, value); }
         }
+        public static readonly StyledProperty<IVisualTransitionable> VisualTransitionableProperty = AvaloniaProperty.Register<MainWindowBase, IVisualTransitionable>("VisualTransitionable");
+
         protected override void OnApplyTemplate(TemplateAppliedEventArgs e)
         {
             base.OnApplyTemplate(e);
@@ -42,6 +48,21 @@ namespace HeBianGu.AvaloniaUI.MainWindow
         {
             if (e.Pointer.Type == PointerType.Mouse)
                 BeginMoveDrag(e);
+        }
+        public override async void Show()
+        {
+            if (this.VisualTransitionable != null)
+            {
+                //this.IsVisible = false;
+                //this.Opacity = 0;
+                base.Show();
+                if (this is IVisualTransitionableHost host)
+                    await host.Show(this);
+            }
+            else
+            {
+                base.Show();
+            }
         }
     }
 }

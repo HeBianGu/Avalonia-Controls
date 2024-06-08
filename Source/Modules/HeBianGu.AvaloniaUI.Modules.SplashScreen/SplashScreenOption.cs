@@ -4,6 +4,8 @@ using HeBianGu.AvaloniaUI.Ioc;
 using HeBianGu.AvaloniaUI.Setting;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
+using System.Xml.Serialization;
 
 namespace HeBianGu.AvaloniaUI.Modules.SplashScreen
 {
@@ -66,6 +68,9 @@ namespace HeBianGu.AvaloniaUI.Modules.SplashScreen
                 RaisePropertyChanged();
             }
         }
-
+        [XmlIgnore]
+        [JsonIgnore]
+        [Browsable(false)]
+        public IVisualTransitionable VisualTransitionable { get; set; }
     }
 }

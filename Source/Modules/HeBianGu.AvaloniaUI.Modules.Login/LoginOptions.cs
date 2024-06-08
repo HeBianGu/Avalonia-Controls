@@ -151,5 +151,9 @@ namespace HeBianGu.AvaloniaUI.Modules.Login
             }
         }
 
+        [XmlIgnore]
+        [JsonIgnore]
+        [Browsable(false)]
+        public IVisualTransitionable VisualTransitionable { get; set; }
     }
 }

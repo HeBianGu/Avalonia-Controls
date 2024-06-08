@@ -11,6 +11,11 @@ namespace HeBianGu.AvaloniaUI.Animations
 {
     public class ScaleTransitionable : TransitionableBase
     {
+        public ScaleTransitionable()
+        {
+            this.From = 0.5;
+            this.To = 0.8;
+        }
         public override async Task Show(Visual visual)
         {
             var animation = new Animation
@@ -32,6 +37,12 @@ namespace HeBianGu.AvaloniaUI.Animations
                                 Property = ScaleTransform.ScaleXProperty,
                                 Value =this.From
                             }
+                            ,
+                            new Setter
+                            {
+                                Property = Visual.OpacityProperty,
+                                Value =1d
+                            }
                         },
                         Cue = new Cue(0d)
                     },
@@ -42,12 +53,12 @@ namespace HeBianGu.AvaloniaUI.Animations
                             new Setter
                             {
                                 Property = ScaleTransform.ScaleYProperty,
-                                Value = this.To
+                                Value = 1.0d
                             },
                                   new Setter
                             {
                                 Property = ScaleTransform.ScaleXProperty,
-                                Value = this.To
+                                Value =  1.0d
                             }
                         },
                         Cue = new Cue(1d)
@@ -55,8 +66,6 @@ namespace HeBianGu.AvaloniaUI.Animations
                 },
                 Duration = this.ShowDuration
             };
-
-
             await animation.RunAsync(visual);
         }
         public override async Task Close(Visual visual)
@@ -73,12 +82,12 @@ namespace HeBianGu.AvaloniaUI.Animations
                             new Setter
                             {
                                 Property = ScaleTransform.ScaleYProperty,
-                                Value = this.To
+                                Value =  1.0d
                             } ,
                             new Setter
                             {
                                 Property = ScaleTransform.ScaleXProperty,
-                                Value = this.To
+                                Value =  1.0d
                             }
                         },
                         Cue = new Cue(0d)
@@ -90,12 +99,12 @@ namespace HeBianGu.AvaloniaUI.Animations
                             new Setter
                             {
                                 Property = ScaleTransform.ScaleYProperty,
-                                Value = this.From
+                                Value = this.To
                             },
                                   new Setter
                             {
                                 Property = ScaleTransform.ScaleXProperty,
-                                Value =this.From
+                                Value =this.To
                             }
                         },
                         Cue = new Cue(1d)

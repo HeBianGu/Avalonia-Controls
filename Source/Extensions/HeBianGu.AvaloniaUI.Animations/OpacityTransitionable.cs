@@ -12,7 +12,7 @@ namespace HeBianGu.AvaloniaUI.Animations
         public OpacityTransitionable()
         {
             this.From = 0;
-            this.To = 1;
+            this.To = 0;
         }
         public override async Task Show(Visual visual)
         {
@@ -40,7 +40,7 @@ namespace HeBianGu.AvaloniaUI.Animations
                             new Setter
                             {
                                 Property = Visual.OpacityProperty,
-                                Value = this.To
+                                Value = 1.0d
                             }
                         },
                         Cue = new Cue(1d)
@@ -64,7 +64,7 @@ namespace HeBianGu.AvaloniaUI.Animations
                             new Setter
                             {
                                 Property = Visual.OpacityProperty,
-                                Value = this.To
+                                Value = 1.0d
                             }
                         },
                         Cue = new Cue(0d)
@@ -76,7 +76,7 @@ namespace HeBianGu.AvaloniaUI.Animations
                             new Setter
                             {
                                 Property = Visual.OpacityProperty,
-                                Value = this.From
+                                Value = this.To
                             }
                         },
                         Cue = new Cue(1d)

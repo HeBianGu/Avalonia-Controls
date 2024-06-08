@@ -44,7 +44,7 @@
                             <DockPanel>
                                 <DockPanel DockPanel.Dock="Top" LastChildFill="False">
                                     <TextBlock Margin="10,6" Text="{TemplateBinding Title}" />
-                                    <Button Command="{h:CloseWindowCommand UseDialog=False}"
+                                    <Button Command="{h:CloseDialogCommand}"
                                             CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"
                                             Content="{x:Static h:Geometrys.Close}"
                                             DockPanel.Dock="Right"

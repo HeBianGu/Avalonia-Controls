@@ -21,6 +21,7 @@ namespace HeBianGu.AvaloniaUI.Modules.SplashScreen
             _presenter = System.Ioc.GetService<ISplashScreenViewPresenter>();
             this.Content = _presenter;
             this.Loaded += this.SplashScreenWindow_Loaded;
+            this.VisualTransitionable = SplashScreenOption.Instance.VisualTransitionable;
         }
 
         private async void SplashScreenWindow_Loaded(object? sender, RoutedEventArgs e)
@@ -37,11 +38,11 @@ namespace HeBianGu.AvaloniaUI.Modules.SplashScreen
             {
                 _presenter.Message = "初始化数据异常，请看日志";
                 Thread.Sleep(5000);
-                this.Close();
+                await this.Close();
             }
             else
             {
-                this.Close();
+                await this.Close();
             }
         }
 

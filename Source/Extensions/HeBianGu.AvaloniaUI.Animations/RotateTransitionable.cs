@@ -12,7 +12,7 @@ namespace HeBianGu.AvaloniaUI.Animations
     {
         public RotateTransitionable()
         {
-            this.From = 0;
+            this.From = 360;
             this.To = 360;
         }
         public override async Task Show(Visual visual)
@@ -41,7 +41,7 @@ namespace HeBianGu.AvaloniaUI.Animations
                             new Setter
                             {
                                 Property = RotateTransform.AngleProperty,
-                                Value = this.To
+                                Value =0d
                             }
                         },
                         Cue = new Cue(1d)
@@ -65,7 +65,7 @@ namespace HeBianGu.AvaloniaUI.Animations
                             new Setter
                             {
                                 Property = RotateTransform.AngleProperty,
-                                Value = this.To
+                                Value = 0d
                             }
                         },
                         Cue = new Cue(0d)
@@ -77,7 +77,7 @@ namespace HeBianGu.AvaloniaUI.Animations
                             new Setter
                             {
                                 Property = RotateTransform.AngleProperty,
-                                Value = this.From
+                                Value = this.To
                             }
                         },
                         Cue = new Cue(1d)

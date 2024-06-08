@@ -27,7 +27,9 @@
                 <SolidColorBrush Opacity="0" Color="White" />
             </Setter.Value>
         </Setter>-->
-        <Setter Property="Template">
+      <Setter Property="VisualTransitionable" Value="{Binding Source={x:Static h:MainWindowSetting.Instance}, Path=VisualTransitionable}" />
+
+      <Setter Property="Template">
             <ControlTemplate>
                 <Border Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"

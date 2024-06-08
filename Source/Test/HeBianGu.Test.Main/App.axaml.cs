@@ -20,6 +20,7 @@ using HeBianGu.AvaloniaUI.Theme;
 using Avalonia.Controls.Templates;
 using HeBianGu.AvaloniaUI.Step;
 using ReactiveUI;
+using HeBianGu.AvaloniaUI.Animations;
 
 namespace HeBianGu.Test.Main;
 
@@ -55,8 +56,16 @@ public partial class App : ApplicationBase
     {
         base.ConfigureServices(services);
         services.AddSingleton<IMyIoc, MyIoc>();
-        //services.AddSplashScreen();
-        //services.AddLoginWindow().AddLoginViewPresenter(x => x.Product = "登陆页面").AddTestLoginService();
+        services.AddSplashScreen(x =>
+        {
+            x.Product = "启动页面";
+            x.VisualTransitionable = new ScaleTransitionable();
+        });
+        services.AddLoginWindow().AddLoginViewPresenter(x =>
+        {
+            x.Product = "登陆页面";
+            x.VisualTransitionable = new ScaleTransitionable();
+        }).AddTestLoginService();
         services.AddAdornerDialogMessage();
         services.AddFormMessageService();
         services.AddWindowMessage();
@@ -86,6 +95,7 @@ public partial class App : ApplicationBase
         base.Configure(app);
         app.UseSettingDefault();
         app.UseSetting(x => x.Add(SystemThemeSetting.Instance));
+        app.UseMainWindow(x => x.VisualTransitionable = new TranslateXTransitionable() { From = -500, To = 500 });
     }
 
 

@@ -33,21 +33,23 @@ namespace HeBianGu.AvaloniaUI.DialogWindow
                 this.BeginMoveDrag(e);
             }
         }
-        protected override void OnClosing(WindowClosingEventArgs e)
+        protected override async void OnClosing(WindowClosingEventArgs e)
         {
             if (this.CanSumit?.Invoke() == false)
             {
                 e.Cancel = true;
                 return;
             }
+            if (this is IVisualTransitionableHost host)
+                await host.Close(this);
             base.OnClosing(e);
         }
         public bool? DialogResult { get; set; }
 
-        public void Sumit()
+        public async Task Sumit()
         {
             this.DialogResult = true;
-            this.Close();
+            await this.Close();
         }
 
         public Func<bool> CanSumit { get; set; }
@@ -61,7 +63,7 @@ namespace HeBianGu.AvaloniaUI.DialogWindow
         }
 
         public DialogButton DialogButton { get; set; } = DialogButton.Sumit;
-        public IVisualTransitionable VisualTransitionable { get; set; }
+        public virtual IVisualTransitionable VisualTransitionable { get; set; }
 
         public static readonly StyledProperty<ControlTemplate> BottomTemplateProperty =
             AvaloniaProperty.Register<DialogWindow, ControlTemplate>("BottomTemplate");
@@ -74,6 +76,45 @@ namespace HeBianGu.AvaloniaUI.DialogWindow
         //        InvalidateMeasure();
         //    }
         //}
+        public new async void ShowDialog()
+        {
+            if (this.VisualTransitionable != null)
+            {
+                this.IsVisible = false;
+                this.Opacity = 0;
+                base.Show();
+                if (this is IVisualTransitionableHost host)
+                    await host.Show(this);
+            }
+            else
+            {
+                base.Show();
+            }
+        }
+
+        public override async void Show()
+        {
+            if (this.VisualTransitionable != null)
+            {
+                this.IsVisible = false;
+                this.Opacity = 0;
+                base.Show();
+                if (this is IVisualTransitionableHost host)
+                    await host.Show(this);
+            }
+            else
+            {
+                base.Show();
+            }
+        }
+
+        public new async Task Close()
+        {
+            if (this is IVisualTransitionableHost host)
+                await host.Close(this);
+            if (this is Window window)
+                window.Close();
+        }
     }
 
     public partial class DialogWindow : Window

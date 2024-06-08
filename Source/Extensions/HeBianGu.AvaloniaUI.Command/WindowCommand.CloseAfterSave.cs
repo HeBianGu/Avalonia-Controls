@@ -40,9 +40,11 @@ namespace HeBianGu.AvaloniaUI.Command
                     }, x => x.DialogButton = DialogButton.Cancel);
                     if (r != true)
                         return;
+
+
                 }
             }
-
+            base.Execute(parameter);
             //if (parameter is Window window)
             //{
             //    bool isMain = Application.Current.MainWindow == window && WindowSetting.Instance.UseNoticeOnMainWindowClose;

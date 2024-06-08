@@ -19,7 +19,7 @@ namespace System
 
         public static IServiceCollection AddLoginViewPresenter(this IServiceCollection services, Action<LoginOptions> setupAction = null)
         {
-            return services.AddLoginViewPresenter<LoginViewPresenter>();
+            return services.AddLoginViewPresenter<LoginViewPresenter>(setupAction);
         }
 
         public static IServiceCollection AddLoginViewPresenter<T>(this IServiceCollection services, Action<LoginOptions> setupAction = null) where T : class, ILoginViewPresenter

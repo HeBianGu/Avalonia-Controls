@@ -8,8 +8,7 @@ namespace HeBianGu.AvaloniaUI.Ioc
     public interface IAdornerDialogPresenter : IDialog, IPresenter
     {
         object Presenter { get; set; }
-
-        void Cancel();
+        Task Cancel();
         Task<bool?> ShowDialog(Window owner = null);
     }
 
