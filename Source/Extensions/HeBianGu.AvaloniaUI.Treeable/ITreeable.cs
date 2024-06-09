@@ -2,7 +2,7 @@
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
-namespace HeBianGu.AvaloniaUI.Tree
+namespace HeBianGu.AvaloniaUI.Treeable
 {
     public interface ITreeable
     {

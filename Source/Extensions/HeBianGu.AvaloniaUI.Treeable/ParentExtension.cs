@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace HeBianGu.AvaloniaUI.Tree
+namespace HeBianGu.AvaloniaUI.Treeable
 {
     public static class ParentExtension
     {

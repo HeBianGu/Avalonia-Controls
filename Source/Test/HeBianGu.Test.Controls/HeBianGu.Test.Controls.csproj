@@ -31,6 +31,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Controls\HeBianGu.AvaloniaUI.Form\HeBianGu.AvaloniaUI.Form.csproj" />
+    <ProjectReference Include="..\..\Datas\HeBianGu.AvaloniaUI.DemoData\HeBianGu.AvaloniaUI.DemoData.csproj" />
     <ProjectReference Include="..\..\Extensions\HeBianGu.AvaloniaUI.Application\HeBianGu.AvaloniaUI.Application.csproj" />
   </ItemGroup>
 </Project>

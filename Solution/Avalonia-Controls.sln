@@ -163,11 +163,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avalonia.App.WeChat.Desktop
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HeBianGu.AvaloniaUI.Animations", "..\Source\Extensions\HeBianGu.AvaloniaUI.Animations\HeBianGu.AvaloniaUI.Animations.csproj", "{17CB94DD-B612-49CF-ACBD-9168F9B4AF27}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeBianGu.AvaloniaUI.DrawerBox", "..\Source\Controls\HeBianGu.AvaloniaUI.DrawerBox\HeBianGu.AvaloniaUI.DrawerBox.csproj", "{39D731E1-5E60-42AD-9FA5-6478231C4EFE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HeBianGu.AvaloniaUI.DrawerBox", "..\Source\Controls\HeBianGu.AvaloniaUI.DrawerBox\HeBianGu.AvaloniaUI.DrawerBox.csproj", "{39D731E1-5E60-42AD-9FA5-6478231C4EFE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeBianGu.AvaloniaUI.Tree", "..\Source\Extensions\HeBianGu.AvaloniaUI.Tree\HeBianGu.AvaloniaUI.Tree.csproj", "{6F49B929-E7E7-4431-9B49-4096D249A714}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HeBianGu.AvaloniaUI.ExploreBox", "..\Source\Controls\HeBianGu.AvaloniaUI.ExploreBox\HeBianGu.AvaloniaUI.ExploreBox.csproj", "{ACB62C98-65C3-4BDB-AD68-EEBEF678A84E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeBianGu.AvaloniaUI.ExploreBox", "..\Source\Controls\HeBianGu.AvaloniaUI.ExploreBox\HeBianGu.AvaloniaUI.ExploreBox.csproj", "{ACB62C98-65C3-4BDB-AD68-EEBEF678A84E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeBianGu.AvaloniaUI.Treeable", "..\Source\Extensions\HeBianGu.AvaloniaUI.Treeable\HeBianGu.AvaloniaUI.Treeable.csproj", "{CD9882ED-1DF2-4B07-868B-A11FB91C8F18}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -441,14 +441,14 @@ Global
 		{39D731E1-5E60-42AD-9FA5-6478231C4EFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{39D731E1-5E60-42AD-9FA5-6478231C4EFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{39D731E1-5E60-42AD-9FA5-6478231C4EFE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6F49B929-E7E7-4431-9B49-4096D249A714}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6F49B929-E7E7-4431-9B49-4096D249A714}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6F49B929-E7E7-4431-9B49-4096D249A714}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6F49B929-E7E7-4431-9B49-4096D249A714}.Release|Any CPU.Build.0 = Release|Any CPU
 		{ACB62C98-65C3-4BDB-AD68-EEBEF678A84E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{ACB62C98-65C3-4BDB-AD68-EEBEF678A84E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ACB62C98-65C3-4BDB-AD68-EEBEF678A84E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ACB62C98-65C3-4BDB-AD68-EEBEF678A84E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD9882ED-1DF2-4B07-868B-A11FB91C8F18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD9882ED-1DF2-4B07-868B-A11FB91C8F18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD9882ED-1DF2-4B07-868B-A11FB91C8F18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD9882ED-1DF2-4B07-868B-A11FB91C8F18}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -520,8 +520,8 @@ Global
 		{202D2EC7-4415-4D19-8AE0-7BE8C92F31A7} = {26F9C8C3-04A2-416E-8CF1-83F89E6896BE}
 		{17CB94DD-B612-49CF-ACBD-9168F9B4AF27} = {197618A0-BDD0-40C0-BBC3-678E58EAFF70}
 		{39D731E1-5E60-42AD-9FA5-6478231C4EFE} = {3B623333-0D74-4C71-BD6E-57FB1AB51512}
-		{6F49B929-E7E7-4431-9B49-4096D249A714} = {197618A0-BDD0-40C0-BBC3-678E58EAFF70}
 		{ACB62C98-65C3-4BDB-AD68-EEBEF678A84E} = {3B623333-0D74-4C71-BD6E-57FB1AB51512}
+		{CD9882ED-1DF2-4B07-868B-A11FB91C8F18} = {197618A0-BDD0-40C0-BBC3-678E58EAFF70}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EC68E9A1-91AC-4B6A-B817-573F85D4F550}

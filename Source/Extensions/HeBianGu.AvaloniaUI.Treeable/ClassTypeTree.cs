@@ -1,8 +1,8 @@
-﻿using System.Linq;
-using System;
+﻿using System;
 using System.Collections;
+using System.Linq;
 
-namespace HeBianGu.AvaloniaUI.Tree
+namespace HeBianGu.AvaloniaUI.Treeable
 {
     public class ClassTypeTree : ITreeable, IParentable
     {

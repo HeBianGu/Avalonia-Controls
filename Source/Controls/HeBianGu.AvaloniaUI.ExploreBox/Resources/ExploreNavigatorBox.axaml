@@ -29,10 +29,30 @@
         <Setter Property="h:Attach.LeftTemplate">
             <ControlTemplate>
                 <DockPanel>
-                    <Button Padding="2" Content="返回" />
-                    <Button Padding="2" Content="前进" />
-                    <Button Padding="2" Content="最近浏览" />
-                    <Button Padding="2" Content="上一级" />
+                    <Button Padding="2"
+                            Command="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:ExploreNavigatorBox}}, Path=BackCommand}"
+                            Content="返回" />
+                    <Button Padding="2"
+                            Command="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:ExploreNavigatorBox}}, Path=ForwardCommand}"
+                            Content="前进" />
+                    <Button Padding="2"
+                            Content="最近浏览"
+                            DataContext="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:ExploreNavigatorBox}}}">
+                        <Button.Flyout>
+                            <Flyout FlyoutPresenterClasses="NoPadding">
+                                <ListBox ItemsSource="{Binding Historys}" SelectedIndex="{Binding HistorySelectedIndex}">
+                                    <ListBox.DataTemplates>
+                                        <DataTemplate DataType="local:CustomPath">
+                                            <TextBlock Text="{Binding Name}" />
+                                        </DataTemplate>
+                                    </ListBox.DataTemplates>
+                                </ListBox>
+                            </Flyout>
+                        </Button.Flyout>
+                    </Button>
+                    <Button Padding="2"
+                            Command="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:ExploreNavigatorBox}}, Path=UpCommand}"
+                            Content="上一级" />
                 </DockPanel>
             </ControlTemplate>
         </Setter>
@@ -40,6 +60,7 @@
             <ControlTemplate>
                 <TextBox Width="120"
                          Classes="clearButton"
+                         Text="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:ExploreNavigatorBox}}, Path=SearchPattern, Mode=TwoWay}"
                          Watermark="Search" />
             </ControlTemplate>
         </Setter>
