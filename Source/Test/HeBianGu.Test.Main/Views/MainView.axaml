@@ -44,31 +44,6 @@
             <DockPanel>
                 <h:ExploreBox MinWidth="800" />
             </DockPanel>
-
-            <!--<TreeView ItemsSource="{h:ExploreTreeDataProvider}">
-                <TreeView.ItemTemplate>
-                    <TreeDataTemplate ItemsSource="{Binding Nodes}">
-                        <TextBlock x:Name="a"
-                                   VerticalAlignment="Center"
-                                   Text="{Binding Model.Name}" />
-                    </TreeDataTemplate>
-                </TreeView.ItemTemplate>
-                <TreeView.ItemContainerTheme>
-                    <ControlTheme TargetType="TreeViewItem">
-                        <Setter Property="Interaction.Behaviors">
-                            <Setter.Value>
-                                <BehaviorCollection>
-                                    <h:TreeViewItemLazyLoadBehavior>
-                                        <h:TreeViewItemLazyLoadBehavior.Tree>
-                                            <h:ExploreTree />
-                                        </h:TreeViewItemLazyLoadBehavior.Tree>
-                                    </h:TreeViewItemLazyLoadBehavior>
-                                </BehaviorCollection>
-                            </Setter.Value>
-                        </Setter>
-                    </ControlTheme>
-                </TreeView.ItemContainerTheme>
-            </TreeView>-->
         </TabItem>
         <TabItem Header="From">
             <DockPanel>
@@ -87,12 +62,12 @@
             </DockPanel>
         </TabItem>
 
-        <TabItem Header="Catch Excption">
+        <!--<TabItem Header="Catch Excption">
             <DockPanel>
                 <Button Command="{Binding RelativeSource={RelativeSource AncestorType={x:Type TabControl}}, Path=DataContext.ShowException}" Content="ShowException" />
                 <Button Command="{Binding RelativeSource={RelativeSource AncestorType={x:Type TabControl}}, Path=DataContext.ShowTaskException}" Content="ShowTaskException" />
             </DockPanel>
-        </TabItem>
+        </TabItem>-->
 
         <TabItem Header="DrawerBox">
             <UniformGrid>
