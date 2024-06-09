@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
-namespace HeBianGu.AvaloniaUI.Tree
+namespace HeBianGu.AvaloniaUI.Treeable
 {
     public static class TreeExtension
     {

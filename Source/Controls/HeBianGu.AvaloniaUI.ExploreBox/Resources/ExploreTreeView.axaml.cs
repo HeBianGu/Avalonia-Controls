@@ -6,7 +6,7 @@ using Avalonia.Markup.Xaml.Templates;
 using Avalonia.Media;
 using Avalonia.Threading;
 using HeBianGu.AvaloniaUI.Mvvm;
-using HeBianGu.AvaloniaUI.Tree;
+using HeBianGu.AvaloniaUI.Treeable;
 using System;
 using System.Collections;
 using System.Collections.Generic;

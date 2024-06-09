@@ -42,7 +42,6 @@
     <ProjectReference Include="..\..\Cores\HeBianGu.AvaloniaUI.Mvvm\HeBianGu.AvaloniaUI.Mvvm.csproj" />
     <ProjectReference Include="..\..\DataBases\HeBianGu.AvaloniaUI.Sqlite\HeBianGu.AvaloniaUI.Sqlite.csproj" />
     <ProjectReference Include="..\..\Datas\HeBianGu.AvaloniaUI.DemoData\HeBianGu.AvaloniaUI.DemoData.csproj" />
-    <ProjectReference Include="..\..\Extensions\HeBianGu.AvaloniaUI.Tree\HeBianGu.AvaloniaUI.Tree.csproj" />
     <ProjectReference Include="..\..\Modules\HeBianGu.AvaloniaUI.DialogMessage\HeBianGu.AvaloniaUI.DialogMessage.csproj" />
     <ProjectReference Include="..\..\Modules\HeBianGu.AvaloniaUI.FormMessage\HeBianGu.AvaloniaUI.FormMessage.csproj" />
     <ProjectReference Include="..\..\Modules\HeBianGu.AvaloniaUI.Modules.About\HeBianGu.AvaloniaUI.Modules.About.csproj" />

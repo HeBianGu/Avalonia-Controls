@@ -6,7 +6,7 @@ using Avalonia.Markup.Xaml.Templates;
 using Avalonia.Media;
 using Avalonia.Threading;
 using HeBianGu.AvaloniaUI.Mvvm;
-using HeBianGu.AvaloniaUI.Tree;
+using HeBianGu.AvaloniaUI.Treeable;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -20,14 +20,17 @@ namespace HeBianGu.AvaloniaUI.ExploreBox
     {
         protected override Type StyleKeyOverride => typeof(ExploreNavigatorBox);
 
+        private IParentable _service = new ExploreTree() { Root = "我的电脑" };
         protected override void OnPropertyChanged(AvaloniaPropertyChangedEventArgs change)
         {
             base.OnPropertyChanged(change);
             if (change.Property == ExploreNavigatorBox.CurrentProperty)
             {
                 this.RefreshData();
-                this.Historys.Add(this.Current);
-                this.Historys = this.Historys.TakeLast(10).ToList();
+                if (this.HistorySelectedIndex != 0)
+                    return;
+                this.Historys.Insert(0, this.Current);
+                this.Historys = this.Historys.Take(10).ToList();
             }
             if (change.Property == ListBox.SelectedItemProperty)
             {
@@ -36,9 +39,20 @@ namespace HeBianGu.AvaloniaUI.ExploreBox
                 else
                     this.Current = this.SelectedItem;
             }
+            if (change.Property == ExploreNavigatorBox.HistorySelectedIndexProperty)
+            {
+                if (this.Historys.Count > this.HistorySelectedIndex && HistorySelectedIndex > 0)
+                    this.Current = this.Historys[this.HistorySelectedIndex];
+            }
         }
 
-        private IParentable _service = new ExploreTree();
+        public string SearchPattern
+        {
+            get { return (string)GetValue(SearchPatternProperty); }
+            set { SetValue(SearchPatternProperty, value); }
+        }
+        public static readonly StyledProperty<string> SearchPatternProperty = AvaloniaProperty.Register<ExploreNavigatorBox, string>("SearchPattern");
+
 
         public List<object> Historys
         {
@@ -46,6 +60,13 @@ namespace HeBianGu.AvaloniaUI.ExploreBox
             set { SetValue(HistorysProperty, value); }
         }
         public static readonly StyledProperty<List<object>> HistorysProperty = AvaloniaProperty.Register<ExploreNavigatorBox, List<object>>("Historys", new List<object>());
+
+        public int HistorySelectedIndex
+        {
+            get { return (int)GetValue(HistorySelectedIndexProperty); }
+            set { SetValue(HistorySelectedIndexProperty, value); }
+        }
+        public static readonly StyledProperty<int> HistorySelectedIndexProperty = AvaloniaProperty.Register<ExploreNavigatorBox, int>("HistorySelectedIndex");
 
         public object Current
         {
@@ -62,5 +83,42 @@ namespace HeBianGu.AvaloniaUI.ExploreBox
             source.Remove(null);
             this.ItemsSource = source;
         }
+
+        public RelayCommand BackCommand => new RelayCommand((s, e) =>
+        {
+            if (this.Historys.Count > this.HistorySelectedIndex + 1)
+            {
+                this.HistorySelectedIndex++;
+                this.Current = this.Historys[this.HistorySelectedIndex];
+            }
+        });
+        //, (s, e) =>
+        //{
+        //    return this.Historys.Count > this.HistorySelectedIndex - 2;
+        //}
+
+        public RelayCommand ForwardCommand => new RelayCommand((s, e) =>
+            {
+                if (this.HistorySelectedIndex > 0)
+                {
+                    this.HistorySelectedIndex--;
+                    this.Current = this.Historys[this.HistorySelectedIndex];
+
+                }
+            });
+        //, (s, e) =>
+        //{
+        //    return this.HistorySelectedIndex > 0;
+        //}
+
+        public RelayCommand UpCommand => new RelayCommand((s, e) =>
+            {
+                this.Current = _service.GetParents(this.Current).FirstOrDefault();
+            });
+        //, (s, e) =>
+        //{
+        //    return _service.GetParents(this.Current).FirstOrDefault() != null;
+        //}
+
     }
 }

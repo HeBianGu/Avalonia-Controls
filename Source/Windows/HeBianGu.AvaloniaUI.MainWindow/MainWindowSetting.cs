@@ -8,7 +8,7 @@ using System.Xml.Serialization;
 namespace HeBianGu.AvaloniaUI.MainWindow
 {
     [Display(Name = "主窗口设置", GroupName = SettingGroupNames.GroupSystem, Description = "设置主窗口参数")]
-    public class MainWindowSetting : IocOptionInstance<MainWindowSetting>
+    public class MainWindowSetting : Settable<MainWindowSetting>
     {
         private IVisualTransitionable _visualTransitionable;
         [XmlIgnore]

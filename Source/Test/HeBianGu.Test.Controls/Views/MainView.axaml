@@ -49,7 +49,7 @@
 
         <TabItem Header="TransitioningContentControl">
             <DockPanel>
-              <TextBox Watermark=""/>
+                <TextBox Watermark="" />
                 <ComboBox Name="cbb_PageTransition" SelectedIndex="0">
                     <CrossFade />
                     <CrossFade Duration="00:00:02" />
@@ -901,11 +901,21 @@ as set out in XAML.</TextBlock>
             </Expander>
         </TabItem>
         <TabItem Header="Button.Flyout">
-            <Button Content="Button with Flyout">
-                <Button.Flyout>
-                    <Flyout>This is the button flyout.</Flyout>
-                </Button.Flyout>
-            </Button>
+            <UniformGrid>
+                <Button Content="Button with Flyout">
+                    <Button.Flyout>
+                        <Flyout>This is the button flyout.</Flyout>
+                    </Button.Flyout>
+                </Button>
+
+                <Button Content="Button with Flyout">
+                    <Button.Flyout>
+                        <Flyout ShowMode="Standard" PlacementAnchor="AllMask">
+                            <ListBox ItemsSource="{h:GetStudents}" />
+                        </Flyout>
+                    </Button.Flyout>
+                </Button>
+            </UniformGrid>
         </TabItem>
         <TabItem Header="Grid">
             <StackPanel Grid.IsSharedSizeScope="True">

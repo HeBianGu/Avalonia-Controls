@@ -3,7 +3,7 @@
     <ProjectReference Include="..\..\Extensions\HeBianGu.AvaloniaUI.Application\HeBianGu.AvaloniaUI.Application.csproj" />
     <ProjectReference Include="..\..\Extensions\HeBianGu.AvaloniaUI.Command\HeBianGu.AvaloniaUI.Command.csproj" />
     <ProjectReference Include="..\..\Extensions\HeBianGu.AvaloniaUI.Geometry\HeBianGu.AvaloniaUI.Geometry.csproj" />
-    <ProjectReference Include="..\..\Extensions\HeBianGu.AvaloniaUI.Tree\HeBianGu.AvaloniaUI.Tree.csproj" />
+    <ProjectReference Include="..\..\Extensions\HeBianGu.AvaloniaUI.Treeable\HeBianGu.AvaloniaUI.Treeable.csproj" />
     <ProjectReference Include="..\..\Extensions\HeBianGu.AvaloniaUI.ValueConverter\HeBianGu.AvaloniaUI.ValueConverter.csproj" />
     <ProjectReference Include="..\..\Styles\HeBianGu.AvaloniaUI.Styles.Extension\HeBianGu.AvaloniaUI.Styles.Extension.csproj" />
     <ProjectReference Include="..\..\Themes\HeBianGu.AvaloniaUI.Theme\HeBianGu.AvaloniaUI.Theme.csproj" />

@@ -37,7 +37,7 @@ public partial class App : ApplicationBase
         loader.UseStylesExtension();
         loader.UseMainWindowBase();
         //loader.UseAbout();
-        //loader.UseTheme();
+        //loader.UseThemeSetting();
         loader.UseForm();
         //loader.UseDataTest();
         loader.UseMultiComboBox();

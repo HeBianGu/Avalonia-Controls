@@ -1,7 +1,7 @@
-﻿using System;
-using Avalonia.Markup.Xaml;
+﻿using Avalonia.Markup.Xaml;
+using System;
 
-namespace HeBianGu.AvaloniaUI.Tree
+namespace HeBianGu.AvaloniaUI.Treeable
 {
     public class ClassTypeTreeExtension : MarkupExtension
     {

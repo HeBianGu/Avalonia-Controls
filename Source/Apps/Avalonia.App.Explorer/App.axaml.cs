@@ -1,15 +1,16 @@
 ﻿using Avalonia;
+using Avalonia.App.Explorer.ViewModels;
+using Avalonia.App.Explorer.Views;
 using Avalonia.Controls;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
-using Avalonia.Test.Mobile.ViewModels;
-using Avalonia.Test.Mobile.Views;
 using HeBianGu.AvaloniaUI.Application;
-using HeBianGu.AvaloniaUI.Theme;
 using Microsoft.Extensions.DependencyInjection;
 using System;
+using HeBianGu.AvaloniaUI.Ioc;
+using HeBianGu.AvaloniaUI.Theme;
 
-namespace Avalonia.Test.Mobile;
+namespace Avalonia.App.Explorer;
 
 public partial class App : ApplicationBase
 {
@@ -21,12 +22,12 @@ public partial class App : ApplicationBase
     protected override void LoadAxamls(IApplicationAxamlLoader loader)
     {
         base.LoadAxamls(loader);
+        loader.UseMainWindowBase();
         loader.UseStylesExtension();
-        loader.UseAbout();
-        loader.UseForm();
-        loader.UseDataTest();
-        loader.UseThemeSetting();
-        loader.UseStylesExtension();
+        //loader.UseAbout();
+        loader.UseTheme();
+        //loader.UseForm();
+        //loader.UseDataTest();
         loader.UseStyles();
     }
 
@@ -35,21 +36,20 @@ public partial class App : ApplicationBase
     {
         base.ConfigureServices(services);
         services.AddAdornerDialogMessage();
-        services.AddFormMessageService();
-        services.AddNoticeMessage();
-        services.AddSnackMessage();
-        services.AddAbout(x => x.Privacy = "");
-
+        //services.AddFormMessageService();
+        //services.AddNoticeMessage();
+        //services.AddSnackMessage();
+        //services.AddAbout();
     }
 
     protected override void Configure(IApplicationBuilder app)
     {
         base.Configure(app);
-        app.UseSettingDefault();
-        app.UseSetting(x => x.Add(SystemThemeSetting.Instance));
+        //app.UseSettingDefault();
+        //app.UseSetting(x => x.Add(SystemThemeSetting.Instance));
+        //app.UseMainWindow(x => x.VisualTransitionable = new TranslateXTransitionable() { From = -500, To = 500 });
+
     }
-
-
     protected override Control GetMainView()
     {
         return new MainView
@@ -64,9 +64,5 @@ public partial class App : ApplicationBase
         {
             DataContext = new MainViewModel()
         };
-
-
-
-        //return new DialogWindow() { Title = "sss", Content = "44444" };
     }
 }

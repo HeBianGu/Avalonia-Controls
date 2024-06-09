@@ -2,7 +2,7 @@
 using Avalonia.Threading;
 using Avalonia.Xaml.Interactivity;
 using HeBianGu.AvaloniaUI.Mvvm;
-using HeBianGu.AvaloniaUI.Tree;
+using HeBianGu.AvaloniaUI.Treeable;
 using System;
 using System.Linq;
 
@@ -19,7 +19,7 @@ namespace HeBianGu.AvaloniaUI.ExploreBox
 
         private void AssociatedObject_Loaded(object sender, Avalonia.Interactivity.RoutedEventArgs e)
         {
-            //this.RefreshData();
+            this.RefreshData();
         }
 
         protected override void OnDetaching()

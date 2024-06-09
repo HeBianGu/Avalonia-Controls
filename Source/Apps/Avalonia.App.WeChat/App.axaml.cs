@@ -24,7 +24,7 @@ public partial class App : ApplicationBase
         loader.UseMainWindowBase();
         loader.UseStylesExtension();
         loader.UseAbout();
-        loader.UseTheme();
+        loader.UseThemeSetting();
         loader.UseForm();
         loader.UseDataTest();
         loader.UseStyles();
@@ -39,7 +39,6 @@ public partial class App : ApplicationBase
         services.AddNoticeMessage();
         services.AddSnackMessage();
         services.AddAbout();
-
     }
 
     protected override void Configure(IApplicationBuilder app)
@@ -48,8 +47,6 @@ public partial class App : ApplicationBase
         app.UseSettingDefault();
         app.UseSetting(x => x.Add(SystemThemeSetting.Instance));
     }
-
-
     protected override Control GetMainView()
     {
         return new MainView
@@ -64,9 +61,5 @@ public partial class App : ApplicationBase
         {
             DataContext = new MainViewModel()
         };
-
-
-
-        //return new DialogWindow() { Title = "sss", Content = "44444" };
     }
 }

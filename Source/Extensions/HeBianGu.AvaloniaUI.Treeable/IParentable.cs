@@ -1,4 +1,4 @@
-﻿namespace HeBianGu.AvaloniaUI.Tree
+﻿namespace HeBianGu.AvaloniaUI.Treeable
 {
     public interface IParentable
     {

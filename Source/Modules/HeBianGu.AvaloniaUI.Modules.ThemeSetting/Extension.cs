@@ -11,12 +11,12 @@ namespace System
 {
     public static class Extension
     {
-        public static IApplicationAxamlLoader UseTheme(this IApplicationAxamlLoader builder)
+        public static IApplicationAxamlLoader UseThemeSetting(this IApplicationAxamlLoader builder)
         {
             return builder;
         }
 
-        public static IApplicationBuilder UseTheme(this IApplicationBuilder builder, Action<ThemeSetting> option = null)
+        public static IApplicationBuilder UseThemeSetting(this IApplicationBuilder builder, Action<ThemeSetting> option = null)
         {
             SettingDataManager.Instance.Add(ThemeSetting.Instance);
             option?.Invoke(ThemeSetting.Instance);
