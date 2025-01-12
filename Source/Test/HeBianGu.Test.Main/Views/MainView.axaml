@@ -1,19 +1,20 @@
-<UserControl x:Class="HeBianGu.Test.Main.Views.MainView"
-             xmlns="https://github.com/avaloniaui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:h="https://github.com/HeBianGu"
-             xmlns:i="clr-namespace:Avalonia.Xaml.Interactivity;assembly=Avalonia.Xaml.Interactivity"
-             xmlns:ia="clr-namespace:Avalonia.Xaml.Interactions.Core;assembly=Avalonia.Xaml.Interactions"
-             xmlns:ic="using:Avalonia.Xaml.Interactions.Custom"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:system="clr-namespace:System;assembly=mscorlib"
-             xmlns:v="clr-namespace:HeBianGu.Test.Main.Views"
-             xmlns:vm="clr-namespace:HeBianGu.Test.Main.ViewModels"
-             d:DesignHeight="450"
-             d:DesignWidth="800"
-             x:DataType="vm:MainViewModel"
-             mc:Ignorable="d">
+<UserControl
+    x:Class="HeBianGu.Test.Main.Views.MainView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:h="https://github.com/HeBianGu"
+    xmlns:i="clr-namespace:Avalonia.Xaml.Interactivity;assembly=Avalonia.Xaml.Interactivity"
+    xmlns:ia="clr-namespace:Avalonia.Xaml.Interactions.Core;assembly=Avalonia.Xaml.Interactions"
+    xmlns:ic="using:Avalonia.Xaml.Interactions.Custom"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:system="clr-namespace:System;assembly=mscorlib"
+    xmlns:v="clr-namespace:HeBianGu.Test.Main.Views"
+    xmlns:vm="clr-namespace:HeBianGu.Test.Main.ViewModels"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    x:DataType="vm:MainViewModel"
+    mc:Ignorable="d">
     <Design.DataContext>
         <!--
             This only sets the DataContext for the previewer in an IDE,
@@ -23,9 +24,10 @@
     </Design.DataContext>
     <TabControl TabStripPlacement="Left" Theme="{DynamicResource {x:Static h:TabControlKeys.ScrollViewer}}">
         <TabControl.Resources>
-            <ControlTheme x:Key="{x:Type GroupBox}"
-                          BasedOn="{StaticResource {x:Type GroupBox}}"
-                          TargetType="GroupBox">
+            <ControlTheme
+                x:Key="{x:Type GroupBox}"
+                BasedOn="{StaticResource {x:Type GroupBox}}"
+                TargetType="GroupBox">
                 <Setter Property="HorizontalAlignment" Value="Center" />
                 <Setter Property="VerticalAlignment" Value="Center" />
                 <Setter Property="MinHeight" Value="400" />
@@ -48,9 +50,10 @@
         <TabItem Header="From">
             <DockPanel>
                 <GroupBox DockPanel.Dock="Right" Header="Form的属性">
-                    <h:Form MinWidth="250"
-                            SelectObject="{Binding ElementName=f_tctm}"
-                            UseClass="False" />
+                    <h:Form
+                        MinWidth="250"
+                        SelectObject="{Binding ElementName=f_tctm}"
+                        UseClass="False" />
                 </GroupBox>
                 <GroupBox Header="Form">
                     <h:Form Name="f_tctm" Classes="search gridline setdefault">
@@ -92,18 +95,21 @@
 
         <TabItem Header="Step">
             <DockPanel>
-                <Button Command="{h:RunStepCommand}"
-                        CommandParameter="{Binding ElementName=step}"
-                        Content="Run Step"
-                        DockPanel.Dock="Top" />
-                <Button Command="{h:RunStepMessageCommand}"
-                        CommandParameter="{Binding ElementName=step}"
-                        Content="Run StepMessage  Count=10"
-                        DockPanel.Dock="Top" />
-                <Button Command="{h:RunStepMessageCommand Count=3}"
-                        CommandParameter="{Binding ElementName=step}"
-                        Content="Run StepMessage Count=3"
-                        DockPanel.Dock="Top" />
+                <Button
+                    Command="{h:RunStepCommand}"
+                    CommandParameter="{Binding ElementName=step}"
+                    Content="Run Step"
+                    DockPanel.Dock="Top" />
+                <Button
+                    Command="{h:RunStepMessageCommand}"
+                    CommandParameter="{Binding ElementName=step}"
+                    Content="Run StepMessage  Count=10"
+                    DockPanel.Dock="Top" />
+                <Button
+                    Command="{h:RunStepMessageCommand Count=3}"
+                    CommandParameter="{Binding ElementName=step}"
+                    Content="Run StepMessage Count=3"
+                    DockPanel.Dock="Top" />
                 <h:Step Name="step">
                     <h:StepItemPresenter DisplayName="1" State="Ready" />
                     <h:StepItemPresenter DisplayName="2" State="Error" />
@@ -118,9 +124,10 @@
                 <DockPanel.DataContext>
                     <vm:MainViewModel />
                 </DockPanel.DataContext>
-                <MultiComboBox BindingSelectedItems="{Binding SelectedCollection}"
-                               DockPanel.Dock="Top"
-                               ItemsSource="{Binding Collection}" />
+                <MultiComboBox
+                    BindingSelectedItems="{Binding SelectedCollection}"
+                    DockPanel.Dock="Top"
+                    ItemsSource="{Binding Collection}" />
                 <ListBox ItemsSource="{Binding SelectedCollection}" />
             </DockPanel>
         </TabItem>
@@ -190,22 +197,24 @@
         <TabItem Header="DataGrid">
             <TabControl>
                 <TabItem Header="Default">
-                    <DataGrid AutoGenerateColumns="True"
-                              ColumnWidth="*"
-                              ItemsSource="{h:GetStudents}" />
+                    <DataGrid
+                        AutoGenerateColumns="True"
+                        ColumnWidth="*"
+                        ItemsSource="{h:GetStudents}" />
                 </TabItem>
                 <TabItem Header="All">
-                    <DataGrid AutoGenerateColumns="True"
-                              CanUserReorderColumns="True"
-                              CanUserResizeColumns="True"
-                              CanUserSortColumns="True"
-                              ColumnWidth="*"
-                              GridLinesVisibility="All"
-                              HeadersVisibility="All"
-                              IsReadOnly="True"
-                              ItemsSource="{h:GetStudents}"
-                              MaxColumnWidth="200"
-                              RowDetailsVisibilityMode="VisibleWhenSelected">
+                    <DataGrid
+                        AutoGenerateColumns="True"
+                        CanUserReorderColumns="True"
+                        CanUserResizeColumns="True"
+                        CanUserSortColumns="True"
+                        ColumnWidth="*"
+                        GridLinesVisibility="All"
+                        HeadersVisibility="All"
+                        IsReadOnly="True"
+                        ItemsSource="{h:GetStudents}"
+                        MaxColumnWidth="200"
+                        RowDetailsVisibilityMode="VisibleWhenSelected">
                         <DataGrid.RowDetailsTemplate>
                             <DataTemplate>
                                 <TextBlock Margin="10,6" Text="DataGrid.RowDetailsTemplate" />
@@ -216,13 +225,14 @@
                             <DataGridTemplateColumn Width="*" Header="操作账号">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
-                                        <TextBlock Text="{Binding Name}" VerticalAlignment="Center" />
+                                        <TextBlock VerticalAlignment="Center" Text="{Binding Name}" />
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
                             </DataGridTemplateColumn>
-                            <DataGridTextColumn Width="*"
-                                                Binding="{Binding Model.sMethod}"
-                                                Header="操作" />
+                            <DataGridTextColumn
+                                Width="*"
+                                Binding="{Binding Model.sMethod}"
+                                Header="操作" />
                         </DataGrid.Columns>
                     </DataGrid>
                 </TabItem>
@@ -234,9 +244,10 @@
                 <TabControl TabStripPlacement="Top">
                     <TabItem Header="Arch">
                         <Border Height="100" Background="AntiqueWhite">
-                            <TextBlock FontSize="20"
-                                       Foreground="Black"
-                                       Text="Content" />
+                            <TextBlock
+                                FontSize="20"
+                                Foreground="Black"
+                                Text="Content" />
                         </Border>
                     </TabItem>
                     <TabItem Header="Leaf">
@@ -247,9 +258,10 @@
                 <TabControl TabStripPlacement="Right">
                     <TabItem Header="Arch">
                         <Border Height="100" Background="AntiqueWhite">
-                            <TextBlock FontSize="20"
-                                       Foreground="Black"
-                                       Text="Content" />
+                            <TextBlock
+                                FontSize="20"
+                                Foreground="Black"
+                                Text="Content" />
                         </Border>
                     </TabItem>
                     <TabItem Header="Leaf">
@@ -260,9 +272,10 @@
                 <TabControl TabStripPlacement="Bottom">
                     <TabItem Header="Arch">
                         <Border Height="100" Background="AntiqueWhite">
-                            <TextBlock FontSize="20"
-                                       Foreground="Black"
-                                       Text="Content" />
+                            <TextBlock
+                                FontSize="20"
+                                Foreground="Black"
+                                Text="Content" />
                         </Border>
                     </TabItem>
                     <TabItem Header="Leaf">
@@ -274,9 +287,10 @@
                 <TabControl TabStripPlacement="Right">
                     <TabItem Header="Arch">
                         <Border Height="100" Background="AntiqueWhite">
-                            <TextBlock FontSize="20"
-                                       Foreground="Black"
-                                       Text="Content" />
+                            <TextBlock
+                                FontSize="20"
+                                Foreground="Black"
+                                Text="Content" />
                         </Border>
                     </TabItem>
                     <TabItem Header="Leaf">
@@ -298,14 +312,16 @@
 
         <TabItem Header="TextBlock">
             <StackPanel Margin="20">
-                <TextBlock Margin="0,5"
-                           FontSize="18"
-                           FontWeight="Bold">
+                <TextBlock
+                    Margin="0,5"
+                    FontSize="18"
+                    FontWeight="Bold">
                     Heading
                 </TextBlock>
-                <TextBlock Margin="0,5"
-                           xml:space="preserve"
-                           FontStyle="Italic">This is  a single line.</TextBlock>
+                <TextBlock
+                    Margin="0,5"
+                    xml:space="preserve"
+                    FontStyle="Italic">This is  a single line.</TextBlock>
                 <TextBlock Margin="0,5" xml:space="preserve">This is a multi-line display
 that has returns in it.
 The text block respects the line breaks
@@ -366,14 +382,18 @@ as set out in XAML.</TextBlock>
         <TabItem Header="ComboBox">
             <Border Padding="20">
                 <StackPanel Spacing="10">
-                    <ComboBox PlaceholderText="Select an item">
-                        <ComboBoxItem>Item 1</ComboBoxItem>
-                        <ComboBoxItem>Item 2</ComboBoxItem>
+                    <StackPanel.DataContext>
+                        <vm:MainViewModel />
+                    </StackPanel.DataContext>
+                    <ComboBox ItemsSource="{Binding Collection}" PlaceholderText="Select an item">
+                        <!--<ComboBoxItem>Item 1</ComboBoxItem>
+                        <ComboBoxItem>Item 2</ComboBoxItem>-->
                     </ComboBox>
-                    <ComboBox Width="200"
-                              HorizontalContentAlignment="Center"
-                              IsEnabled="False"
-                              SelectedIndex="1">
+                    <ComboBox
+                        Width="200"
+                        HorizontalContentAlignment="Center"
+                        IsEnabled="False"
+                        SelectedIndex="1">
                         <ComboBoxItem>Item 1</ComboBoxItem>
                         <ComboBoxItem>Item 2</ComboBoxItem>
                     </ComboBox>
@@ -409,9 +429,10 @@ as set out in XAML.</TextBlock>
                     <TextBox TextAlignment="Center">Center</TextBox>
                     <TextBox Classes="clearButton">Clear</TextBox>
                     <TextBox Classes="revealPasswordButton" PasswordChar="*">Reveal Password</TextBox>
-                    <TextBox Classes="revealPasswordButton"
-                             PasswordChar="*"
-                             RevealPassword="True">
+                    <TextBox
+                        Classes="revealPasswordButton"
+                        PasswordChar="*"
+                        RevealPassword="True">
                         Password Revealed
                     </TextBox>
                     <TextBox Watermark="Watermark" />
@@ -432,10 +453,11 @@ as set out in XAML.</TextBlock>
 
         <TabItem Header="Expander">
             <Border Padding="20">
-                <StackPanel Width="350"
-                            Height="600"
-                            Orientation="Vertical"
-                            Spacing="20">
+                <StackPanel
+                    Width="350"
+                    Height="600"
+                    Orientation="Vertical"
+                    Spacing="20">
                     <Expander ExpandDirection="Up" Header="Expand Up">
                         <StackPanel>
                             <TextBlock>Expanded content</TextBlock>
@@ -467,9 +489,10 @@ as set out in XAML.</TextBlock>
                             <TextBlock>Expanded content</TextBlock>
                         </StackPanel>
                     </Expander>
-                    <Expander CornerRadius="25"
-                              ExpandDirection="Up"
-                              Header="Rounded">
+                    <Expander
+                        CornerRadius="25"
+                        ExpandDirection="Up"
+                        Header="Rounded">
                         <StackPanel>
                             <TextBlock>Expanded content</TextBlock>
                         </StackPanel>
@@ -481,49 +504,57 @@ as set out in XAML.</TextBlock>
         <TabItem Header="ProgressBar">
             <Border Padding="20">
                 <UniformGrid>
-                    <Slider Name="slider_pb"
-                            Maximum="100"
-                            Minimum="0"
-                            Value="5" />
+                    <Slider
+                        Name="slider_pb"
+                        Maximum="100"
+                        Minimum="0"
+                        Value="5" />
                     <StackPanel Spacing="10">
                         <ProgressBar Maximum="10" Value="{Binding ElementName=slider_pb, Path=Value}" />
                         <ProgressBar Value="{Binding ElementName=slider_pb, Path=Value}" />
-                        <ProgressBar Maximum="75"
-                                     Minimum="25"
-                                     Value="{Binding ElementName=slider_pb, Path=Value}" />
+                        <ProgressBar
+                            Maximum="75"
+                            Minimum="25"
+                            Value="{Binding ElementName=slider_pb, Path=Value}" />
                         <ProgressBar IsIndeterminate="True" />
                         <ProgressBar ShowProgressText="True" Value="{Binding ElementName=slider_pb, Path=Value}" />
-                        <ProgressBar Maximum="100"
-                                     Minimum="50"
-                                     ProgressTextFormat="\{1\} percent"
-                                     ShowProgressText="True"
-                                     Value="{Binding ElementName=slider_pb, Path=Value}" />
+                        <ProgressBar
+                            Maximum="100"
+                            Minimum="50"
+                            ProgressTextFormat="\{1\} percent"
+                            ShowProgressText="True"
+                            Value="{Binding ElementName=slider_pb, Path=Value}" />
                     </StackPanel>
                     <ProgressBar IsIndeterminate="True" Orientation="Vertical" />
-                    <ProgressBar Orientation="Vertical"
-                                 ShowProgressText="True"
-                                 Value="{Binding ElementName=slider_pb, Path=Value}" />
+                    <ProgressBar
+                        Orientation="Vertical"
+                        ShowProgressText="True"
+                        Value="{Binding ElementName=slider_pb, Path=Value}" />
                 </UniformGrid>
             </Border>
         </TabItem>
 
         <TabItem Header="Slider">
-            <Border Width="400"
-                    Height="600"
-                    Margin="20">
+            <Border
+                Width="400"
+                Height="600"
+                Margin="20">
                 <DockPanel LastChildFill="True">
                     <StackPanel DockPanel.Dock="Top" Spacing="10">
                         <Slider Value="50" />
                         <Slider IsDirectionReversed="True" Value="50" />
-                        <Slider TickFrequency="10"
-                                TickPlacement="TopLeft"
-                                Value="50" />
-                        <Slider TickFrequency="10"
-                                TickPlacement="BottomRight"
-                                Value="50" />
-                        <Slider TickFrequency="10"
-                                TickPlacement="Outside"
-                                Value="50" />
+                        <Slider
+                            TickFrequency="10"
+                            TickPlacement="TopLeft"
+                            Value="50" />
+                        <Slider
+                            TickFrequency="10"
+                            TickPlacement="BottomRight"
+                            Value="50" />
+                        <Slider
+                            TickFrequency="10"
+                            TickPlacement="Outside"
+                            Value="50" />
                         <Slider IsEnabled="False" Value="50" />
                         <Slider Value="50">
                             <DataValidationErrors.Error>
@@ -537,24 +568,29 @@ as set out in XAML.</TextBlock>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Spacing="10">
                         <Slider Orientation="Vertical" Value="50" />
-                        <Slider IsDirectionReversed="True"
-                                Orientation="Vertical"
-                                Value="50" />
-                        <Slider IsEnabled="False"
-                                Orientation="Vertical"
-                                Value="50" />
-                        <Slider Orientation="Vertical"
-                                TickFrequency="10"
-                                TickPlacement="TopLeft"
-                                Value="50" />
-                        <Slider Orientation="Vertical"
-                                TickFrequency="10"
-                                TickPlacement="BottomRight"
-                                Value="50" />
-                        <Slider Orientation="Vertical"
-                                TickFrequency="10"
-                                TickPlacement="Outside"
-                                Value="50" />
+                        <Slider
+                            IsDirectionReversed="True"
+                            Orientation="Vertical"
+                            Value="50" />
+                        <Slider
+                            IsEnabled="False"
+                            Orientation="Vertical"
+                            Value="50" />
+                        <Slider
+                            Orientation="Vertical"
+                            TickFrequency="10"
+                            TickPlacement="TopLeft"
+                            Value="50" />
+                        <Slider
+                            Orientation="Vertical"
+                            TickFrequency="10"
+                            TickPlacement="BottomRight"
+                            Value="50" />
+                        <Slider
+                            Orientation="Vertical"
+                            TickFrequency="10"
+                            TickPlacement="Outside"
+                            Value="50" />
                     </StackPanel>
                 </DockPanel>
             </Border>
